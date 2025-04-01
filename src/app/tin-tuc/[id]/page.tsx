@@ -117,6 +117,12 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
+// Cấu hình cho phép tham số động
+export const dynamicParams = true;
+
+// Đảm bảo rằng trang này luôn được render động
+export const dynamic = 'force-dynamic';
+
 export default async function BaiVietDetailPage({ params }: { params: { id: string } }) {
   const baiViet = await getBaiViet(params.id);
   
