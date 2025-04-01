@@ -7,4 +7,5 @@ export interface NguoiDung {
   ten: string;
   vai_tro: 'super_admin' | 'admin_con';
   ngay_tao: string;
+  da_kich_hoat?: boolean; // trường không bắt buộc, có thể không cần thiết trong tương lai
 } 
