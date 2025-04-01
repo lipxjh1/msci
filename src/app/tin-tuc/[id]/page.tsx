@@ -117,12 +117,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
-type PageProps = {
-  params: { id: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-export default async function BaiVietDetailPage({ params }: PageProps) {
+export default async function BaiVietDetailPage({ params }: { params: { id: string } }) {
   const baiViet = await getBaiViet(params.id);
   
   if (!baiViet) {
