@@ -117,10 +117,13 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
+interface PageParams {
+  id: string;
+}
+
 type Props = {
-  params: {
-    id: string;
-  };
+  params: PageParams;
+  searchParams?: Record<string, string | string[] | undefined>;
 }
 
 export default async function BaiVietDetailPage({ params }: Props) {
