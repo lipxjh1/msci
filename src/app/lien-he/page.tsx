@@ -39,12 +39,13 @@ export default function LienHePage() {
         {/* Content overlay */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="font-orbitron text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white relative">
-                Liên Hệ Với Chúng Tôi
-                <span className="absolute -inset-1 animate-pulse-very-slow opacity-30 blur-md bg-[#f44336]/20 -z-10 rounded-lg"></span>
-              </span>
-            </h1>
+          <h1 className="font-orbitron text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight leading-none drop-shadow-lg">
+            <span className="relative inline-block">
+              Liên Hệ với chúng tôi 
+              <span className="absolute -inset-1 opacity-50 blur-sm bg-gradient-to-r from-[#F44336]/40 to-[#ff9900]/40 -z-10 rounded-lg animate-pulse"></span>
+              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#F44336] to-transparent"></span>
+            </span>
+          </h1>
             <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
               Chúng tôi luôn sẵn sàng lắng nghe ý kiến của bạn
             </p>
