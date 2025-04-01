@@ -117,16 +117,12 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
-interface PageParams {
-  id: string;
+type PageProps = {
+  params: { id: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-type Props = {
-  params: PageParams;
-  searchParams?: Record<string, string | string[] | undefined>;
-}
-
-export default async function BaiVietDetailPage({ params }: Props) {
+export default async function BaiVietDetailPage({ params }: PageProps) {
   const baiViet = await getBaiViet(params.id);
   
   if (!baiViet) {
