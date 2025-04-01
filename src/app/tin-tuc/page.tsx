@@ -76,12 +76,13 @@ export default async function TinTucPage({
         <div className="relative z-30 h-full flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
-              <h1 className="font-orbitron text-5xl md:text-7xl font-black text-white mb-4 animate-fade-in drop-shadow-lg tracking-tight leading-none">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-200 to-red-100 relative inline-block">
-                  NEWS 
-                  <span className="absolute -inset-1 animate-pulse-very-slow opacity-50 blur-sm bg-gradient-to-r from-[#ff4655]/60 to-[#ff9900]/60 -z-10 rounded-lg"></span>
-                </span>
-              </h1>
+            <h1 className="font-orbitron text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight leading-none drop-shadow-lg">
+            <span className="relative inline-block">
+              NEWS 
+              <span className="absolute -inset-1 opacity-50 blur-sm bg-gradient-to-r from-[#F44336]/40 to-[#ff9900]/40 -z-10 rounded-lg animate-pulse"></span>
+              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#F44336] to-transparent"></span>
+            </span>
+          </h1>
               <div className="h-1 w-32 bg-gradient-to-r from-[#F44336] to-[#FF9800] mb-6 animate-width-expand" />
               <p className="text-xl text-white/90 max-w-2xl animate-fade-in-delay drop-shadow-md">
                 Cập nhật mới nhất về game, chia sẻ chiến thuật và tương tác với cộng đồng Overwatch

@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 
+
 // Mở rộng kiểu ChiSoLevel để thêm các thuộc tính mới
 interface ChiSoLevelExtended extends ChiSoLevel {
   hp?: number;
@@ -142,22 +143,22 @@ export default function HeroDetailPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--overwatch-dark-blue)] to-[var(--overwatch-black)]">
       {/* Navigation Bar */}
-     
       
-      {/* Back Button - Đặt ở giữa như trong ảnh mẫu */}
-      <div className="w-full bg-[#F44336] py-3 shadow-md">
+      
+      {/* Back Button - Redesigned to be more subtle */}
+      <div className="w-full bg-gradient-to-r from-[#041019]/80 to-[#071a2e]/80 backdrop-blur-sm py-3 shadow-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 flex items-center">
-        <Link 
-          href="/heroes" 
-            className="inline-flex items-center text-white hover:text-white/90 transition-colors group relative"
-        >
-            <div className="mr-2 h-8 w-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
-            </svg>
-          </div>
+          <Link 
+            href="/heroes" 
+            className="inline-flex items-center text-white hover:text-[#F44336] transition-colors group relative"
+          >
+            <div className="mr-2 h-8 w-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#F44336]/20 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
+              </svg>
+            </div>
             <span className="font-medium text-white">Quay lại danh sách</span>
-        </Link>
+          </Link>
         </div>
       </div>
 

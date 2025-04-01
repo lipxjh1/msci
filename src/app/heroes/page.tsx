@@ -88,13 +88,14 @@ export default function HeroesPage() {
           </div>
         </div>
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
-        <h1 className="font-orbitron text-5xl md:text-7xl font-black text-white mb-4 animate-fade-in drop-shadow-lg tracking-tight leading-none">
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-200 to-red-100 relative inline-block">
-                  HEROES  
-                  <span className="absolute -inset-1 animate-pulse-very-slow opacity-50 blur-sm bg-gradient-to-r from-[#ff4655]/60 to-[#ff9900]/60 -z-10 rounded-lg"></span>
-                </span>
-                </h1>
-          <p className="text-xl md:text-2xl text-white/70 max-w-2xl text-center animate-fadeIn animation-delay-200">
+          <h1 className="font-orbitron text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight leading-none drop-shadow-lg">
+            <span className="relative inline-block">
+              HEROES
+              <span className="absolute -inset-1 opacity-50 blur-sm bg-gradient-to-r from-[#F44336]/40 to-[#ff9900]/40 -z-10 rounded-lg animate-pulse"></span>
+              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#F44336] to-transparent"></span>
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 max-w-2xl text-center">
             Khám phá danh sách anh hùng đa dạng với kỹ năng và khả năng độc đáo
           </p>
           
