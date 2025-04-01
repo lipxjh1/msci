@@ -1,0 +1,777 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  
+  /* Overwatch Colors */
+  --overwatch-blue: #26A9E0;
+  --overwatch-dark-blue: #1E88E5;
+  --overwatch-orange: #F99B2A;
+  --overwatch-yellow: #FFCA28;
+  --overwatch-white: #F5F5F5;
+  --overwatch-black: #1A2526;
+  --overwatch-gray: #B0BEC5;
+  
+  /* Role Colors */
+  --vaiTroTank: #F5B041;
+  --vaiTroDamage: #E74C3C;
+  --vaiTroSupport: #58D68D;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hiệu ứng shine cho các nút */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.7s;
+}
+
+.btn-shine:hover::after {
+  transform: rotate(30deg) translate(100%, 100%);
+}
+
+/* Hiệu ứng glow cho các card */
+.glow-on-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+  box-shadow: 0 0 20px rgba(38, 169, 224, 0.5);
+}
+
+/* Hiệu ứng glow xanh cho các card */
+.glow-blue-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-blue-hover:hover {
+  box-shadow: 0 0 25px rgba(38, 169, 224, 0.7);
+}
+
+/* Hiệu ứng gradient text */
+.gradient-text {
+  background: linear-gradient(45deg, var(--overwatch-orange), var(--overwatch-yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hiệu ứng gradient xanh text */
+.gradient-blue-text {
+  background: linear-gradient(45deg, var(--overwatch-blue), #1a73e8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hiệu ứng underline hover animation */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--overwatch-blue);
+  transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Hiệu ứng underline hover xanh */
+.hover-underline-blue {
+  position: relative;
+}
+
+.hover-underline-blue::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--overwatch-blue);
+  transition: width 0.3s ease;
+}
+
+.hover-underline-blue:hover::after {
+  width: 100%;
+}
+
+/* Hiệu ứng pulse chậm */
+@keyframes pulse-slow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Hiệu ứng text shadow */
+.text-shadow-lg {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(38, 169, 224, 0.3);
+}
+
+/* Hiệu ứng text shadow xanh */
+.text-shadow-blue {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(38, 169, 224, 0.6), 0 0 30px rgba(38, 169, 224, 0.3);
+}
+
+/* Hiệu ứng tiêu đề phát sáng */
+@keyframes title-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(38, 169, 224, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(38, 169, 224, 0.8), 0 0 40px rgba(38, 169, 224, 0.4);
+  }
+}
+
+.animate-title-glow {
+  animation: title-glow 3s ease-in-out infinite;
+}
+
+/* Hiệu ứng fade in */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+/* Hiệu ứng slide up */
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 1.2s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Hiệu ứng scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hiệu ứng appear from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hiệu ứng appear from right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hiệu ứng scale up khi scroll */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease;
+}
+
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hiệu ứng delay cho các phần tử liên tiếp */
+.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.delay-3 {
+  transition-delay: 0.3s;
+}
+
+.delay-4 {
+  transition-delay: 0.4s;
+}
+
+.delay-5 {
+  transition-delay: 0.5s;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+}
+
+/* Section height and scroll snap */
+section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Make exceptions for footer and some other sections that don't need to be full height */
+footer, .no-snap {
+  scroll-snap-align: none;
+  min-height: auto;
+}
+
+/* Hero section should be exactly one viewport */
+.hero-section {
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom gradient text */
+.gradient-blue-text {
+  background: linear-gradient(to right, var(--overwatch-blue), #42c5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Text shadow for better contrast */
+.text-shadow-blue {
+  text-shadow: 0 0 10px rgba(74, 159, 213, 0.5), 0 0 20px rgba(74, 159, 213, 0.3);
+}
+
+/* Button hover effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine:after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 70%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  transition: transform 0.5s;
+}
+
+.btn-shine:hover:after {
+  transform: translateX(200%) rotate(25deg);
+  transition: transform 0.7s;
+}
+
+/* Animation keyframes */
+@keyframes title-glow {
+  0% {
+    text-shadow: 0 0 10px rgba(74, 159, 213, 0.6), 0 0 20px rgba(74, 159, 213, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(74, 159, 213, 0.8), 0 0 30px rgba(74, 159, 213, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(74, 159, 213, 0.6), 0 0 20px rgba(74, 159, 213, 0.4);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animations */
+.animate-title-glow {
+  animation: title-glow 3s infinite ease-in-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.5s;
+}
+
+.animate-slide-up {
+  animation: slide-up 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 1s;
+}
+
+/* Link hover animation */
+.hover-underline-blue {
+  position: relative;
+}
+
+.hover-underline-blue:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--overwatch-blue);
+  transition: width 0.3s ease;
+}
+
+.hover-underline-blue:hover:after {
+  width: 100%;
+}
+
+/* Glow effect on hover */
+.glow-blue-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-blue-hover:hover {
+  box-shadow: 0 0 15px rgba(74, 159, 213, 0.5);
+  transform: translateY(-5px);
+}
+
+/* Scroll reveal animations */
+.reveal, .reveal-left, .reveal-right, .reveal-scale {
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active {
+  opacity: 1;
+}
+
+.reveal-left {
+  transform: translateX(-50px);
+}
+
+.reveal-left.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.reveal-right {
+  transform: translateX(50px);
+}
+
+.reveal-right.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.reveal-scale {
+  transform: scale(0.9);
+}
+
+.reveal-scale.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Delay classes for staggered animations */
+.delay-1 {
+  transition-delay: 0.2s;
+}
+
+.delay-2 {
+  transition-delay: 0.4s;
+}
+
+.delay-3 {
+  transition-delay: 0.6s;
+}
+
+/* Hiệu ứng mới cho trang chi tiết anh hùng */
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floating-delay {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floating-alt {
+  0% {
+    transform: translateY(-5px) translateX(5px);
+  }
+  50% {
+    transform: translateY(10px) translateX(-5px);
+  }
+  100% {
+    transform: translateY(-5px) translateX(5px);
+  }
+}
+
+@keyframes floating-fast {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(3px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes floating-fast-alt {
+  0% {
+    transform: translateY(-4px) translateX(-2px);
+  }
+  50% {
+    transform: translateY(4px) translateX(2px);
+  }
+  100% {
+    transform: translateY(-4px) translateX(-2px);
+  }
+}
+
+@keyframes floating-fast-delay {
+  0% {
+    transform: translateY(3px) translateX(3px);
+  }
+  50% {
+    transform: translateY(-3px) translateX(-3px);
+  }
+  100% {
+    transform: translateY(3px) translateX(3px);
+  }
+}
+
+@keyframes border-glow-enhanced {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes shine-effect {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shine-effect-slow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes hero-name-shimmer {
+  0% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-very-slow {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-floating {
+  animation: floating 6s ease-in-out infinite;
+}
+
+.animate-floating-delay {
+  animation: floating-delay 7s ease-in-out infinite;
+}
+
+.animate-floating-alt {
+  animation: floating-alt 8s ease-in-out infinite;
+}
+
+.animate-floating-fast {
+  animation: floating-fast 4s ease-in-out infinite;
+}
+
+.animate-floating-fast-alt {
+  animation: floating-fast-alt 3.5s ease-in-out infinite;
+}
+
+.animate-floating-fast-delay {
+  animation: floating-fast-delay 5s ease-in-out infinite;
+}
+
+.animate-border-glow-enhanced {
+  animation: border-glow-enhanced 3s infinite;
+}
+
+.shine-effect {
+  animation: shine-effect 2s infinite;
+}
+
+.shine-effect-slow {
+  animation: shine-effect-slow 5s infinite;
+}
+
+.hero-name-shimmer {
+  animation: hero-name-shimmer 3s ease-in-out infinite;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-very-slow {
+  animation: pulse-very-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.shadow-glow-sm {
+  box-shadow: 0 0 4px currentColor;
+}
+
+.text-shadow-sm {
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2000ms;
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes pulse-very-slow {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes width-expand {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 8rem; /* w-32 = 8rem */
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 15s ease-in-out infinite;
+}
+
+.animate-pulse-very-slow {
+  animation: pulse-very-slow 8s ease-in-out infinite;
+}
+
+.animate-width-expand {
+  animation: width-expand 1s ease-out forwards;
+}
+
+@layer base {
+  :root {
+    --font-orbitron: var(--font-orbitron);
+  }
+}
+
+.font-orbitron {
+  font-family: var(--font-orbitron);
+}
