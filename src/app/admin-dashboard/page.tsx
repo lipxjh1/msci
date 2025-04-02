@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/tien_ich/supabase';
 import QuanLyAdmin from '@/components/admin/QuanLyAdmin';
+import QuanLyHero from '@/components/admin/QuanLyHero';
+import QuanLyBaiViet from '@/components/admin/QuanLyBaiViet';
 import Link from 'next/link';
 import type { Session } from '@supabase/supabase-js';
 import { AuthProvider } from '@/context/AuthContext';
@@ -20,6 +22,7 @@ export default function AdminDashboardPage() {
   const [session, setSession] = useState<Session | null>(null);
   const [adminInfo, setAdminInfo] = useState<AdminInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState('quan-ly-admin');
 
   useEffect(() => {
     async function getSession() {
@@ -152,7 +155,52 @@ export default function AdminDashboardPage() {
           </div>
         </div>
         
-        <QuanLyAdmin />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          <div className="border-b border-gray-200 mb-8">
+            <nav className="-mb-px flex space-x-8">
+              <button
+                onClick={() => setActiveTab('quan-ly-admin')}
+                className={`${
+                  activeTab === 'quan-ly-admin'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+              >
+                Quản lý Admin
+              </button>
+              <button
+                onClick={() => setActiveTab('quan-ly-hero')}
+                className={`${
+                  activeTab === 'quan-ly-hero'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+              >
+                Quản lý Hero
+              </button>
+              <button
+                onClick={() => setActiveTab('quan-ly-bai-viet')}
+                className={`${
+                  activeTab === 'quan-ly-bai-viet'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+              >
+                Quản lý Bài Viết
+              </button>
+            </nav>
+          </div>
+
+          <div style={{ display: activeTab === 'quan-ly-admin' ? 'block' : 'none' }}>
+            <QuanLyAdmin />
+          </div>
+          <div style={{ display: activeTab === 'quan-ly-hero' ? 'block' : 'none' }}>
+            <QuanLyHero />
+          </div>
+          <div style={{ display: activeTab === 'quan-ly-bai-viet' ? 'block' : 'none' }}>
+            <QuanLyBaiViet />
+          </div>
+        </div>
       </main>
     </AuthProvider>
   );

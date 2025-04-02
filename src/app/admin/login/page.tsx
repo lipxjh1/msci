@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/tien_ich/supabase';
-import Link from 'next/link';
 import type { User } from '@supabase/supabase-js';
 
 type AdminData = {
@@ -282,14 +281,6 @@ export default function AdminLoginPage() {
               </button>
             )}
             
-            <div className="flex justify-center">
-              <Link 
-                href="/admin/setup"
-                className="text-sm text-blue-600 hover:text-blue-800"
-              >
-                Thiết lập tài khoản mới
-              </Link>
-            </div>
           </div>
         </form>
         
