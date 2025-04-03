@@ -40,7 +40,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1e88e5]/20 to-[#1A2526] z-10"></div>
           <div className="relative w-full h-full overflow-hidden">
             <iframe
-              src="https://www.youtube.com/embed/dZl1yGUetjI?autoplay=1&controls=0&showinfo=0&loop=1&playlist=dZl1yGUetjI&playsinline=1&rel=0&enablejsapi=1&modestbranding=1&start=22"
+              src="https://www.youtube.com/embed/dZl1yGUetjI?autoplay=1&controls=0&showinfo=0&loop=1&playlist=dZl1yGUetjI&playsinline=1&rel=0&enablejsapi=1&modestbranding=1&start=22&mute=1"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               className="absolute w-[130%] h-[130%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover"
               frameBorder="0"
