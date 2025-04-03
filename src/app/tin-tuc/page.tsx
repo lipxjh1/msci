@@ -4,6 +4,8 @@ import ThanhDieuHuong from '@/thanh_phan/thanh_dieu_huong';
 import BoLocBaiViet from '@/components/BoLocBaiViet';
 import DanhSachBaiViet from '@/components/DanhSachBaiViet';
 import Image from 'next/image';
+import Link from 'next/link';
+import ScrollButton from '@/components/ScrollButton';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -70,23 +72,34 @@ export default async function TinTucPage({
               className="object-cover opacity-30"
             />
           </div>
+
+          {/* Add scanline effect */}
+          <div className="absolute inset-0 scanline"></div>
         </div>
         
         {/* Content */}
         <div className="relative z-30 h-full flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
-            <h1 className="font-orbitron text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight leading-none drop-shadow-lg">
-            <span className="relative inline-block">
-              NEWS 
-              <span className="absolute -inset-1 opacity-50 blur-sm bg-gradient-to-r from-[#F44336]/40 to-[#ff9900]/40 -z-10 rounded-lg animate-pulse"></span>
-              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#F44336] to-transparent"></span>
-            </span>
-          </h1>
-              <div className="h-1 w-32 bg-gradient-to-r from-[#F44336] to-[#FF9800] mb-6 animate-width-expand" />
-              <p className="text-xl text-white/90 max-w-2xl animate-fade-in-delay drop-shadow-md">
+              <h1 className="font-orbitron text-6xl md:text-8xl font-extrabold text-white tracking-tighter mb-6 uppercase text-shadow-blue animate-title-glow cyber-halo">
+                <span className="relative inline-block">
+                  NEWS
+                  <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
+                </span>
+              </h1>
+              <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in">
                 Cập nhật mới nhất về game, chia sẻ chiến thuật và tương tác với cộng đồng Overwatch
               </p>
+              
+              {/* Nút */}
+              <div className="animate-slide-up">
+                <ScrollButton 
+                  targetId="news-content"
+                  className="font-rajdhani font-bold tracking-wider text-shadow-sm px-10 py-3 button-cyber clip-hexagon hexagon-border text-white"
+                >
+                  Xem tin tức
+                </ScrollButton>
+              </div>
             </div>
           </div>
         </div>
@@ -96,14 +109,26 @@ export default async function TinTucPage({
       </div>
 
       {/* Content Section */}
-      <div className="container mx-auto px-4 py-12 relative z-10">
+      <div id="news-content" className="container mx-auto px-4 py-12 relative z-10">
         <BoLocBaiViet activeFilter={loai} />
         
         <DanhSachBaiViet baiViets={filteredBaiViets} />
         
         {filteredBaiViets.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-white text-xl">Không có bài viết nào trong danh mục này</p>
+          <div className="text-center py-24 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-xl card-neon">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-white/5 flex items-center justify-center cyber-halo">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <h3 className="font-orbitron text-2xl font-bold text-white mb-3 text-shadow-blue">Không có bài viết nào</h3>
+            <p className="font-rajdhani text-white/60 max-w-lg mx-auto">Không có bài viết nào trong danh mục này. Vui lòng thử lại với bộ lọc khác.</p>
+            <Link 
+              href="/tin-tuc" 
+              className="font-rajdhani mt-6 px-6 py-3 tracking-wider text-shadow-sm button-cyber clip-hexagon hexagon-border inline-block text-white"
+            >
+              Xem tất cả tin tức
+            </Link>
           </div>
         )}
       </div>

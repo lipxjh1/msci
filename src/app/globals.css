@@ -7,19 +7,31 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   
-  /* Overwatch Colors */
-  --overwatch-blue: #26A9E0;
-  --overwatch-dark-blue: #1E88E5;
-  --overwatch-orange: #F99B2A;
-  --overwatch-yellow: #FFCA28;
-  --overwatch-white: #F5F5F5;
-  --overwatch-black: #1A2526;
+  /* Overwatch Colors - Improved Contrast */
+  --overwatch-blue: #00A8FF;
+  --overwatch-dark-blue: #005BBA;
+  --overwatch-orange: #FF7D00;
+  --overwatch-yellow: #FFD000;
+  --overwatch-white: #FFFFFF;
+  --overwatch-black: #090E12;
   --overwatch-gray: #B0BEC5;
   
-  /* Role Colors */
-  --vaiTroTank: #F5B041;
-  --vaiTroDamage: #E74C3C;
-  --vaiTroSupport: #58D68D;
+  /* Background Colors with Better Contrast */
+  --bg-dark: #050A11;
+  --bg-darker: #02060C;
+  --bg-accent-dark: #071523;
+  --bg-accent-light: #0C2341;
+  
+  /* Accent Colors with Higher Intensity */
+  --accent-blue-bright: #42ABFF;
+  --accent-blue-glow: #0095FF;
+  --accent-orange-bright: #FF7D00;
+  --accent-orange-glow: #FF5500;
+  
+  /* Role Colors with Increased Vibrancy */
+  --vaiTroTank: #FFA000;
+  --vaiTroDamage: #FF3A3A;
+  --vaiTroSupport: #00E676;
 }
 
 @theme inline {
@@ -31,11 +43,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--bg-dark);
+    --foreground: var(--overwatch-white);
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 5, 10, 17;
+    --background-end-rgb: 2, 6, 12;
   }
 }
 
@@ -148,17 +160,11 @@ body {
 
 /* Hiệu ứng pulse chậm */
 @keyframes pulse-slow {
-  0% {
-    transform: scale(1);
+  0%, 100% {
     opacity: 1;
   }
   50% {
-    transform: scale(1.05);
-    opacity: 0.9;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
+    opacity: 0.7;
   }
 }
 
@@ -510,6 +516,14 @@ footer, .no-snap {
   transition-delay: 0.6s;
 }
 
+.delay-4 {
+  transition-delay: 0.8s;
+}
+
+.delay-5 {
+  transition-delay: 1s;
+}
+
 /* Hiệu ứng mới cho trang chi tiết anh hùng */
 @keyframes floating {
   0% {
@@ -706,7 +720,7 @@ footer, .no-snap {
 }
 
 .text-shadow-sm {
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
 .animation-delay-500 {
@@ -774,4 +788,1031 @@ footer, .no-snap {
 
 .font-orbitron {
   font-family: var(--font-orbitron);
+}
+
+/* Hiệu ứng shimmer cho nút */
+@keyframes shimmer-button {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shimmer-button-fast {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Hiệu ứng ripple khi hover nút */
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-slow {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.3;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+
+.animate-shimmer-button {
+  animation: shimmer-button 4s infinite;
+}
+
+.animate-shimmer-button-fast {
+  animation: shimmer-button-fast 2s infinite;
+}
+
+.animate-ripple {
+  animation: ripple 0.7s ease-out;
+}
+
+.animate-ripple-slow {
+  animation: ripple-slow 1.2s ease-out;
+}
+
+/* Hiệu ứng hexagon pattern thay thế cho file hình ảnh */
+.hexagon-pattern {
+  background-image: repeating-linear-gradient(
+    60deg,
+    rgba(66, 146, 255, 0.2) 0,
+    rgba(66, 146, 255, 0.2) 1px,
+    transparent 1px,
+    transparent 10px
+  ),
+  repeating-linear-gradient(
+    -60deg,
+    rgba(66, 146, 255, 0.2) 0,
+    rgba(66, 146, 255, 0.2) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+
+/* Enhanced button animations */
+@keyframes button-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(66, 146, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(66, 146, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(66, 146, 255, 0);
+  }
+}
+
+@keyframes button-edge-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(66, 146, 255, 0.5), inset 0 0 5px rgba(66, 146, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(66, 146, 255, 0.8), inset 0 0 10px rgba(66, 146, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(66, 146, 255, 0.5), inset 0 0 5px rgba(66, 146, 255, 0.5);
+  }
+}
+
+@keyframes button-shine {
+  0% {
+    background-position: -100px;
+  }
+  20%, 100% {
+    background-position: 300px;
+  }
+}
+
+.animate-button-pulse {
+  animation: button-pulse 2s infinite;
+}
+
+.animate-button-edge-glow {
+  animation: button-edge-glow 3s infinite;
+}
+
+.animate-button-shine {
+  animation: button-shine 4s infinite;
+}
+
+/* Corner accent animations */
+@keyframes corner-pulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+.animate-corner-pulse {
+  animation: corner-pulse 2s infinite;
+}
+
+/* Animation delays for corner pulse */
+.delay-1 {
+  animation-delay: 0.2s !important;
+}
+
+.delay-2 {
+  animation-delay: 0.4s !important;
+}
+
+.delay-3 {
+  animation-delay: 0.6s !important;
+}
+
+.delay-4 {
+  animation-delay: 0.8s !important;
+}
+
+.delay-5 {
+  animation-delay: 1s !important;
+}
+
+/* Enhanced hover effect for text */
+@keyframes text-glow {
+  0% {
+    text-shadow: 0 0 10px rgba(66, 146, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(66, 146, 255, 0.8), 0 0 30px rgba(66, 146, 255, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(66, 146, 255, 0.5);
+  }
+}
+
+.animate-text-glow {
+  animation: text-glow 3s infinite;
+}
+
+/* Button shimmer animation */
+@keyframes shimmer-button-fast {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer-button-fast {
+  animation: shimmer-button-fast 1.5s ease-in-out;
+}
+
+/* Hexagon button styling */
+.hexagon-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.hexagon-button {
+  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+  transform: perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hexagon-button::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: inherit;
+  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.clip-path-hexagon {
+  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+}
+
+/* Button content padding adjustment for hexagon shape */
+.hexagon-button.py-2 {
+  padding-left: 1.75rem !important;
+  padding-right: 1.75rem !important;
+}
+
+.hexagon-button.py-3 {
+  padding-left: 2.25rem !important;
+  padding-right: 2.25rem !important;
+}
+
+.hexagon-button.py-4 {
+  padding-left: 2.75rem !important;
+  padding-right: 2.75rem !important;
+}
+
+/* Hover effect for hexagon buttons */
+.hexagon-button:hover {
+  transform: translateY(-2px) perspective(1px) translateZ(0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Hexagon button glow animation */
+@keyframes hexagon-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(66, 146, 255, 0.5), 0 0 10px rgba(66, 146, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(66, 146, 255, 0.8), 0 0 20px rgba(66, 146, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(66, 146, 255, 0.5), 0 0 10px rgba(66, 146, 255, 0.3);
+  }
+}
+
+.animate-hexagon-glow {
+  animation: hexagon-glow 3s infinite;
+}
+
+/* Full width adjustment for hexagon buttons */
+.hexagon-button-container:has(.hexagon-button.w-full) {
+  display: block;
+  width: 100%;
+}
+
+.hexagon-button.w-full {
+  width: 100%;
+}
+
+/* Hiệu ứng lục giác cho nút */
+.clip-hexagon {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+}
+
+/* Hiệu ứng border pulse cho nút lục giác */
+@keyframes hexagon-border-pulse {
+  0%, 100% {
+    border-color: rgba(66, 171, 255, 0.6);
+    box-shadow: 0 0 10px rgba(66, 171, 255, 0.3);
+  }
+  50% {
+    border-color: rgba(66, 171, 255, 1);
+    box-shadow: 0 0 20px rgba(66, 171, 255, 0.7);
+  }
+}
+
+/* Hiệu ứng Flash nhanh tại các góc */
+@keyframes corner-flash {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.hexagon-button-container .hexagon-button.clip-hexagon {
+  border-width: 2px;
+  position: relative;
+  transform-origin: center;
+  transition: all 0.3s ease-out;
+}
+
+.hexagon-button-container .hexagon-button.clip-hexagon::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  background: linear-gradient(45deg, transparent, rgba(66, 171, 255, 0.3), transparent);
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hexagon-button-container .hexagon-button.clip-hexagon:hover::before {
+  opacity: 1;
+  animation: hexagon-border-pulse 2s infinite;
+}
+
+/* Các styles cho button trong suốt với hiệu ứng mũi tên */
+.transparent-button-container {
+  position: relative;
+  margin: 0.5rem;
+}
+
+.transparent-button-container .button {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-button-container .button:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(100, 217, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.transparent-button-container .button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.7s ease;
+  transform: translateX(-100%);
+}
+
+.transparent-button-container .button:hover:before {
+  transform: translateX(100%);
+}
+
+.arrow-slide-button {
+  position: relative;
+}
+
+.arrow-left-container {
+  position: absolute;
+  left: -50px;
+  transform: translateY(-50%);
+  top: 50%;
+  opacity: 0;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+
+.arrow-right-container {
+  position: absolute;
+  right: -50px;
+  transform: translateY(-50%);
+  top: 50%;
+  opacity: 0;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+
+@keyframes arrow-slide-out-left {
+  0% {
+    opacity: 0;
+    left: 40%;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: -50px;
+  }
+}
+
+@keyframes arrow-slide-out-right {
+  0% {
+    opacity: 0;
+    right: 40%;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    right: -50px;
+  }
+}
+
+.arrow-slide-button:hover .arrow-left-container {
+  animation: arrow-slide-out-left 1.2s infinite ease-in-out;
+}
+
+.arrow-slide-button:hover .arrow-right-container {
+  animation: arrow-slide-out-right 1.2s infinite ease-in-out;
+}
+
+/* Đảm bảo các container button có cùng styles cơ bản */
+.button-container {
+  position: relative;
+  margin: 0.5rem;
+  display: inline-block;
+}
+
+.button-container .button {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.text-shadow-neon {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #42abff, 0 0 20px #42abff, 0 0 25px #42abff;
+}
+
+.neon-flicker {
+  animation: neon-flicker 3s infinite alternate;
+}
+
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #42abff, 0 0 16px #42abff;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(66, 171, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(66, 171, 255, 0.7);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+@keyframes text-neon {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(66, 171, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 15px rgba(66, 171, 255, 0.6), 0 0 20px rgba(66, 171, 255, 0.4);
+  }
+}
+
+.animate-text-neon {
+  animation: text-neon 3s ease-in-out infinite;
+}
+
+@keyframes slide-x {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-x {
+  animation: slide-x 2s ease-in-out infinite;
+}
+
+/* Thêm hiệu ứng cyber-halo glow cho các tiêu đề */
+.cyber-halo {
+  position: relative;
+  display: inline-block;
+}
+
+.cyber-halo::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--accent-blue-bright), var(--accent-blue-glow), transparent, var(--accent-blue-bright));
+  opacity: 0;
+  z-index: -1;
+  animation: cyber-border-glow 3s ease-in-out infinite;
+}
+
+@keyframes cyber-border-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.01);
+  }
+}
+
+/* Hiệu ứng nền động */
+.bg-grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-grid::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image: linear-gradient(rgba(66, 171, 255, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(66, 171, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+  opacity: 0.3;
+  transform: perspective(500px) rotateX(60deg);
+  animation: grid-move 15s linear infinite;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(40px);
+  }
+}
+
+/* Hiệu ứng scanline cho giao diện sci-fi */
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(66, 171, 255, 0.03) 50%, transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Hiệu ứng glitch cho text */
+.text-glitch {
+  position: relative;
+  animation: text-glitch 5s infinite;
+}
+
+.text-glitch::before,
+.text-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.text-glitch::before {
+  color: #00FFFF;
+  animation: glitch-animation-1 3s infinite linear alternate-reverse;
+}
+
+.text-glitch::after {
+  color: #FF00FF;
+  animation: glitch-animation-2 2s infinite linear alternate-reverse;
+}
+
+@keyframes text-glitch {
+  0%, 95%, 100% {
+    text-shadow: 0 0 0 transparent;
+    transform: skewX(0);
+  }
+  92%, 96%, 97% {
+    text-shadow: 0 0 10px rgba(0, 168, 255, 0.6);
+    transform: skewX(2deg);
+  }
+}
+
+@keyframes glitch-animation-1 {
+  0%, 98%, 100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  97% {
+    opacity: 0.2;
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes glitch-animation-2 {
+  0%, 98%, 100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  97% {
+    opacity: 0.2;
+    transform: translateX(2px);
+  }
+}
+
+/* Hiệu ứng nút kiểu cyberpunk */
+.button-cyber {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid rgba(66, 171, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.button-cyber::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--accent-blue-bright), var(--accent-blue-glow));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.button-cyber:hover {
+  border-color: var(--accent-blue-bright);
+  box-shadow: 0 0 20px rgba(66, 171, 255, 0.5);
+}
+
+.button-cyber:hover::before {
+  opacity: 0.2;
+}
+
+.button-cyber::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.button-cyber:hover::after {
+  animation: shine-effect 1.5s ease;
+}
+
+@keyframes shine-effect {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Hiệu ứng nút phát sáng */
+.button-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.button-glow::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(45deg, var(--accent-blue-bright), var(--accent-blue-glow), transparent, var(--accent-blue-bright));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.button-glow:hover::before {
+  opacity: 1;
+  animation: border-rotate 3s linear infinite;
+}
+
+@keyframes border-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hiệu ứng thẻ card neon viền phát sáng */
+.card-neon {
+  position: relative;
+  overflow: hidden;
+  background: rgba(6, 15, 25, 0.7);
+  border: 1px solid rgba(66, 171, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.card-neon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, 
+    transparent 0%, 
+    transparent 5%, 
+    rgba(66, 171, 255, 0.1) 5%, 
+    rgba(66, 171, 255, 0.1) 10%,
+    transparent 10%,
+    transparent 90%,
+    rgba(66, 171, 255, 0.1) 90%,
+    rgba(66, 171, 255, 0.1) 95%,
+    transparent 95%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-neon:hover {
+  border-color: rgba(66, 171, 255, 0.5);
+  box-shadow: 0 0 20px rgba(66, 171, 255, 0.3);
+}
+
+.card-neon:hover::after {
+  opacity: 1;
+  animation: neon-flicker 2s ease infinite;
+}
+
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 0.8;
+  }
+  20%, 24%, 55% {
+    opacity: 0.2;
+  }
+}
+
+/* Hiệu ứng nút hexagon */
+.clip-hexagon {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.clip-hexagon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--accent-blue-bright), var(--accent-blue-glow));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.clip-hexagon:hover::before {
+  opacity: 0.2;
+}
+
+.clip-hexagon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(66, 171, 255, 0.5);
+}
+
+/* Hiệu ứng viền hexagon */
+.hexagon-border {
+  position: relative;
+}
+
+.hexagon-border::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background-color: transparent;
+  border: 1px solid var(--accent-blue-bright);
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.hexagon-border:hover::before {
+  opacity: 1;
+  animation: hexagon-pulse 2s linear infinite;
+}
+
+@keyframes hexagon-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Hiệu ứng góc nhấp nháy cho các nút hexagon */
+.hexagon-corner-flash {
+  position: relative;
+  overflow: hidden;
+}
+
+.hexagon-corner-flash::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  opacity: 0;
+}
+
+.hexagon-corner-flash:hover::after {
+  animation: corner-flash 3s linear infinite;
+}
+
+@keyframes corner-flash {
+  0%, 100% {
+    opacity: 0;
+    top: 0;
+    left: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  20% {
+    opacity: 0;
+    top: 0;
+    left: calc(100% - 10px);
+  }
+  30% {
+    opacity: 0.8;
+  }
+  40% {
+    opacity: 0;
+    top: calc(100% - 10px);
+    left: calc(100% - 10px);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0;
+    top: calc(100% - 10px);
+    left: 0;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0;
+    top: 0;
+    left: 0;
+  }
+}
+
+/* Hiệu ứng gradient nền thay đổi màu */
+.animated-gradient-bg {
+  background: linear-gradient(
+    -45deg, 
+    var(--bg-accent-dark), 
+    var(--bg-darker), 
+    var(--bg-accent-light), 
+    var(--bg-dark)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hiệu ứng particle floating cho các phần tử */
+.particle-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: rgba(66, 171, 255, 0.4);
+  border-radius: 50%;
+  animation: float-up 8s linear infinite;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100%) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%) translateX(30px);
+    opacity: 0;
+  }
+}
+
+/* Hiệu ứng nhấp nháy điểm */
+.dot-flicker {
+  position: relative;
+}
+
+.dot-flicker::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--accent-blue-bright);
+  border-radius: 50%;
+  animation: dot-pulse 2s infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50%) scale(0.6);
+    opacity: 0.6;
+  }
+}
+
+/* Cải thiện hiệu ứng shimmer */
+@keyframes shimmer-button-fast {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer-button-fast {
+  animation: shimmer-button-fast 1.2s ease-in-out infinite;
 }

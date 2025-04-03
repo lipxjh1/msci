@@ -88,32 +88,25 @@ export default function HeroesPage() {
           </div>
         </div>
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
-          <h1 className="font-orbitron text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight leading-none drop-shadow-lg">
+          <h1 className="font-orbitron text-6xl md:text-8xl font-extrabold text-white tracking-tighter mb-6 uppercase text-shadow-blue animate-title-glow cyber-halo">
             <span className="relative inline-block">
               HEROES
-              <span className="absolute -inset-1 opacity-50 blur-sm bg-gradient-to-r from-[#F44336]/40 to-[#ff9900]/40 -z-10 rounded-lg animate-pulse"></span>
-              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#F44336] to-transparent"></span>
+              <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/70 max-w-2xl text-center">
+          <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in">
             Khám phá danh sách anh hùng đa dạng với kỹ năng và khả năng độc đáo
           </p>
           
-          {/* Animated line */}
-          <div className="mt-6 w-24 h-1 bg-gradient-to-r from-transparent via-[#F44336] to-transparent animate-pulse"></div>
-        </div>
-        
-        {/* Nút cuộn xuống - thêm mới */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-          <button 
-            onClick={() => document.getElementById('hero-content')?.scrollIntoView({behavior: 'smooth'})}
-            className="flex flex-col items-center text-white/70 hover:text-white transition-colors"
-          >
-            <span className="mb-2 text-sm font-medium">Xem anh hùng</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </button>
+          {/* Nút cuộn xuống - thêm mới */}
+          <div className="animate-slide-up">
+            <button 
+              onClick={() => document.getElementById('hero-content')?.scrollIntoView({behavior: 'smooth'})}
+              className="font-rajdhani font-bold tracking-wider text-shadow-sm px-10 py-3 button-cyber clip-hexagon hexagon-border text-white"
+            >
+              Xem anh hùng
+            </button>
+          </div>
         </div>
       </div>
 
@@ -123,48 +116,66 @@ export default function HeroesPage() {
         
         {/* Filter by Role - Redesigned */}
         <div className="mb-16 backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">Lọc Theo Vai Trò</h2>
+          <div className="flex justify-center mb-6">
+            <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
+              <span className="text-shadow-blue relative inline-block">
+                 VAI TRÒ
+                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
+              </span>
+            </h2>
+          </div>
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={() => setSelectedRole(null)}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 
+              className={`px-6 py-3 text-sm font-medium font-rajdhani tracking-wider transition-all duration-300 
                 ${selectedRole === null 
-                  ? 'bg-gradient-to-r from-[#F44336] to-[#e53935] text-white shadow-lg shadow-red-500/20 transform scale-105' 
-                  : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white hover:shadow-lg hover:shadow-red-500/10'
-                }`}
+                ? 'text-white border-2 border-[var(--accent-blue-bright)] shadow-lg shadow-[var(--accent-blue-glow)]/40 transform scale-105 button-cyber clip-hexagon hexagon-corner-flash bg-[var(--accent-blue-bright)]/20' 
+                : 'bg-white/5 text-white/90 hover:bg-[var(--accent-blue-bright)]/10 hover:text-white hover:shadow-lg hover:shadow-[var(--accent-blue-glow)]/20 border border-white/20 hover:border-[var(--accent-blue-bright)]/70 button-cyber clip-hexagon'
+              }`}
             >
               Tất Cả
             </button>
             
-            {roles.map((role) => (
-              <button
-                key={role.id}
-                onClick={() => setSelectedRole(role.id)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 
-                  ${selectedRole === role.id 
-                    ? 'bg-gradient-to-r from-[#F44336] to-[#e53935] text-white shadow-lg shadow-red-500/20 transform scale-105' 
-                    : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white hover:shadow-lg hover:shadow-red-500/10'
-                  }`}
-              >
-                {role.ten}
-              </button>
-            ))}
+            {roles.map((role) => {
+              // Xác định màu sắc dựa trên vai trò
+              const roleColor = role.id === 1 
+                ? 'var(--vaiTroTank)' // Tank - vàng cam
+                : role.id === 2 
+                  ? 'var(--vaiTroDamage)' // Damage - đỏ
+                  : role.id === 3
+                    ? 'var(--vaiTroSupport)' // Support - xanh lá
+                    : 'var(--accent-blue-bright)'; // Default
+              
+              return (
+                <button
+                  key={role.id}
+                  onClick={() => setSelectedRole(role.id)}
+                  className={`px-6 py-3 text-sm font-medium font-rajdhani tracking-wider transition-all duration-300 
+                    ${selectedRole === role.id 
+                      ? `text-white border-2 border-[${roleColor}] shadow-lg shadow-[${roleColor}]/40 transform scale-105 button-cyber clip-hexagon hexagon-corner-flash bg-[${roleColor}]/20` 
+                      : `bg-white/5 text-white/90 hover:bg-[${roleColor}]/10 hover:text-white hover:shadow-lg hover:shadow-[${roleColor}]/20 border border-white/20 hover:border-[${roleColor}]/70 button-cyber clip-hexagon`
+                    }`}
+                >
+                  {role.ten}
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Loading State - Improved */}
         {loading && (
           <div className="flex justify-center items-center py-32">
-            <div className="relative">
-              <div className="h-20 w-20 rounded-full border-t-4 border-b-4 border-[#F44336] animate-spin"></div>
+            <div className="relative cyber-halo">
+              <div className="h-20 w-20 rounded-full border-t-4 border-b-4 border-[var(--accent-blue-bright)] animate-spin"></div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-16 w-16 rounded-full border-t-4 border-b-4 border-red-400 animate-spin animation-delay-150"></div>
+                <div className="h-16 w-16 rounded-full border-t-4 border-b-4 border-[var(--accent-blue-glow)] animate-spin animation-delay-150"></div>
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-12 w-12 rounded-full border-t-4 border-b-4 border-red-300 animate-spin animation-delay-300"></div>
+                <div className="h-12 w-12 rounded-full border-t-4 border-b-4 border-[var(--accent-blue-bright)] animate-spin animation-delay-300"></div>
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-8 w-8 rounded-full bg-[#F44336]/30 animate-pulse"></div>
+                <div className="h-8 w-8 rounded-full bg-[var(--accent-blue-bright)]/30 animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -172,14 +183,20 @@ export default function HeroesPage() {
 
         {/* Error State - Enhanced */}
         {error && (
-          <div className="bg-red-900/20 backdrop-blur-sm border border-red-500/30 rounded-xl p-8 text-white text-center my-12 shadow-lg shadow-red-500/10 max-w-2xl mx-auto">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/20 flex items-center justify-center">
+          <div className="bg-red-900/20 backdrop-blur-sm border border-red-500/30 rounded-xl p-8 text-white text-center my-12 shadow-lg shadow-red-500/10 max-w-2xl mx-auto card-neon">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/20 flex items-center justify-center cyber-halo">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-red-400 mb-2">Đã xảy ra lỗi</h3>
-            <p className="text-white/80">{error}</p>
+            <h3 className="font-orbitron text-xl font-bold text-red-400 mb-2 text-shadow-sm">Đã xảy ra lỗi</h3>
+            <p className="font-rajdhani text-white/80">{error}</p>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="font-rajdhani mt-6 px-6 py-2 tracking-wider text-shadow-sm button-cyber clip-hexagon hexagon-border"
+            >
+              Thử lại
+            </button>
           </div>
         )}
 
@@ -193,7 +210,7 @@ export default function HeroesPage() {
                 className="group"
               >
                 <div 
-                  className="relative h-72 rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform-gpu group-hover:shadow-xl animate-fadeIn"
+                  className="relative h-72 rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform-gpu group-hover:shadow-xl animate-fadeIn card-neon"
                   style={{ 
                     animationDelay: `${index * 50}ms`
                   }}
@@ -221,7 +238,7 @@ export default function HeroesPage() {
                   {/* Vai trò badge - top right corner */}
                   <div className="absolute top-3 right-3 z-30">
                     <div 
-                      className="px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1.5 backdrop-blur-sm"
+                      className="px-3 py-1 rounded-full text-sm font-medium font-rajdhani flex items-center gap-1.5 backdrop-blur-sm button-cyber"
                       style={{ 
                         backgroundColor: hero.vai_tro?.id === 1 
                           ? 'rgba(245, 176, 65, 0.3)' // Tank - vàng cam
@@ -257,12 +274,12 @@ export default function HeroesPage() {
                   
                   {/* Hero info container */}
                   <div className="absolute bottom-0 inset-x-0 p-4 z-20">
-                    <h3 className="text-xl font-bold text-white tracking-wide mb-2">{hero.ten}</h3>
+                    <h3 className="font-rajdhani text-xl font-bold text-white tracking-wide mb-2 text-shadow-blue">{hero.ten}</h3>
                     
                     {/* Rarity badge - now directly below name */}
                     <div className="flex items-center gap-2">
                       <div 
-                        className="px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1.5 backdrop-blur-sm"
+                        className="font-rajdhani px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1.5 backdrop-blur-sm button-cyber"
                         style={{ 
                           backgroundColor: `${hero.do_hi_em?.mau_sac}30` || 'rgba(76, 175, 80, 0.2)',
                           borderLeft: `3px solid ${hero.do_hi_em?.mau_sac || '#4CAF50'}`
@@ -272,7 +289,7 @@ export default function HeroesPage() {
                           className="inline-block h-2 w-2 rounded-full animate-pulse"
                           style={{ backgroundColor: hero.do_hi_em?.mau_sac || '#4CAF50' }}
                         ></span>
-                        <span className="text-white">Độ hiếm: {hero.do_hi_em?.ma || 'C'}</span>
+                        <span className="text-white">Rank: {hero.do_hi_em?.ma || 'C'}</span>
                       </div>
                     </div>
                   </div>
@@ -304,17 +321,17 @@ export default function HeroesPage() {
         
         {/* Empty State - Enhanced */}
         {!loading && !error && heroes.length === 0 && (
-          <div className="text-center py-24 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-xl">
+          <div className="text-center py-24 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-xl card-neon">
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-white/5 flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Không tìm thấy anh hùng</h3>
-            <p className="text-white/60 max-w-lg mx-auto">Không có anh hùng nào phù hợp với điều kiện tìm kiếm. Vui lòng thử lại với bộ lọc khác hoặc kiểm tra lại kết nối với Supabase.</p>
+            <h3 className="font-orbitron text-2xl font-bold text-white mb-3 text-shadow-blue">Không tìm thấy anh hùng</h3>
+            <p className="font-rajdhani text-white/60 max-w-lg mx-auto">Không có anh hùng nào phù hợp với điều kiện tìm kiếm. Vui lòng thử lại với bộ lọc khác hoặc kiểm tra lại kết nối với Supabase.</p>
             <button 
               onClick={() => setSelectedRole(null)} 
-              className="mt-6 px-6 py-3 bg-[#F44336]/80 hover:bg-[#F44336] text-white font-bold rounded-full transition-colors duration-300"
+              className="font-rajdhani mt-6 px-6 py-3 tracking-wider text-shadow-sm button-cyber clip-hexagon hexagon-border"
             >
               Xem tất cả anh hùng
             </button>
