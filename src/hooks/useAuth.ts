@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSupabase } from '@/context/SupabaseContext';
 import { User } from '@supabase/supabase-js';
+import { TelegramAuthData } from '@/types/telegram';
 
 export function useAuth() {
   const supabase = useSupabase();
@@ -84,6 +85,50 @@ export function useAuth() {
     }
   };
 
+  // Đăng nhập bằng Telegram
+  const signInWithTelegram = async (telegramData: TelegramAuthData) => {
+    try {
+      setLoading(true);
+      setError(null);
+      
+      // Xác thực dữ liệu từ Telegram callback với backend
+      const response = await fetch('/api/auth/telegram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(telegramData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Đăng nhập bằng Telegram thất bại');
+      }
+
+      // Sử dụng access token từ backend để đăng nhập vào Supabase
+      if (data.session) {
+        const { error } = await supabase.auth.setSession({
+          access_token: data.session.access_token,
+          refresh_token: data.session.refresh_token,
+        });
+        
+        if (error) throw error;
+      }
+      
+      return data;
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('Đăng nhập bằng Telegram thất bại');
+      }
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Đăng xuất
   const signOut = async () => {
     try {
@@ -110,6 +155,7 @@ export function useAuth() {
     error,
     signInWithEmail,
     signUpWithEmail,
+    signInWithTelegram,
     signOut,
     isAuthenticated: !!user
   };

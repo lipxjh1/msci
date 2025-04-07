@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
+import TelegramLoginButton from './TelegramLoginButton';
 
 interface LoginFormProps {
   onSwitchToRegister?: () => void;
@@ -72,6 +73,21 @@ export default function LoginForm({ onSwitchToRegister }: LoginFormProps) {
         >
           {loading ? 'Đang xử lý...' : 'Đăng nhập'}
         </button>
+        
+        {/* Divider */}
+        <div className="flex items-center my-6">
+          <div className="flex-grow h-px bg-[var(--overwatch-blue)]/20"></div>
+          <span className="px-4 text-white/50 text-sm">hoặc</span>
+          <div className="flex-grow h-px bg-[var(--overwatch-blue)]/20"></div>
+        </div>
+        
+        {/* Telegram Login Button */}
+        <div className="mb-6">
+          <TelegramLoginButton 
+            botName={process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || 'your_bot_name'} 
+            className="w-full"
+          />
+        </div>
         
         <div className="mt-4 text-center">
           <p className="text-white/60 text-sm">
