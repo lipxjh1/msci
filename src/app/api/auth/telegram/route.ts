@@ -26,7 +26,8 @@ export async function POST(request: NextRequest) {
     }
     
     // Xác thực dữ liệu từ Telegram (bỏ qua xác thực trong môi trường phát triển)
-    if (process.env.NODE_ENV !== 'development') {
+    const shouldBypassAuth = process.env.NODE_ENV === 'development' || process.env.BYPASS_TELEGRAM_AUTH === 'true';
+    if (!shouldBypassAuth) {
       console.log("Production mode - verifying Telegram data");
       if (!verifyTelegramData(telegramData, botToken)) {
         console.error("Invalid Telegram data");
@@ -36,7 +37,7 @@ export async function POST(request: NextRequest) {
         );
       }
     } else {
-      console.log("Development mode - skipping Telegram data verification");
+      console.log("BYPASSING TELEGRAM AUTH - No verification performed");
     }
     
     // Kiểm tra nếu bảng telegram_users tồn tại

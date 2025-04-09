@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { TelegramAuthData } from '@/types/telegram';
+import { useAuth } from '@/hooks/useAuth';
+import { useRouter } from 'next/navigation';
 
 interface TelegramLoginButtonProps {
   botName: string;
@@ -14,6 +16,41 @@ export default function TelegramLoginButton({
 }: TelegramLoginButtonProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const { signInWithTelegram } = useAuth();
+  const router = useRouter();
+
+  // Thêm hàm bypass đăng nhập với Telegram
+  const handleBypassLogin = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+      
+      console.log('Bypassing Telegram login with mock data');
+      
+      // Tạo dữ liệu giả lập cho Telegram
+      const mockData: TelegramAuthData = {
+        id: Date.now(), // ID ngẫu nhiên
+        first_name: "Telegram User",
+        auth_date: Math.floor(Date.now() / 1000),
+        hash: "bypass_login_hash"
+      };
+      
+      const result = await signInWithTelegram(mockData);
+      
+      if (result?.success) {
+        console.log('Bypass login successful, redirecting...');
+        router.push('/');
+      } else {
+        setError(result?.error || 'Đăng nhập thất bại');
+      }
+    } catch (err: unknown) {
+      console.error('Error during bypass login:', err);
+      setError(err instanceof Error ? err.message : 'Đăng nhập thất bại');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -73,6 +110,15 @@ export default function TelegramLoginButton({
         ref={containerRef}
         className="telegram-login-container min-h-[48px] flex items-center justify-center"
       ></div>
+      
+      {/* Nút Bypass đăng nhập tạm thời */}
+      <button
+        onClick={handleBypassLogin}
+        disabled={isLoading}
+        className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors disabled:opacity-70 disabled:cursor-not-allowed w-full"
+      >
+        {isLoading ? 'Đang xử lý...' : 'Đăng nhập tạm thời (Bypass)'}
+      </button>
       
       {error && (
         <div className="mt-2 text-sm text-red-500">
