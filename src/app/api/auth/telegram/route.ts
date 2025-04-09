@@ -5,9 +5,14 @@ import crypto from 'crypto';
 import { TelegramAuthData } from '@/types/telegram';
 
 export async function POST(request: NextRequest) {
+  console.log("==== TELEGRAM AUTH STARTED ====");
+  
   try {
+    const cookieStore = cookies();
+    const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
+    
     const telegramData: TelegramAuthData = await request.json();
-    console.log("Received Telegram data:", JSON.stringify(telegramData));
+    console.log("Received Telegram data:", JSON.stringify(telegramData, null, 2));
     
     // Lấy TELEGRAM_BOT_TOKEN từ biến môi trường
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
@@ -15,27 +20,28 @@ export async function POST(request: NextRequest) {
     if (!botToken) {
       console.error("Missing TELEGRAM_BOT_TOKEN");
       return NextResponse.json(
-        { error: 'Telegram bot token không được cấu hình' },
+        { success: false, error: 'Telegram bot token không được cấu hình' },
         { status: 500 }
       );
     }
     
     // Xác thực dữ liệu từ Telegram (bỏ qua xác thực trong môi trường phát triển)
     if (process.env.NODE_ENV !== 'development') {
+      console.log("Production mode - verifying Telegram data");
       if (!verifyTelegramData(telegramData, botToken)) {
         console.error("Invalid Telegram data");
         return NextResponse.json(
-          { error: 'Dữ liệu Telegram không hợp lệ' },
+          { success: false, error: 'Dữ liệu Telegram không hợp lệ' },
           { status: 400 }
         );
       }
+    } else {
+      console.log("Development mode - skipping Telegram data verification");
     }
-    
-    // Tạo supabase client
-    const supabase = createRouteHandlerClient({ cookies });
     
     // Kiểm tra nếu bảng telegram_users tồn tại
     try {
+      console.log("Ensuring telegram_users table exists");
       // Thử tạo bảng nếu chưa tồn tại
       await supabase.rpc('execute_sql', {
         sql_query: `
@@ -61,6 +67,7 @@ export async function POST(request: NextRequest) {
       // Tiếp tục xử lý, vì bảng có thể đã tồn tại
     }
     
+    console.log("Checking if user exists with telegram_id:", telegramData.id);
     // Kiểm tra nếu người dùng đã tồn tại
     const { data: existingUser, error: queryError } = await supabase
       .from('telegram_users')
@@ -74,29 +81,62 @@ export async function POST(request: NextRequest) {
     
     console.log("Existing user check result:", existingUser);
     
+    const email = `telegram${telegramData.id}@telegram.login`;
+    const password = generateSecurePassword(telegramData);
+    
     if (existingUser?.user_id) {
       // Người dùng đã tồn tại, đăng nhập
-      console.log("User exists, signing in");
+      console.log("User exists, signing in with email:", email);
       
-      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-        email: `telegram${telegramData.id}@telegram.login`,
-        password: generateSecurePassword(telegramData),
-      });
-      
-      if (authError) {
-        console.error("Auth error:", authError);
-        throw authError;
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+        
+        if (error) {
+          console.error("Sign in error:", error);
+          throw error;
+        }
+        
+        console.log("Sign in successful, session:", data.session ? "Created" : "NULL");
+        
+        if (!data.session) {
+          throw new Error("Không thể tạo phiên đăng nhập");
+        }
+        
+        return NextResponse.json({ 
+          success: true, 
+          session: {
+            access_token: data.session.access_token,
+            refresh_token: data.session.refresh_token,
+            expires_at: data.session.expires_at
+          }
+        });
+      } catch (error) {
+        console.error("Login failed, trying to recreate user:", error);
+        
+        // Nếu đăng nhập thất bại, thử xóa và tạo lại người dùng
+        const { error: deleteError } = await supabase
+          .from('telegram_users')
+          .delete()
+          .eq('telegram_id', telegramData.id);
+        
+        if (deleteError) {
+          console.error("Failed to delete telegram user:", deleteError);
+          throw new Error("Lỗi xử lý tài khoản");
+        }
+        
+        // Tiếp tục với việc tạo người dùng mới
+        console.log("Proceeding with new user creation");
       }
-      
-      return NextResponse.json({ success: true, session: authData.session });
-    } else {
-      // Tạo người dùng mới
-      console.log("Creating new user");
-      
-      const email = `telegram${telegramData.id}@telegram.login`;
-      const password = generateSecurePassword(telegramData);
-      
-      const { data: userData, error: userError } = await supabase.auth.signUp({
+    }
+    
+    // Tạo người dùng mới (hoặc tạo lại nếu đăng nhập thất bại)
+    console.log("Creating new user with email:", email);
+    
+    try {
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -111,19 +151,44 @@ export async function POST(request: NextRequest) {
         },
       });
       
-      if (userError) {
-        console.error("User creation error:", userError);
-        throw userError;
+      if (error) {
+        console.error("User creation error:", error);
+        
+        // Thử đăng nhập một lần nữa trong trường hợp người dùng đã tồn tại
+        console.log("Trying to sign in again...");
+        const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+          email,
+          password
+        });
+        
+        if (signInError) {
+          console.error("Final sign in attempt failed:", signInError);
+          throw signInError;
+        }
+        
+        if (!signInData.session) {
+          throw new Error("Không thể tạo phiên đăng nhập");
+        }
+        
+        return NextResponse.json({ 
+          success: true, 
+          session: {
+            access_token: signInData.session.access_token,
+            refresh_token: signInData.session.refresh_token,
+            expires_at: signInData.session.expires_at
+          }
+        });
       }
       
-      if (!userData.user?.id) {
+      if (!data.user?.id) {
         console.error("User created but no ID returned");
         throw new Error("Không thể tạo người dùng");
       }
       
       // Thêm bản ghi vào bảng telegram_users
+      console.log("Inserting user into telegram_users table with user_id:", data.user.id);
       const { error: insertError } = await supabase.from('telegram_users').insert({
-        user_id: userData.user.id,
+        user_id: data.user.id,
         telegram_id: telegramData.id,
         username: telegramData.username || '',
         first_name: telegramData.first_name,
@@ -138,6 +203,7 @@ export async function POST(request: NextRequest) {
       }
       
       // Đăng nhập ngay sau khi đăng ký thành công
+      console.log("Sign in after signup...");
       const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
         email,
         password
@@ -148,40 +214,64 @@ export async function POST(request: NextRequest) {
         throw signInError;
       }
       
-      return NextResponse.json({ success: true, session: signInData.session });
+      if (!signInData.session) {
+        throw new Error("Không thể tạo phiên đăng nhập");
+      }
+      
+      console.log("Auth successful, returning session");
+      return NextResponse.json({ 
+        success: true, 
+        session: {
+          access_token: signInData.session.access_token,
+          refresh_token: signInData.session.refresh_token,
+          expires_at: signInData.session.expires_at
+        }
+      });
+    } catch (error) {
+      console.error("User creation/login process failed:", error);
+      throw error;
     }
   } catch (error) {
     console.error('Lỗi đăng nhập Telegram:', error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Đăng nhập Telegram thất bại' },
+      { success: false, error: error instanceof Error ? error.message : 'Đăng nhập Telegram thất bại' },
       { status: 500 }
     );
+  } finally {
+    console.log("==== TELEGRAM AUTH COMPLETED ====");
   }
 }
 
 // Kiểm tra tính xác thực của dữ liệu từ Telegram
 function verifyTelegramData(data: TelegramAuthData, botToken: string): boolean {
-  // Clone và xóa hash từ dữ liệu để tạo data check string
-  const { hash, ...dataWithoutHash } = data;
-  
-  // Sắp xếp các trường theo thứ tự chữ cái
-  const dataCheckString = Object.keys(dataWithoutHash)
-    .sort()
-    .map(key => `${key}=${dataWithoutHash[key as keyof typeof dataWithoutHash]}`)
-    .join('\n');
-  
-  // Tạo secret hash key từ bot token
-  const secretKey = crypto.createHash('sha256')
-    .update(botToken)
-    .digest();
-  
-  // Tạo hash từ dữ liệu
-  const calculatedHash = crypto.createHmac('sha256', secretKey)
-    .update(dataCheckString)
-    .digest('hex');
-  
-  // So sánh hash từ request với hash tính toán
-  return calculatedHash === hash;
+  try {
+    // Clone và xóa hash từ dữ liệu để tạo data check string
+    const { hash, ...dataWithoutHash } = data;
+    
+    // Sắp xếp các trường theo thứ tự chữ cái
+    const dataCheckString = Object.keys(dataWithoutHash)
+      .sort()
+      .map(key => `${key}=${dataWithoutHash[key as keyof typeof dataWithoutHash]}`)
+      .join('\n');
+    
+    // Tạo secret hash key từ bot token
+    const secretKey = crypto.createHash('sha256')
+      .update(botToken)
+      .digest();
+    
+    // Tạo hash từ dữ liệu
+    const calculatedHash = crypto.createHmac('sha256', secretKey)
+      .update(dataCheckString)
+      .digest('hex');
+    
+    // So sánh hash từ request với hash tính toán
+    const isValid = calculatedHash === hash;
+    console.log(`Telegram data verification: ${isValid ? 'Valid' : 'Invalid'}`);
+    return isValid;
+  } catch (error) {
+    console.error("Error verifying telegram data:", error);
+    return false;
+  }
 }
 
 // Tạo mật khẩu an toàn từ dữ liệu Telegram

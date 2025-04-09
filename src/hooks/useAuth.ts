@@ -91,6 +91,8 @@ export function useAuth() {
       setLoading(true);
       setError(null);
       
+      console.log('Executing signInWithTelegram with data:', JSON.stringify(telegramData, null, 2));
+      
       // Xác thực dữ liệu từ Telegram callback với backend
       const response = await fetch('/api/auth/telegram', {
         method: 'POST',
@@ -101,29 +103,49 @@ export function useAuth() {
       });
       
       const data = await response.json();
+      console.log('Telegram auth response:', JSON.stringify(data, null, 2));
       
       if (!response.ok) {
+        console.error('Authentication failed:', data.error);
+        throw new Error(data.error || 'Đăng nhập bằng Telegram thất bại');
+      }
+
+      if (!data.success) {
+        console.error('Authentication failed:', data.error);
         throw new Error(data.error || 'Đăng nhập bằng Telegram thất bại');
       }
 
       // Sử dụng access token từ backend để đăng nhập vào Supabase
       if (data.session) {
+        console.log('Setting session in client...');
         const { error } = await supabase.auth.setSession({
           access_token: data.session.access_token,
           refresh_token: data.session.refresh_token,
         });
         
-        if (error) throw error;
+        if (error) {
+          console.error('Error setting session:', error);
+          throw error;
+        }
+        
+        // Refresh user data
+        const { data: userData } = await supabase.auth.getUser();
+        setUser(userData.user);
+        
+        console.log('Session set successfully');
+        return { success: true };
+      } else {
+        console.error('No session data received from server');
+        throw new Error('Không nhận được dữ liệu phiên đăng nhập');
       }
-      
-      return data;
     } catch (error) {
+      console.error('Error in signInWithTelegram:', error);
       if (error instanceof Error) {
         setError(error.message);
       } else {
         setError('Đăng nhập bằng Telegram thất bại');
       }
-      return null;
+      return { success: false, error: error instanceof Error ? error.message : 'Đăng nhập thất bại' };
     } finally {
       setLoading(false);
     }
