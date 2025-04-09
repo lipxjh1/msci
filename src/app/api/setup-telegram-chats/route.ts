@@ -1,8 +1,13 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     console.log('Starting setup of Telegram webhook');
+    
+    // Lấy URL hiện tại từ request
+    const requestUrl = new URL(request.url);
+    const origin = requestUrl.origin;
+    console.log('Request origin:', origin);
     
     // Khởi tạo webhook với Telegram (bỏ qua phần tạo bảng vì bảng đã tồn tại)
     try {
@@ -11,15 +16,28 @@ export async function GET() {
         throw new Error('TELEGRAM_BOT_TOKEN is not configured');
       }
       
-      const appUrl = process.env.NEXT_PUBLIC_APP_URL;
-      if (!appUrl) {
-        throw new Error('NEXT_PUBLIC_APP_URL is not configured');
+      // Sử dụng origin từ request thay vì biến môi trường nếu có thể
+      let webhookBaseUrl = origin;
+      
+      // Fallback to environment variable if needed
+      if (!webhookBaseUrl || webhookBaseUrl.includes('localhost')) {
+        const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+        if (!appUrl) {
+          throw new Error('NEXT_PUBLIC_APP_URL is not configured');
+        }
+        webhookBaseUrl = `https://${appUrl}`;
       }
       
-      const url = `https://${appUrl}/api/telegram-webhook`;
-      console.log(`Setting webhook URL to: ${url}`);
+      const webhookUrl = `${webhookBaseUrl}/api/telegram-webhook`;
+      console.log(`Setting webhook URL to: ${webhookUrl}`);
       
-      const response = await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${encodeURIComponent(url)}`);
+      // Kiểm tra webhook hiện tại trước
+      const checkResponse = await fetch(`https://api.telegram.org/bot${botToken}/getWebhookInfo`);
+      const checkResult = await checkResponse.json();
+      console.log('Current webhook info:', checkResult);
+      
+      // Đặt webhook mới
+      const response = await fetch(`https://api.telegram.org/bot${botToken}/setWebhook?url=${encodeURIComponent(webhookUrl)}`);
       const result = await response.json();
       
       console.log('Webhook setup result:', result);
@@ -28,11 +46,16 @@ export async function GET() {
         throw new Error(`Failed to set webhook: ${JSON.stringify(result)}`);
       }
       
+      // Kiểm tra lại sau khi đặt
+      const verifyResponse = await fetch(`https://api.telegram.org/bot${botToken}/getWebhookInfo`);
+      const verifyResult = await verifyResponse.json();
+      
       return NextResponse.json({ 
-        success: true, 
-        message: 'Telegram webhook setup completed successfully',
-        webhook_url: url,
-        result: result
+        success: result.ok, 
+        message: 'Telegram webhook setup completed',
+        webhook_url: webhookUrl,
+        setup_result: result,
+        verify_result: verifyResult
       });
     } catch (error) {
       console.error('Error setting up webhook:', error);

@@ -2,6 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
+// Thêm method GET để kiểm tra xem webhook có hoạt động không
+export async function GET() {
+  return NextResponse.json({
+    status: "ok",
+    message: "Telegram webhook endpoint is active",
+    timestamp: new Date().toISOString()
+  });
+}
+
 export async function POST(request: NextRequest) {
   console.log('==== TELEGRAM WEBHOOK RECEIVED ====');
   try {
