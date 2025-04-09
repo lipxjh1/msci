@@ -130,6 +130,32 @@ export default function TelegramLoginButton({
           return;
         }
 
+        // Tạo callback function cho Telegram login
+        window.onTelegramAuth = (user: TelegramAuthData) => {
+          console.log('Telegram auth callback received:', user);
+          setIsLoading(true);
+          setError(null);
+          
+          signInWithTelegram(user)
+            .then((result) => {
+              console.log('Auth result:', result);
+              if (result?.success) {
+                console.log('Authentication successful, redirecting...');
+                router.push('/');
+              } else {
+                console.error('Authentication failed:', result?.error);
+                setError(result?.error || 'Đăng nhập thất bại');
+              }
+            })
+            .catch((err) => {
+              console.error('Error during Telegram auth:', err);
+              setError(err instanceof Error ? err.message : 'Đăng nhập thất bại');
+            })
+            .finally(() => {
+              setIsLoading(false);
+            });
+        };
+
         // Tạo script mới
         const script = document.createElement('script');
         script.id = 'telegram-login-script';
@@ -144,15 +170,11 @@ export default function TelegramLoginButton({
         script.setAttribute('data-telegram-login', botName);
         script.setAttribute('data-size', 'large');
         script.setAttribute('data-radius', '8');
+        script.setAttribute('data-onauth', 'onTelegramAuth(user)');
         script.setAttribute('data-request-access', 'write');
         script.setAttribute('data-userpic', 'false');
         script.setAttribute('data-lang', 'vi');
         
-        // QUAN TRỌNG: Sử dụng auth-url thay vì callback JavaScript
-        script.setAttribute('data-auth-url', `${window.location.origin}/api/auth/telegram-callback`);
-        
-        console.log('Telegram auth URL:', `${window.location.origin}/api/auth/telegram-callback`);
-
         // Thêm script vào container
         if (containerRef.current) {
           containerRef.current.innerHTML = '';
@@ -163,7 +185,7 @@ export default function TelegramLoginButton({
         setError('Lỗi cài đặt nút đăng nhập Telegram');
       }
     }
-  }, [botName]);
+  }, [botName, signInWithTelegram, router]);
 
   return (
     <div className={`${className} flex flex-col items-center`}>
