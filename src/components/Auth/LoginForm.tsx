@@ -87,6 +87,17 @@ export default function LoginForm({ onSwitchToRegister }: LoginFormProps) {
             botName={process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || 'your_bot_name'} 
             className="w-full"
           />
+          
+          {/* Debug Info */}
+          {process.env.NODE_ENV !== 'production' && (
+            <div className="mt-4 p-3 bg-gray-800 rounded text-xs text-gray-300 font-mono">
+              <h4 className="font-bold mb-1 text-blue-400">Telegram Config Debug:</h4>
+              <p>Bot name: {process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || 'Not configured'}</p>
+              <p>Environment: {process.env.NODE_ENV}</p>
+              <p>Current URL: {typeof window !== 'undefined' ? window.location.href : 'Server side'}</p>
+              <p>Domain: {typeof window !== 'undefined' ? window.location.host : 'Server side'}</p>
+            </div>
+          )}
         </div>
         
         <div className="mt-4 text-center">
