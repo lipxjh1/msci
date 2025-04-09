@@ -17,7 +17,19 @@ export default function TelegramLoginButton({
   const containerRef = useRef<HTMLDivElement>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [webhookStatus, setWebhookStatus] = useState<Record<string, any> | null>(null);
+  const [webhookStatus, setWebhookStatus] = useState<{
+    ok: boolean;
+    result?: {
+      url?: string;
+      has_custom_certificate?: boolean;
+      pending_update_count?: number;
+      last_error_date?: number;
+      last_error_message?: string;
+      max_connections?: number;
+    };
+    description?: string;
+    error_code?: number;
+  } | null>(null);
   const [showWebhookDetails, setShowWebhookDetails] = useState(false);
   const { signInWithTelegram } = useAuth();
   const router = useRouter();
