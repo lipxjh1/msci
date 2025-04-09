@@ -1,88 +1,86 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { TelegramAuthData } from '@/types/telegram';
-import Image from 'next/image';
 
 interface TelegramLoginButtonProps {
   botName: string;
-  buttonSize?: 'large' | 'medium' | 'small';
-  cornerRadius?: number;
-  requestAccess?: 'write' | 'read';
-  usePic?: boolean;
   className?: string;
-}
-
-declare global {
-  interface Window {
-    TelegramLoginWidget: {
-      dataOnauth: (user: TelegramAuthData) => void;
-    };
-  }
 }
 
 export default function TelegramLoginButton({
   botName,
-  buttonSize = 'medium',
-  cornerRadius = 10,
-  requestAccess = 'write',
-  usePic = true,
   className = '',
 }: TelegramLoginButtonProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const { signInWithTelegram } = useAuth();
-  const buttonRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
-    // Đảm bảo script được thêm vào chỉ một lần
-    const telegramScript = document.getElementById('telegram-login-script');
-    
-    if (!telegramScript) {
-      // Thêm callback function cho Telegram
-      window.TelegramLoginWidget = {
-        dataOnauth: (user: TelegramAuthData) => {
-          signInWithTelegram(user);
-        },
+    if (typeof window !== 'undefined') {
+      // Tạo function xử lý callback từ Telegram
+      window.onTelegramAuth = (user: TelegramAuthData) => {
+        console.log('Telegram auth success:', user);
+        if (user) {
+          signInWithTelegram(user)
+            .then((result) => {
+              console.log('Auth result:', result);
+              if (result?.success) {
+                window.location.href = '/';
+              }
+            })
+            .catch((error) => {
+              console.error('Error during Telegram auth:', error);
+            });
+        }
       };
 
-      // Tạo script element
+      // Xóa script cũ nếu có
+      const existingScript = document.getElementById('telegram-login-script');
+      if (existingScript) {
+        existingScript.remove();
+      }
+
+      // Tạo script mới
       const script = document.createElement('script');
       script.id = 'telegram-login-script';
       script.src = 'https://telegram.org/js/telegram-widget.js';
       script.async = true;
       script.setAttribute('data-telegram-login', botName);
-      script.setAttribute('data-size', buttonSize);
-      script.setAttribute('data-radius', cornerRadius.toString());
-      script.setAttribute('data-request-access', requestAccess);
-      script.setAttribute('data-userpic', usePic.toString());
-      script.setAttribute('data-onauth', 'TelegramLoginWidget.dataOnauth(user)');
+      script.setAttribute('data-size', 'large');
+      script.setAttribute('data-radius', '8');
+      script.setAttribute('data-onauth', 'onTelegramAuth(user)');
+      script.setAttribute('data-request-access', 'write');
       script.setAttribute('data-lang', 'vi');
-      
+
       // Thêm script vào container
-      if (buttonRef.current) {
-        buttonRef.current.appendChild(script);
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
+        containerRef.current.appendChild(script);
       }
-      
-      return () => {
-        script.remove();
-      };
     }
-  }, [botName, buttonSize, cornerRadius, requestAccess, usePic, signInWithTelegram]);
-  
+  }, [botName, signInWithTelegram]);
+
   return (
-    <div 
-      ref={buttonRef} 
-      className={`relative flex justify-center items-center ${className}`}
-    >
-      {/* Fallback khi script chưa load hoặc bị chặn */}
-      <div className="flex items-center justify-center bg-[#2AABEE] hover:bg-[#229ED9] text-white py-2 px-4 rounded transition-colors cursor-pointer">
-        <Image
-          src="/images/telegram-logo.png"
-          alt="Telegram"
-          width={24}
-          height={24}
-          className="mr-2"
-        />
-        <span>Đăng nhập với Telegram</span>
-      </div>
+    <div className={`${className} flex justify-center`}>
+      <div 
+        ref={containerRef}
+        className="telegram-login-container"
+      ></div>
+      
+      {/* Fallback UI nếu script không tải được */}
+      <noscript>
+        <div className="flex items-center justify-center bg-[#2AABEE] hover:bg-[#229ED9] text-white py-2 px-4 rounded transition-colors cursor-pointer">
+          <span>Đăng nhập với Telegram</span>
+        </div>
+      </noscript>
     </div>
   );
+}
+
+// Khai báo cho TypeScript
+declare global {
+  interface Window {
+    onTelegramAuth: (user: TelegramAuthData) => void;
+  }
 } 
