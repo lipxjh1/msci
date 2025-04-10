@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import ThanhDieuHuong from "@/thanh_phan/thanh_dieu_huong";
+import ThanhDieuHuongResponsive from "@/thanh_phan/thanh_dieu_huong_responsive";
 import { useEffect } from "react";
 import Button from "@/components/Button";
 
@@ -52,7 +52,7 @@ export default function Home() {
         
         {/* Menu điều hướng nổi trên video */}
         <div className="relative z-20">
-          <ThanhDieuHuong />
+          <ThanhDieuHuongResponsive />
         </div>
         
         {/* Nội dung banner */}

@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { BaiViet } from '@/types/bai_viet';
-import ThanhDieuHuong from '@/thanh_phan/thanh_dieu_huong';
+import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -147,7 +147,7 @@ export default async function BaiVietDetailPage({ params }: { params: { id: stri
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a141e] to-[#1a2634]">
-      <ThanhDieuHuong />
+      <ThanhDieuHuongResponsive />
       
       {/* Hero section với parallax effect */}
       <div className="relative h-[100vh] w-full overflow-hidden">

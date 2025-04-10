@@ -5,7 +5,7 @@ import { useSupabase } from '@/context/SupabaseContext';
 import { AnhHung, VaiTro } from '@/loai';
 import Link from 'next/link';
 import Image from 'next/image';
-import ThanhDieuHuong from '@/thanh_phan/thanh_dieu_huong';
+import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 
 export default function HeroesPage() {
   const supabase = useSupabase();
@@ -72,8 +72,8 @@ export default function HeroesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--overwatch-dark-blue)] to-[var(--overwatch-black)]">
-      {/* Navigation Bar */}
-      <ThanhDieuHuong />
+      {/* Menu điều hướng */}
+      <ThanhDieuHuongResponsive />
 
       {/* Hero Banner */}
       <div className="relative h-[100vh] overflow-hidden">

@@ -13,6 +13,12 @@ export default function BaiVietCard({ baiViet }: BaiVietCardProps) {
   const [formattedDate, setFormattedDate] = useState<string>('');
   const [isMounted, setIsMounted] = useState(false);
   
+  // Sử dụng ảnh mặc định khi không có ảnh đại diện
+  const defaultImage = process.env.NEXT_PUBLIC_DEFAULT_BANNER || '/images/overwatch_bg_2.jpg';
+  const imageUrl = baiViet.anh_dai_dien && baiViet.anh_dai_dien.trim() !== '' 
+    ? baiViet.anh_dai_dien 
+    : defaultImage;
+  
   useEffect(() => {
     setIsMounted(true);
     // Định dạng ngày tháng chỉ ở phía client để tránh lỗi hydration
@@ -35,8 +41,8 @@ export default function BaiVietCard({ baiViet }: BaiVietCardProps) {
     <div suppressHydrationWarning className="bg-[#1a2634]/80 backdrop-blur-md rounded-xl shadow-lg overflow-hidden border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 h-full flex flex-col card-neon">
       <div className="relative h-48 w-full overflow-hidden">
         <Image
-          src={baiViet.anh_dai_dien}
-          alt={baiViet.tieu_de}
+          src={imageUrl}
+          alt={baiViet.tieu_de || 'Bài viết'}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -61,8 +67,8 @@ export default function BaiVietCard({ baiViet }: BaiVietCardProps) {
         </div>
       </div>
       <div className="p-6 flex flex-col flex-grow">
-        <h2 className="font-rajdhani text-xl font-bold mb-3 text-white line-clamp-2 text-shadow-blue">{baiViet.tieu_de}</h2>
-        <p className="font-rajdhani text-gray-300 line-clamp-3 mb-4 flex-grow">{baiViet.noi_dung}</p>
+        <h2 className="font-rajdhani text-xl font-bold mb-3 text-white line-clamp-2 text-shadow-blue">{baiViet.tieu_de || 'Không có tiêu đề'}</h2>
+        <p className="font-rajdhani text-gray-300 line-clamp-3 mb-4 flex-grow">{baiViet.noi_dung || 'Không có nội dung'}</p>
         <div className="flex items-center justify-between text-sm text-gray-400 mt-auto">
           {/* Sử dụng suppressHydrationWarning trên phần ngày tháng */}
           <span suppressHydrationWarning className="font-rajdhani">{isMounted ? formattedDate : ''}</span>

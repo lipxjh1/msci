@@ -1,4 +1,4 @@
-import ThanhDieuHuong from '@/thanh_phan/thanh_dieu_huong';
+import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import Image from 'next/image';
 
 export const metadata = {
@@ -9,7 +9,7 @@ export const metadata = {
 export default function CoChePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a141e] to-[#1a2634]">
-      <ThanhDieuHuong />
+      <ThanhDieuHuongResponsive />
       
       {/* Hero section */}
       <div className="relative w-full h-[60vh] overflow-hidden">

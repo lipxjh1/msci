@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { BaiViet } from '@/types/bai_viet';
-import ThanhDieuHuong from '@/thanh_phan/thanh_dieu_huong';
+import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import BoLocBaiViet from '@/components/BoLocBaiViet';
 import DanhSachBaiViet from '@/components/DanhSachBaiViet';
 import Image from 'next/image';
@@ -41,7 +41,7 @@ export default async function TinTucPage({
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a141e] to-[#1a2634]">
-      <ThanhDieuHuong />
+      <ThanhDieuHuongResponsive />
       
       {/* Hero Section với banner cải tiến */}
       <div className="relative h-[100vh] w-full overflow-hidden pt-20">
