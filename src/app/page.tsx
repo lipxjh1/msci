@@ -3,10 +3,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import ThanhDieuHuongResponsive from "@/thanh_phan/thanh_dieu_huong_responsive";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from "@/components/Button";
+import HomeMobile from "./home_mobile";
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Kiểm tra xem thiết bị có phải là mobile hay không
+  useEffect(() => {
+    setIsClient(true);
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    
+    return () => {
+      window.removeEventListener('resize', checkDevice);
+    };
+  }, []);
+
   // Thêm hiệu ứng scroll reveal
   useEffect(() => {
     const scrollReveal = () => {
@@ -32,6 +51,11 @@ export default function Home() {
     
     return () => window.removeEventListener('scroll', scrollReveal);
   }, []);
+
+  // Nếu là thiết bị di động, sử dụng giao diện mobile
+  if (isClient && isMobile) {
+    return <HomeMobile />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--bg-dark)] to-[var(--bg-darker)]">
