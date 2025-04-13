@@ -53,7 +53,11 @@ export const createTinTuc = async (tinTuc: Omit<BaiViet, 'id' | 'nguoi_dung'>): 
     ...tinTuc,
     ngay_dang: tinTuc.ngay_dang || new Date().toISOString(),
     // Giữ nguyên loại được truyền vào thay vì ghi đè
-    loai: tinTuc.loai || 'tin_tuc'
+    loai: tinTuc.loai || 'tin_tuc',
+    // Bổ sung trường video nếu có
+    video: tinTuc.video || null,
+    // Bổ sung trường video_embed nếu có
+    video_embed: tinTuc.video_embed || null
   };
 
   const { data, error } = await supabase
@@ -100,6 +104,16 @@ export const updateTinTuc = async (tinTucId: string, tinTuc: Partial<Omit<BaiVie
       // Giữ nguyên ảnh đại diện nếu không được cập nhật
       if (tinTuc.anh_dai_dien === undefined && existingData.anh_dai_dien) {
         tinTuc.anh_dai_dien = existingData.anh_dai_dien;
+      }
+      
+      // Giữ nguyên video nếu không được cập nhật
+      if (tinTuc.video === undefined && existingData.video) {
+        tinTuc.video = existingData.video;
+      }
+      
+      // Giữ nguyên video_embed nếu không được cập nhật
+      if (tinTuc.video_embed === undefined && existingData.video_embed) {
+        tinTuc.video_embed = existingData.video_embed;
       }
     }
   } catch (err) {

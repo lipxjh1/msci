@@ -6,6 +6,8 @@ export interface BaiViet {
   tieu_de: string | null;
   noi_dung: string | null;
   anh_dai_dien: string | null;
+  video: string | null;
+  video_embed: string | null;
   loai: 'tin_tuc' | 'cong_dong' | null;
   nguoi_dung_id: string | null;
   ngay_dang: string | null;

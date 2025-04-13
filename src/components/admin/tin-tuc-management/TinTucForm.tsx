@@ -14,6 +14,8 @@ export default function TinTucForm({
   onClose,
   onSuccess
 }: TinTucFormProps) {
+  console.log("TinTucForm đang render", { editingTinTuc });
+  
   const { adminInfo } = useAuth();
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,22 +27,33 @@ export default function TinTucForm({
     tieu_de: editingTinTuc?.tieu_de || '',
     noi_dung: editingTinTuc?.noi_dung || '',
     anh_dai_dien: editingTinTuc?.anh_dai_dien || '',
+    video: editingTinTuc?.video || '',
     loai: editingTinTuc?.loai || 'tin_tuc' as const,
     nguoi_dung_id: editingTinTuc?.nguoi_dung_id || adminInfo?.id || '',
     ngay_dang: editingTinTuc?.ngay_dang || new Date().toISOString()
   });
 
   useEffect(() => {
-    // Kiểm tra nếu không có adminInfo thì hiển thị lỗi
-    if (!adminInfo) {
-      setError('Bạn cần đăng nhập để tạo bài viết');
+    try {
+      // Kiểm tra nếu không có adminInfo thì hiển thị lỗi
+      console.log("TinTucForm useEffect chạy, adminInfo:", adminInfo);
+      if (!adminInfo) {
+        console.warn("Không tìm thấy adminInfo trong context");
+        setError('Bạn cần đăng nhập để tạo bài viết');
+      }
+    } catch (err) {
+      console.error("Lỗi trong useEffect của TinTucForm:", err);
+      setError(`Lỗi khởi tạo form: ${err instanceof Error ? err.message : 'Lỗi không xác định'}`);
     }
   }, [adminInfo]);
 
   // Xử lý upload ảnh
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
-    if (!files || files.length === 0) return;
+    if (!files || files.length === 0) {
+      setIsUploadingImage(false);
+      return;
+    }
     
     const file = files[0];
     const fileSize = file.size / 1024 / 1024; // kích thước tính bằng MB
@@ -48,6 +61,7 @@ export default function TinTucForm({
     // Kiểm tra kích thước file (giới hạn 5MB)
     if (fileSize > 5) {
       alert('Kích thước file quá lớn. Vui lòng chọn file nhỏ hơn 5MB');
+      setIsUploadingImage(false);
       return;
     }
     
@@ -136,6 +150,7 @@ export default function TinTucForm({
       const errorMessage = err instanceof Error ? err.message : 'Lỗi không xác định';
       alert(`Không thể upload ảnh: ${errorMessage}\nĐang sử dụng ảnh mặc định thay thế.`);
     } finally {
+      console.log("Kết thúc quá trình upload ảnh");
       setIsUploadingImage(false);
       if (fileInputRef.current) {
         fileInputRef.current.value = '';
@@ -189,14 +204,22 @@ export default function TinTucForm({
       [name]: value
     }));
   };
-
+  
   // Xử lý submit form
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Bắt đầu xử lý form submit");
     setError(null);
     setIsSubmitting(true);
     
     try {
+      console.log("Kiểm tra thông tin form:", { 
+        tieu_de: formData.tieu_de, 
+        noi_dung: formData.noi_dung,
+        loai: formData.loai,
+        adminInfo: adminInfo?.id 
+      });
+
       if (!formData.tieu_de) {
         throw new Error('Vui lòng nhập tiêu đề cho bài viết');
       }
@@ -233,11 +256,12 @@ export default function TinTucForm({
       }
       
       // Dữ liệu bài viết để lưu vào database
-      const baiVietData: Omit<BaiViet, 'nguoi_dung'> = {
+      const baiVietData = {
         id: formData.id,
         tieu_de: formData.tieu_de,
         noi_dung: formData.noi_dung,
         anh_dai_dien: anhDaiDien || null,
+        video: formData.video || null,
         loai: formData.loai as 'tin_tuc' | 'cong_dong' | null,
         nguoi_dung_id: adminInfo.id,
         ngay_dang: editingTinTuc ? editingTinTuc.ngay_dang : new Date().toISOString()
@@ -250,11 +274,14 @@ export default function TinTucForm({
         console.log(`Đang cập nhật bài viết ID: ${baiVietData.id}`);
         
         try {
+          console.log("Bắt đầu gọi Supabase update");
           const { data: updatedData, error: updateError } = await supabase
             .from('bai_viet')
             .update(baiVietData)
             .eq('id', baiVietData.id)
             .select();
+          
+          console.log("Kết quả từ Supabase update:", { updatedData, updateError });
           
           if (updateError) {
             console.error("Lỗi khi cập nhật bài viết:", updateError);
@@ -271,6 +298,7 @@ export default function TinTucForm({
           
           // Đóng form và tải lại dữ liệu
           try {
+            console.log("Đang gọi onSuccess callback");
             await onSuccess();
             console.log("Đã tải lại dữ liệu sau khi cập nhật bài viết thành công");
           } catch (loadErr) {
@@ -285,29 +313,37 @@ export default function TinTucForm({
         // Tạo bài viết mới
         console.log('Đang tạo bài viết mới');
         
-        const { data: insertedData, error: insertError } = await supabase
-          .from('bai_viet')
-          .insert(baiVietData)
-          .select();
-        
-        if (insertError) {
-          console.error("Lỗi khi tạo bài viết mới:", insertError);
-          throw new Error(`Không thể tạo bài viết: ${insertError.message}`);
-        }
-        
-        console.log("Kết quả tạo mới:", insertedData);
-        alert(`Đã tạo bài viết "${baiVietData.tieu_de}" thành công!`);
-        
-        // Tải lại dữ liệu trước khi đóng form
         try {
-          await onSuccess();
-          console.log("Đã tải lại dữ liệu sau khi lưu bài viết thành công");
-        } catch (loadErr) {
-          console.error("Lỗi khi tải lại dữ liệu sau khi lưu:", loadErr);
+          console.log("Bắt đầu gọi Supabase insert");
+          const { data: insertedData, error: insertError } = await supabase
+            .from('bai_viet')
+            .insert(baiVietData)
+            .select();
+          
+          console.log("Kết quả từ Supabase insert:", { insertedData, insertError });
+          
+          if (insertError) {
+            console.error("Lỗi khi tạo bài viết mới:", insertError);
+            throw new Error(`Không thể tạo bài viết: ${insertError.message}`);
+          }
+          
+          console.log("Kết quả tạo mới:", insertedData);
+          alert(`Đã tạo bài viết "${baiVietData.tieu_de}" thành công!`);
+          
+          // Tải lại dữ liệu trước khi đóng form
+          try {
+            console.log("Đang gọi onSuccess callback");
+            await onSuccess();
+            console.log("Đã tải lại dữ liệu sau khi lưu bài viết thành công");
+          } catch (loadErr) {
+            console.error("Lỗi khi tải lại dữ liệu sau khi lưu:", loadErr);
+          }
+          
+          // Đóng form
+          onClose();
+        } catch (insertErr) {
+          throw insertErr;
         }
-        
-        // Đóng form
-        onClose();
       }
     } catch (err) {
       console.error('Lỗi khi lưu bài viết:', err);
@@ -315,6 +351,7 @@ export default function TinTucForm({
       setError(`Không thể lưu bài viết: ${errorMessage}`);
       alert(`Không thể lưu bài viết: ${errorMessage}`);
     } finally {
+      console.log("Kết thúc xử lý form submit");
       setIsSubmitting(false);
     }
   };
@@ -460,6 +497,45 @@ export default function TinTucForm({
                     * Bạn có thể sử dụng HTML để định dạng văn bản. Ví dụ: &lt;b&gt;in đậm&lt;/b&gt;, &lt;i&gt;in nghiêng&lt;/i&gt;, &lt;u&gt;gạch chân&lt;/u&gt;, &lt;a href=&quot;https://example.com&quot;&gt;liên kết&lt;/a&gt;, &lt;h2&gt;Tiêu đề&lt;/h2&gt;
                   </p>
                 </div>
+              </div>
+              
+              {/* Video Embed Code */}
+              <div>
+                <label htmlFor="video_embed" className="block text-sm font-medium text-gray-700 mb-1">
+                  Mã nhúng Video (iframe)
+                </label>
+                <textarea
+                  id="video_embed"
+                  name="video"
+                  value={formData.video || ''}
+                  onChange={handleInputChange}
+                  rows={3}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  disabled={isSubmitting}
+                  placeholder='<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+                />
+                <p className="mt-2 text-xs text-gray-500">
+                  * Dán trực tiếp mã iframe nhúng video từ YouTube, Vimeo, hoặc các dịch vụ khác
+                </p>
+                {formData.video && (
+                  <div className="mt-2 p-2 border border-gray-200 rounded-md">
+                    <div className="flex justify-between items-center mb-2">
+                      <p className="text-sm font-medium text-gray-700">Xem trước mã nhúng:</p>
+                      <div>
+                        <button
+                          type="button"
+                          onClick={() => setFormData(prev => ({ ...prev, video: '' }))}
+                          className="text-xs bg-red-100 text-red-600 px-2 py-1 rounded hover:bg-red-200"
+                        >
+                          Xóa mã nhúng
+                        </button>
+                      </div>
+                    </div>
+                    <div className="aspect-video w-full bg-gray-100 rounded p-2">
+                      <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: formData.video || '' }} />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </form>

@@ -3,10 +3,12 @@
 import Image from "next/image";
 import ThanhDieuHuongResponsive from "@/thanh_phan/thanh_dieu_huong_responsive";
 import Button from "@/components/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function HomeMobile() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const lastScrollY = useRef(0);
   
   // Tự động chuyển slide
   useEffect(() => {
@@ -15,6 +17,26 @@ export default function HomeMobile() {
     }, 3000);
     
     return () => clearInterval(interval);
+  }, []);
+  
+  // Handle scroll behavior for mobile nav
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY.current) {
+        // Scrolling down
+        setIsNavVisible(false);
+      } else {
+        // Scrolling up
+        setIsNavVisible(true);
+      }
+      
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
   const slides = [
@@ -46,6 +68,35 @@ export default function HomeMobile() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--bg-dark)] to-[var(--bg-darker)]">
+      {/* Navigation Bar - Mobile Version */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#0c2341]/90 to-[#071323]/90 backdrop-blur-md border-b border-white/10 transition-transform duration-300 ${
+        isNavVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
+        <div className="px-4 h-16 flex items-center justify-between">
+          {/* Logo - Mobile */}
+          <div className="flex items-center space-x-2">
+            <Image
+              src="/images/logo.png"
+              alt="Overwatch Logo"
+              width={32}
+              height={32}
+              className="hover:scale-110 transition-transform duration-300"
+            />
+            <span className="text-lg font-bold bg-gradient-to-r from-[#42abff] to-[#42abff]/80 bg-clip-text text-transparent">
+              OW
+            </span>
+          </div>
+
+          {/* Play Button - Mobile */}
+          <button className="px-4 py-1.5 bg-gradient-to-r from-[#42abff] to-[#42abff]/80 rounded-full text-white text-sm font-bold hover:shadow-[0_0_20px_rgba(66,171,255,0.5)] hover:scale-105 transition-all duration-300 flex items-center space-x-1">
+            <span>Chơi</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
       {/* Hero Section cho Mobile */}
       <section className="relative overflow-hidden h-screen pb-16">
         {/* Background image thay cho video trên mobile */}

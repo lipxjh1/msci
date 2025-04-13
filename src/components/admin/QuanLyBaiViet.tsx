@@ -97,13 +97,24 @@ export default function QuanLyBaiViet() {
 
   // Xử lý mở form tạo mới hoặc chỉnh sửa
   const handleOpenForm = (baiViet?: BaiViet) => {
-    if (baiViet) {
-      console.log("Mở form chỉnh sửa bài viết:", baiViet);
-      setEditingBaiViet(baiViet);
-    } else {
-      setEditingBaiViet(null);
+    try {
+      console.log("handleOpenForm được gọi", baiViet ? "với bài viết" : "tạo mới");
+      
+      if (baiViet) {
+        console.log("Mở form chỉnh sửa bài viết:", baiViet);
+        setEditingBaiViet(baiViet);
+      } else {
+        console.log("Mở form tạo bài viết mới");
+        setEditingBaiViet(null);
+      }
+      
+      console.log("Đang set showForm = true");
+      setShowForm(true);
+      console.log("Đã set showForm = true");
+    } catch (err) {
+      console.error("Lỗi khi mở form:", err);
+      alert(`Lỗi khi mở form: ${err instanceof Error ? err.message : 'Lỗi không xác định'}`);
     }
-    setShowForm(true);
   };
 
   // Xử lý đóng form
@@ -219,6 +230,22 @@ export default function QuanLyBaiViet() {
         </div>
       </div>
 
+      {/* Debug showForm */}
+      <div className="bg-yellow-50 p-2 text-xs">
+        showForm: {showForm ? 'true' : 'false'} | 
+        adminInfo: {adminInfo ? 'có' : 'không có'} |
+        Form component: {typeof TinTucForm === 'function' ? 'đã import' : 'lỗi import'}
+      </div>
+      
+      <div className="my-2">
+        <button 
+          className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded mb-2 text-sm"
+          onClick={() => alert(`Debug - showForm: ${showForm}, adminInfo: ${!!adminInfo}, TinTucForm: ${typeof TinTucForm}`)}
+        >
+          Debug state
+        </button>
+      </div>
+
       {/* Danh sách Bài viết */}
       <TinTucList
         danhSachTinTuc={filteredBaiViet}
@@ -229,12 +256,22 @@ export default function QuanLyBaiViet() {
       />
 
       {/* Form thêm/sửa bài viết */}
-      {showForm && (
-        <TinTucForm
-          editingTinTuc={editingBaiViet}
-          onClose={handleCloseForm}
-          onSuccess={loadData}
-        />
+      {showForm && adminInfo && (
+        <div className="mb-4">
+          <div className="bg-blue-50 p-2 mb-2 text-sm">
+            Đang mở form bài viết {editingBaiViet ? 'chỉnh sửa' : 'mới'}
+          </div>
+          <TinTucForm
+            editingTinTuc={editingBaiViet}
+            onClose={handleCloseForm}
+            onSuccess={loadData}
+          />
+        </div>
+      )}
+      {showForm && !adminInfo && (
+        <div className="bg-red-50 p-4 border border-red-300 rounded">
+          <p className="text-red-700">Không thể hiển thị form vì thiếu thông tin admin. Vui lòng đăng nhập lại.</p>
+        </div>
       )}
     </div>
   );

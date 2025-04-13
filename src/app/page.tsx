@@ -3,13 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import ThanhDieuHuongResponsive from "@/thanh_phan/thanh_dieu_huong_responsive";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Button from "@/components/Button";
 import HomeMobile from "./home_mobile";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const lastScrollY = useRef(0);
 
   // Kiểm tra xem thiết bị có phải là mobile hay không
   useEffect(() => {
@@ -50,6 +51,17 @@ export default function Home() {
     scrollReveal(); // Run once on load
     
     return () => window.removeEventListener('scroll', scrollReveal);
+  }, []);
+
+  // Handle scroll behavior for mobile nav
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Nếu là thiết bị di động, sử dụng giao diện mobile

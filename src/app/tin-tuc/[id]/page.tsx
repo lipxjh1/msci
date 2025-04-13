@@ -1,10 +1,11 @@
 import { createClient } from '@supabase/supabase-js';
-import { BaiViet } from '@/types/bai_viet';
+import { BaiViet } from '@/loai/bai_viet';
 import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { formatRelativeTime } from '@/utils/dateUtils';
+import VideoSection from './VideoSection';
 
 // Khởi tạo Supabase client
 const supabase = createClient(
@@ -107,12 +108,12 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   }
   
   return {
-    title: `${baiViet.tieu_de} | Overwatch Clone`,
-    description: baiViet.noi_dung.substring(0, 160) + '...',
+    title: `${baiViet.tieu_de || 'Không có tiêu đề'} | Overwatch Clone`,
+    description: (baiViet.noi_dung || '').substring(0, 160) + '...',
     openGraph: {
-      title: baiViet.tieu_de,
-      description: baiViet.noi_dung.substring(0, 160) + '...',
-      images: [baiViet.anh_dai_dien]
+      title: baiViet.tieu_de || 'Không có tiêu đề',
+      description: (baiViet.noi_dung || '').substring(0, 160) + '...',
+      images: [baiViet.anh_dai_dien || process.env.NEXT_PUBLIC_DEFAULT_BANNER || '/images/overwatch_bg_2.jpg']
     }
   };
 }
@@ -157,7 +158,7 @@ export default async function BaiVietDetailPage({ params }: { params: { id: stri
           <div className="absolute inset-0">
             <Image 
               src={baiViet.anh_dai_dien || defaultBanner}
-              alt={baiViet.tieu_de}
+              alt={baiViet.tieu_de || 'Không có tiêu đề'}
               fill
               priority
               sizes="100vw"
@@ -196,7 +197,7 @@ export default async function BaiVietDetailPage({ params }: { params: { id: stri
               {/* Title with glow effect */}
               <h1 className="font-orbitron text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white relative">
-                  {baiViet.tieu_de}
+                  {baiViet.tieu_de || 'Không có tiêu đề'}
                   <span className="absolute -inset-1 animate-pulse-very-slow opacity-30 blur-md bg-[#f44336]/20 -z-10 rounded-lg"></span>
                 </span>
               </h1>
@@ -229,11 +230,11 @@ export default async function BaiVietDetailPage({ params }: { params: { id: stri
                   <h3 className="font-bold text-lg text-white">{nguoiDungTen}</h3>
                   <span className="hidden md:inline text-white/40">•</span>
                   <span suppressHydrationWarning className="hidden md:inline text-white/40 text-sm">
-                    {new Date(baiViet.ngay_dang).toLocaleDateString('vi-VN')}
+                    {baiViet.ngay_dang ? new Date(baiViet.ngay_dang).toLocaleDateString('vi-VN') : 'Không có ngày'}
                   </span>
                 </div>
                 <span suppressHydrationWarning className="md:hidden text-white/40 text-sm">
-                  {new Date(baiViet.ngay_dang).toLocaleDateString('vi-VN')}
+                  {baiViet.ngay_dang ? new Date(baiViet.ngay_dang).toLocaleDateString('vi-VN') : 'Không có ngày'}
                 </span>
                 <span className="mt-2 px-3 py-1 rounded-full bg-white/5 text-xs font-medium text-white/70">
                   Tác giả
@@ -246,9 +247,14 @@ export default async function BaiVietDetailPage({ params }: { params: { id: stri
           <div className="p-6 md:p-10">
             <div className="prose prose-lg prose-invert max-w-none">
               <div className="whitespace-pre-line text-white/85 leading-relaxed text-lg">
-                {baiViet.noi_dung}
+                {baiViet.noi_dung || 'Không có nội dung'}
               </div>
             </div>
+
+            {/* Video section */}
+            {baiViet.video && (
+              <VideoSection video={baiViet.video} />
+            )}
             
             {/* Tags */}
             <div className="mt-10 flex flex-wrap gap-2">
@@ -321,7 +327,7 @@ export default async function BaiVietDetailPage({ params }: { params: { id: stri
                     <div className="relative h-48 w-full overflow-hidden">
                       <Image
                         src={post.anh_dai_dien || defaultBanner}
-                        alt={post.tieu_de}
+                        alt={post.tieu_de || 'Không có tiêu đề'}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -339,14 +345,14 @@ export default async function BaiVietDetailPage({ params }: { params: { id: stri
                     </div>
                     <div className="p-5 flex-grow flex flex-col">
                       <h3 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-[#F44336] transition-colors">
-                        {post.tieu_de}
+                        {post.tieu_de || 'Không có tiêu đề'}
                       </h3>
                       <p className="text-gray-400 text-sm line-clamp-2 mb-3 flex-grow">
-                        {post.noi_dung}
+                        {post.noi_dung || 'Không có nội dung'}
                       </p>
                       <div className="flex justify-between items-center mt-auto pt-3 border-t border-white/5">
                         <span suppressHydrationWarning className="text-sm text-gray-500">
-                          {formatRelativeTime(post.ngay_dang)}
+                          {post.ngay_dang ? formatRelativeTime(post.ngay_dang) : 'Không có ngày'}
                         </span>
                         <span className="text-[#F44336] text-sm font-medium group-hover:translate-x-1 transition-transform">
                           Đọc thêm

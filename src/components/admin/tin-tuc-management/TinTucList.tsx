@@ -223,6 +223,14 @@ export default function TinTucList({ danhSachTinTuc, onDelete, onEdit, isLoading
                     <div className="flex-shrink-0 h-14 w-14">
                       {tinTuc.anh_dai_dien ? (
                         <img className="h-14 w-14 object-cover rounded-md" src={tinTuc.anh_dai_dien} alt={tinTuc.tieu_de || 'Tin tức'} />
+                      ) : tinTuc.video_embed ? (
+                        <div className="h-14 w-14 rounded-md bg-gray-200 flex items-center justify-center text-gray-500 relative overflow-hidden">
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                          </div>
+                        </div>
                       ) : (
                         <div className="h-14 w-14 rounded-md bg-gray-200 flex items-center justify-center text-gray-500">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -235,6 +243,18 @@ export default function TinTucList({ danhSachTinTuc, onDelete, onEdit, isLoading
                   <td className="px-6 py-4">
                     <div className="text-sm font-medium text-gray-900 truncate max-w-xs">{tinTuc.tieu_de || 'Không có tiêu đề'}</div>
                     <div className="text-sm text-gray-500 truncate max-w-xs">{createExcerpt(tinTuc.noi_dung)}</div>
+                    
+                    {/* Hiển thị biểu tượng video nếu có */}
+                    <div className="mt-1 flex items-center gap-2">
+                      {tinTuc.video_embed && (
+                        <div className="flex items-center text-xs text-green-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                          </svg>
+                          <span>Video nhúng</span>
+                        </div>
+                      )}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className="text-sm text-gray-500">
