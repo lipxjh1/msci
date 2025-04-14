@@ -11,19 +11,40 @@ export default function ThanhDieuHuong() {
   const pathname = usePathname() || '/';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hideNav, setHideNav] = useState(false);
   const [activeMenu, setActiveMenu] = useState('/');
   const highlighterRef = useRef<HTMLDivElement>(null);
   const menuRefs = useRef<Record<string, HTMLElement | null>>({});
   const { user, signOut, isAuthenticated, loading } = useAuth();
+  const lastScrollY = useRef(0);
   
-  // Theo dõi cuộn trang để thay đổi style
+  // Theo dõi cuộn trang để thay đổi style và ẩn/hiện thanh điều hướng
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      const currentScrollY = window.scrollY;
+      
+      // Đặt trạng thái cuộn
+      if (currentScrollY > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
+      
+      // Ẩn/hiện thanh điều hướng khi cuộn
+      if (currentScrollY > 100) {
+        // Cuộn xuống
+        if (currentScrollY > lastScrollY.current) {
+          setHideNav(true);
+        } 
+        // Cuộn lên
+        else {
+          setHideNav(false);
+        }
+      } else {
+        setHideNav(false);
+      }
+      
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -124,6 +145,10 @@ export default function ThanhDieuHuong() {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        hideNav 
+          ? '-translate-y-full opacity-0' 
+          : 'translate-y-0 opacity-100'
+      } ${
         scrolled 
           ? 'bg-gradient-to-r from-[#071323]/95 via-[#0c2341]/95 to-[#071323]/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.4)] py-2 border-b border-[#42abff]/30' 
           : 'bg-gradient-to-b from-black/60 to-transparent py-4'

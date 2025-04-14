@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -10,16 +10,42 @@ export default function ThanhDieuHuongMobile() {
   const pathname = usePathname() || '/';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hideNav, setHideNav] = useState(false);
   const { user, signOut, isAuthenticated, loading } = useAuth();
+  const lastScrollY = useRef(0);
   
-  // Theo dõi cuộn trang để thay đổi style
+  // Theo dõi cuộn trang để thay đổi style và ẩn/hiện thanh điều hướng
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      const currentScrollY = window.scrollY;
+      
+      // Đặt trạng thái cuộn
+      if (currentScrollY > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
+      
+      // Đóng menu khi cuộn nếu đang mở
+      if (mobileMenuOpen && Math.abs(currentScrollY - lastScrollY.current) > 30) {
+        setMobileMenuOpen(false);
+      }
+      
+      // Ẩn/hiện thanh điều hướng khi cuộn
+      if (currentScrollY > 100) {
+        // Cuộn xuống - ẩn thanh điều hướng
+        if (currentScrollY > lastScrollY.current) {
+          setHideNav(true);
+        } 
+        // Cuộn lên - hiện thanh điều hướng
+        else {
+          setHideNav(false);
+        }
+      } else {
+        setHideNav(false);
+      }
+      
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -69,7 +95,11 @@ export default function ThanhDieuHuongMobile() {
     <>
       {/* Header trên cùng */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          hideNav && !mobileMenuOpen
+            ? '-translate-y-full opacity-0' 
+            : 'translate-y-0 opacity-100'
+        } ${
           scrolled 
             ? 'bg-gradient-to-r from-[#071323]/95 via-[#0c2341]/95 to-[#071323]/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.4)] py-2' 
             : 'bg-gradient-to-b from-black/70 to-transparent py-3'
@@ -78,7 +108,7 @@ export default function ThanhDieuHuongMobile() {
         <div className="px-4 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="relative h-9 w-9 mr-2">
+            <div className="relative h-9 w-20 mr-2">
               <Image
                 src="/images/overwatch_logo.png"
                 alt="Overwatch Logo"
@@ -86,7 +116,7 @@ export default function ThanhDieuHuongMobile() {
                 className="object-contain"
               />
             </div>
-            <span className="text-lg font-bold text-white">OVERWATCH</span>
+         
           </Link>
           
           {/* Menu button */}
@@ -208,7 +238,11 @@ export default function ThanhDieuHuongMobile() {
       )}
 
       {/* Bottom navigation bar */}
-      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-gradient-to-t from-[#071323]/95 to-[#0c2341]/95 backdrop-blur-xl border-t border-[#42abff]/30 shadow-lg">
+      <nav className={`fixed bottom-0 left-0 right-0 z-40 bg-gradient-to-t from-[#071323]/95 to-[#0c2341]/95 backdrop-blur-xl border-t border-[#42abff]/30 shadow-lg transition-all duration-500 ${
+        hideNav && !mobileMenuOpen
+          ? 'translate-y-full opacity-0' 
+          : 'translate-y-0 opacity-100'
+      }`}>
         <div className="grid grid-cols-5 h-16">
           {menuItems.map((item) => (
             <Link

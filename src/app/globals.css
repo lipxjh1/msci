@@ -300,7 +300,6 @@ body {
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -1815,4 +1814,180 @@ footer, .no-snap {
 
 .animate-shimmer-button-fast {
   animation: shimmer-button-fast 1.2s ease-in-out infinite;
+}
+
+/* Xóa các styles liên quan đến snap scroll */
+
+/* Xóa hoàn toàn snap scroll effect */
+.snap-container {
+  overflow-y: auto;
+  height: auto;
+  width: 100%;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.snap-section {
+  min-height: auto;
+  position: relative;
+  width: 100%;
+}
+
+/* Ẩn navigation dots */
+.scroll-indicator {
+  display: none;
+}
+
+/* Grid pattern for dark backgrounds */
+.bg-grid-pattern-dark {
+  background-image: 
+    linear-gradient(to right, rgba(66, 146, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(66, 146, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Text glow blue style */
+.text-glow-blue {
+  text-shadow: 0 0 10px rgba(66, 146, 255, 0.5), 0 0 20px rgba(66, 146, 255, 0.3);
+}
+
+/* Cyberpunk border style */
+.cyberpunk-border {
+  position: relative;
+  border: 1px solid rgba(66, 146, 255, 0.3);
+  overflow: hidden;
+}
+
+.cyberpunk-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(66, 146, 255, 0.2),
+    transparent
+  );
+  transition: all 0.5s;
+}
+
+.cyberpunk-border:hover::before {
+  left: 100%;
+}
+
+.cyberpunk-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cyberpunk-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, rgba(66, 146, 255, 0), rgba(66, 146, 255, 0.3)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cyberpunk-card:hover::after {
+  opacity: 1;
+}
+
+/* Hide scrollbar but allow scrolling */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* 3D Quay effect for Heroes Carousel */
+.hero-banner {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-banner .hero-slider {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+  top: 10%;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: heroAutoRun 30s linear infinite;
+}
+
+@keyframes heroAutoRun {
+  from {
+    transform: perspective(1000px) rotateX(-13deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-13deg) rotateY(360deg);
+  }
+}
+
+.hero-banner .hero-slider .hero-item {
+  position: absolute;
+  inset: 0;
+  width: 200px;
+  height: 250px;
+  transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(300px);
+  transition: all 0.5s ease;
+}
+
+.hero-banner .hero-slider .hero-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.hero-banner .hero-slider .hero-item:hover a {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(66, 171, 255, 0.7), 0 0 10px rgba(66, 171, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .hero-banner .hero-slider {
+    width: 220px;
+    height: 280px;
+    left: calc(50% - 110px);
+  }
+  
+  .hero-banner .hero-slider .hero-item {
+    width: 220px;
+    height: 280px;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(350px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-banner .hero-slider {
+    width: 250px;
+    height: 320px;
+    left: calc(50% - 125px);
+  }
+  
+  .hero-banner .hero-slider .hero-item {
+    width: 250px;
+    height: 320px;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(400px);
+  }
 }
