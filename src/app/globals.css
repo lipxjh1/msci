@@ -1991,3 +1991,126 @@ footer, .no-snap {
     transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(400px);
   }
 }
+
+/* Thêm các hiệu ứng mới cho CTASection */
+
+/* Cyberpunk background */
+.cyberpunk-bg {
+  background-color: #080b16;
+  position: relative;
+}
+
+/* Cyberpunk hexagon */
+.cyberpunk-hexagon {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 125%;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  overflow: hidden;
+}
+
+/* Cyberpunk headline */
+.cyberpunk-headline {
+  position: relative;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Glitch effect */
+.glitch-effect {
+  background: repeating-linear-gradient(
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.2) 2px,
+    rgba(0, 255, 255, 0.2) 4px
+  );
+  mix-blend-mode: overlay;
+}
+
+.glitch-overlay {
+  background: url('/images/particle_overlay.png');
+  background-size: cover;
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+}
+
+/* Cyberpunk buttons */
+.cyberpunk-button {
+  position: relative;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+}
+
+.cyberpunk-button-bg {
+  background: repeating-linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 255, 255, 0.1) 2px,
+    rgba(0, 255, 255, 0.1) 4px
+  );
+}
+
+.cyberpunk-button-outline {
+  position: relative;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+}
+
+/* Cyberpunk stats */
+.cyberpunk-stat {
+  position: relative;
+  border-left: 2px solid rgba(0, 255, 255, 0.3);
+  padding-left: 1rem;
+}
+
+.cyberpunk-stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 10px;
+  height: 2px;
+  background-color: rgba(0, 255, 255, 0.7);
+}
+
+.cyberpunk-stat::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+  width: 10px;
+  height: 2px;
+  background-color: rgba(0, 255, 255, 0.7);
+}
+
+/* Floating animation */
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+}
+
+/* Scanline effect */
+.bg-scanline {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 1px,
+    rgba(0, 0, 0, 0.2) 1px,
+    rgba(0, 0, 0, 0.2) 2px
+  );
+  pointer-events: none;
+}

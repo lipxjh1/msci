@@ -171,6 +171,7 @@ export default function HeroesSection() {
               <button
                 key={role}
                 onClick={() => setActiveRole(index)}
+                suppressHydrationWarning
                 className={`px-4 py-2 rounded-md text-sm sm:text-base font-medium transition-all duration-300 whitespace-nowrap
                   ${activeRole === index 
                     ? 'bg-[var(--accent-blue)] text-white' 
