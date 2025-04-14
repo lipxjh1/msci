@@ -166,20 +166,16 @@ export default function ThanhDieuHuong() {
           <div className="flex items-center">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 flex items-center group">
-              <div className="relative h-12 w-12 mr-3 transition-transform duration-300 group-hover:scale-110">
+              <div className="relative h-12 w-22 mr-3 transition-transform duration-300 group-hover:scale-110">
                 <Image
                   src="/images/overwatch_logo.png"
-                  alt="Overwatch Logo"
+                  alt=""
                   fill
                   className="object-contain animate-pulse-slow"
                 />
                 <div className="absolute inset-0 bg-blue-500/40 rounded-full blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-300"></div>
               </div>
-              <span className="text-xl font-bold text-white animate-text-neon relative">
-                OVERWATCH
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-[#42abff] to-transparent group-hover:w-full transition-all duration-500"></span>
-                <span className="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-[#42abff]/30 blur-sm group-hover:w-full transition-all duration-700 delay-200"></span>
-              </span>
+              
             </Link>
           </div>
           
@@ -242,13 +238,7 @@ export default function ThanhDieuHuong() {
                 </div>
               ) : (
                 <div className="relative ml-4 pl-4 border-l border-[#42abff]/20 flex items-center">
-                  <Link
-                    href="/auth/register"
-                    className="px-4 py-1.5 rounded-full text-sm font-medium bg-[#0c2341]/40 border border-[#42abff]/30 text-white hover:border-[#42abff]/70 hover:text-[#42abff] transition-all duration-300 mr-2 hover:shadow-[0_0_12px_rgba(66,171,255,0.4)] relative overflow-hidden group"
-                  >
-                    <span className="relative z-10">Đăng Ký</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#42abff]/10 to-transparent -translate-x-full group-hover:animate-shimmer-button"></span>
-                  </Link>
+                  
                   <Link
                     href="/auth"
                     className="px-6 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-[#42abff] to-[#1E40AF] text-white shadow-[0_0_20px_rgba(66,171,255,0.4)] hover:shadow-[0_0_25px_rgba(66,171,255,0.6)] transition-all duration-300 hover:translate-y-[-1px] relative overflow-hidden group animate-pulse-subtle"

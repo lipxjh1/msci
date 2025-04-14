@@ -41,6 +41,38 @@ export default function FeatureSection() {
               M-SCI là game miễn phí, luôn hoạt động và liên tục phát triển. Tập hợp bạn bè không phân biệt nền tảng và nhảy vào trải nghiệm PvP được thiết kế lại.
             </p>
           </div>
+          <div className="bg-gradient-to-b from-[var(--bg-accent-dark)] to-[var(--bg-darker)] p-8 rounded-2xl transition-all duration-500 hover:translate-y-[-10px] hover:shadow-2xl hover:shadow-[var(--vaiTroDamage)]/30 reveal-left delay-1 card-neon">
+            <div className="relative h-56 mb-6 overflow-hidden rounded-xl">
+              <Image
+                src="/images/free.jpg"
+                alt="Miễn phí"
+                fill
+                className="object-cover transform hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+              <div className="absolute bottom-4 left-4 bg-[var(--accent-blue-bright)]/80 text-white font-bold py-1 px-4 rounded-full text-sm backdrop-blur-sm">MIỄN PHÍ</div>
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-[var(--accent-blue-bright)]">MIỄN PHÍ</h3>
+            <p className="text-white/90 text-lg">
+              M-SCI là game miễn phí, luôn hoạt động và liên tục phát triển. Tập hợp bạn bè không phân biệt nền tảng và nhảy vào trải nghiệm PvP được thiết kế lại.
+            </p>
+          </div>
+          <div className="bg-gradient-to-b from-[var(--bg-accent-dark)] to-[var(--bg-darker)] p-8 rounded-2xl transition-all duration-500 hover:translate-y-[-10px] hover:shadow-2xl hover:shadow-[var(--vaiTroDamage)]/30 reveal-left delay-1 card-neon">
+            <div className="relative h-56 mb-6 overflow-hidden rounded-xl">
+              <Image
+                src="/images/free.jpg"
+                alt="Miễn phí"
+                fill
+                className="object-cover transform hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+              <div className="absolute bottom-4 left-4 bg-[var(--accent-blue-bright)]/80 text-white font-bold py-1 px-4 rounded-full text-sm backdrop-blur-sm">MIỄN PHÍ</div>
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-[var(--accent-blue-bright)]">MIỄN PHÍ</h3>
+            <p className="text-white/90 text-lg">
+              M-SCI là game miễn phí, luôn hoạt động và liên tục phát triển. Tập hợp bạn bè không phân biệt nền tảng và nhảy vào trải nghiệm PvP được thiết kế lại.
+            </p>
+          </div>
           
           {/* Thêm 2 feature cards khác tương tự */}
         </div>
