@@ -8,6 +8,7 @@ import NewsSection from "./home/components/NewsSection";
 import CTASection from "./home/components/CTASection";
 import Footer from "./home/components/Footer";
 import HomeMobile from "./home_mobile";
+import ChatBox from "./home/ChatBot/ChatBox";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -54,7 +55,12 @@ export default function Home() {
   }, []);
 
   if (isClient && isMobile) {
-    return <HomeMobile />;
+    return (
+      <>
+        <HomeMobile />
+        <ChatBox />
+      </>
+    );
   }
 
   return (
@@ -65,6 +71,7 @@ export default function Home() {
       <NewsSection />
       <CTASection />
       <Footer />
+      <ChatBox />
     </main>
   );
 }

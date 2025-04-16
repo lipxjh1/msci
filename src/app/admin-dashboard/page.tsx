@@ -5,6 +5,7 @@ import { supabase } from '@/tien_ich/supabase';
 import QuanLyAdmin from '@/components/admin/QuanLyAdmin';
 import QuanLyHero from '@/components/admin/QuanLyHero';
 import QuanLyBaiViet from '@/components/admin/QuanLyBaiViet';
+import ChatbotManagement from '@/components/admin/chatbot-management/ChatbotManagement';
 import Link from 'next/link';
 import type { Session } from '@supabase/supabase-js';
 import { AuthProvider } from '@/context/AuthContext';
@@ -188,6 +189,16 @@ export default function AdminDashboardPage() {
               >
                 Quản lý Bài Viết
               </button>
+              <button
+                onClick={() => setActiveTab('quan-ly-chatbot')}
+                className={`${
+                  activeTab === 'quan-ly-chatbot'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+              >
+                Quản lý Chatbot
+              </button>
             </nav>
           </div>
 
@@ -199,6 +210,9 @@ export default function AdminDashboardPage() {
           </div>
           <div style={{ display: activeTab === 'quan-ly-bai-viet' ? 'block' : 'none' }}>
             <QuanLyBaiViet />
+          </div>
+          <div style={{ display: activeTab === 'quan-ly-chatbot' ? 'block' : 'none' }}>
+            <ChatbotManagement />
           </div>
         </div>
       </main>
