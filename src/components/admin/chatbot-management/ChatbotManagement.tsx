@@ -17,10 +17,39 @@ import {
   Typography,
   Box,
   Pagination,
+  Tabs,
+  Tab,
 } from '@mui/material';
 import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import { ChatbotService } from './ChatbotService';
 import { ChatbotMessage } from '@/types/chatbot';
+import ApiUsageStats from './ApiUsageStats';
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`chatbot-tabpanel-${index}`}
+      aria-labelledby={`chatbot-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          {children}
+        </Box>
+      )}
+    </div>
+  );
+}
 
 export default function ChatbotManagement() {
   const [messages, setMessages] = useState<ChatbotMessage[]>([]);
@@ -37,6 +66,7 @@ export default function ChatbotManagement() {
   });
   const limit = 10;
   const isInitialMount = useRef(true);
+  const [currentTab, setCurrentTab] = useState(0);
 
   const fetchMessages = async () => {
     try {
@@ -185,121 +215,137 @@ export default function ChatbotManagement() {
     }
   };
 
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    setCurrentTab(newValue);
+  };
+
   return (
-    <div>
-      <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography variant="h5">Quản lý Chatbot</Typography>
-        <Box>
-          <Button 
-            variant="outlined" 
-            color="primary" 
-            onClick={handleOpenJsonDialog}
-            sx={{ mr: 2 }}
-          >
-            Nhập từ JSON
-          </Button>
-          <Button 
-            variant="contained" 
-            color="primary" 
-            onClick={() => handleOpenDialog()}
-          >
-            Thêm tin nhắn mới
-          </Button>
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs 
+          value={currentTab} 
+          onChange={handleTabChange}
+          aria-label="chatbot management tabs"
+        >
+          <Tab label="Quản lý Q&A" />
+          <Tab label="Thống kê API" />
+        </Tabs>
+      </Box>
+
+      <TabPanel value={currentTab} index={0}>
+        <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Typography variant="h5">Câu hỏi ChatBot</Typography>
+          <Box>
+            <Button 
+              variant="outlined" 
+              color="primary" 
+              onClick={handleOpenJsonDialog}
+              sx={{ mr: 2 }}
+            >
+              Nhập từ JSON
+            </Button>
+            <Button 
+              variant="contained" 
+              color="primary" 
+              onClick={() => handleOpenDialog()}
+            >
+              Thêm tin nhắn mới
+            </Button>
+          </Box>
         </Box>
-      </Box>
 
-      <TextField
-        fullWidth
-        label="Tìm kiếm"
-        variant="outlined"
-        value={searchTerm}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
-        sx={{ mb: 2 }}
-      />
-
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Câu hỏi</TableCell>
-              <TableCell>Câu trả lời</TableCell>
-              <TableCell>Ngày tạo</TableCell>
-              <TableCell>Thao tác</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {messages.map((message) => (
-              <TableRow key={message.id}>
-                <TableCell>{message.question}</TableCell>
-                <TableCell>{message.answer}</TableCell>
-                <TableCell>{new Date(message.created_at).toLocaleDateString('vi-VN')}</TableCell>
-                <TableCell>
-                  <IconButton onClick={() => handleOpenDialog(message)}>
-                    <EditIcon />
-                  </IconButton>
-                  <IconButton onClick={() => handleDelete(message.id)}>
-                    <DeleteIcon />
-                  </IconButton>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-
-      <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
-        <Pagination
-          count={Math.ceil(totalCount / limit)}
-          page={page}
-          onChange={(_: React.ChangeEvent<unknown>, value: number) => setPage(value)}
+        <TextField
+          fullWidth
+          label="Tìm kiếm"
+          variant="outlined"
+          value={searchTerm}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+          sx={{ mb: 2 }}
         />
-      </Box>
 
-      {/* Dialog thêm/sửa câu hỏi */}
-      <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth="md" fullWidth>
-        <DialogTitle>
-          {selectedMessage ? 'Chỉnh sửa tin nhắn' : 'Thêm tin nhắn mới'}
-        </DialogTitle>
-        <DialogContent>
-          <TextField
-            fullWidth
-            label="Câu hỏi"
-            value={formData.question || ''}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, question: e.target.value })}
-            margin="normal"
-          />
-          <TextField
-            fullWidth
-            label="Câu trả lời"
-            value={formData.answer || ''}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, answer: e.target.value })}
-            margin="normal"
-            multiline
-            rows={4}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog}>Hủy</Button>
-          <Button onClick={handleSubmit} variant="contained" color="primary">
-            {selectedMessage ? 'Cập nhật' : 'Thêm mới'}
-          </Button>
-        </DialogActions>
-      </Dialog>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Câu hỏi</TableCell>
+                <TableCell>Câu trả lời</TableCell>
+                <TableCell>Ngày tạo</TableCell>
+                <TableCell>Thao tác</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {messages.map((message) => (
+                <TableRow key={message.id}>
+                  <TableCell>{message.question}</TableCell>
+                  <TableCell>{message.answer}</TableCell>
+                  <TableCell>{new Date(message.created_at).toLocaleDateString('vi-VN')}</TableCell>
+                  <TableCell>
+                    <IconButton onClick={() => handleOpenDialog(message)}>
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton onClick={() => handleDelete(message.id)}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
-      {/* Dialog nhập JSON */}
-      <Dialog open={openJsonDialog} onClose={handleCloseJsonDialog} maxWidth="md" fullWidth>
-        <DialogTitle>Nhập câu hỏi từ JSON</DialogTitle>
-        <DialogContent>
-          <Typography variant="body2" color="textSecondary" gutterBottom>
-            Định dạng JSON yêu cầu:
-          </Typography>
-          <Box sx={{ 
-            background: '#f5f5f5', 
-            p: 2, 
-            borderRadius: 1,
-            mb: 2,
-            fontFamily: 'monospace'
-          }}>
+        <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
+          <Pagination
+            count={Math.ceil(totalCount / limit)}
+            page={page}
+            onChange={(_: React.ChangeEvent<unknown>, value: number) => setPage(value)}
+          />
+        </Box>
+
+        {/* Dialog thêm/sửa câu hỏi */}
+        <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth="md" fullWidth>
+          <DialogTitle>
+            {selectedMessage ? 'Chỉnh sửa tin nhắn' : 'Thêm tin nhắn mới'}
+          </DialogTitle>
+          <DialogContent>
+            <TextField
+              fullWidth
+              label="Câu hỏi"
+              value={formData.question || ''}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, question: e.target.value })}
+              margin="normal"
+            />
+            <TextField
+              fullWidth
+              label="Câu trả lời"
+              value={formData.answer || ''}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, answer: e.target.value })}
+              margin="normal"
+              multiline
+              rows={4}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseDialog}>Hủy</Button>
+            <Button onClick={handleSubmit} variant="contained" color="primary">
+              {selectedMessage ? 'Cập nhật' : 'Thêm mới'}
+            </Button>
+          </DialogActions>
+        </Dialog>
+
+        {/* Dialog nhập JSON */}
+        <Dialog open={openJsonDialog} onClose={handleCloseJsonDialog} maxWidth="md" fullWidth>
+          <DialogTitle>Nhập câu hỏi từ JSON</DialogTitle>
+          <DialogContent>
+            <Typography variant="body2" color="textSecondary" gutterBottom>
+              Định dạng JSON yêu cầu:
+            </Typography>
+            <Box sx={{ 
+              background: '#f5f5f5', 
+              p: 2, 
+              borderRadius: 1,
+              mb: 2,
+              fontFamily: 'monospace'
+            }}>
 {`[
   {
     "question": "Câu hỏi 1",
@@ -310,24 +356,29 @@ export default function ChatbotManagement() {
     "answer": "Câu trả lời 2"
   }
 ]`}
-          </Box>
-          <TextField
-            fullWidth
-            label="Dữ liệu JSON"
-            value={jsonInput}
-            onChange={(e) => setJsonInput(e.target.value)}
-            multiline
-            rows={10}
-            margin="normal"
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseJsonDialog}>Hủy</Button>
-          <Button onClick={handleJsonImport} variant="contained" color="primary">
-            Nhập
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+            </Box>
+            <TextField
+              fullWidth
+              label="Dữ liệu JSON"
+              value={jsonInput}
+              onChange={(e) => setJsonInput(e.target.value)}
+              multiline
+              rows={10}
+              margin="normal"
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseJsonDialog}>Hủy</Button>
+            <Button onClick={handleJsonImport} variant="contained" color="primary">
+              Nhập
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </TabPanel>
+
+      <TabPanel value={currentTab} index={1}>
+        <ApiUsageStats />
+      </TabPanel>
+    </Box>
   );
 } 
