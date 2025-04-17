@@ -6,8 +6,11 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// DeepSeek API key
-const DEEPSEEK_API_KEY = 'sk-2bfbb38e4faa4fa5b6eb4ae624b3a6d3';
+// DeepSeek API key từ environment variable
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
+if (!DEEPSEEK_API_KEY) {
+  console.error('DEEPSEEK_API_KEY is not set in environment variables');
+}
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
 
 // Cấu hình và chế độ - có thể thay đổi để debug
