@@ -12,11 +12,41 @@ import {
   Paper,
   Box,
   TextField,
-  Button
+  Button,
+  Tabs,
+  Tab
 } from '@mui/material';
 import { ChatbotService } from './ChatbotService';
 import { ApiUsageStats as ApiUsageStatsType, ApiUsageLog } from '@/types/chatbot';
 import { supabase } from '@/tien_ich/supabase';
+import ChatbotStatsByProvider from './ChatbotStatsByProvider';
+import { formatCurrency } from '@/tien_ich/format';
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`stats-tabpanel-${index}`}
+      aria-labelledby={`stats-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ pt: 3 }}>
+          {children}
+        </Box>
+      )}
+    </div>
+  );
+}
 
 export default function ApiUsageStats() {
   const today = new Date();
@@ -33,6 +63,11 @@ export default function ApiUsageStats() {
   const [endDate, setEndDate] = useState(formatDate(today));
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
+    setTabIndex(newValue);
+  };
 
   const checkSupabaseConnection = async () => {
     try {
@@ -177,7 +212,7 @@ export default function ApiUsageStats() {
                   Tổng chi phí (USD)
                 </Typography>
                 <Typography variant="h4">
-                  ${stats?.total_cost.toFixed(4)}
+                  {formatCurrency(stats?.total_cost || 0)}
                 </Typography>
               </CardContent>
             </Card>
@@ -196,50 +231,69 @@ export default function ApiUsageStats() {
           </Box>
         </Box>
 
-        <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
-          Lịch sử gọi API gần đây
-        </Typography>
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Thời gian</TableCell>
-                <TableCell>Nội dung</TableCell>
-                <TableCell>Tokens</TableCell>
-                <TableCell>Trạng thái</TableCell>
-                <TableCell>Chi phí (USD)</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {recentCalls.map((call) => (
-                <TableRow key={call.id}>
-                  <TableCell>
-                    {new Date(call.timestamp).toLocaleString()}
-                  </TableCell>
-                  <TableCell>
-                    {call.message_content}
-                  </TableCell>
-                  <TableCell>
-                    {call.tokens_used.toLocaleString()}
-                  </TableCell>
-                  <TableCell>
-                    <Box
-                      component="span"
-                      sx={{
-                        color: call.status === 'success' ? 'success.main' : 'error.main'
-                      }}
-                    >
-                      {call.status}
-                    </Box>
-                  </TableCell>
-                  <TableCell>
-                    ${call.cost.toFixed(4)}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Box sx={{ width: '100%' }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs value={tabIndex} onChange={handleTabChange} aria-label="api stats tabs">
+              <Tab label="Thống kê theo nhà cung cấp" />
+              <Tab label="Lịch sử gọi API gần đây" />
+            </Tabs>
+          </Box>
+          
+          <TabPanel value={tabIndex} index={0}>
+            {stats && <ChatbotStatsByProvider stats={stats} />}
+          </TabPanel>
+          
+          <TabPanel value={tabIndex} index={1}>
+            <Typography variant="h6" gutterBottom>
+              Lịch sử gọi API gần đây
+            </Typography>
+            <TableContainer component={Paper}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Thời gian</TableCell>
+                    <TableCell>Nhà cung cấp</TableCell>
+                    <TableCell>Nội dung</TableCell>
+                    <TableCell>Tokens</TableCell>
+                    <TableCell>Trạng thái</TableCell>
+                    <TableCell>Chi phí (USD)</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {recentCalls.map((call) => (
+                    <TableRow key={call.id}>
+                      <TableCell>
+                        {new Date(call.timestamp).toLocaleString()}
+                      </TableCell>
+                      <TableCell>
+                        {call.provider || 'unknown'}
+                      </TableCell>
+                      <TableCell>
+                        {call.message_content}
+                      </TableCell>
+                      <TableCell>
+                        {call.tokens_used.toLocaleString()}
+                      </TableCell>
+                      <TableCell>
+                        <Box
+                          component="span"
+                          sx={{
+                            color: call.status === 'success' ? 'success.main' : 'error.main'
+                          }}
+                        >
+                          {call.status}
+                        </Box>
+                      </TableCell>
+                      <TableCell>
+                        {formatCurrency(call.cost)}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </TabPanel>
+        </Box>
       </Box>
     </div>
   );

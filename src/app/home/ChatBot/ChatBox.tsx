@@ -60,15 +60,33 @@ export default function ChatBox() {
           response.status,
           response.statusText
         );
+        
+        // Log full error details
+        const errorText = await response.text();
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+          console.error("API error details:", errorData);
+        } catch {
+          console.error("API error raw text:", errorText);
+        }
+        
         throw new Error("Lỗi kết nối API: " + response.status);
       }
       
       const data = await response.json();
       console.log("API response received:", data);
       
+      // Show fallback notice if using fallback
+      let content = data.response || "Không nhận được phản hồi từ server.";
+      if (data.fallback) {
+        console.warn("Đang sử dụng phản hồi fallback do lỗi API:", data.source);
+        content = "⚠️ " + content + "\n\n(Lưu ý: Đang sử dụng phản hồi dự phòng do lỗi kết nối API)";
+      }
+      
       const assistantMessage: Message = {
         role: "assistant",
-        content: data.response || "Không nhận được phản hồi từ server.",
+        content: content,
       };
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {

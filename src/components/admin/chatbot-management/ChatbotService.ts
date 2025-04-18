@@ -7,6 +7,19 @@ interface UpdateData {
   updated_at: string;
 }
 
+interface DailyStats {
+  calls: number;
+  tokens: number;
+  cost: number;
+}
+
+interface ProviderStats {
+  calls: number;
+  tokens: number;
+  cost: number;
+  success_count: number;
+}
+
 export const ChatbotService = {
   async getChatbotMessages(page: number = 1, limit: number = 10, searchTerm: string = '') {
     try {
@@ -136,7 +149,8 @@ export const ChatbotService = {
         total_tokens: 0,
         total_cost: 0,
         success_rate: 0,
-        usage_by_date: []
+        usage_by_date: [],
+        usage_by_provider: []
       };
 
       if (!data || data.length === 0) {
@@ -154,12 +168,6 @@ export const ChatbotService = {
       console.log('Calculated stats:', stats);
 
       // Group by date
-      type DailyStats = {
-        calls: number;
-        tokens: number;
-        cost: number;
-      };
-
       const byDate = data.reduce((acc, log) => {
         const date = new Date(log.timestamp).toISOString().split('T')[0];
         if (!acc[date]) {
@@ -171,17 +179,51 @@ export const ChatbotService = {
         return acc;
       }, {} as Record<string, DailyStats>);
 
+      // Group by provider
+      const byProvider = data.reduce((acc, log) => {
+        // Nếu không có provider, sử dụng 'unknown'
+        const provider = log.provider || 'unknown';
+        if (!acc[provider]) {
+          acc[provider] = { calls: 0, tokens: 0, cost: 0, success_count: 0 };
+        }
+        acc[provider].calls++;
+        acc[provider].tokens += log.tokens_used || 0;
+        acc[provider].cost += log.cost || 0;
+        if (log.status === 'success') {
+          acc[provider].success_count++;
+        }
+        return acc;
+      }, {} as Record<string, ProviderStats>);
+
       // Use a type assertion for the entries array
-      stats.usage_by_date = (Object.entries(byDate) as [string, DailyStats][]).map(
-        ([date, dailyStats]) => ({
-          date,
-          calls: dailyStats.calls,
-          tokens: dailyStats.tokens,
-          cost: dailyStats.cost
-        })
+      stats.usage_by_date = Object.entries(byDate).map(
+        (entry) => {
+          const [date, dailyStats] = entry as [string, DailyStats];
+          return {
+            date,
+            calls: dailyStats.calls,
+            tokens: dailyStats.tokens,
+            cost: dailyStats.cost
+          };
+        }
       ).sort((a, b) => a.date.localeCompare(b.date));
 
+      // Add provider stats
+      stats.usage_by_provider = Object.entries(byProvider).map(
+        (entry) => {
+          const [provider, providerStats] = entry as [string, ProviderStats];
+          return {
+            provider,
+            calls: providerStats.calls, 
+            tokens: providerStats.tokens,
+            cost: providerStats.cost,
+            success_rate: (providerStats.success_count / providerStats.calls) * 100
+          };
+        }
+      ).sort((a, b) => b.calls - a.calls); // Sắp xếp theo số lượng calls giảm dần
+
       console.log('Usage by date:', stats.usage_by_date);
+      console.log('Usage by provider:', stats.usage_by_provider);
 
       return stats;
     } catch (error) {

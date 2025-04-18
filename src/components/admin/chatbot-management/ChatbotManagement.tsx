@@ -24,6 +24,8 @@ import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import { ChatbotService } from './ChatbotService';
 import { ChatbotMessage } from '@/types/chatbot';
 import ApiUsageStats from './ApiUsageStats';
+import ApiKeysManager from './ApiKeysManager';
+import ChatbotApiKeySelector from './ChatbotApiKeySelector';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -229,10 +231,13 @@ export default function ChatbotManagement() {
         >
           <Tab label="Quản lý Q&A" />
           <Tab label="Thống kê API" />
+          <Tab label="Quản lý API Keys" />
         </Tabs>
       </Box>
 
       <TabPanel value={currentTab} index={0}>
+        <ChatbotApiKeySelector />
+        
         <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="h5">Câu hỏi ChatBot</Typography>
           <Box>
@@ -378,6 +383,10 @@ export default function ChatbotManagement() {
 
       <TabPanel value={currentTab} index={1}>
         <ApiUsageStats />
+      </TabPanel>
+
+      <TabPanel value={currentTab} index={2}>
+        <ApiKeysManager />
       </TabPanel>
     </Box>
   );
