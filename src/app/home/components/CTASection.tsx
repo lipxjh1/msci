@@ -13,7 +13,7 @@ export default function CTASection() {
         
         {/* Đường neon */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-cyan-300 to-cyan-500 opacity-70 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-3/4 h-1 bg-gradient-to-r from-cyan-500 via-cyan-300 to-cyan-500 opacity-70 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-cyan-300 to-cyan-500 opacity-70 animate-pulse" style={{animationDelay: '1s'}}></div>
         
         {/* Hiệu ứng ánh sáng nền */}
         <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-cyan-900/20 blur-[100px] animate-pulse-slow"></div>
