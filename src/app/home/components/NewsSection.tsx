@@ -25,7 +25,7 @@ export default function NewsSection() {
             </h2>
           </div>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Cập nhật các tin tức mới nhất về M-SCI. Từ cập nhật game, sự kiện đặc biệt đến các tin tức esports.
+          Cập nhật tin tức mới nhất về M-SCI. Từ sự kiện World Boss, Guild War đến các giftcode và cập nhật nhân vật mới. Theo dõi các thông báo quan trọng về nâng cấp tính năng game.
           </p>
         </div>
         

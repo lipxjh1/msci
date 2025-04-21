@@ -11,12 +11,10 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between mb-8">
           <div className="flex flex-wrap justify-center md:justify-start gap-6 mb-4 md:mb-0">
-            <Link href="/careers" className="text-gray-300 hover:text-white text-sm">Careers</Link>
-            <Link href="/about" className="text-gray-300 hover:text-white text-sm">About</Link>
-            <Link href="/support" className="text-gray-300 hover:text-white text-sm">Support</Link>
-            <Link href="/contact-us" className="text-gray-300 hover:text-white text-sm">Contact Us</Link>
-            <Link href="/press" className="text-gray-300 hover:text-white text-sm">Press</Link>
-            <Link href="/api" className="text-gray-300 hover:text-white text-sm">API</Link>
+            <Link href="/careers" className="text-gray-300 hover:text-white text-sm">M-SCI GAME</Link>
+            <Link href="/about" className="text-gray-300 hover:text-white text-sm">Center Market</Link>
+            <Link href="/support" className="text-gray-300 hover:text-white text-sm">Donate & VIP</Link>
+          
           </div>
           <div className="flex items-center pr-16">
             <FaGlobe className="text-gray-400 mr-2 h-4 w-4" />
@@ -38,9 +36,9 @@ export default function Footer() {
             </Link>
           </div>
           
-          <div className="text-gray-500 text-xs mb-4 md:mb-0 text-center md:text-left">
-            <p>©2024 M-SCI ENTERTAINMENT, INC.</p>
-            <p>All rights reserved. All trademarks referenced herein are the properties of their respective owners.</p>
+          <div className="text-gray-500 text-xs mb-4 md:mb-0 text-center md:text-left ">
+            <p>© 2024 M-SCI</p>
+            <p>Tất cả thương hiệu được đề cập ở đây đều là tài sản của các chủ sở hữu tương ứng.</p>
           </div>
           
           {/* Social links */}
@@ -62,11 +60,11 @@ export default function Footer() {
         
         {/* Legal links */}
         <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4 text-xs">
-          <Link href="/privacy" className="text-gray-500 hover:text-white">Privacy</Link>
-          <Link href="/legal" className="text-gray-500 hover:text-white">Legal</Link>
-          <Link href="/terms" className="text-gray-500 hover:text-white">Terms</Link>
-          <Link href="/cookie-policy" className="text-gray-500 hover:text-white">Cookie Policy</Link>
-          <Link href="/cookie-settings" className="text-gray-500 hover:text-white">Cookie Settings</Link>
+          <Link href="/privacy" className="text-gray-500 hover:text-white">Quyền riêng tư </Link>
+          <Link href="/legal" className="text-gray-500 hover:text-white">Pháp lý </Link>
+          <Link href="/terms" className="text-gray-500 hover:text-white">Điều khoản </Link>
+          <Link href="/cookie-policy" className="text-gray-500 hover:text-white">Chính sách Token </Link>
+          <Link href="/cookie-settings" className="text-gray-500 hover:text-white">Cài đặt Cookie</Link>
         </div>
       </div>
     </footer>

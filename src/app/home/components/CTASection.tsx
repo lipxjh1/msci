@@ -38,7 +38,7 @@ export default function CTASection() {
             
             <div className="relative">
               <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
-                Tham gia cùng hàng triệu người chơi trên khắp thế giới trong trải nghiệm <span className="text-cyan-400 font-semibold">chiến đấu đội hình 5v5</span> với các anh hùng có khả năng độc đáo. Hoàn toàn miễn phí trên mọi nền tảng.
+              Gia nhập lực lượng M-SCI trong cuộc chiến khốc liệt năm 2049, chiến đấu chống lại đội quân robot và drone của The Assended để bảo vệ nhân loại.<span className="text-cyan-400 font-semibold">Điều khiển biệt đội 3 anh hùng </span> với khả năng độc đáo trong trận chiến 30 giây kịch tính.
               </p>
             </div>
             
@@ -68,18 +68,18 @@ export default function CTASection() {
             {/* Thống kê và thông tin */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-12">
               <div className="cyberpunk-stat">
-                <div className="text-4xl font-black text-cyan-400 mb-1">40+</div>
-                <div className="text-sm text-gray-400 uppercase tracking-wide">Anh Hùng</div>
+                <div className="text-4xl font-black text-cyan-400 mb-1">4+  </div>
+                <div className="text-sm text-gray-400 uppercase tracking-wide">CẤP ĐỘ HERO </div>
               </div>
               
               <div className="cyberpunk-stat">
-                <div className="text-4xl font-black text-cyan-400 mb-1">5M+</div>
-                <div className="text-sm text-gray-400 uppercase tracking-wide">Người Chơi</div>
+                <div className="text-4xl font-black text-cyan-400 mb-1">3</div>
+                <div className="text-sm text-gray-400 uppercase tracking-wide">CLASS ĐỘC ĐÁO </div>
               </div>
               
               <div className="cyberpunk-stat">
-                <div className="text-4xl font-black text-cyan-400 mb-1">20+</div>
-                <div className="text-sm text-gray-400 uppercase tracking-wide">Bản Đồ</div>
+                <div className="text-4xl font-black text-cyan-400 mb-1">100+</div>
+                <div className="text-sm text-gray-400 uppercase tracking-wide">MÀN CHƠI</div>
               </div>
             </div>
             

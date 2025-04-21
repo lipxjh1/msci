@@ -5,14 +5,14 @@ import { useState, useEffect } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import Link from "next/link";
 
-const roles = ["Tất cả", "Tấn công", "Hỗ trợ", "Phòng thủ"];
+const roles = ["Tất cả", "Gunner", "Sniper", "Rocket"];
 
 // Mảng các anh hùng mẫu với đường dẫn ảnh đã kiểm tra
 const heroSamples = [
   { 
     id: 1, 
     name: "Tracer", 
-    role: "Tấn công", 
+    role: "Gunner", 
     image: "/images/heroes/idle_1.png",
     shootImage: "/images/heroes/shoot1.png",
     description: "Anh hùng tấn công nhanh với khả năng dịch chuyển thời gian"
@@ -20,7 +20,7 @@ const heroSamples = [
   { 
     id: 2, 
     name: "Reinhardt", 
-    role: "Phòng thủ", 
+    role: "Sniper", 
     image: "/images/heroes/idle4.png",
     shootImage: "/images/heroes/shoot4.png",
     description: "Kỵ sĩ hiệp sĩ với khiên bảo vệ đồng đội"
@@ -28,7 +28,7 @@ const heroSamples = [
   { 
     id: 3, 
     name: "Mercy", 
-    role: "Hỗ trợ", 
+    role: "Rocket", 
     image: "/images/heroes/idle6.png",
     shootImage: "/images/heroes/shoot6.png",
     description: "Thiên thần chữa thương với khả năng hồi sinh đồng đội"
@@ -36,7 +36,7 @@ const heroSamples = [
   { 
     id: 4, 
     name: "Genji", 
-    role: "Tấn công", 
+    role: "Gunner", 
     image: "/images/heroes/idle7.png",
     shootImage: "/images/heroes/shoot7.png",
     description: "Ninja cyber với khả năng phản đòn chính xác"
@@ -44,7 +44,7 @@ const heroSamples = [
   { 
     id: 5, 
     name: "Winston", 
-    role: "Phòng thủ", 
+    role: "Sniper", 
     image: "/images/heroes/idle8.png",
     shootImage: "/images/heroes/shoot8.png",
     description: "Khỉ đột thông minh với khiên năng lượng bảo vệ"
@@ -52,7 +52,7 @@ const heroSamples = [
   { 
     id: 6, 
     name: "Ana", 
-    role: "Hỗ trợ", 
+    role: "Rocket", 
     image: "/images/heroes/idle9.png",
     shootImage: "/images/heroes/shoot9.png",
     description: "Xạ thủ bắn tỉa với khả năng chữa thương từ xa"
@@ -60,7 +60,7 @@ const heroSamples = [
   { 
     id: 7, 
     name: "Reaper", 
-    role: "Tấn công", 
+    role: "Gunner", 
     image: "/images/heroes/idle10.png",
     shootImage: "/images/heroes/shoot10.png",
     description: "Linh hồn bóng tối với khả năng dịch chuyển bóng tối"
@@ -68,7 +68,7 @@ const heroSamples = [
   { 
     id: 8, 
     name: "D.Va", 
-    role: "Phòng thủ", 
+    role: "Sniper", 
     image: "/images/heroes/idle11.png",
     shootImage: "/images/heroes/shoot11.png",
     description: "Phi công mech với khả năng bảo vệ và tấn công mạnh mẽ"
@@ -91,9 +91,9 @@ export default function HeroesSection() {
   // Get role color class
   const getRoleColorClass = (role: string) => {
     switch(role) {
-      case "Tấn công": return "bg-[var(--vaiTroDamage)]";
-      case "Hỗ trợ": return "bg-[var(--vaiTroSupport)]";
-      case "Phòng thủ": return "bg-[var(--vaiTroTank)]";
+      case "Gunner": return "bg-[var(--vaiTroDamage)]";
+      case "Sniper": return "bg-[var(--vaiTroSupport)]";
+      case "Rocket": return "bg-[var(--vaiTroTank)]";
       default: return "bg-[var(--accent-blue)]";
     }
   };
@@ -101,9 +101,9 @@ export default function HeroesSection() {
   // Get role border color class
   const getRoleBorderClass = (role: string) => {
     switch(role) {
-      case "Tấn công": return "border-[var(--vaiTroDamage)]";
-      case "Hỗ trợ": return "border-[var(--vaiTroSupport)]";
-      case "Phòng thủ": return "border-[var(--vaiTroTank)]";
+      case "Gunner": return "border-[var(--vaiTroDamage)]";
+      case "Sniper": return "border-[var(--vaiTroSupport)]";
+      case "Rocket": return "border-[var(--vaiTroTank)]";
       default: return "border-[var(--accent-blue)]";
     }
   };
@@ -111,9 +111,9 @@ export default function HeroesSection() {
   // Get role text color class
   const getRoleTextClass = (role: string) => {
     switch(role) {
-      case "Tấn công": return "text-[var(--vaiTroDamage)]";
-      case "Hỗ trợ": return "text-[var(--vaiTroSupport)]";
-      case "Phòng thủ": return "text-[var(--vaiTroTank)]";
+      case "Gunner": return "text-[var(--vaiTroDamage)]";
+      case "Sniper": return "text-[var(--vaiTroSupport)]";
+      case "Rocket": return "text-[var(--vaiTroTank)]";
       default: return "text-[var(--accent-blue)]";
     }
   };
@@ -160,7 +160,7 @@ export default function HeroesSection() {
         <div className="text-center mb-12 reveal-scale">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-glow-blue">Anh Hùng</h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Khám phá và làm chủ những anh hùng đa dạng, mỗi người đều có khả năng và vai trò độc đáo trong chiến trường
+          M-SCI có dàn nhân vật phong phú với 4 bậc độ hiếm: Common (C), Rare (B), Epic (A) và Legendary (S). Mỗi hero thuộc một trong ba class (Gunner, Sniper, Rocket) với vai trò và thế mạnh riêng để đối phó với các loại kẻ địch khác nhau.
           </p>
         </div>
         
