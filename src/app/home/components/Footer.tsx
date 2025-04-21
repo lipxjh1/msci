@@ -2,23 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaGlobe } from "react-icons/fa";
+import { FaTwitter, FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="bg-[#0b0d12] py-6 relative">
       {/* Top navigation */}
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-8">
+        <div className="flex flex-col md:flex-row items-center justify-center mb-8">
           <div className="flex flex-wrap justify-center md:justify-start gap-6 mb-4 md:mb-0">
             <Link href="/careers" className="text-gray-300 hover:text-white text-sm">M-SCI GAME</Link>
             <Link href="/about" className="text-gray-300 hover:text-white text-sm">Center Market</Link>
-            <Link href="/support" className="text-gray-300 hover:text-white text-sm">Donate & VIP</Link>
-          
-          </div>
-          <div className="flex items-center pr-16">
-            <FaGlobe className="text-gray-400 mr-2 h-4 w-4" />
-            <span className="text-gray-300 text-sm">English (US)</span>
+            <Link href="/support" className="text-gray-300 hover:text-white text-sm">Donate & VIP</Link> 
           </div>
         </div>
         
