@@ -63,8 +63,8 @@ export default function Footer() {
           <Link href="/privacy" className="text-gray-500 hover:text-white">Quyền riêng tư </Link>
           <Link href="/legal" className="text-gray-500 hover:text-white">Pháp lý </Link>
           <Link href="/terms" className="text-gray-500 hover:text-white">Điều khoản </Link>
-          <Link href="/cookie-policy" className="text-gray-500 hover:text-white">Chính sách Token </Link>
-          <Link href="/cookie-settings" className="text-gray-500 hover:text-white">Cài đặt Cookie</Link>
+          <Link href="/token-policy" className="text-gray-500 hover:text-white">Chính sách Token </Link>
+          <Link href="/cookies" className="text-gray-500 hover:text-white">Cài đặt Cookie</Link>
         </div>
       </div>
     </footer>
