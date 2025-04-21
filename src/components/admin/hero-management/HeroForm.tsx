@@ -35,7 +35,9 @@ export default function HeroForm({
     toc_do_ban: editingHero?.toc_do_ban || '',
     dac_diem: editingHero?.dac_diem || '',
     ky_nang: editingHero?.ky_nang || '',
-    anh_dai_dien: editingHero?.anh_dai_dien || ''
+    anh_dai_dien: editingHero?.anh_dai_dien || '',
+    tieu_su: editingHero?.tieu_su || '',
+    thu_nhap_chip: editingHero?.thu_nhap_chip || ''
   });
 
   // Xử lý upload ảnh với signed URL để tránh RLS
@@ -198,7 +200,10 @@ export default function HeroForm({
         toc_do_ban: formData.toc_do_ban || null,
         dac_diem: formData.dac_diem || null,
         ky_nang: formData.ky_nang || null,
-        anh_dai_dien: formData.anh_dai_dien || null
+        anh_dai_dien: formData.anh_dai_dien || null,
+        tieu_su: formData.tieu_su || null,
+        thu_nhap_chip: formData.thu_nhap_chip || null
+
       };
       
       console.log("Dữ liệu hero sẽ được lưu:", heroData);
@@ -395,6 +400,32 @@ export default function HeroForm({
                           id="ky_nang"
                           value={formData.ky_nang}
                           onChange={e => setFormData({...formData, ky_nang: e.target.value})}
+                          rows={3}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="tieu_su" className="block text-sm font-medium text-gray-700">
+                          Tiểu sử
+                        </label>
+                        <textarea
+                          id="tieu_su"
+                          value={formData.tieu_su}
+                          onChange={e => setFormData({...formData, tieu_su: e.target.value})}
+                          rows={3}
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="thu_nhap_chip" className="block text-sm font-medium text-gray-700">
+                          Thu nhập chip
+                        </label>
+                        <textarea
+                          id="thu_nhap_chip"
+                          value={formData.thu_nhap_chip}
+                          onChange={e => setFormData({...formData, thu_nhap_chip: e.target.value})}
                           rows={3}
                           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                         />

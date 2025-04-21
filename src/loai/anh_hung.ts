@@ -25,6 +25,8 @@ export interface AnhHung {
   dac_diem: string | null;
   ky_nang: string | null;
   anh_dai_dien: string | null;
+  tieu_su: string | null;
+  thu_nhap_chip: string | null;
   
   // Các trường join từ bảng khác
   vai_tro?: VaiTro;
