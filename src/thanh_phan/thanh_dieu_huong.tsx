@@ -173,7 +173,7 @@ export default function ThanhDieuHuong() {
   const isActiveSubmenu = (href: string) => {
     return pathname === href;
   };
-
+  
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -188,18 +188,18 @@ export default function ThanhDieuHuong() {
     >
       <div className="max-w-7xl mx-auto relative flex items-center justify-between">
         {/* Logo và Menu chính */}
-        <div className="flex items-center">
-          {/* Logo */}
+          <div className="flex items-center">
+            {/* Logo */}
           <Link href="/" className="flex-shrink-0 flex items-center px-4 py-1 group">
             <div className="relative h-9 w-24 mr-2 transition-transform duration-300 group-hover:scale-105">
-              <Image
-                src="/images/overwatch_logo.png"
+                <Image
+                  src="/images/overwatch_logo.png"
                 alt="M-SCI Logo"
-                fill
+                  fill
                 className="object-contain"
-              />
-            </div>
-          </Link>
+                />
+              </div>
+            </Link>
           
           {/* Separator */}
           <div className="h-8 w-px bg-gray-700/50 mx-1"></div>
@@ -224,7 +224,7 @@ export default function ThanhDieuHuong() {
                     {item.label}
                     <FiChevronDown className={`ml-1 w-4 h-4 transition-transform ${openDropdown === item.href ? 'rotate-180' : ''}`} />
                   </button>
-                ) : (
+              ) : (
                   <Link
                     href={item.href}
                     className={`block px-3 py-5 text-sm font-medium transition-colors ${
@@ -248,7 +248,7 @@ export default function ThanhDieuHuong() {
                   >
                     <div className="py-2">
                       {item.submenu.map((subItem) => (
-                        <Link
+              <Link
                           key={subItem.href}
                           href={subItem.href}
                           className={`flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
@@ -268,16 +268,16 @@ export default function ThanhDieuHuong() {
                               {subItem.badge}
                             </span>
                           )}
-                        </Link>
+              </Link>
                       ))}
                     </div>
                   </div>
                 )}
               </div>
             ))}
-          </div>
         </div>
-        
+      </div>
+      
         {/* Right side actions: Search, Language, Account */}
         <div className="flex items-center space-x-1 pr-4">
           {/* Search Button */}
@@ -334,17 +334,17 @@ export default function ThanhDieuHuong() {
                   <span className="hidden sm:inline-block font-medium">Account</span>
                 </Link>
                 
-                <Link
+              <Link
                   href="/auth"
                   className="ml-2 px-5 py-1.5 rounded bg-[#FF7D00] hover:bg-[#FF5500] transition-colors text-white font-medium text-sm"
-                >
+              >
                   Play Now
-                </Link>
-              </div>
+              </Link>
+            </div>
             )
           )}
         </div>
       </div>
     </nav>
   );
-} 
+}
