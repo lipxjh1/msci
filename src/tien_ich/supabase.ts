@@ -4,8 +4,17 @@ import { createClient } from '@supabase/supabase-js';
 import type { Database } from '../loai/database';
 
 // Môi trường biến được định nghĩa trong .env.local
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
+// Kiểm tra biến môi trường trước khi tạo client
+if (!supabaseUrl) {
+  console.error('NEXT_PUBLIC_SUPABASE_URL không được cấu hình');
+}
+
+if (!supabaseAnonKey) {
+  console.error('NEXT_PUBLIC_SUPABASE_ANON_KEY không được cấu hình');
+}
 
 // Tạo Supabase client với type definitions
 export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);

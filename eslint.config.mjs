@@ -11,6 +11,12 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      // Tắt cảnh báo cho việc sử dụng thẻ <img> thay vì <Image /> từ next/image
+      "@next/next/no-img-element": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
