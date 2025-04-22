@@ -1,152 +1,77 @@
 import { NextResponse } from 'next/server';
-import { ApiKeyService } from '@/components/admin/chatbot-management/ApiKeyService';
-
-// API URLs for different providers
-const API_URL = 'https://api.deepseek.com/v1/chat/completions';
-const MODEL = 'deepseek-chat';
+import OpenAI from 'openai';
 
 // API handler để test kết nối tới DeepSeek
 export async function GET() {
   try {
-    // Lấy DEEPSEEK_API_KEY từ env
-    const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
-    console.log('Using API key from ENV:', DEEPSEEK_API_KEY ? 'Yes (length: ' + DEEPSEEK_API_KEY.length + ')' : 'No');
-
-    // Prepare response results
-    const results = [];
-
-    // TEST 1: Thử với API key từ ENV
-    if (DEEPSEEK_API_KEY) {
-      try {
-        console.log('TEST 1: Using API key from ENV');
-        const systemPrompt = "You are a helpful assistant.";
-        const userPrompt = "Say hello in one word.";
-        
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${DEEPSEEK_API_KEY}`,
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            model: MODEL,
-            messages: [
-              { role: 'system', content: systemPrompt },
-              { role: 'user', content: userPrompt }
-            ],
-            temperature: 0.7,
-            max_tokens: 50,
-            stream: false
-          })
-        });
-      
-        // Log the entire response for debugging
-        const responseText = await response.text();
-        console.log('DeepSeek API Response Status:', response.status);
-        console.log('DeepSeek API Response Headers:', Object.fromEntries([...response.headers.entries()]));
-        
-        let responseData;
-        try {
-          responseData = JSON.parse(responseText);
-        } catch {
-          responseData = { text: responseText };
-        }
-        
-        results.push({
-          source: 'ENV API Key',
-          success: response.ok,
-          status: response.status,
-          data: responseData
-        });
-      } catch (envApiError) {
-        console.error('Error testing ENV API key:', envApiError);
-        results.push({
-          source: 'ENV API Key',
-          success: false,
-          error: envApiError instanceof Error ? envApiError.message : String(envApiError)
-        });
-      }
+    // Lấy DeepSeek API key từ env
+    const apiKey = process.env.DEEPSEEK_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json({ 
+        error: 'DEEPSEEK_API_KEY không được cấu hình trong biến môi trường' 
+      }, { status: 400 });
     }
+    
+    // Thời gian bắt đầu cho timeout tracking
+    const startTime = Date.now();
+    
+    // Sử dụng OpenAI SDK với base URL của DeepSeek
+    const openai = new OpenAI({
+      baseURL: 'https://api.deepseek.com',
+      apiKey: apiKey,
+      timeout: 8000 // 8 giây timeout
+    });
 
-    // TEST 2: Thử với API key từ database
     try {
-      console.log('TEST 2: Using API key from database');
-      // Lấy API key từ database
-      const apiKeyData = await ApiKeyService.getActiveApiKey('deepseek');
+      // Gọi API
+      const completion = await openai.chat.completions.create({
+        model: "deepseek-chat",
+        messages: [
+          { role: "system", content: "You are a helpful assistant." },
+          { role: "user", content: "Say hello in one simple word." }
+        ],
+        temperature: 0.7,
+        max_tokens: 10
+      });
       
-      if (apiKeyData) {
-        console.log('Found API key in database:', apiKeyData.id);
-        
-        const systemPrompt = "You are a helpful assistant.";
-        const userPrompt = "Say hello in one word.";
-        
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKeyData.key}`,
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            model: MODEL,
-            messages: [
-              { role: 'system', content: systemPrompt },
-              { role: 'user', content: userPrompt }
-            ],
-            temperature: 0.7,
-            max_tokens: 50,
-            stream: false
-          })
-        });
+      // Thời gian kết thúc
+      const endTime = Date.now();
+      const responseTime = endTime - startTime;
       
-        // Log the entire response for debugging
-        const responseText = await response.text();
-        console.log('DeepSeek API Response Status (DB key):', response.status);
-        console.log('DeepSeek API Response Headers (DB key):', Object.fromEntries([...response.headers.entries()]));
-        
-        let responseData;
-        try {
-          responseData = JSON.parse(responseText);
-        } catch {
-          responseData = { text: responseText };
-        }
-        
-        results.push({
-          source: 'Database API Key',
-          success: response.ok,
-          status: response.status,
-          key_id: apiKeyData.id,
-          data: responseData
-        });
-      } else {
-        results.push({
-          source: 'Database API Key',
+      // Trích xuất phản hồi
+      const aiResponse = completion.choices[0]?.message?.content || 'No response';
+      
+      return NextResponse.json({
+        success: true,
+        response: aiResponse,
+        responseTime: responseTime,
+        tokensUsed: completion.usage?.total_tokens || 'unknown',
+        rawResponse: completion
+      });
+      
+    } catch (error: any) {
+      console.error('Error calling DeepSeek API:', error);
+      
+      if (error.code === 'ETIMEDOUT' || error.code === 'ECONNABORTED') {
+        return NextResponse.json({
           success: false,
-          error: 'No API key found in database for DeepSeek'
+          error: 'Request timed out after 8 seconds',
+          responseTime: Date.now() - startTime
         });
       }
-    } catch (dbApiError) {
-      console.error('Error testing database API key:', dbApiError);
-      results.push({
-        source: 'Database API Key',
+      
+      return NextResponse.json({
         success: false,
-        error: dbApiError instanceof Error ? dbApiError.message : String(dbApiError)
+        error: error.message || 'Unknown error',
+        details: error.response?.data || error.cause || {},
+        stack: error.stack
       });
     }
-
-    return NextResponse.json({ 
-      results,
-      timestamp: new Date().toISOString(),
-    });
-  } catch (error) {
-    console.error('General error in test API:', error);
-    return NextResponse.json(
-      { 
-        error: 'Error in test API', 
-        details: error instanceof Error ? error.message : String(error)
-      },
-      { status: 500 }
-    );
+    
+  } catch (error: any) {
+    return NextResponse.json({
+      success: false,
+      error: error.message || 'Unknown error'
+    }, { status: 500 });
   }
 } 

@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import OpenAI from 'openai';
 import { ApiKeyService } from '@/components/admin/chatbot-management/ApiKeyService';
+import type { ChatCompletionMessageParam } from 'openai/resources/chat';
 
 // Supabase client cho phép truy vấn câu hỏi và câu trả lời từ database
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -28,26 +30,20 @@ const supabase = createClient(supabaseUrl, supabaseKey);
   }
 })();
 
-// DeepSeek API key từ environment variable (sẽ được sử dụng làm fallback nếu không lấy được key từ database)
+// Biến môi trường API key
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
-if (!DEEPSEEK_API_KEY) {
-  console.warn('DEEPSEEK_API_KEY is not set in environment variables, will try to use from database');
-}
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
-// API URLs for different providers
-const API_URLS = {
-  deepseek: 'https://api.deepseek.com/v1/chat/completions',
-  openai: 'https://api.openai.com/v1/chat/completions',
-  anthropic: 'https://api.anthropic.com/v1/messages',
-  mistral: 'https://api.mistral.ai/v1/chat/completions'
-};
-
-// API Models for different providers
+// Các model mặc định cho từng provider
 const DEFAULT_MODELS = {
   deepseek: 'deepseek-chat',
   openai: 'gpt-3.5-turbo',
-  anthropic: 'claude-3-sonnet-20240229',
-  mistral: 'mistral-medium'
+};
+
+// Base URL cho các dịch vụ API
+const BASE_URLS = {
+  deepseek: 'https://api.deepseek.com',
+  openai: 'https://api.openai.com'
 };
 
 // Cấu hình và chế độ - có thể thay đổi để debug
@@ -171,595 +167,221 @@ export async function POST(request: Request) {
   try {
     console.log('======= CHAT API ROUTE TRIGGERED =======');
     const body = await request.json();
-    const { message, chatHistory, preferredProvider } = body;
+    let { message, chatHistory, preferredProvider } = body;
     
     console.log('Received message:', message);
     console.log('Chat history length:', chatHistory?.length || 0);
     console.log('Preferred provider from body:', preferredProvider || 'not specified');
 
-    // Kiểm tra và log tất cả header
-    console.log('Request headers:');
-    for (const [key, value] of request.headers.entries()) {
-      console.log(`  ${key}: ${key === 'x-chatbot-api-config' ? 'FOUND' : value}`);
+    // Giới hạn độ dài message để tránh lỗi
+    if (message && message.length > 1000) {
+      message = message.substring(0, 1000) + "...";
+      console.log('Message was truncated due to length');
     }
 
-    // Kiểm tra cấu hình từ API
-    const configFromHeaders = request.headers.get('x-chatbot-api-config');
-    console.log('Raw config from headers:', configFromHeaders);
+    // Mặc định sử dụng DeepSeek nếu không có provider được chỉ định
+    let provider = preferredProvider || 'deepseek';
     
-    if (configFromHeaders) {
-      try {
-        const config = JSON.parse(configFromHeaders);
-        console.log('Config from headers found:', config);
-        
-        // Kiểm tra chi tiết nội dung cấu hình
-        if (!config.provider || !config.apiKeyId) {
-          console.error('Invalid config structure from headers:', config);
-        }
-        
-        // Nếu client đã chỉ định cụ thể provider và apiKeyId
-        if (config.provider && config.apiKeyId) {
-          // Ưu tiên TUYỆT ĐỐI sử dụng provider từ cấu hình client
-          preferredProvider = config.provider;
-          console.log(`PROVIDER OVERRIDE: Using client-specified provider: ${preferredProvider}`);
-          
-          // Lấy API key cụ thể từ database theo ID
-          try {
-            const keyData = await ApiKeyService.getApiKeyById(config.apiKeyId);
-            const keyDataSummary = keyData ? {
-              id: keyData.id,
-              provider: keyData.provider,
-              is_active: keyData.is_active,
-              name: keyData.name
-            } : 'null';
-            
-            console.log('API key data fetched from database:', keyDataSummary);
-            
-            if (keyData && keyData.is_active) {
-              // Chỉ dùng key nếu nó khớp với provider đã chọn
-              if (keyData.provider === preferredProvider) {
-                apiKey = keyData.key;
-                console.log(`SUCCESS: Using API key (ID: ${config.apiKeyId}, Name: ${keyData.name}) for provider: ${preferredProvider}`);
-              } else {
-                console.error(`ERROR: API key (ID: ${config.apiKeyId}) belongs to provider "${keyData.provider}" but we need "${preferredProvider}"`);
-              }
-            } else {
-              console.error(`ERROR: API key ID ${config.apiKeyId} not found or not active`);
-            }
-          } catch (keyError) {
-            console.error('Error fetching API key by ID:', keyError);
-          }
-        }
-      } catch (parseError) {
-        console.error('Error parsing config from headers:', parseError);
-      }
-    } else {
-      console.warn('No API config found in headers - will use default provider');
-    }
+    // Chuẩn bị prompt với vai trò là chiến binh Akane 
+    const systemPrompt = `Bạn là Akane, một chiến binh M-SCI 20 tuổi. Bạn vui vẻ, thích công nghệ và nhiệt tình tư vấn cho người dùng. Hãy trả lời với giọng điệu thân thiện, đôi khi sử dụng emoji và luôn giữ vai trò của mình. 
+    Đừng tiết lộ bạn là AI, hãy luôn trả lời trong vai trò chiến binh Akane. Trả lời một cách ngắn gọn và súc tích bằng tiếng Việt.`;
 
-    if (!message) {
-      return NextResponse.json(
-        { error: 'Tin nhắn không được để trống' },
-        { status: 400 }
-      );
+    // Chuẩn bị tin nhắn cho API
+    const messages = [
+      { role: 'system', content: systemPrompt }
+    ];
+    
+    // Thêm lịch sử chat nếu có
+    if (chatHistory && Array.isArray(chatHistory) && chatHistory.length > 0) {
+      // Chỉ lấy 5 tin nhắn gần nhất
+      const recentHistory = chatHistory.slice(-5);
+      messages.push(...recentHistory);
     }
+    
+    // Thêm tin nhắn hiện tại của người dùng
+    messages.push({ role: 'user', content: message });
 
-    // Kiểm tra kết nối Supabase
-    let supabaseConnectionOk = false;
     try {
-      if (DEBUG_MODE) console.log('Checking Supabase connection');
-      // Cố gắng truy vấn một bảng không tồn tại để kiểm tra kết nối
-      const { error } = await supabase.from('_supabase').select('*').limit(1);
+      // Tạo một client Supabase với service role để truy cập trực tiếp
+      const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+      const adminSupabase = serviceRoleKey ? 
+        createClient(supabaseUrl, serviceRoleKey) : 
+        supabase;
+    
+      // ===== CHIẾN LƯỢC 1: DÙNG API KEY TỪ DATABASE TRƯỚC =====
+      let apiKey = null;
+      console.log('Trying to get API key from database...');
       
-      // Nếu lỗi "relation không tồn tại", điều này bình thường vì bảng _supabase không tồn tại thực sự
-      if (error && error.message.includes('does not exist')) {
-        supabaseConnectionOk = true;
-        console.log('Supabase connection OK (expected error for non-existent table)');
-      } else if (error) {
-        console.error('Supabase connection error:', error);
-      } else {
-        supabaseConnectionOk = true;
-        console.log('Supabase connection OK');
-      }
-    } catch (connError) {
-      console.error('Supabase connection test failed:', connError);
-    }
-
-    // Phương án 1: Kiểm tra xem có câu trả lời cứng phù hợp không
-    const messageLower = message.toLowerCase().trim();
-    for (const [key, value] of Object.entries(COMMON_QA)) {
-      if (messageLower.includes(key)) {
-        if (DEBUG_MODE) console.log(`Found hardcoded response for: ${key}`);
-        if (USE_HARDCODED_RESPONSES) {
-          // Ghi log khi sử dụng hardcoded response
-          await logApiUsage({
-            tokens_used: value.length,  // Sử dụng độ dài của câu trả lời làm tokens
-            request_type: 'hardcoded_response',
-            status: 'success',
-            message_content: message.substring(0, 100),
-            provider: 'hardcoded'
-          });
-          
-          return NextResponse.json({ 
-            response: value,
-            source: 'hardcoded',
-            provider: 'hardcoded'
-          });
-        }
-      }
-    }
-
-    // Phương án 2: Tìm câu trả lời từ cơ sở dữ liệu Supabase
-    if (supabaseConnectionOk) {
       try {
-        if (DEBUG_MODE) console.log('Checking Supabase for existing answers');
-        const { data: qaData, error: qaError } = await supabase
-          .from('chat_qa')
-          .select('answer')
-          .ilike('question', `%${message}%`)
+        // Truy vấn trực tiếp bằng adminSupabase
+        const { data: apiKeys, error } = await adminSupabase
+          .from('api_keys')
+          .select('*')
+          .eq('provider', provider)
+          .eq('is_active', true)
+          .order('priority', { ascending: false })
           .limit(1);
-
-        if (qaError) {
-          console.error('Supabase query error:', qaError);
-        } else if (DEBUG_MODE) {
-          console.log('Supabase query successful, found answers:', qaData?.length || 0);
-        }
-
-        // Nếu tìm thấy câu trả lời trong database, trả về ngay lập tức
-        if (qaData && qaData.length > 0) {
-          if (DEBUG_MODE) console.log('Found answer in database:', qaData[0].answer.substring(0, 50) + '...');
           
-          // Ghi log khi sử dụng câu trả lời từ database
-          await logApiUsage({
-            tokens_used: qaData[0].answer.length,  // Sử dụng độ dài của câu trả lời làm tokens
-            request_type: 'database_response',
-            status: 'success',
-            message_content: message.substring(0, 100),
-            provider: 'database'
-          });
-          
-          return NextResponse.json({ 
-            response: qaData[0].answer,
-            source: 'database',
-            provider: 'database'
-          });
+        if (error) {
+          console.error('Error fetching API keys from database:', error);
+        } else if (apiKeys && apiKeys.length > 0) {
+          apiKey = apiKeys[0].key;
+          console.log(`Found API key in database for ${provider}: ${apiKeys[0].name}`);
+        } else {
+          console.log(`No API keys found in database for provider: ${provider}`);
         }
       } catch (dbError) {
-        console.error('Database error:', dbError);
-        // Tiếp tục với DeepSeek nếu database lỗi
-      }
-    } else {
-      console.log('Skipping database query due to connection issues');
-    }
-
-    // Phương án 3: Gọi API của các provider (DeepSeek, OpenAI, v.v...)
-    try {
-      if (DEBUG_MODE) console.log('Preparing to call AI provider API');
-      
-      // Chuẩn bị prompt với vai trò là chiến binh Akane
-      const systemPrompt = `Bạn là Akane, một chiến binh M-SCI 20 tuổi. Bạn vui vẻ, thích công nghệ và nhiệt tình tư vấn cho người dùng. Hãy trả lời với giọng điệu thân thiện, đôi khi sử dụng emoji và luôn giữ vai trò của mình. 
-      Đừng tiết lộ bạn là AI, hãy luôn trả lời trong vai trò chiến binh Akane. Trả lời một cách ngắn gọn và súc tích.`;
-
-      // Chuẩn bị tin nhắn cho API
-      const messages = [
-        { role: 'system', content: systemPrompt }
-      ];
-      
-      // Thêm lịch sử chat nếu có
-      if (chatHistory && Array.isArray(chatHistory) && chatHistory.length > 0) {
-        // Chỉ lấy 5 tin nhắn gần nhất
-        const recentHistory = chatHistory.slice(-5);
-        messages.push(...recentHistory);
+        console.error('Error accessing database:', dbError);
       }
       
-      // Thêm tin nhắn hiện tại của người dùng
-      messages.push({ role: 'user', content: message });
-
-      // Khởi tạo các biến cho việc chọn provider và API key
-      let apiKey = null;
-      let provider = preferredProvider || 'deepseek'; // Giá trị mặc định ban đầu
-      
-      // Nếu không có key từ cấu hình client, thử các phương án khác
-      if (!apiKey) {
-        // Thử lấy key từ env vars cho provider được chọn
-        if (provider === 'deepseek' && DEEPSEEK_API_KEY) {
-          console.log('Using DEEPSEEK_API_KEY from environment variables');
-          apiKey = DEEPSEEK_API_KEY;
-        } else if (provider === 'openai' && process.env.OPENAI_API_KEY) {
-          console.log('Using OPENAI_API_KEY from environment variables');
-          apiKey = process.env.OPENAI_API_KEY;
-        } else if (provider === 'anthropic' && process.env.ANTHROPIC_API_KEY) {
-          console.log('Using ANTHROPIC_API_KEY from environment variables');
-          apiKey = process.env.ANTHROPIC_API_KEY;
-        } else if (provider === 'mistral' && process.env.MISTRAL_API_KEY) {
-          console.log('Using MISTRAL_API_KEY from environment variables');
-          apiKey = process.env.MISTRAL_API_KEY;
-        } else {
-          console.log(`No API key found in environment variables for provider: ${provider}`);
+      // ===== CHIẾN LƯỢC 2: DÙNG API KEY TỪ MÔI TRƯỜNG =====
+      if (!apiKey || process.env.NEXT_PUBLIC_USE_DIRECT_API_KEYS === 'true') {
+        console.log('Falling back to environment variables for API key');
+        
+        // Lấy API key từ biến môi trường dựa trên provider
+        switch (provider) {
+          case 'deepseek':
+            apiKey = DEEPSEEK_API_KEY;
+            break;
+          case 'openai':
+            apiKey = OPENAI_API_KEY;
+            break;
+          default:
+            apiKey = DEEPSEEK_API_KEY;
+            provider = 'deepseek';
         }
         
-        // Nếu không tìm thấy từ env vars, thử lấy từ database cho provider đã chọn
-        if (!apiKey) {
-          try {
-            // Lấy API key từ database cho provider cụ thể đã chọn
-            const apiKeyData = await ApiKeyService.getActiveApiKey(provider);
-            
-            if (apiKeyData) {
-              apiKey = apiKeyData.key;
-              console.log(`Using ${provider} API key from database`);
-            } else {
-              console.log(`No active key found for provider ${provider} in database`);
-              
-              // Nếu không tìm thấy key cho provider đã chọn, 
-              // thử tìm bất kỳ key nào đang hoạt động cho các provider khác
-              console.log('Trying to find any available key from other providers...');
-              const fallbackKey = await ApiKeyService.getActiveApiKey();
-              
-              if (fallbackKey) {
-                apiKey = fallbackKey.key;
-                provider = fallbackKey.provider; // Cập nhật provider dựa trên key
-                console.log(`Using fallback provider: ${provider}`);
-              }
-            }
-          } catch (keyError) {
-            console.error('Error fetching API key from database:', keyError);
+        if (apiKey) {
+          console.log(`Using API key from environment for ${provider}`);
+        } else {
+          // Nếu không có key cho provider được chỉ định, thử dùng DeepSeek
+          console.log(`No API key for ${provider}, trying DeepSeek as fallback`);
+          apiKey = DEEPSEEK_API_KEY;
+          
+          if (apiKey) {
+            provider = 'deepseek';
+            console.log('Using DeepSeek API key as fallback');
+          } else {
+            // Nếu không có API key nào, sử dụng phản hồi dự phòng
+            throw new Error('No API key available');
           }
         }
       }
       
-      // In thêm chi tiết để debug
-      console.log('Debug - API Key Found:', apiKey ? 'Yes' : 'No');
-      console.log('Debug - Provider:', provider);
-      
-      // Nếu không tìm thấy key nào, trả về lỗi
-      if (!apiKey) {
-        console.error('No API key available');
-        throw new Error('No API key available for any provider');
-      }
-      
-      // Đảm bảo rằng API URL và model phù hợp với provider đã chọn
-      let finalProvider = provider; // Lưu lại provider cuối cùng để theo dõi
-      
-      // Lấy URL API dựa trên provider
-      let apiUrl = API_URLS[provider as keyof typeof API_URLS];
-      if (!apiUrl) {
-        console.warn(`Provider ${provider} không có API URL, dùng DeepSeek thay thế`);
-        apiUrl = API_URLS.deepseek;
-        finalProvider = 'deepseek';
+      // TRẢ VỀ PHẢN HỒI DỰ PHÒNG NẾU ĐANG DEV/TEST KHÔNG CẦN GỌI API THẬT
+      if (process.env.NEXT_PUBLIC_USE_FALLBACK_RESPONSES === 'true') {
+        console.log('Using fallback response (dev mode)');
+        const randomIndex = Math.floor(Math.random() * FALLBACK_RESPONSES.length);
+        return NextResponse.json({ 
+          response: FALLBACK_RESPONSES[randomIndex],
+          source: 'fallback',
+          note: 'Using fallback response in dev mode'
+        });
       }
       
       // Lấy model mặc định dựa trên provider
-      let model = DEFAULT_MODELS[provider as keyof typeof DEFAULT_MODELS];
-      if (!model) {
-        console.warn(`Provider ${provider} không có model mặc định, dùng DeepSeek thay thế`);
-        model = DEFAULT_MODELS.deepseek;
-        finalProvider = 'deepseek';
-      }
+      const model = DEFAULT_MODELS[provider as keyof typeof DEFAULT_MODELS] || DEFAULT_MODELS.deepseek;
+      const baseURL = BASE_URLS[provider as keyof typeof BASE_URLS] || BASE_URLS.deepseek;
       
-      // In thông tin cuối cùng trước khi gọi API
-      console.log(`FINAL CONFIG: Using ${finalProvider} with model ${model}`);
+      console.log(`Using ${provider} API with model ${model}`);
       
-      if (finalProvider !== provider) {
-        console.warn(`WARNING: Provider đã thay đổi từ ${provider} sang ${finalProvider} do thiếu cấu hình!`);
-      }
-
-      if (DEBUG_MODE) {
-        console.log(`Calling ${finalProvider} API with model: ${model}`);
-        console.log('First few characters of system prompt:', systemPrompt.substring(0, 50) + '...');
-        console.log('Total messages being sent:', messages.length);
-      }
+      // Khởi tạo OpenAI SDK với baseURL theo provider
+      const client = new OpenAI({
+        baseURL: baseURL,
+        apiKey: apiKey,
+        timeout: 8000, // 8 giây timeout
+        maxRetries: 1
+      });
       
-      // Chuẩn bị request body dựa trên provider
-      let requestBody;
-      
-      console.log(`[DEBUG] Preparing API call to ${finalProvider}`);
-      console.log(`[DEBUG] Using API URL: ${apiUrl}`);
-      console.log(`[DEBUG] API Key (first 4 chars): ${apiKey.substring(0, 4)}...`);
-      
-      switch (finalProvider) {
-        case 'anthropic':
-          // Claude API có format khác
-          requestBody = {
-            model: model,
-            messages: messages.map(msg => ({
-              role: msg.role === 'assistant' ? 'assistant' : msg.role === 'system' ? 'user' : 'user',
-              content: msg.role === 'system' ? [{ type: 'text', text: `<instructions>${msg.content}</instructions>` }] : [{ type: 'text', text: msg.content }]
-            })),
-            max_tokens: 500
-          };
-          break;
-          
-        case 'deepseek':
-          // DeepSeek có thể cần cấu hình đặc biệt
-          requestBody = {
-            model: model,
-            messages: messages,
-            temperature: 0.7,
-            max_tokens: 500,
-            stream: false
-          };
-          break;
-          
-        default:
-          // OpenAI, Mistral có format tương tự nhau
-          requestBody = {
-            model: model,
-          messages: messages,
+      // Gọi API với timeout
+      console.log(`Calling ${provider} API via OpenAI SDK...`);
+      try {
+        // Chuyển đổi messages sang đúng định dạng phù hợp với API
+        const completion = await client.chat.completions.create({
+          model: model,
+          messages: messages as any, // Ép kiểu để tránh lỗi TypeScript
           temperature: 0.7,
           max_tokens: 500
-          };
-      }
-      
-      console.log(`[DEBUG] Request body:`, JSON.stringify(requestBody).substring(0, 100) + '...');
-      
-      // Chuẩn bị headers dựa trên provider
-      const headers: Record<string, string> = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-        'Accept': 'application/json'
-      };
-      
-      // Thêm headers đặc biệt nếu cần
-      if (finalProvider === 'anthropic') {
-        headers['anthropic-version'] = '2023-06-01';
-      }
-      
-      console.log(`[DEBUG] Headers (excluding auth):`, Object.keys(headers).filter(k => k !== 'Authorization'));
-      
-      // Gọi API
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(requestBody)
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        let errorData;
-        try {
-          errorData = JSON.parse(errorText);
-        } catch {
-          errorData = { text: errorText };
-        }
-        
-        console.error(`${finalProvider} API error (${response.status}):`, errorData);
-        console.error(`Full error details for ${finalProvider}:`, {
-          status: response.status,
-          statusText: response.statusText,
-          headers: Object.fromEntries([...response.headers.entries()]),
-          errorData: errorData,
-          requestDetails: {
-            url: apiUrl,
-            model: model,
-            messageCount: messages.length,
-          }
         });
         
-        // Ghi nhận sử dụng API để quyết định có nên disable key này không
-        try {
-          if (apiKey !== DEEPSEEK_API_KEY) { // Chỉ ghi nhận nếu không phải key từ env
-            const keyData = await ApiKeyService.getApiKeys();
-            const matchingKey = keyData.find(k => k.key === apiKey);
-            if (matchingKey) {
-              // Nếu key bị lỗi do rate limit hay authentication, có thể cân nhắc disable
-              const shouldDisable = errorData.error?.type === 'authentication_error' || 
-                                   errorData.error?.code === 'rate_limit_exceeded';
-              
-              if (shouldDisable) {
-                console.log(`Auto-disabling API key ${matchingKey.id} due to serious error`);
-                await ApiKeyService.toggleApiKeyStatus(matchingKey.id, false);
-              } else {
-                // Vẫn ghi nhận lần sử dụng dù bị lỗi
-                await ApiKeyService.recordApiKeyUsage(matchingKey.id);
-              }
-            }
-          }
-        } catch (recordError) {
-          console.error('Error recording API key usage:', recordError);
-        }
+        // Xử lý phản hồi
+        const aiResponse = completion.choices[0]?.message?.content || '';
         
-        throw new Error(`${finalProvider} API error: ` + (errorData.error?.message || response.statusText || errorText));
-      }
-
-      const data = await response.json();
-      if (DEBUG_MODE) console.log(`Received response from ${finalProvider} API`);
-      
-      // Xử lý dữ liệu phản hồi dựa trên provider
-      let aiResponse;
-      switch (finalProvider) {
-        case 'anthropic':
-          if (!data.content || !data.content[0] || !data.content[0].text) {
-            throw new Error('Invalid response format from Anthropic API');
-          }
-          aiResponse = data.content[0].text;
-          break;
-          
-        default:
-          // DeepSeek, OpenAI, Mistral có format tương tự nhau
-      if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-            throw new Error(`Invalid response format from ${finalProvider} API`);
-          }
-          aiResponse = data.choices[0].message.content;
-      }
-      
-      if (DEBUG_MODE) console.log(`${finalProvider} response:`, aiResponse.substring(0, 50) + '...');
-
-      // Ghi nhận sử dụng API thành công
-      try {
-        // Ghi nhận sử dụng vào API key
-        if (apiKey !== DEEPSEEK_API_KEY) { // Chỉ ghi nhận nếu không phải key từ env
-          const keyData = await ApiKeyService.getApiKeys();
-          const matchingKey = keyData.find(k => k.key === apiKey);
-          if (matchingKey) {
-            await ApiKeyService.recordApiKeyUsage(matchingKey.id);
-          }
-        }
-      } catch (recordError) {
-        console.error('Error recording API key usage:', recordError);
-      }
-      
-      // Ghi log việc sử dụng API thành công
-      // Lấy số token từ response nếu có
-      const tokens_used = data.usage?.total_tokens || 0;
-      // Thêm log để theo dõi
-      console.log(`======= GHI LOG API USAGE - ${finalProvider.toUpperCase()} SUCCESS =======`);
-      console.log('Tokens:', tokens_used, 'Type: chat_completion', 'Status: success');
-      
-      try {
-        await logApiUsage({
-          tokens_used,
-          request_type: 'chat_completion',
-          status: 'success',
-          message_content: message.substring(0, 100), // Chỉ lưu 100 ký tự đầu tiên
-          provider: finalProvider
+        console.log(`Successfully received response from ${provider} API`);
+        
+        return NextResponse.json({ 
+          response: aiResponse,
+          source: 'api',
+          provider: provider
         });
-        console.log(`✅ Đã ghi log ${finalProvider} API thành công`);
-      } catch (logUsageError) {
-        console.error(`❌ Lỗi khi ghi log ${finalProvider} API:`, logUsageError);
-      }
-
-      return NextResponse.json({ 
-        response: aiResponse,
-        source: 'api',
-        provider: finalProvider
-      });
-    } catch (apiError) {
-      console.error('AI provider API error:', apiError);
-      
-      // Ghi log lỗi API 
-      // Thêm log để theo dõi
-      console.log('======= GHI LOG API USAGE - ERROR =======');
-      console.log('Error:', apiError instanceof Error ? apiError.message : 'Unknown error');
-      
-      try {
-        // Lấy thông tin provider từ error message hoặc sử dụng 'unknown'
-        const errorProvider = 
-          (apiError instanceof Error && 
-           apiError.message.includes('API error:') && 
-           apiError.message.split('API error:')[0].trim()) || 'unknown';
         
-        // Thử gọi API khác nếu ban đầu là DeepSeek
-        if (errorProvider === 'deepseek') {
+      } catch (fetchError: any) {
+        // Xử lý lỗi SDK
+        console.error('Error making API request:', fetchError);
+        
+        if (fetchError.code === 'ETIMEDOUT' || fetchError.code === 'ECONNABORTED') {
+          console.log('Request timed out');
+        }
+        
+        // Thử provider khác nếu có lỗi và là deepseek
+        if (provider === 'deepseek' && OPENAI_API_KEY) {
+          console.log('Trying OpenAI as fallback...');
           try {
-            console.log('DeepSeek API failed, trying to use OpenAI as fallback...');
-            // Tìm OpenAI API key
-            const openaiKey = await ApiKeyService.getActiveApiKey('openai');
+            const fallbackClient = new OpenAI({
+              baseURL: BASE_URLS.openai,
+              apiKey: OPENAI_API_KEY,
+              timeout: 8000
+            });
             
-            if (openaiKey) {
-              console.log('Found OpenAI API key, making fallback request');
-              const openaiUrl = API_URLS.openai;
-              const openaiModel = DEFAULT_MODELS.openai;
-              
-              // Tạo system prompt mới
-              const fallbackSystemPrompt = `Bạn là Akane, một chiến binh M-SCI 20 tuổi. Bạn vui vẻ, thích công nghệ và nhiệt tình tư vấn cho người dùng. Hãy trả lời với giọng điệu thân thiện, đôi khi sử dụng emoji và luôn giữ vai trò của mình. 
-              Đừng tiết lộ bạn là AI, hãy luôn trả lời trong vai trò chiến binh Akane. Trả lời một cách ngắn gọn và súc tích.`;
-              
-              // Tạo messages mới từ message gốc
-              const fallbackMessages = [
-                { role: 'system', content: fallbackSystemPrompt },
+            const fallbackCompletion = await fallbackClient.chat.completions.create({
+              model: DEFAULT_MODELS.openai,
+              messages: [
+                { role: 'system', content: systemPrompt },
                 { role: 'user', content: message }
-              ];
-              
-              const openaiHeaders = {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${openaiKey.key}`
-              };
-              
-              const openaiRequestBody = {
-                model: openaiModel,
-                messages: fallbackMessages,
-                temperature: 0.7,
-                max_tokens: 500
-              };
-              
-              const openaiResponse = await fetch(openaiUrl, {
-                method: 'POST',
-                headers: openaiHeaders,
-                body: JSON.stringify(openaiRequestBody)
-              });
-              
-              if (openaiResponse.ok) {
-                const openaiData = await openaiResponse.json();
-                if (openaiData.choices && openaiData.choices[0] && openaiData.choices[0].message) {
-                  const openaiAnswer = openaiData.choices[0].message.content;
-                  
-                  // Ghi log thành công cho OpenAI
-                  await logApiUsage({
-                    tokens_used: openaiData.usage?.total_tokens || 0,
-                    request_type: 'chat_completion_fallback',
-                    status: 'success',
-                    message_content: message.substring(0, 100),
-                    provider: 'openai'
-                  });
-                  
-                  // Trả về câu trả lời từ OpenAI
-                  return NextResponse.json({ 
-                    response: openaiAnswer,
-                    source: 'openai',
-                    fallback_from: 'deepseek'
-                  });
-                }
-              }
-            }
+              ],
+              temperature: 0.7,
+              max_tokens: 500
+            });
+            
+            const fallbackResponse = fallbackCompletion.choices[0]?.message?.content || '';
+            
+            return NextResponse.json({
+              response: fallbackResponse,
+              source: 'openai',
+              fallback_from: 'deepseek'
+            });
           } catch (fallbackError) {
-            console.error('Error using OpenAI as fallback:', fallbackError);
+            console.error('OpenAI fallback also failed:', fallbackError);
           }
         }
-      } catch (fallbackProcessError) {
-        console.error('Error in fallback process:', fallbackProcessError);
+        
+        // Nếu các provider đều thất bại, dùng fallback
+        throw fetchError;
       }
       
-      try {
-        await logApiUsage({
-          tokens_used: 0,
-          request_type: 'chat_completion',
-          status: 'error',
-          error: apiError instanceof Error ? apiError.message : 'Unknown error',
-          message_content: message.substring(0, 100),
-          provider: 'unknown'
-        });
-        console.log('✅ Đã ghi log lỗi API thành công');
-      } catch (logUsageError) {
-        console.error('❌ Lỗi khi ghi log lỗi API:', logUsageError);
-      }
+    } catch (apiError) {
+      // Xử lý trường hợp lỗi API và sử dụng phản hồi dự phòng
+      console.error('Error with AI providers:', apiError);
       
-      // Sử dụng fallback response nếu API không hoạt động
+      // Sử dụng phản hồi dự phòng
       const randomIndex = Math.floor(Math.random() * FALLBACK_RESPONSES.length);
       const fallbackResponse = FALLBACK_RESPONSES[randomIndex];
       
-      if (DEBUG_MODE) console.log('Using fallback response');
-      
-      // Ghi log khi sử dụng fallback response
-      console.log('Ghi log cho fallback response...');
-      try {
-        await logApiUsage({
-          tokens_used: fallbackResponse.length,  // Sử dụng độ dài của câu trả lời làm tokens
-          request_type: 'fallback_response',
-          status: 'success',
-          error: apiError instanceof Error ? apiError.message : 'Unknown API error',
-          message_content: message.substring(0, 100),
-          provider: 'fallback'
-        });
-        console.log('Đã ghi log fallback response thành công');
-      } catch (logError) {
-        console.error('Lỗi khi ghi log fallback response:', logError);
-      }
-      
       return NextResponse.json({ 
         response: fallbackResponse,
-        fallback: true,
-        source: 'fallback'
+        source: 'fallback',
+        error: apiError instanceof Error ? apiError.message : 'Unknown error'
       });
     }
+    
   } catch (error) {
+    // Xử lý lỗi tổng quát
     console.error('General error in chat API:', error);
-    return NextResponse.json(
-      { 
-        error: 'Có lỗi xảy ra khi xử lý yêu cầu chat', 
-        details: error instanceof Error ? error.message : 'Unknown error',
-        source: 'error'
-      },
-      { status: 500 }
-    );
+    
+    return NextResponse.json({ 
+      response: "Xin lỗi, tôi đang gặp sự cố kết nối. Vui lòng thử lại sau nhé!",
+      source: 'error',
+      error: error instanceof Error ? error.message : 'Unknown error'
+    });
   }
 } 
