@@ -226,7 +226,7 @@ export async function POST(request: Request) {
           console.error('Error fetching API keys from database:', error);
         } else if (apiKeys && apiKeys.length > 0) {
           apiKey = apiKeys[0].key;
-          console.log(`Found API key in database for ${provider}: ${apiKeys[0].name}`);
+          console.log(`Found API key in database for ${provider}: ${apiKeys[0].name || 'unnamed'}`);
         } else {
           console.log(`No API keys found in database for provider: ${provider}`);
         }
@@ -234,8 +234,8 @@ export async function POST(request: Request) {
         console.error('Error accessing database:', dbError);
       }
       
-      // ===== CHIẾN LƯỢC 2: DÙNG API KEY TỪ MÔI TRƯỜNG =====
-      if (!apiKey || process.env.NEXT_PUBLIC_USE_DIRECT_API_KEYS === 'true') {
+      // ===== CHIẾN LƯỢC 2: DÙNG API KEY TỪ MÔI TRƯỜNG CHỈ KHI KHÔNG TÌM THẤY TRONG DATABASE =====
+      if (!apiKey) {
         console.log('Falling back to environment variables for API key');
         
         // Lấy API key từ biến môi trường dựa trên provider

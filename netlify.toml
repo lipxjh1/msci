@@ -13,7 +13,7 @@
   BYPASS_TELEGRAM_AUTH = "true"
   NEXT_PUBLIC_DEFAULT_BANNER = "/images/overwatch_bg_2.jpg"
   NEXT_PUBLIC_APP_URL = "ms-ci-phongcach-clone-ovw.netlify.app"
-  NEXT_PUBLIC_USE_DIRECT_API_KEYS = "true"
+  NEXT_PUBLIC_USE_DIRECT_API_KEYS = "false"
   NEXT_PUBLIC_USE_FALLBACK_RESPONSES = "false"
 
 [[plugins]]
