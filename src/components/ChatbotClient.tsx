@@ -11,77 +11,8 @@ export default function ChatbotClient() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const [apiConfig, setApiConfig] = useState<{provider: string, apiKeyId: number} | null>(null);
+  const [apiProvider, setApiProvider] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  // Một hàm riêng để load cấu hình từ localStorage
-  const loadConfigFromLocalStorage = () => {
-    console.log('Loading API config from localStorage');
-    const storedConfig = localStorage.getItem('activeApiProviderConfig');
-    console.log('Raw stored config:', storedConfig);
-    
-    if (storedConfig) {
-      try {
-        const config = JSON.parse(storedConfig);
-        setApiConfig(config);
-        console.log('Successfully loaded API config:', config);
-        return config;
-      } catch (error) {
-        console.error('Error parsing stored API config:', error);
-        return null;
-      }
-    } else {
-      console.warn('No API configuration found in localStorage');
-      return null;
-    }
-  };
-
-  // Lấy cấu hình API từ localStorage khi component mount
-  useEffect(() => {
-    loadConfigFromLocalStorage();
-    
-    // Debug: Thêm một event listener để theo dõi thay đổi localStorage
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === 'activeApiProviderConfig') {
-        console.log('Storage event detected for API config. New value:', e.newValue);
-        loadConfigFromLocalStorage();
-      }
-    };
-    
-    window.addEventListener('storage', handleStorageChange);
-    
-    // Thêm listener cho custom event từ ChatbotConfigService
-    const handleConfigChange = (e: Event) => {
-      console.log('Custom chatbotConfigChanged event detected', (e as CustomEvent).detail);
-      loadConfigFromLocalStorage();
-    };
-    
-    window.addEventListener('chatbotConfigChanged', handleConfigChange);
-    
-    // Thêm interval để kiểm tra cấu hình mỗi 2 giây
-    const intervalId = setInterval(() => {
-      const currentConfig = localStorage.getItem('activeApiProviderConfig');
-      if (currentConfig) {
-        try {
-          const parsedConfig = JSON.parse(currentConfig);
-          // So sánh với cấu hình hiện tại
-          if (JSON.stringify(parsedConfig) !== JSON.stringify(apiConfig)) {
-            console.log('Detected config change via interval:', parsedConfig);
-            setApiConfig(parsedConfig);
-          }
-        } catch (err) {
-          // Bỏ qua lỗi parse JSON
-          console.debug('Error parsing config in interval check:', err);
-        }
-      }
-    }, 2000);
-    
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('chatbotConfigChanged', handleConfigChange);
-      clearInterval(intervalId);
-    };
-  }, [apiConfig]);
 
   // Auto-scroll xuống cuối cuộc hội thoại khi có tin nhắn mới
   useEffect(() => {
@@ -103,22 +34,8 @@ export default function ChatbotClient() {
     setMessages(newMessages);
 
     try {
-      const headers: HeadersInit = {
-        'Content-Type': 'application/json'
-      };
-
-      // Luôn tải lại cấu hình mới nhất từ localStorage trước khi gửi request
-      const freshConfig = loadConfigFromLocalStorage();
-      
-      if (freshConfig) {
-        headers['x-chatbot-api-config'] = JSON.stringify(freshConfig);
-        console.log('Sending request with fresh API config:', freshConfig);
-      } else {
-        console.warn('No API config available for request');
-      }
-
-      // Hiển thị thông tin gọi API để debug
-      console.log('Request headers:', headers);
+      // Đơn giản hóa - không còn phụ thuộc vào localStorage
+      console.log('Sending chat request...');
       console.log('Request body:', {
         message: userMessage,
         chatHistory: newMessages.slice(0, -1).map(msg => ({
@@ -127,10 +44,12 @@ export default function ChatbotClient() {
         }))
       });
 
-      // Gọi API với cấu hình đã chọn
+      // Gọi API không kèm cấu hình
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           message: userMessage,
           chatHistory: newMessages.map(msg => ({
@@ -147,9 +66,14 @@ export default function ChatbotClient() {
       const data = await response.json();
       console.log('API response:', {
         source: data.source,
-        provider: data.provider, // Thêm provider vào log
+        provider: data.provider,
         response: data.response.substring(0, 50) + '...'
       });
+      
+      // Cập nhật provider nếu có
+      if (data.provider) {
+        setApiProvider(data.provider);
+      }
       
       // Thêm câu trả lời từ chatbot vào danh sách tin nhắn
       setMessages([...newMessages, { role: 'assistant' as const, content: data.response }]);
@@ -169,9 +93,9 @@ export default function ChatbotClient() {
     <Paper sx={{ p: 2, height: '600px', display: 'flex', flexDirection: 'column' }}>
       <Typography variant="h6" sx={{ mb: 2 }}>
         Chat với Akane
-        {apiConfig && (
+        {apiProvider && (
           <Typography component="span" variant="caption" sx={{ ml: 1, p: 0.5, bgcolor: 'primary.light', borderRadius: 1, color: 'white' }}>
-            (Sử dụng {apiConfig.provider})
+            (Sử dụng {apiProvider})
           </Typography>
         )}
       </Typography>

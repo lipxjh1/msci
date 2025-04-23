@@ -186,6 +186,7 @@ export default function ThanhDieuHuongMobile() {
                 alt="M-SCI Logo"
                 fill
                 className="object-contain"
+                sizes="24rem"
               />
             </div>
           </Link>

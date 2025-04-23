@@ -32,6 +32,7 @@ export default function FeatureSection() {
                 alt="Miễn phí"
                 fill
                 className="object-cover transform hover:scale-110 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
               <div className="absolute bottom-4 left-4 bg-[var(--accent-blue-bright)]/80 text-white font-bold py-1 px-4 rounded-full text-sm backdrop-blur-sm">MIỄN PHÍ</div>
@@ -48,6 +49,7 @@ export default function FeatureSection() {
                 alt="Heroes"
                 fill
                 className="object-cover transform hover:scale-110 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
               <div className="absolute bottom-4 left-4 bg-[var(--accent-blue-bright)]/80 text-white font-bold py-1 px-4 rounded-full text-sm backdrop-blur-sm">Anh Hùng</div>
@@ -64,6 +66,7 @@ export default function FeatureSection() {
                 alt="Play Game"
                 fill
                 className="object-cover transform hover:scale-110 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
               <div className="absolute bottom-4 left-4 bg-[var(--accent-blue-bright)]/80 text-white font-bold py-1 px-4 rounded-full text-sm backdrop-blur-sm">Chơi ngay</div>
