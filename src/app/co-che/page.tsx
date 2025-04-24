@@ -82,7 +82,7 @@ export default function CoChePage() {
                 </p>
                 <p className="text-white/80 text-lg mb-6 leading-relaxed">
                   Mục tiêu chính của game là làm việc như một đội để tiêu diệt
-                  lực lượng robot của X-Corp và hoàn thành các nhiệm vụ. Mỗi anh
+                  lực lượng robot của The Ascended và hoàn thành các nhiệm vụ. Mỗi anh
                   hùng có các kỹ năng cơ bản, khả năng đặc biệt và Kỹ năng Tối
                   thượng riêng biệt giúp quyết định chiến thắng trong những thời
                   khắc quan trọng.
@@ -111,7 +111,7 @@ export default function CoChePage() {
               <div className="w-full md:w-1/2">
                 <div className="relative rounded-xl overflow-hidden border border-white/5 shadow-xl">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
+                    src="/images/co-che/biet-doi.jpg"
                     alt="Cơ chế game"
                     width={600}
                     height={400}
@@ -157,7 +157,7 @@ export default function CoChePage() {
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 group">
                 <div className="relative h-48">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
+                    src="/images/co-che/camping.jpg"
                     alt="Quick Play"
                     fill
                     className="object-cover"
@@ -193,7 +193,7 @@ export default function CoChePage() {
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 group">
                 <div className="relative h-48">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
+                    src="/images/co-che/rank.jpg"
                     alt="Competitive"
                     fill
                     className="object-cover"
@@ -229,7 +229,7 @@ export default function CoChePage() {
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 group">
                 <div className="relative h-48">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
+                    src="/images/co-che/boss.jpg"
                     alt="Arcade"
                     fill
                     className="object-cover"
@@ -265,7 +265,7 @@ export default function CoChePage() {
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 group">
                 <div className="relative h-48">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
+                    src="/images/co-che/guild.jpg"
                     alt="Custom Games"
                     fill
                     className="object-cover"
@@ -299,7 +299,7 @@ export default function CoChePage() {
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 group">
                 <div className="relative h-48">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
+                    src="/images/co-che/even.jpg"
                     alt="Seasonal Events"
                     fill
                     className="object-cover"
@@ -335,7 +335,7 @@ export default function CoChePage() {
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 group">
                 <div className="relative h-48">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
+                    src="/images/co-che/shop.jpg"
                     alt="Workshop"
                     fill
                     className="object-cover"
@@ -383,29 +383,13 @@ export default function CoChePage() {
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-[#F44336]/20 transition-all duration-300 group">
                 <div className="relative h-48">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
-                    alt="Tank Role"
+                    src="/images/co-che/guner.jpg"
+                    alt="Lính Súng Máy (Gunner)"
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
-                  <div className="absolute top-4 right-4 p-2 bg-[#F44336]/30 backdrop-blur-sm rounded-full h-12 w-12 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v3m0 0v3m0-3h3m-3 0H9"
-                      />
-                    </svg>
-                  </div>
                 </div>
                 <div className="p-6">
                   <h3 className=" text-2xl font-bold text-[#F44336] mb-4">
@@ -444,29 +428,13 @@ export default function CoChePage() {
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-[#3f51b5]/20 transition-all duration-300 group">
                 <div className="relative h-48">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
-                    alt="DPS Role"
+                    src="/images/co-che/spine.jpg"
+                    alt="Tay Bắn Tỉa (Sniper)"
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
-                  <div className="absolute top-4 right-4 p-2 bg-[#3f51b5]/30 backdrop-blur-sm rounded-full h-12 w-12 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                      />
-                    </svg>
-                  </div>
                 </div>
                 <div className="p-6">
                   <h3 className=" text-2xl font-bold text-[#3f51b5] mb-4">
@@ -505,29 +473,13 @@ export default function CoChePage() {
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-[#4CAF50]/20 transition-all duration-300 group">
                 <div className="relative h-48">
                   <Image
-                    src="/images/overwatch_bg_2.jpg"
-                    alt="Support Role"
+                    src="/images/co-che/roket.jpg"
+                    alt="Pháo Thủ (Rocket)"
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
-                  <div className="absolute top-4 right-4 p-2 bg-[#4CAF50]/30 backdrop-blur-sm rounded-full h-12 w-12 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      />
-                    </svg>
-                  </div>
                 </div>
                 <div className="p-6">
                   <h3 className=" text-2xl font-bold text-[#4CAF50] mb-4">
@@ -565,173 +517,6 @@ export default function CoChePage() {
             </div>
           </div>
 
-          {/* Các loại bản đồ */}
-          <div className="mb-16">
-            <h2 className=" text-3xl font-bold text-white mb-8 relative inline-block">
-              Các Khu Vực Chiến Đấu
-              <div className="absolute -bottom-2 left-0 h-1 w-16 bg-gradient-to-r from-[#F44336] to-transparent"></div>
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* Assault */}
-              <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:shadow-[#F44336]/10 hover:border-white/10 transition-all duration-300 group">
-                <div className="relative h-40">
-                  <Image
-                    src="/images/overwatch_bg_2.jpg"
-                    alt="Assault Map"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
-                </div>
-                <div className="p-5">
-                  <h3 className=" text-xl font-bold text-white mb-3 group-hover:text-[#F44336] transition-colors">
-                    Trái Đất (Màn 1-20)
-                  </h3>
-                  <p className="text-white/70 text-sm mb-4">
-                    Khu vực khởi đầu với các robot cơ bản dễ dàng. Người chơi
-                    làm quen với cơ chế game và đối đầu với Drone đầu tiên xuất
-                    hiện từ màn 4-5. Hoàn thành khu vực này để mở đường rời hành
-                    tinh.
-                  </p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-white/60">
-                      Ví dụ: Thành phố, Cơ sở tập luyện
-                    </span>
-                    <div className="p-1 px-2 bg-[#0f1923]/80 backdrop-blur-sm rounded-md">
-                      <span className="text-white/80 text-xs">20 màn</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Escort */}
-              <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:shadow-[#3f51b5]/10 hover:border-white/10 transition-all duration-300 group">
-                <div className="relative h-40">
-                  <Image
-                    src="/images/overwatch_bg_2.jpg"
-                    alt="Escort Map"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
-                </div>
-                <div className="p-5">
-                  <h3 className=" text-xl font-bold text-white mb-3 group-hover:text-[#3f51b5] transition-colors">
-                    Ngoài Không Gian (Màn 21-40)
-                  </h3>
-                  <p className="text-white/70 text-sm mb-4">
-                    Bối cảnh chuyển ra vũ trụ với các kẻ địch mạnh hơn, nhiều
-                    robot trang bị lá chắn năng lượng và Drone dày đặc. Đòi hỏi
-                    kỹ năng núp bắn và ưu tiên mục tiêu tốt hơn.
-                  </p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-white/60">
-                      Ví dụ: Trạm vũ trụ, Phi thuyền
-                    </span>
-                    <div className="p-1 px-2 bg-[#0f1923]/80 backdrop-blur-sm rounded-md">
-                      <span className="text-white/80 text-xs">20 màn</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Hybrid */}
-              <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:shadow-[#9C27B0]/10 hover:border-white/10 transition-all duration-300 group">
-                <div className="relative h-40">
-                  <Image
-                    src="/images/overwatch_bg_2.jpg"
-                    alt="Hybrid Map"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
-                </div>
-                <div className="p-5">
-                  <h3 className=" text-xl font-bold text-white mb-3 group-hover:text-[#9C27B0] transition-colors">
-                    Sao Hỏa (Màn 41-60)
-                  </h3>
-                  <p className="text-white/70 text-sm mb-4">
-                    Chiến trường trên hành tinh đỏ với kẻ địch có HP và Shield
-                    cao vượt trội. Từ khu vực này có cơ hội nhận nhân vật cấp A
-                    (Epic) khi vượt màn, tỷ lệ khoảng 1-3%.
-                  </p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-white/60">
-                      Ví dụ: Sa mạc đỏ, Căn cứ khảo sát
-                    </span>
-                    <div className="p-1 px-2 bg-[#0f1923]/80 backdrop-blur-sm rounded-md">
-                      <span className="text-white/80 text-xs">20 màn</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Control */}
-              <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:shadow-[#2196F3]/10 hover:border-white/10 transition-all duration-300 group">
-                <div className="relative h-40">
-                  <Image
-                    src="/images/overwatch_bg_2.jpg"
-                    alt="Control Map"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
-                </div>
-                <div className="p-5">
-                  <h3 className=" text-xl font-bold text-white mb-3 group-hover:text-[#2196F3] transition-colors">
-                    Trung Tâm: The Ascended(Màn 61-80)
-                  </h3>
-                  <p className="text-white/70 text-sm mb-4">
-                    Căn cứ tối tân với kẻ thù hùng hậu. Nhân vật cấp S
-                    (Legendary) bắt đầu xuất hiện ngẫu nhiên làm phần thưởng, dù
-                    xác suất rất nhỏ (0.5-1%). Đòi hỏi đội hình đã phát triển
-                    mạnh.
-                  </p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-white/60">
-                      Ví dụ: Phòng thí nghiệm, Khu điều khiển{" "}
-                    </span>
-                    <div className="p-1 px-2 bg-[#0f1923]/80 backdrop-blur-sm rounded-md">
-                      <span className="text-white/80 text-xs">20 màn</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:shadow-[#2196F3]/10 hover:border-white/10 transition-all duration-300 group">
-                <div className="relative h-40">
-                  <Image
-                    src="/images/overwatch_bg_2.jpg"
-                    alt="Control Map"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
-                </div>
-                <div className="p-5">
-                  <h3 className=" text-xl font-bold text-white mb-3 group-hover:text-[#2196F3] transition-colors">
-                    Tổng Hành Dinh X-Corp (Màn 81-100)
-                  </h3>
-                  <p className="text-white/70 text-sm mb-4">
-                    Trận chiến cuối cùng tại sào huyệt của tập đoàn X-Corp với
-                    độ khó tối đa. Mỗi màn có thể lên tới 10 robot và 8 Drone
-                    cùng lúc. Tỷ lệ rơi nhân vật cấp S tăng nhẹ (tối đa khoảng
-                    4% ở các màn 96-100).
-                  </p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-white/60">
-                      Ví dụ: Trung tâm chỉ huy, Phòng thí nghiệm tối mật{" "}
-                    </span>
-                    <div className="p-1 px-2 bg-[#0f1923]/80 backdrop-blur-sm rounded-md">
-                      <span className="text-white/80 text-xs">20 màn</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Footer section */}
           <div className="mt-16 bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl p-8 shadow-lg">
             <div className="text-center">
@@ -739,7 +524,7 @@ export default function CoChePage() {
                 Sẵn sàng chiến đấu vì nhân loại?
               </h2>
               <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-                Bây giờ bạn đã hiểu các lớp nhân vật và khu vực chiến đấu của
+                Bây giờ bạn đã hiểu các lớp nhân vật của
                 M-SCI, hãy chiêu mộ anh hùng, tham gia vào trận chiến 30 giây và
                 ngăn chặn The Assended!
               </p>

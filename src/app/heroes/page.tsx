@@ -115,6 +115,7 @@ function CustomChatInterface({
               src="/images/heroes/ui11.png"
               alt="Akane Chat"
               fill
+              sizes="(max-width: 768px) 3.5rem, 3.5rem"
               className="object-cover"
             />
           </div>
@@ -272,6 +273,17 @@ export default function HeroesPage() {
       setError(null);
       
       try {
+        // Thay đổi kiểm tra kết nối Supabase sử dụng bảng vai_tro thay vì rls_test
+        const { data: testConnection, error: connectionError } = await supabase
+          .from('vai_tro')
+          .select('*')
+          .limit(1);
+        
+        if (connectionError) {
+          console.error('Lỗi kết nối Supabase:', connectionError);
+          throw new Error(`Không thể kết nối đến Supabase. Chi tiết: ${connectionError.message}`);
+        }
+        
         let query = supabase
           .from('anh_hung')
           .select(`
@@ -286,12 +298,22 @@ export default function HeroesPage() {
         
         const { data, error } = await query.order('ten');
         
-        if (error) throw error;
+        if (error) {
+          console.error('Lỗi truy vấn dữ liệu:', error);
+          throw new Error(`Lỗi truy vấn dữ liệu: ${error.message}`);
+        }
+        
         console.log("Heroes data:", data); // In ra dữ liệu để kiểm tra
-        setHeroes(data as AnhHung[]);
-      } catch (err) {
+        
+        if (!data || data.length === 0) {
+          console.warn('Không tìm thấy dữ liệu anh hùng');
+          setHeroes([]);
+        } else {
+          setHeroes(data as AnhHung[]);
+        }
+      } catch (err: any) {
         console.error('Lỗi khi lấy danh sách anh hùng:', err);
-        setError('Không thể lấy danh sách anh hùng');
+        setError(`Không thể lấy danh sách anh hùng. ${err.message || 'Vui lòng kiểm tra console để biết chi tiết.'}`);
       } finally {
         setLoading(false);
       }

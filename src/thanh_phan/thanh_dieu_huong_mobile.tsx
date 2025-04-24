@@ -81,7 +81,7 @@ export default function ThanhDieuHuongMobile() {
         { href: '/heroes', label: 'Anh Hùng (Heroes)' },
         { href: '/story', label: 'Cốt Truyện (Story)' },
         { href: '/co-che', label: 'Cơ Chế (Gameplay)' },
-        { href: '/gacha', label: 'Gacha (Summon)', comingSoon: true },
+        { href: '/gacha', label: 'Gacha (Summon)' },
         { href: '/events', label: 'Sự Kiện (Events)' },
         { href: '/guild', label: 'Guild (Guilds)', comingSoon: true },
         { href: '/download', label: 'Tải Game (Download)', badge: 'NEW', badgeColor: 'bg-orange-500' }
