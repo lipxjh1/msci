@@ -1,0 +1,53 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="200" cy="150" r="120" fill="url(#gradient)" opacity="0.6" />
+  
+  <!-- Character Silhouettes -->
+  <g transform="translate(90, 90)">
+    <!-- Character 1 -->
+    <path d="M60,120 L80,80 L100,120 M80,80 L80,40 M60,60 L100,60" stroke="#A78BFA" stroke-width="4" stroke-linecap="round" />
+    <circle cx="80" cy="25" r="15" fill="#A78BFA" />
+    
+    <!-- Character 2 -->
+    <path d="M140,120 L160,80 L180,120 M160,80 L160,40 M140,60 L180,60" stroke="#60A5FA" stroke-width="4" stroke-linecap="round" />
+    <circle cx="160" cy="25" r="15" fill="#60A5FA" />
+    
+    <!-- Character 3 -->
+    <path d="M220,120 L240,80 L260,120 M240,80 L240,40 M220,60 L260,60" stroke="#34D399" stroke-width="4" stroke-linecap="round" />
+    <circle cx="240" cy="25" r="15" fill="#34D399" />
+  </g>
+  
+  <!-- Connection Lines -->
+  <path d="M130,120 C160,90 170,80 200,80 S240,90 270,120" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
+  <path d="M110,150 C150,130 170,120 200,120 S250,130 290,150" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
+  
+  <!-- Decorative Elements -->
+  <circle cx="130" cy="110" r="4" fill="#F472B6">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="200" cy="90" r="4" fill="#F472B6">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="270" cy="110" r="4" fill="#F472B6">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Stars -->
+  <path d="M120,60 L123,66 L130,67 L125,72 L126,79 L120,76 L114,79 L115,72 L110,67 L117,66 Z" fill="#FBBF24" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" />
+  </path>
+  <path d="M280,70 L283,76 L290,77 L285,82 L286,89 L280,86 L274,89 L275,82 L270,77 L277,76 Z" fill="#FBBF24" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite" />
+  </path>
+  <path d="M200,40 L203,46 L210,47 L205,52 L206,59 L200,56 L194,59 L195,52 L190,47 L197,46 Z" fill="#FBBF24" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" repeatCount="indefinite" />
+  </path>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+  </defs>
+</svg> 

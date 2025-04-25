@@ -1,0 +1,20 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Green background -->
+  <rect width="512" height="512" fill="#009C3B"/>
+  
+  <!-- Yellow diamond -->
+  <polygon points="256,60 452,256 256,452 60,256" fill="#FFDF00"/>
+  
+  <!-- Blue circle -->
+  <circle cx="256" cy="256" r="80" fill="#002776"/>
+  
+  <!-- White band -->
+  <path d="M176,256 Q256,290 336,256 Q256,335 176,256" fill="white"/>
+  
+  <!-- Stars (simplified) -->
+  <circle cx="256" cy="280" r="4" fill="white"/>
+  <circle cx="290" cy="256" r="3" fill="white"/>
+  <circle cx="272" cy="230" r="3" fill="white"/>
+  <circle cx="240" cy="230" r="3" fill="white"/>
+  <circle cx="222" cy="256" r="3" fill="white"/>
+</svg> 

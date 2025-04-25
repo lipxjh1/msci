@@ -1,0 +1,65 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Stripes -->
+  <rect width="512" height="512" fill="white"/>
+  <rect y="0" width="512" height="39.38" fill="#B22234"/>
+  <rect y="78.77" width="512" height="39.38" fill="#B22234"/>
+  <rect y="157.54" width="512" height="39.38" fill="#B22234"/>
+  <rect y="236.31" width="512" height="39.38" fill="#B22234"/>
+  <rect y="315.08" width="512" height="39.38" fill="#B22234"/>
+  <rect y="393.85" width="512" height="39.38" fill="#B22234"/>
+  <rect y="472.62" width="512" height="39.38" fill="#B22234"/>
+  
+  <!-- Blue field -->
+  <rect width="256" height="275.69" fill="#3C3B6E"/>
+  
+  <!-- Stars (simplified) -->
+  <circle cx="25" cy="25" r="10" fill="white"/>
+  <circle cx="75" cy="25" r="10" fill="white"/>
+  <circle cx="125" cy="25" r="10" fill="white"/>
+  <circle cx="175" cy="25" r="10" fill="white"/>
+  <circle cx="225" cy="25" r="10" fill="white"/>
+  
+  <circle cx="50" cy="50" r="10" fill="white"/>
+  <circle cx="100" cy="50" r="10" fill="white"/>
+  <circle cx="150" cy="50" r="10" fill="white"/>
+  <circle cx="200" cy="50" r="10" fill="white"/>
+  
+  <circle cx="25" cy="75" r="10" fill="white"/>
+  <circle cx="75" cy="75" r="10" fill="white"/>
+  <circle cx="125" cy="75" r="10" fill="white"/>
+  <circle cx="175" cy="75" r="10" fill="white"/>
+  <circle cx="225" cy="75" r="10" fill="white"/>
+  
+  <circle cx="50" cy="100" r="10" fill="white"/>
+  <circle cx="100" cy="100" r="10" fill="white"/>
+  <circle cx="150" cy="100" r="10" fill="white"/>
+  <circle cx="200" cy="100" r="10" fill="white"/>
+  
+  <circle cx="25" cy="125" r="10" fill="white"/>
+  <circle cx="75" cy="125" r="10" fill="white"/>
+  <circle cx="125" cy="125" r="10" fill="white"/>
+  <circle cx="175" cy="125" r="10" fill="white"/>
+  <circle cx="225" cy="125" r="10" fill="white"/>
+  
+  <circle cx="50" cy="150" r="10" fill="white"/>
+  <circle cx="100" cy="150" r="10" fill="white"/>
+  <circle cx="150" cy="150" r="10" fill="white"/>
+  <circle cx="200" cy="150" r="10" fill="white"/>
+  
+  <circle cx="25" cy="175" r="10" fill="white"/>
+  <circle cx="75" cy="175" r="10" fill="white"/>
+  <circle cx="125" cy="175" r="10" fill="white"/>
+  <circle cx="175" cy="175" r="10" fill="white"/>
+  <circle cx="225" cy="175" r="10" fill="white"/>
+  
+  <circle cx="50" cy="200" r="10" fill="white"/>
+  <circle cx="100" cy="200" r="10" fill="white"/>
+  <circle cx="150" cy="200" r="10" fill="white"/>
+  <circle cx="200" cy="200" r="10" fill="white"/>
+  
+  <circle cx="25" cy="225" r="10" fill="white"/>
+  <circle cx="75" cy="225" r="10" fill="white"/>
+  <circle cx="125" cy="225" r="10" fill="white"/>
+  <circle cx="175" cy="225" r="10" fill="white"/>
+  <circle cx="225" cy="225" r="10" fill="white"/>
+</svg> 

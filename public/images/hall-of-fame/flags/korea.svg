@@ -1,0 +1,35 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" fill="white"/>
+  
+  <!-- Taeguk (Yin Yang) -->
+  <path d="M256,170 A86,86 0 0 1 256,342 A86,86 0 0 0 256,170" fill="#C00" />
+  <path d="M256,170 A86,86 0 0 0 256,342 A86,86 0 0 1 256,170" fill="#003478" />
+  
+  <!-- Circle in upper red part -->
+  <circle cx="256" cy="214" r="24" fill="#003478" />
+  
+  <!-- Circle in lower blue part -->
+  <circle cx="256" cy="298" r="24" fill="#C00" />
+  
+  <!-- Trigrams (Kwae) -->
+  <!-- Upper left -->
+  <rect x="140" y="140" width="40" height="10" fill="black" />
+  <rect x="140" y="160" width="40" height="10" fill="black" />
+  <rect x="140" y="180" width="40" height="10" fill="black" />
+  
+  <!-- Upper right -->
+  <rect x="332" y="140" width="40" height="10" fill="black" />
+  <rect x="332" y="160" width="40" height="10" fill="black" />
+  <rect x="352" y="180" width="20" height="10" fill="black" />
+  
+  <!-- Lower left -->
+  <rect x="140" y="322" width="40" height="10" fill="black" />
+  <rect x="140" y="342" width="40" height="10" fill="black" />
+  <rect x="160" y="362" width="20" height="10" fill="black" />
+  
+  <!-- Lower right -->
+  <rect x="332" y="322" width="40" height="10" fill="black" />
+  <rect x="352" y="342" width="20" height="10" fill="black" />
+  <rect x="332" y="362" width="40" height="10" fill="black" />
+</svg> 
