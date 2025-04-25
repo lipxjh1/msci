@@ -1,0 +1,175 @@
+# STAKING & REWARDS M-SCI
+
+## Tăng Thu Nhập Thụ Động Từ Tài Sản Game
+
+Chào mừng đến với hệ thống Staking của M-SCI - nơi bạn có thể đặt cược tài sản trong game để nhận thưởng hấp dẫn và góp phần xây dựng hệ sinh thái bền vững.
+
+## 🌟 TỔNG QUAN VỀ STAKING
+
+### Staking Là Gì?
+Staking trong M-SCI là cơ chế cho phép người chơi khóa tài sản (token $MSCI, NFT nhân vật) trong một khoảng thời gian nhất định để nhận phần thưởng định kỳ. Đây là cách tạo thu nhập thụ động trong khi vẫn giữ quyền sở hữu tài sản.
+
+### Lợi Ích Của Staking
+- Nhận thu nhập thụ động ổn định
+- Tăng giá trị tài sản dài hạn
+- Đóng góp vào sự ổn định của game
+- Mở khóa quyền lợi VIP độc quyền
+- Tham gia quản trị cộng đồng
+
+## 💎 CÁC LOẠI STAKING
+
+### 1. $MSCI Token Staking
+**Đặt cược token để nhận lãi suất hấp dẫn**
+
+#### Gói Linh Hoạt (Flexible)
+- **Thời gian**: Không cố định, rút bất cứ lúc nào
+- **APY**: 8-12% 
+- **Thưởng**: Trả hàng ngày
+- **Rút vốn**: Ngay lập tức
+
+#### Gói 30 Ngày
+- **Thời gian**: Khóa 30 ngày
+- **APY**: 15-20%
+- **Thưởng**: Trả hàng tuần
+- **Bonus**: +5% M-Coin
+
+#### Gói 90 Ngày
+- **Thời gian**: Khóa 90 ngày
+- **APY**: 25-35%
+- **Thưởng**: Trả hàng tuần
+- **Bonus**: +15% M-Coin + Skin độc quyền
+
+#### Gói 180 Ngày
+- **Thời gian**: Khóa 180 ngày
+- **APY**: 40-50%
+- **Thưởng**: Trả hàng tuần
+- **Bonus**: +30% M-Coin + Hero cấp A
+
+### 2. NFT Hero Staking
+**Đặt cược nhân vật NFT để nhận thưởng đặc biệt**
+
+#### Common Heroes (C)
+- **APY**: 5-8%
+- **Thưởng**: M-Coin hàng ngày
+- **Bonus**: Character Ticket mỗi tháng
+
+#### Rare Heroes (B)
+- **APY**: 10-15%
+- **Thưởng**: M-Coin + Chip hàng ngày
+- **Bonus**: Piece Ticket mỗi tuần
+
+#### Epic Heroes (A)
+- **APY**: 20-30%
+- **Thưởng**: M-Coin + Chip + Memory
+- **Bonus**: Skin độc quyền mỗi tháng
+
+#### Legendary Heroes (S)
+- **APY**: 40-60%
+- **Thưởng**: M-Coin + Premium items
+- **Bonus**: Quyền tham gia event VIP
+
+### 3. LP Token Staking
+**Cung cấp thanh khoản và nhận thưởng**
+
+- **Cặp**: $MSCI/USDT, $MSCI/BNB
+- **APY**: 50-100%
+- **Thưởng**: $MSCI + Trading fees
+- **Bonus**: Governance token
+
+## 📊 BẢNG TÍNH TOÁN STAKING
+
+### Ví Dụ Thu Nhập
+
+| Loại Staking | Số Lượng | Thời Gian | APY | Thu Nhập Dự Kiến |
+|-------------|----------|-----------|-----|------------------|
+| $MSCI Token | 10,000 | 30 ngày | 20% | 166 $MSCI |
+| $MSCI Token | 10,000 | 90 ngày | 35% | 875 $MSCI |
+| Hero S | 1 | 30 ngày | 50% | 2,500 M-Coin |
+| LP Token | $1,000 | 30 ngày | 80% | $66 |
+
+## 🎁 PHẦN THƯỞNG BỔ SUNG
+
+### Staking Milestones
+- **30 ngày liên tục**: Badge "Dedicated Staker"
+- **90 ngày liên tục**: Title "Diamond Hands"
+- **180 ngày liên tục**: NFT Avatar độc quyền
+- **365 ngày liên tục**: Lifetime VIP status
+
+### Referral Bonus
+- Giới thiệu bạn bè staking: +2% APY cho cả hai
+- Top referrer hàng tháng: Double rewards
+
+### Early Bird Rewards
+- 1000 người staking đầu tiên: +10% APY
+- Staking trong tuần đầu ra mắt: NFT kỷ niệm
+
+## 🔒 AN TOÀN & BẢO MẬT
+
+### Smart Contract Audit
+- Audited by CertiK
+- 100% on-chain transparency
+- Multi-sig wallet protection
+- Insurance fund coverage
+
+### Biện Pháp Bảo Vệ
+- 2FA bắt buộc cho staking
+- Withdrawal whitelist
+- Timelock cho unstaking
+- Emergency withdrawal option
+
+## 📈 CHIẾN LƯỢC STAKING
+
+### Cho Người Mới
+1. Bắt đầu với gói Flexible để làm quen
+2. Thử staking số lượng nhỏ trước
+3. Tăng dần thời gian khóa để nhận APY cao hơn
+4. Đa dạng hóa giữa token và NFT
+
+### Cho Nhà Đầu Tư
+1. Phân bổ 60% vào gói dài hạn cho APY cao
+2. 30% vào LP staking cho thu nhập tối đa
+3. 10% giữ flexible để linh hoạt
+4. Tái đầu tư phần thưởng để gộp lãi
+
+## ❓ CÂU HỎI THƯỜNG GẶP
+
+### Làm sao để bắt đầu staking?
+1. Kết nối ví Web3 với game
+2. Chọn loại tài sản muốn stake
+3. Chọn gói thời gian phù hợp
+4. Xác nhận giao dịch
+
+### Tôi có thể rút sớm không?
+- Gói Flexible: Rút bất cứ lúc nào
+- Gói cố định: Rút sớm mất 50% thưởng tích lũy
+- Emergency withdrawal: Mất toàn bộ thưởng
+
+### Phần thưởng được trả như thế nào?
+- Token rewards: Tự động vào ví staking
+- M-Coin: Cộng vào tài khoản game
+- NFT/Items: Gửi vào inventory
+
+### Rủi ro của staking là gì?
+- Biến động giá token
+- Smart contract risk (đã được audit)
+- Opportunity cost khi khóa tài sản
+
+## 📞 HỖ TRỢ STAKING
+
+### Liên Hệ
+- Email: staking@msci.game
+- Telegram: t.me/MSCIStaking
+- Discord: #staking-support
+- Hotline: 1900-xxxx
+
+### Tài Liệu Hướng Dẫn
+- [Video hướng dẫn staking]
+- [Whitepaper chi tiết]
+- [Smart contract docs]
+- [FAQ mở rộng]
+
+---
+
+*Staking không chỉ là cách kiếm thêm thu nhập - đó là cam kết dài hạn với sự phát triển của M-SCI. Hãy cùng xây dựng tương lai game Việt!*
+
+© 2024 M-SCI. All rights reserved.

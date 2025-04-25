@@ -1,0 +1,302 @@
+# LỘ TRÌNH PHÁT TRIỂN M-SCI
+
+## Tầm Nhìn 2024-2030: Từ Game Việt Đến Hiện Tượng Toàn Cầu
+
+M-SCI không chỉ là một tựa game - đó là khởi đầu cho hành trình đưa ngành công nghiệp game Việt Nam vươn tầm thế giới. Lộ trình dưới đây phác thảo kế hoạch phát triển chi tiết từ 2024 đến 2030.
+
+## 🚀 Q1-Q2 2024: KHỞI ĐỘNG & PHÁT TRIỂN
+
+### Tháng 1-3/2024: Foundation Phase
+✅ **Đã hoàn thành:**
+- Thành lập core team 20+ members
+- Hoàn thiện game design document
+- Phát triển prototype đầu tiên
+- Thiết lập cơ sở hạ tầng kỹ thuật
+
+🔄 **Đang triển khai:**
+- Phát triển 20 màn chơi đầu tiên
+- Thiết kế 9 nhân vật cơ bản (3 class x 3 độ hiếm)
+- Xây dựng hệ thống backend scalable
+- Tích hợp blockchain cơ bản
+
+### Tháng 4-6/2024: Alpha Development
+🎯 **Mục tiêu:**
+- Ra mắt Closed Alpha (1,000 người chơi)
+- Hoàn thiện 50 màn chơi campaign
+- Phát triển hệ thống Guild cơ bản
+- Test hệ thống Gacha và economy
+- Tối ưu hóa performance mobile
+
+## 🌟 Q3-Q4 2024: BETA & SOFT LAUNCH
+
+### Tháng 7-9/2024: Open Beta
+🎯 **Mục tiêu:**
+- Open Beta với 10,000+ người chơi
+- Hoàn thiện 100 màn chơi campaign
+- Ra mắt hệ thống Guild War
+- Launch marketplace beta
+- Community building & marketing
+- Tích hợp social features
+
+### Tháng 10-12/2024: Soft Launch
+🎯 **Mục tiêu:**
+- Soft launch tại Việt Nam
+- 50,000+ downloads đầu tiên
+- Battle Pass Season 1
+- Events & tournaments đầu tiên
+- Monetization optimization
+- Bug fixes & balancing
+
+## 🌍 2025: GLOBAL EXPANSION
+
+### Q1/2025: Official Launch
+🎯 **Mục tiêu:**
+- Global launch trên Android & iOS
+- Đạt 500,000+ downloads
+- Marketing campaign quốc tế
+- Localization 5+ ngôn ngữ
+- Esports tournaments đầu tiên
+- Strategic partnerships
+
+### Q2/2025: Content Expansion
+🎯 **Mục tiêu:**
+- Chapter 2: Mars Invasion
+- 20+ nhân vật mới
+- Clan War system
+- Cross-server events
+- NFT integration phase 1
+- Live streaming features
+
+### Q3/2025: Feature Updates
+🎯 **Mục tiêu:**
+- PvP Arena mode
+- World Boss raids
+- Housing system
+- Pet companions
+- Achievement system upgrade
+- Social hub development
+
+### Q4/2025: Year-End Milestone
+🎯 **Mục tiêu:**
+- 1 triệu active users
+- Major content update
+- Year-end festival event
+- Merchandise launch
+- Community rewards program
+- Esports league establishment
+
+## 🚀 2026: SOUTHEAST ASIA DOMINATION
+
+### Q1-Q2/2026: Regional Expansion
+🎯 **Mục tiêu:**
+- Launch in 5+ SEA countries
+- Local partnerships
+- Regional tournaments
+- Cultural content adaptation
+- Local payment integration
+- Regional marketing campaigns
+
+### Q3-Q4/2026: Platform Expansion
+🎯 **Mục tiêu:**
+- PC version launch
+- Console version development
+- Cross-platform play
+- Enhanced graphics options
+- Controller support
+- Cloud gaming integration
+
+## 🌐 2027: M-SCI UNIVERSE
+
+### Q1-Q2/2027: Franchise Development
+🎯 **Mục tiêu:**
+- M-SCI 2 announcement
+- Spin-off games development
+- Animated series production
+- Comic/manga launch
+- Novel series
+- Expanded universe lore
+
+### Q3-Q4/2027: Technology Innovation
+🎯 **Mục tiêu:**
+- VR/AR integration
+- AI-powered content
+- Blockchain gaming 2.0
+- Metaverse integration
+- User-generated content
+- Advanced social features
+
+## 💫 2028: GLOBAL LEADERSHIP
+
+### Q1-Q2/2028: Market Consolidation
+🎯 **Mục tiêu:**
+- Top 10 mobile game globally
+- 10M+ active users
+- Major studio acquisitions
+- Technology licensing
+- Global esports circuit
+- Educational partnerships
+
+### Q3-Q4/2028: Business Expansion
+🎯 **Mục tiêu:**
+- IPO preparation
+- M&A opportunities
+- Gaming platform launch
+- Developer ecosystem
+- Investment fund creation
+- Industry standard setting
+
+## 🏆 2029-2030: LEGACY BUILDING
+
+### 2029: Cultural Impact
+🎯 **Mục tiêu:**
+- Theme park development
+- Movie adaptation
+- Global brand recognition
+- Educational programs
+- Social impact initiatives
+- Industry leadership
+
+### 2030: Future Vision
+🎯 **Mục tiêu:**
+- Next-gen gaming pioneer
+- 50M+ global users
+- Multi-platform dominance
+- Cultural phenomenon status
+- Technology innovation leader
+- Sustainable gaming ecosystem
+
+## 📊 KPI THEO TỪNG NĂM
+
+### 2024
+- 100,000+ downloads
+- 50,000+ MAU (Monthly Active Users)
+- $500,000+ revenue
+- 90% user retention (D1)
+- 4.5+ app store rating
+
+### 2025
+- 1M+ downloads
+- 300,000+ MAU
+- $5M+ revenue
+- 85% user retention (D1)
+- Top 100 grossing games
+
+### 2026
+- 5M+ downloads
+- 1M+ MAU
+- $20M+ revenue
+- 80% user retention (D1)
+- Top 50 grossing games
+
+### 2027
+- 10M+ downloads
+- 3M+ MAU
+- $50M+ revenue
+- Multiple game titles
+- Industry awards
+
+### 2028-2030
+- 50M+ total users
+- $100M+ annual revenue
+- Global top 10 publisher
+- IPO/acquisition ready
+- Industry standard setter
+
+## 🛠️ CÔNG NGHỆ & INFRASTRUCTURE
+
+### 2024
+- Unity Engine optimization
+- AWS cloud infrastructure
+- Basic blockchain integration
+- Analytics & monitoring
+- CI/CD pipeline
+
+### 2025
+- Microservices architecture
+- Multi-region deployment
+- Advanced AI systems
+- Real-time multiplayer
+- Advanced security
+
+### 2026-2027
+- Custom game engine
+- Distributed systems
+- Machine learning integration
+- Cross-platform technology
+- Metaverse ready
+
+### 2028-2030
+- Quantum-ready infrastructure
+- Neural interface research
+- Advanced AR/VR systems
+- Sustainable computing
+- Next-gen networking
+
+## 🤝 CỘNG ĐỒNG & ECOSYSTEM
+
+### Community Growth
+- 2024: 50,000+ members
+- 2025: 500,000+ members
+- 2026: 2M+ members
+- 2027: 5M+ members
+- 2028+: 10M+ global community
+
+### Developer Ecosystem
+- SDK & API release (2025)
+- Developer portal (2026)
+- Mod support (2027)
+- UGC marketplace (2028)
+- Developer fund (2029)
+
+### Content Creator Program
+- Streamer partnerships (2024)
+- Content creator fund (2025)
+- Official ambassador program (2026)
+- Creator marketplace (2027)
+- Global creator network (2028+)
+
+## 📈 CHIẾN LƯỢC ĐẦU TƯ & TÀI CHÍNH
+
+### Funding Rounds
+- Seed: $2M (Q1 2024) ✅
+- Series A: $10M (Q4 2024)
+- Series B: $30M (Q2 2026)
+- Series C: $100M (Q4 2027)
+- Pre-IPO: $200M (2028)
+
+### Revenue Streams
+- In-app purchases (2024)
+- Battle Pass system (2024)
+- NFT marketplace (2025)
+- Advertising (2026)
+- IP licensing (2027+)
+- Platform fees (2028+)
+
+### Exit Strategy
+- Strategic acquisition (2028+)
+- IPO preparation (2029)
+- Public listing (2030)
+- M&A opportunities
+- Strategic partnerships
+
+## 🌟 CAM KẾT VỚI CỘNG ĐỒNG
+
+1. **Minh bạch**: Cập nhật tiến độ hàng tháng
+2. **Lắng nghe**: Phản hồi cộng đồng trong 48h
+3. **Chất lượng**: Không ra mắt tính năng chưa hoàn thiện
+4. **Công bằng**: Không pay-to-win, không lootbox
+5. **Bền vững**: Phát triển lâu dài, không pump & dump
+
+## 📞 THEO DÕI TIẾN ĐỘ
+
+- Website: [www.msci.game/roadmap](www.msci.game/roadmap)
+- Blog cập nhật: [blog.msci.game](blog.msci.game)
+- Discord: [discord.gg/msci](discord.gg/msci)
+- Twitter: [@MSCIGame](https://twitter.com/MSCIGame)
+- Monthly newsletter đăng ký tại website
+
+---
+
+*"Lộ trình này có thể điều chỉnh dựa trên phản hồi cộng đồng và điều kiện thị trường. Chúng tôi cam kết luôn đặt lợi ích của người chơi và chất lượng sản phẩm lên hàng đầu."*
+
+© 2024 M-SCI. All rights reserved.

@@ -1,0 +1,121 @@
+# CHƯƠNG TRÌNH GIỚI THIỆU M-SCI
+
+## Mời Bạn Bè - Nhận Thưởng Hấp Dẫn
+
+M-SCI khuyến khích người chơi mời bạn bè tham gia game với cơ chế thưởng hấp dẫn. Hãy chia sẻ niềm vui chiến đấu trong thế giới M-SCI và cùng nhận những phần thưởng giá trị!
+
+## 🎯 HỆ THỐNG MỜI BẠN BÈ (REFERRAL F1)
+
+### Cách Thức Hoạt Động
+1. **Lấy mã giới thiệu**: Vào phần Profile trong game, chọn "Referral Code" 
+2. **Mời bạn bè**: Chia sẻ mã giới thiệu của bạn cho bạn bè
+3. **Nhận thưởng**: Khi bạn bè đăng ký và đáp ứng điều kiện, bạn nhận thưởng
+
+### Phần Thưởng F1
+- Nhận **10% giá trị** mỗi khi người bạn giới thiệu (F1) chi tiêu trong game
+- Thưởng được tính trên mọi giao dịch của F1 (mua M-Coin, Battle Pass, gói donate...)
+- Không giới hạn số lượng F1 có thể giới thiệu
+- Thưởng được cộng tự động vào tài khoản dưới dạng M-Coin
+
+## 💰 CƠ CHẾ THƯỞNG CHI TIẾT
+
+### Ví Dụ Cụ Thể
+- Bạn mời người chơi A tham gia game bằng mã giới thiệu của bạn
+- A chi tiêu 100,000 VNĐ mua M-Coin
+- Bạn nhận được 10,000 VNĐ (10%) dưới dạng M-Coin
+- Mỗi khi A tiếp tục chi tiêu, bạn tiếp tục nhận 10%
+
+### Thưởng Thêm Theo Mốc
+- Giới thiệu thành công 5 người: +5,000 M-Coin bonus
+- Giới thiệu thành công 10 người: +15,000 M-Coin bonus
+- Giới thiệu thành công 20 người: +50,000 M-Coin bonus
+
+## ✅ ĐIỀU KIỆN NHẬN THƯỞNG
+
+### Đối Với Người Giới Thiệu
+- Tài khoản đã xác thực email/số điện thoại
+- Đạt level tối thiểu 10 trong game  
+- Không vi phạm điều khoản dịch vụ
+- Đã có ít nhất 1 lần nạp tiền
+
+### Đối Với Người Được Giới Thiệu (F1)
+- Phải là tài khoản mới hoàn toàn
+- Nhập mã giới thiệu khi đăng ký
+- Hoàn thành xác thực tài khoản
+- Đạt level 5 và thực hiện giao dịch đầu tiên
+
+## 📊 THEO DÕI & QUẢN LÝ
+
+### Dashboard Referral
+- Xem danh sách F1 đã giới thiệu
+- Theo dõi tổng thu nhập từ referral
+- Xem lịch sử chi tiêu của từng F1
+- Thống kê thưởng theo tháng/quý/năm
+
+### Báo Cáo Chi Tiết
+- Xuất báo cáo Excel hàng tháng
+- Biểu đồ phân tích hiệu quả giới thiệu
+- So sánh với các tháng trước
+- Dự báo thu nhập tương lai
+
+## 🏆 BẢNG XẾP HẠNG REFERRAL
+
+### Top Referrer Hàng Tháng
+1. **Top 1**: 100,000 M-Coin + Title "Referral Master"
+2. **Top 2**: 50,000 M-Coin + Skin độc quyền
+3. **Top 3**: 25,000 M-Coin + Hero cấp A
+4. **Top 4-10**: 10,000 M-Coin
+5. **Top 11-50**: 5,000 M-Coin
+
+### Danh Hiệu Vĩnh Viễn
+- **Bronze Referrer**: Giới thiệu 10+ người
+- **Silver Referrer**: Giới thiệu 50+ người  
+- **Gold Referrer**: Giới thiệu 100+ người
+- **Diamond Referrer**: Giới thiệu 500+ người
+
+## ⚠️ LƯU Ý QUAN TRỌNG
+
+### Quy Định Chống Gian Lận
+- Cấm tự giới thiệu qua nhiều tài khoản
+- Không được dùng bot hoặc phần mềm tự động
+- Không spam mã giới thiệu 
+- Vi phạm sẽ bị khóa tài khoản và thu hồi thưởng
+
+### Thời Hạn Nhận Thưởng
+- Thưởng referral có hiệu lực vĩnh viễn
+- Nhận thưởng ngay khi F1 thực hiện giao dịch
+- Không giới hạn tổng số tiền thưởng
+
+## 💡 MẸO GIỚI THIỆU THÀNH CÔNG
+
+### Chiến Lược Hiệu Quả
+1. Tập trung vào cộng đồng game thủ mobile
+2. Chia sẻ video gameplay hấp dẫn
+3. Highlight tính năng độc đáo của M-SCI
+4. Tổ chức guild và mời bạn bè tham gia
+
+### Kênh Giới Thiệu Tốt Nhất
+- Group Facebook về game mobile
+- Discord server gaming Việt Nam
+- Forum game như GameVN, TinhTe
+- Kênh YouTube/TikTok gaming cá nhân
+
+## 📞 HỖ TRỢ
+
+### Liên Hệ Team Referral
+- Email: referral@msci.game
+- Hotline: 1900-xxxx (8:00 - 22:00)
+- Live chat trong game
+- Fanpage: facebook.com/MSCIGame
+
+### FAQ Thường Gặp
+- Làm sao để lấy mã giới thiệu?
+- Khi nào tôi nhận được thưởng?
+- Có thể rút tiền thưởng về ngân hàng không?
+- Tôi có thể giới thiệu bao nhiêu người?
+
+---
+
+*Chương trình referral là cách M-SCI tri ân những người chơi đã tin tưởng và giúp phát triển cộng đồng game. Hãy cùng xây dựng một cộng đồng M-SCI lớn mạnh!*
+
+© 2024 M-SCI. All rights reserved.
