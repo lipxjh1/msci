@@ -1,0 +1,188 @@
+# TOKENOMICS M-SCI
+
+## Kinh Tế Token Bền Vững Cho Tương Lai Gaming
+
+$MSCI là token tiện ích cốt lõi của hệ sinh thái M-SCI, được thiết kế để tạo ra một nền kinh tế game bền vững, minh bạch và mang lại giá trị cho cộng đồng.
+
+## 📊 THÔNG TIN TOKEN
+
+### Tổng Quan
+- **Tên Token**: M-SCI Token
+- **Symbol**: $MSCI
+- **Blockchain**: BNB Chain (BEP-20)
+- **Tổng cung**: 1,000,000,000 $MSCI
+- **Cung lưu hành ban đầu**: 150,000,000 $MSCI
+- **Contract Address**: [0x...] (Sẽ công bố khi launch)
+
+### Tiện Ích Token
+- Giao dịch trên Marketplace trong game
+- Governance voting cho các quyết định quan trọng
+- Staking để nhận phần thưởng
+- Truy cập các tính năng Premium
+- Tham gia các sự kiện độc quyền
+
+## 💰 PHÂN BỐ TOKEN
+
+### Phân Bổ Chi Tiết
+
+| Danh Mục | Tỷ Lệ | Số Lượng | Vesting Schedule |
+|----------|-------|----------|------------------|
+| Play-to-Earn Rewards | 30% | 300,000,000 | Phát hành dần trong 5 năm |
+| Team & Advisors | 15% | 150,000,000 | 1 năm khóa, giải phóng 24 tháng |
+| Private Sale | 10% | 100,000,000 | 10% TGE, giải phóng 12 tháng |
+| Public Sale | 5% | 50,000,000 | 25% TGE, giải phóng 6 tháng |
+| Ecosystem Fund | 15% | 150,000,000 | Giải phóng theo milestone |
+| Marketing & Partnerships | 10% | 100,000,000 | 5% hàng tháng |
+| Liquidity | 10% | 100,000,000 | 50% TGE, còn lại theo nhu cầu |
+| Reserve | 5% | 50,000,000 | Khóa 2 năm |
+
+## 📈 LỊCH TRÌNH PHÁT HÀNH
+
+### Token Release Schedule
+![Token Release Chart](chart-placeholder.png)
+
+#### Năm 1
+- Q1: 15% tổng cung (150M $MSCI)
+- Q2: 20% tổng cung (200M $MSCI)
+- Q3: 25% tổng cung (250M $MSCI)
+- Q4: 30% tổng cung (300M $MSCI)
+
+#### Năm 2-5
+- Phát hành giảm dần 10% mỗi năm
+- Tập trung vào Play-to-Earn rewards
+- Điều chỉnh linh hoạt theo tăng trưởng user
+
+## 🔄 MÔ HÌNH KINH TẾ
+
+### Nguồn Thu (Token Sinks)
+1. **Marketplace Fees**: 5% phí giao dịch
+2. **Premium Features**: Battle Pass, VIP subscriptions
+3. **NFT Minting**: Phí đúc NFT nhân vật
+4. **Guild Creation**: Phí tạo guild
+5. **Tournament Entry**: Phí tham gia giải đấu
+
+### Nguồn Chi (Token Faucets)
+1. **Play-to-Earn**: Phần thưởng chơi game hàng ngày
+2. **Staking Rewards**: Lãi suất staking
+3. **Tournament Prizes**: Giải thưởng thi đấu
+4. **Community Events**: Phần thưởng sự kiện
+5. **Referral Program**: Thưởng giới thiệu
+
+### Cơ Chế Đốt Token (Burning)
+- 30% phí giao dịch marketplace
+- 50% phí nâng cấp nhân vật cao cấp
+- 100% phí tạo guild
+- Quarterly buyback & burn từ lợi nhuận
+
+## 🛡️ BẢO VỆ GIÁ TRỊ TOKEN
+
+### Anti-Inflation Measures
+1. **Deflationary Mechanics**: Đốt token định kỳ
+2. **Vesting Schedule**: Khóa token team và nhà đầu tư
+3. **Dynamic Rewards**: Điều chỉnh phần thưởng theo cung-cầu
+4. **Staking Incentives**: Khuyến khích giữ token dài hạn
+
+### Ổn Định Thanh Khoản
+- Liquidity pools trên DEXs hàng đầu
+- Market making partnerships
+- Cross-chain bridges
+- CEX listings có uy tín
+
+## 🎯 USE CASES
+
+### Trong Game
+- Mua/bán nhân vật và items
+- Nâng cấp và tiến hóa hero
+- Tham gia guild wars
+- Đặt cược trong PvP battles
+- Mở khóa nội dung độc quyền
+
+### Ngoài Game
+- Governance voting
+- Staking và farming
+- NFT marketplace trading
+- Community treasury proposals
+- Partner ecosystem benefits
+
+## 📊 METRICS & KPIs
+
+### Mục Tiêu Chính
+- **Circulating Supply**: Kiểm soát lạm phát <10%/năm
+- **Token Velocity**: Duy trì >2.0
+- **Holder Growth**: 20% MoM trong năm đầu
+- **Staking Ratio**: >40% tổng cung
+- **Daily Active Wallets**: 100,000+ vào cuối 2024
+
+### Theo Dõi Real-time
+- Token price và volume
+- Holder distribution
+- Transaction count
+- Burn rate
+- Staking APY
+
+## 🗺️ ROADMAP TOKEN
+
+### Phase 1: Launch (Q2 2024)
+- Token Generation Event (TGE)
+- DEX listings (PancakeSwap, Uniswap)
+- Staking platform launch
+- Initial liquidity provision
+
+### Phase 2: Growth (Q3-Q4 2024)  
+- CEX listings (Tier 1 exchanges)
+- Cross-chain expansion
+- Advanced DeFi features
+- Governance implementation
+
+### Phase 3: Maturity (2025+)
+- DAO transition
+- Multi-chain presence
+- Real-world utility expansion
+- Ecosystem partnerships
+
+## 🤝 ĐỐI TÁC CHIẾN LƯỢC
+
+### Exchange Partners
+- **Binance**: Strategic listing partner
+- **OKX**: Liquidity provider
+- **Gate.io**: IEO platform
+- **PancakeSwap**: Primary DEX
+
+### Technology Partners
+- **Chainlink**: Oracle services
+- **Polygon**: Layer 2 scaling
+- **CertiK**: Security audit
+- **The Graph**: Data indexing
+
+## ❓ FAQ
+
+### Token $MSCI có phải security không?
+Không, $MSCI là utility token được thiết kế để sử dụng trong hệ sinh thái game, không phải security.
+
+### Làm sao để mua $MSCI?
+- CEX: Binance, OKX, Gate.io
+- DEX: PancakeSwap, Uniswap
+- P2P: Trong game marketplace
+
+### Token có bị khóa không?
+Team và advisor tokens bị khóa 1 năm, giải phóng dần trong 24 tháng. Private sale có vesting 12 tháng.
+
+### Có cơ chế bảo vệ giá không?
+Có, bao gồm: token burning, buyback program, staking incentives, và liquidity locks.
+
+## 📞 LIÊN HỆ
+
+### Token Support
+- Email: token@msci.game
+- Telegram: t.me/MSCIToken
+- Discord: #token-support
+
+### Investor Relations
+- Email: ir@msci.game
+- Website: investors.msci.game
+
+---
+
+*$MSCI Token - Xây dựng tương lai gaming phi tập trung, nơi người chơi thực sự sở hữu tài sản và đóng góp vào sự phát triển của game.*
+
+© 2024 M-SCI. All rights reserved.
