@@ -341,6 +341,27 @@ footer, .no-snap {
   .text-balance {
     text-wrap: balance;
   }
+  
+  .text-gradient {
+    @apply inline-block text-transparent bg-clip-text;
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s linear infinite;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Custom gradient text */
