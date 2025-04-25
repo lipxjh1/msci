@@ -2,11 +2,114 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Link from 'next/link';
 import { hallOfFameData } from '@/data/hallOfFameData';
 import SectionTitle from './ui/SectionTitle';
 import NeonButton from './ui/NeonButton';
 import { useSound } from '@/context/SoundContext';
-import { FaTrophy, FaMedal, FaCrown } from 'react-icons/fa';
+import { FaTrophy, FaMedal, FaCrown, FaStar } from 'react-icons/fa';
+import { GiLaurelCrown } from 'react-icons/gi';
+
+// Component cho từng vị trí trên podium
+interface LegendPodiumItemProps {
+  legend: any;
+  position: number;
+  playSound: (sound: string) => void;
+}
+
+const LegendPodiumItem = ({ legend, position, playSound }: LegendPodiumItemProps) => {
+  // Xác định màu sắc và style dựa trên vị trí
+  const getPodiumStyles = () => {
+    switch (position) {
+      case 1:
+        return {
+          containerClass: "border-yellow-500 bg-gradient-to-t from-yellow-950/50 to-yellow-900/20",
+          heightClass: "h-full",
+          badgeClass: "text-yellow-400",
+          icon: <GiLaurelCrown className="text-2xl" />,
+          podiumBg: "bg-gradient-to-r from-yellow-600 to-yellow-500",
+          textColor: "text-yellow-400"
+        };
+      case 2:
+        return {
+          containerClass: "border-purple-500 bg-gradient-to-t from-purple-950/50 to-purple-900/20",
+          heightClass: "h-[85%]",
+          badgeClass: "text-purple-400",
+          icon: <FaCrown className="text-2xl" />,
+          podiumBg: "bg-gradient-to-r from-purple-600 to-purple-500",
+          textColor: "text-purple-400"
+        };
+      case 3:
+        return {
+          containerClass: "border-orange-500 bg-gradient-to-t from-orange-950/50 to-orange-900/20",
+          heightClass: "h-[70%]",
+          badgeClass: "text-orange-400",
+          icon: <FaMedal className="text-2xl" />,
+          podiumBg: "bg-gradient-to-r from-orange-600 to-orange-500",
+          textColor: "text-orange-400"
+        };
+      default:
+        return {
+          containerClass: "border-gray-500 bg-gradient-to-t from-gray-950/50 to-gray-900/20",
+          heightClass: "h-[60%]",
+          badgeClass: "text-gray-400",
+          icon: <FaStar className="text-2xl" />,
+          podiumBg: "bg-gradient-to-r from-gray-600 to-gray-500",
+          textColor: "text-gray-400"
+        };
+    }
+  };
+
+  const styles = getPodiumStyles();
+
+  return (
+    <div 
+      className={`relative flex flex-col justify-end ${position === 1 ? 'order-2' : position === 2 ? 'order-1' : 'order-3'}`}
+      style={{ flex: position === 1 ? '1.2' : '1' }}
+    >
+      <div 
+        className={`${styles.heightClass} relative`}
+        onMouseEnter={() => playSound('hover')}
+      >
+        <div className={`border-2 ${styles.containerClass} rounded-xl overflow-hidden shadow-xl w-full transition-all duration-300 hover:-translate-y-2`}>
+          <div className="relative h-40 overflow-hidden">
+            <img 
+              src={legend.imageUrl} 
+              alt={legend.nickname || legend.name}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
+            
+            {/* Badge */}
+            <div className={`absolute top-3 right-3 p-1.5 rounded-full bg-black/70 backdrop-blur-sm ${styles.badgeClass}`}>
+              {styles.icon}
+            </div>
+
+            {/* Points */}
+            <div className="absolute bottom-2 right-2 px-2 py-1 rounded-lg bg-black/70 backdrop-blur-sm text-xs font-bold text-white">
+              {legend.points || (legend.stats?.points)} điểm
+            </div>
+          </div>
+          
+          <div className="p-4 text-center">
+            <h3 className="font-bold text-white text-base truncate">{legend.nickname || legend.name}</h3>
+            <p className={`text-xs ${styles.textColor} font-medium`}>
+              {legend.achievement || legend.title || "Huyền thoại M-SCI"}
+            </p>
+            <p className="text-xs text-gray-400 truncate mt-1">
+              {legend.guild || (legend.stats?.title) || "Nhà sáng lập"}
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      {/* Podium base */}
+      <div className={`h-12 ${styles.podiumBg} rounded-t-lg flex items-center justify-center font-bold mt-2`}>
+        # {position}
+      </div>
+    </div>
+  );
+};
 
 export default function LegendSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -25,14 +128,24 @@ export default function LegendSection() {
     }
   };
 
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.6 } }
-  };
-
   // Handle button click
   const handleDetailsClick = () => {
     playSound('click');
+  };
+
+  // Get top legends (mixing from different sources for better display)
+  const getTopLegends = () => {
+    // Try to get variety of legends from different sources
+    const legends = [
+      // Use first founder as 1st place
+      hallOfFameData.founders[0],
+      // Use first player legend as 2nd place
+      hallOfFameData.players.legends[0],
+      // Use another founder or investor as 3rd place
+      hallOfFameData.founders[1] || hallOfFameData.investors.eternal[0]
+    ];
+    
+    return legends;
   };
 
   return (
@@ -65,51 +178,39 @@ export default function LegendSection() {
           darkColor="purple-900"
         />
 
-        {/* Legends grid */}
+        {/* Podium display section */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="mb-20 mt-16"
         >
-          {hallOfFameData?.legends?.slice(0, 6).map((legend, index) => (
-            <motion.div 
-              key={index}
-              variants={itemVariants}
-              className="bg-gray-900/70 backdrop-blur-sm border border-purple-500/20 rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(168,85,247,0.15)] transition-shadow duration-300"
+          <div className="relative">
+            {/* Tiêu đề */}
+            <motion.h2 
+              className="text-2xl md:text-3xl font-bold text-center mb-12 relative"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
             >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={legend.image} 
-                  alt={legend.name}
-                  className="w-full h-full object-cover object-center"
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600">
+                Những Huyền Thoại Hàng Đầu
+              </span>
+              <div className="absolute w-24 h-1 bg-purple-500/50 bottom-0 left-1/2 transform -translate-x-1/2 rounded-full mt-2"></div>
+            </motion.h2>
+
+            {/* Podium hiển thị Top 3 */}
+            <div className="flex h-96 gap-4 max-w-4xl mx-auto">
+              {getTopLegends().map((legend, index) => (
+                <LegendPodiumItem 
+                  key={legend.id} 
+                  legend={legend} 
+                  position={index + 1} 
+                  playSound={playSound}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
-                
-                {/* Legend badge/rank */}
-                <div className="absolute top-4 right-4 bg-purple-500/90 text-white p-2 rounded-full">
-                  {index === 0 ? (
-                    <FaCrown className="text-xl" />
-                  ) : (
-                    <FaMedal className="text-xl" />
-                  )}
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{legend.name}</h3>
-                <p className="text-purple-300 text-sm mb-4">{legend.title}</p>
-                <p className="text-gray-400 text-sm mb-6">{legend.description}</p>
-                
-                <div className="flex items-center gap-4">
-                  <div className="text-sm">
-                    <span className="text-gray-400">Thành tựu: </span>
-                    <span className="text-white">{legend.achievements}</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         {/* View all button */}
@@ -119,13 +220,15 @@ export default function LegendSection() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="flex justify-center"
         >
-          <NeonButton
-            onClick={handleDetailsClick}
-            glowColor="rgb(168, 85, 247)"
-            className="px-8"
-          >
-            Xem tất cả Huyền thoại
-          </NeonButton>
+          <Link href="/hall-of-fame/legends">
+            <NeonButton
+              onClick={handleDetailsClick}
+              glowColor="rgb(168, 85, 247)"
+              className="px-8"
+            >
+              XEM TẤT CẢ HUYỀN THOẠI
+            </NeonButton>
+          </Link>
         </motion.div>
       </div>
     </section>

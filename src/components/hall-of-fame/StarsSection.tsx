@@ -6,7 +6,8 @@ import { hallOfFameData } from '@/data/hallOfFameData';
 import SectionTitle from './ui/SectionTitle';
 import NeonButton from './ui/NeonButton';
 import { useSound } from '@/context/SoundContext';
-import { FaStar, FaAward, FaFire } from 'react-icons/fa';
+import { FaStar, FaAward, FaFire, FaCrown, FaMedal } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function StarsSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -29,10 +30,15 @@ export default function StarsSection() {
     hidden: { y: 30, opacity: 0 },
     show: { y: 0, opacity: 1, transition: { duration: 0.6 } }
   };
-
+  
   // Handle button click
   const handleDetailsClick = () => {
     playSound('click');
+  };
+  
+  // Get top stars
+  const getStars = () => {
+    return hallOfFameData.community.leaders.slice(0, 2);
   };
 
   return (
@@ -65,47 +71,70 @@ export default function StarsSection() {
           darkColor="yellow-900"
         />
 
-        {/* Stars grid */}
+        {/* Stars display section - Card style like in the image */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          className="mb-20 mt-12"
         >
-          {hallOfFameData.community.leaders.slice(0, 6).map((star, index: number) => (
-            <motion.div 
-              key={star.id}
-              variants={itemVariants}
-              className="bg-gray-900/70 backdrop-blur-sm border border-yellow-500/20 rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(234,179,8,0.15)] transition-shadow duration-300"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={star.imageUrl} 
-                  alt={star.name}
-                  className="w-full h-full object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
-                
-                {/* Star badge */}
-                <div className="absolute top-4 right-4 bg-yellow-500/90 text-white p-2 rounded-full">
-                  <FaStar className="text-xl" />
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{star.name}</h3>
-                <p className="text-yellow-300 text-sm mb-4">{star.platform}</p>
-                <p className="text-gray-400 text-sm mb-6">{star.stats.title || "Ngôi sao cộng đồng M-SCI"}</p>
-                
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center text-yellow-400 gap-1">
-                    <FaFire />
-                    <span>{star.stats.eventsOrganized ? `${star.stats.eventsOrganized} sự kiện` : "Người có ảnh hưởng"}</span>
+          <motion.h2 
+            className="text-2xl md:text-3xl font-bold text-center mb-8 relative"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">
+              Bảng Xếp Hạng Đầy Đủ
+            </span>
+            <div className="absolute w-24 h-1 bg-yellow-500/50 bottom-0 left-1/2 transform -translate-x-1/2 rounded-full mt-2"></div>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {getStars().map((star, index) => (
+              <motion.div 
+                key={star.id}
+                variants={itemVariants}
+                className="rounded-lg overflow-hidden bg-gray-900/80 border border-yellow-500/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(234,179,8,0.2)]"
+                onMouseEnter={() => playSound('hover')}
+              >
+                <div className="relative h-[230px] overflow-hidden">
+                  <img 
+                    src={star.imageUrl} 
+                    alt={star.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
+                  
+                  {/* Star badge */}
+                  <div className="absolute top-3 right-3 p-1.5 rounded-full bg-black/70 backdrop-blur-sm">
+                    {index === 0 ? 
+                      <FaCrown className="text-yellow-400 text-lg" /> : 
+                      <FaStar className="text-yellow-400 text-lg" />
+                    }
+                  </div>
+                  
+                  {/* Stats or events */}
+                  <div className="absolute bottom-3 right-3 px-2 py-1 rounded-lg bg-black/70 backdrop-blur-sm text-xs font-bold text-white">
+                    {star.stats.eventsOrganized ? `${star.stats.eventsOrganized} sự kiện` : "100+ sự kiện"}
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                
+                <div className="text-center p-4 bg-gradient-to-t from-yellow-950/30 to-transparent">
+                  <h3 className="text-xl font-bold text-white mb-1">{star.name}</h3>
+                  <p className="text-yellow-400 text-sm mb-1">{star.platform}</p>
+                  <p className="text-gray-400 text-xs">
+                    {index === 0 ? "Voice of the People" : "Guardian of Peace"}
+                  </p>
+                </div>
+                
+                {/* Number badge at bottom */}
+                <div className="w-full h-10 bg-blue-500 flex items-center justify-center text-white font-bold">
+                  # {index + 1}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* View all button */}
@@ -115,13 +144,15 @@ export default function StarsSection() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="flex justify-center"
         >
-          <NeonButton
-            onClick={handleDetailsClick}
-            glowColor="rgb(234, 179, 8)"
-            className="px-8"
-          >
-            Xem tất cả Ngôi sao
-          </NeonButton>
+          <Link href="/hall-of-fame/all-stars">
+            <NeonButton
+              onClick={handleDetailsClick}
+              glowColor="rgb(234, 179, 8)"
+              className="px-8"
+            >
+              XEM TẤT CẢ NGÔI SAO
+            </NeonButton>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -1,0 +1,180 @@
+/* Nomination page styles */
+
+/* Form Input Animations */
+.input-focus-effect {
+  transition: all 0.3s ease;
+}
+
+.input-focus-effect:focus {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Badge Hover Effects */
+.badge-hover {
+  transition: all 0.3s ease;
+}
+
+.badge-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+}
+
+/* Button Animations */
+.btn-nomination {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-nomination:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(59, 130, 246, 0.3);
+}
+
+.btn-nomination::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transition: left 0.7s ease;
+}
+
+.btn-nomination:hover::before {
+  left: 100%;
+}
+
+/* Trophy Animation */
+@keyframes trophy-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
+  }
+}
+
+.trophy-icon {
+  animation: trophy-glow 3s ease-in-out infinite;
+}
+
+/* Form Section Animations */
+@keyframes form-section-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-section {
+  animation: form-section-appear 0.5s ease-out forwards;
+}
+
+.form-section-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.form-section-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.form-section-delay-3 {
+  animation-delay: 0.3s;
+}
+
+/* Enhanced Particle Effects */
+@keyframes enhanced-float-up {
+  0% {
+    transform: translateY(20px) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: var(--particle-opacity, 0.3);
+  }
+  80% {
+    opacity: var(--particle-opacity, 0.3);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(var(--particle-drift, 20px));
+    opacity: 0;
+  }
+}
+
+.enhanced-particle {
+  --particle-size: 3px;
+  --particle-opacity: 0.3;
+  --particle-drift: 20px;
+  --particle-duration: 15s;
+  width: var(--particle-size);
+  height: var(--particle-size);
+  opacity: 0;
+  animation: enhanced-float-up var(--particle-duration) linear infinite;
+}
+
+/* Success Animation */
+@keyframes success-appear {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-animation {
+  animation: success-appear 0.6s ease-out forwards;
+}
+
+/* Card Hover Effects */
+.card-hover-effect {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.card-hover-effect:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Input Focus Animations */
+.input-label-animate label {
+  transition: all 0.3s ease;
+}
+
+.input-label-animate input:focus + label,
+.input-label-animate textarea:focus + label {
+  transform: translateY(-25px) scale(0.8);
+  color: #3b82f6;
+}
+
+/* Badge Glow Animation */
+@keyframes badge-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+}
+
+.badge-pulse {
+  animation: badge-pulse 3s infinite;
+} 

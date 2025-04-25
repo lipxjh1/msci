@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Link from 'next/link';
 import { hallOfFameData } from '@/data/hallOfFameData';
 import SectionTitle from './ui/SectionTitle';
 import NeonButton from './ui/NeonButton';
@@ -35,6 +36,17 @@ export default function DevelopersSection() {
     playSound('click');
   };
 
+  // Get developers data
+  const getDevelopers = () => {
+    // Mélanger créateurs et helpers pour avoir une bonne variété
+    const developers = [
+      ...hallOfFameData.community.creators,
+      ...hallOfFameData.community.helpers
+    ].slice(0, 3);
+
+    return developers;
+  };
+
   return (
     <section
       id="developers-section"
@@ -65,47 +77,65 @@ export default function DevelopersSection() {
           darkColor="blue-900"
         />
 
-        {/* Developers grid */}
+        {/* Developers grid - Card style like in the image */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          className="mb-16 mt-12"
         >
-          {[...hallOfFameData.community.creators, ...hallOfFameData.community.helpers].slice(0, 6).map((developer, index: number) => (
-            <motion.div 
-              key={developer.id}
-              variants={itemVariants}
-              className="bg-gray-900/70 backdrop-blur-sm border border-blue-500/20 rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-shadow duration-300"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={developer.imageUrl} 
-                  alt={developer.name}
-                  className="w-full h-full object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
-                
-                {/* Developer specialty icon */}
-                <div className="absolute top-4 right-4 bg-blue-500/90 text-white p-2 rounded-full">
-                  <FaLaptopCode className="text-xl" />
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{developer.name}</h3>
-                <p className="text-blue-300 text-sm mb-4">{developer.platform}</p>
-                <p className="text-gray-400 text-sm mb-6">{developer.type === 'creator' ? 'Người sáng tạo nội dung' : 'Người đóng góp kỹ thuật'}</p>
-                
-                <div className="flex items-center gap-4">
-                  <div className="text-sm">
-                    <span className="text-gray-400">Chuyên môn: </span>
-                    <span className="text-white">{developer.type === 'creator' ? 'Nội dung' : 'Kỹ thuật'}</span>
+          <motion.h2 
+            className="text-2xl md:text-3xl font-bold text-center mb-8 relative"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+              Bảng Xếp Hạng Đầy Đủ
+            </span>
+            <div className="absolute w-24 h-1 bg-blue-500/50 bottom-0 left-1/2 transform -translate-x-1/2 rounded-full mt-2"></div>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {getDevelopers().map((developer, index) => (
+              <motion.div 
+                key={developer.id}
+                variants={itemVariants}
+                className="rounded-lg overflow-hidden bg-gray-900/80 border border-blue-500/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]"
+                onMouseEnter={() => playSound('hover')}
+              >
+                <div className="relative h-[230px] overflow-hidden">
+                  <img 
+                    src={developer.imageUrl} 
+                    alt={developer.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
+                  
+                  {/* Developer tag */}
+                  <div className="absolute top-3 right-3 p-1.5 rounded-full bg-blue-500/90 text-white">
+                    <FaLaptopCode className="text-lg" />
+                  </div>
+                  
+                  {/* Stats or points */}
+                  <div className="absolute bottom-3 right-3 px-2 py-1 rounded-lg bg-black/70 backdrop-blur-sm text-xs font-bold text-white">
+                    {developer.type === 'creator' ? '100+ sự kiện' : '8500 điểm'}
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                
+                <div className="text-center p-4 bg-gradient-to-t from-blue-950/30 to-transparent">
+                  <h3 className="text-xl font-bold text-white mb-1">{developer.name}</h3>
+                  <p className="text-blue-400 text-sm mb-1">{developer.platform}</p>
+                  <p className="text-gray-400 text-xs">
+                    {developer.type === 'creator' ? 'Người sáng tạo nội dung' : 'Người đóng góp kỹ thuật'}
+                  </p>
+                </div>
+                
+                {/* Number badge */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500/70"></div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* View all button */}
@@ -115,13 +145,15 @@ export default function DevelopersSection() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="flex justify-center"
         >
-          <NeonButton
-            onClick={handleDetailsClick}
-            glowColor="rgb(59, 130, 246)"
-            className="px-8"
-          >
-            Xem tất cả Nhà phát triển
-          </NeonButton>
+          <Link href="/hall-of-fame/developers">
+            <NeonButton
+              onClick={handleDetailsClick}
+              glowColor="rgb(59, 130, 246)"
+              className="px-8"
+            >
+              XEM TẤT CẢ NHÀ PHÁT TRIỂN
+            </NeonButton>
+          </Link>
         </motion.div>
       </div>
     </section>

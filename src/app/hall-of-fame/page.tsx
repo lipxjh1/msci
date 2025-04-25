@@ -8,6 +8,7 @@ import JoinUsSection from '@/components/hall-of-fame/JoinUsSection';
 import StarsSection from '@/components/hall-of-fame/StarsSection';
 import Loader from '@/components/hall-of-fame/Loader';
 import { SoundProvider } from '@/context/SoundContext';
+import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 
 export default function HallOfFame() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,13 +27,18 @@ export default function HallOfFame() {
       {isLoading ? (
         <Loader />
       ) : (
-        <main className="bg-black text-white">
-          <HeroSection />
-          <StarsSection />
-          <LegendSection />
-          <DevelopersSection />
-          <JoinUsSection />
-        </main>
+        <>
+          <div className="fixed top-0 left-0 right-0 z-50">
+            <ThanhDieuHuongResponsive />
+          </div>
+          <main className="bg-black text-white pt-16">
+            <HeroSection />
+            <StarsSection />
+            <LegendSection />
+            <DevelopersSection />
+            <JoinUsSection />
+          </main>
+        </>
       )}
     </SoundProvider>
   );
