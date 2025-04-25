@@ -10,6 +10,7 @@ import ImpressiveNumbers from "./components/ImpressiveNumbers";
 import Technology from "./components/Technology";
 import CallToAction from "./components/CallToAction";
 import Quote from "./components/Quote";
+import ThanhDieuHuongResponsive from "@/thanh_phan/thanh_dieu_huong_responsive";
 
 export default function AboutUsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -24,6 +25,11 @@ export default function AboutUsPage() {
 
   return (
     <main className="min-h-screen bg-[#041019] text-white overflow-hidden">
+      {/* Thanh điều hướng */}
+      <div className="relative z-30">
+        <ThanhDieuHuongResponsive />
+      </div>
+      
       {/* Hero Banner */}
       <HeroBanner />
 
