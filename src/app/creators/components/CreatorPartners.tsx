@@ -2,6 +2,7 @@
 
 import { FaYoutube, FaFacebookF, FaTiktok, FaTwitch, FaRss, FaFootballBall } from 'react-icons/fa';
 import { SiRiotgames } from 'react-icons/si';
+import Link from 'next/link';
 
 export default function CreatorPartners() {
   return (
@@ -181,9 +182,12 @@ export default function CreatorPartners() {
       </div>
       
       <div className="flex justify-center mt-8">
-        <button className="px-8 py-3 bg-[var(--accent-blue-bright)]/20 text-[var(--accent-blue-bright)] rounded-md border border-[var(--accent-blue-bright)]/40 hover:bg-[var(--accent-blue-bright)]/30 transition-colors font-rajdhani tracking-wide">
+        <Link 
+          href="/creators/partners" 
+          className="px-8 py-3 bg-[var(--accent-blue-bright)]/20 text-[var(--accent-blue-bright)] rounded-md border border-[var(--accent-blue-bright)]/40 hover:bg-[var(--accent-blue-bright)]/30 transition-colors font-rajdhani tracking-wide"
+        >
           Trở Thành Đối Tác Ngay
-        </button>
+        </Link>
       </div>
     </div>
   );

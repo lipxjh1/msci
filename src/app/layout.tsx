@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Orbitron } from "next/font/google";
 import "./globals.css";
 import { SupabaseProvider } from "@/context/SupabaseContext";
+import { ModalProvider } from '@/context/ModalContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,9 @@ export default function RootLayout({
     <html lang="vi" suppressHydrationWarning>
       <body className={bodyClasses}>
         <SupabaseProvider>
-          {children}
+          <ModalProvider>
+            {children}
+          </ModalProvider>
         </SupabaseProvider>
       </body>
     </html>

@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { FaTrophy, FaUserAlt, FaPalette } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function CreatorSuccess() {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -121,9 +122,9 @@ export default function CreatorSuccess() {
       </div>
       
       <div className="flex justify-center mt-8">
-        <button className="px-8 py-3 bg-gradient-to-r from-[var(--accent-blue-bright)]/20 to-purple-500/20 text-white rounded-md border border-[var(--accent-blue-bright)]/40 hover:bg-[var(--accent-blue-bright)]/30 transition-colors font-rajdhani tracking-wide">
+        <Link href="/creators/success-stories" className="px-8 py-3 bg-gradient-to-r from-[var(--accent-blue-bright)]/20 to-purple-500/20 text-white rounded-md border border-[var(--accent-blue-bright)]/40 hover:bg-[var(--accent-blue-bright)]/30 transition-colors font-rajdhani tracking-wide">
           Xem Thêm Câu Chuyện Thành Công
-        </button>
+        </Link>
       </div>
     </div>
   );

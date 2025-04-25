@@ -177,7 +177,7 @@ export default function CreatorCommunity() {
           </div>
           <div className="md:w-1/4 flex justify-start md:justify-end">
             <button className="px-6 py-3 bg-[var(--accent-blue-bright)] text-white rounded-md hover:bg-[var(--accent-blue-bright)]/90 transition-colors font-rajdhani tracking-wide">
-              Tham Gia Ngay
+              Xem Lịch Định Hướng
             </button>
           </div>
         </div>
