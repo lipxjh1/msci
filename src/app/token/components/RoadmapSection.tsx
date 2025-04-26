@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 interface RoadmapItem {
   id: number;
@@ -57,6 +57,7 @@ const roadmapData: RoadmapItem[] = [
 
 const RoadmapSection = () => {
   const roadmapRef = useRef<HTMLDivElement>(null);
+  const [expandedItem, setExpandedItem] = useState<number | null>(null);
 
   useEffect(() => {
     const observerOptions = {
@@ -92,6 +93,10 @@ const RoadmapSection = () => {
     };
   }, []);
 
+  const toggleExpand = (id: number) => {
+    setExpandedItem(expandedItem === id ? null : id);
+  };
+
   return (
     <div className="mb-20 animate-fade-in-section">
       <div className="flex justify-center mb-10">
@@ -107,50 +112,69 @@ const RoadmapSection = () => {
         {/* Line running through center */}
         <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[var(--accent-blue-bright)] via-[var(--accent-blue-bright)] to-transparent"></div>
         
-        <div className="relative z-10 space-y-12 py-4">
+        <div className="relative z-10 space-y-8 py-4">
           {roadmapData.map((item, index) => (
             <div 
               key={item.id}
-              className={`roadmap-item opacity-0 flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 relative animate-fade-in-section`}
+              className={`roadmap-item opacity-0 relative animate-fade-in-section`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              {/* Center dot */}
-              <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 w-8 h-8 rounded-full bg-[var(--accent-blue-bright)] z-20 flex items-center justify-center shadow-lg shadow-[var(--accent-blue-bright)]/30 roadmap-dot">
-                <div className={`w-3 h-3 rounded-full ${item.isActive ? 'bg-white animate-pulse' : 'bg-white/50'}`}></div>
-              </div>
-              
-              {/* Timeline vertical spacer for mobile */}
-              <div className="h-full w-1 bg-transparent md:hidden"></div>
-              
-              {/* Content box */}
-              <div className={`w-full md:w-5/12 backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl ${
-                item.isActive ? 'border-[var(--accent-blue-bright)]/50 shadow-[var(--accent-blue-bright)]/10 animate-pulse-glow' : ''
-              }`}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    item.isActive 
-                      ? 'bg-[var(--accent-blue-bright)]/20 text-[var(--accent-blue-bright)]' 
-                      : 'bg-white/10 text-white/70'
-                  }`}>
-                    {item.phase}
-                  </div>
-                  <span className="text-gray-400 font-rajdhani">{item.timeline}</span>
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                {/* Center dot */}
+                <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 w-8 h-8 rounded-full bg-[var(--accent-blue-bright)] z-20 flex items-center justify-center shadow-lg shadow-[var(--accent-blue-bright)]/30 roadmap-dot">
+                  <div className={`w-3 h-3 rounded-full ${item.isActive ? 'bg-white animate-pulse' : 'bg-white/50'}`}></div>
                 </div>
                 
-                <h3 className="font-rajdhani text-xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-300 mb-5 font-rajdhani">{item.description}</p>
-                
-                <ul className="space-y-2">
-                  {item.tasks.map((task, idx) => (
-                    <li 
-                      key={idx}
-                      className="font-rajdhani text-white/80 flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-[var(--accent-blue-bright)] before:rounded-full"
-                    >
-                      <span className="ml-1">{task}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Compact Header - Always visible */}
+                <button 
+                  onClick={() => toggleExpand(item.id)}
+                  className={`w-full md:w-auto backdrop-blur-sm bg-white/5 p-4 rounded-xl border border-white/10 shadow-xl transition-all duration-300 hover:border-[var(--accent-blue-bright)]/50 hover:bg-white/10 ${
+                    expandedItem === item.id ? 'border-[var(--accent-blue-bright)]/50 bg-white/10' : ''
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`px-3 py-1 rounded-full text-sm font-medium ${
+                      item.isActive 
+                        ? 'bg-[var(--accent-blue-bright)]/20 text-[var(--accent-blue-bright)]' 
+                        : 'bg-white/10 text-white/70'
+                    }`}>
+                      {item.phase}
+                    </div>
+                    <span className="text-gray-400 font-rajdhani mr-2">{item.timeline}</span>
+                    <h3 className="font-rajdhani text-xl font-bold text-white">{item.title}</h3>
+                    <div className="ml-auto">
+                      <svg 
+                        className={`w-5 h-5 transition-transform duration-300 ${expandedItem === item.id ? 'rotate-180' : ''}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
               </div>
+              
+              {/* Expanded Content - Only visible when clicked */}
+              {expandedItem === item.id && (
+                <div className="mt-4 ml-8 md:ml-16 backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-300 animate-fadeIn">
+                  <p className="text-gray-300 mb-5 font-rajdhani">{item.description}</p>
+                  
+                  <h4 className="font-rajdhani text-lg font-bold text-white mb-3">Mục tiêu chính:</h4>
+                  <ul className="space-y-2">
+                    {item.tasks.map((task, idx) => (
+                      <li 
+                        key={idx}
+                        className="font-rajdhani text-white/80 flex items-center gap-2 before:content-[''] before:w-1.5 before:h-1.5 before:bg-[var(--accent-blue-bright)] before:rounded-full"
+                      >
+                        <span className="ml-1">{task}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
         </div>

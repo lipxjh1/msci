@@ -36,6 +36,7 @@ const tokenDistribution = [
 const TokenomicsChart = () => {
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
   const chartRef = useRef<any>(null);
+  const [chartLoaded, setChartLoaded] = useState(false);
 
   // Cấu hình chart data
   const chartData = {
@@ -70,7 +71,11 @@ const TokenomicsChart = () => {
     cutout: '65%',
     animation: {
       animateRotate: true,
-      animateScale: true
+      animateScale: true,
+      onComplete: () => {
+        // Đánh dấu khi chart đã tải xong
+        setChartLoaded(true);
+      }
     },
     onHover: (event: any, elements: any) => {
       if (elements && elements.length > 0) {
@@ -83,24 +88,40 @@ const TokenomicsChart = () => {
 
   // Xử lý tương tác giữa chart và legend
   useEffect(() => {
-    if (chartRef.current) {
+    // Chỉ chạy sau khi chart đã tải xong và chartRef có giá trị
+    if (chartLoaded && chartRef.current) {
       const chart = chartRef.current;
       
-      // Khi hover vào legend, highlight phần tương ứng trong chart
-      chart.canvas.addEventListener('mousemove', (e: MouseEvent) => {
-        const element = chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, false);
-        if (element.length > 0) {
-          setActiveSegment(element[0].index);
-        } else {
+      // Đảm bảo đối tượng canvas tồn tại
+      if (chart.canvas) {
+        // Tạo function handlers để có thể cleanup
+        const handleMouseMove = (e: MouseEvent) => {
+          const element = chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, false);
+          if (element && element.length > 0) {
+            setActiveSegment(element[0].index);
+          } else {
+            setActiveSegment(null);
+          }
+        };
+        
+        const handleMouseOut = () => {
           setActiveSegment(null);
-        }
-      });
-      
-      chart.canvas.addEventListener('mouseout', () => {
-        setActiveSegment(null);
-      });
+        };
+        
+        // Thêm event listeners
+        chart.canvas.addEventListener('mousemove', handleMouseMove);
+        chart.canvas.addEventListener('mouseout', handleMouseOut);
+        
+        // Cleanup
+        return () => {
+          if (chart.canvas) {
+            chart.canvas.removeEventListener('mousemove', handleMouseMove);
+            chart.canvas.removeEventListener('mouseout', handleMouseOut);
+          }
+        };
+      }
     }
-  }, [chartRef.current]);
+  }, [chartRef.current, chartLoaded]);
 
   return (
     <div className="mb-20 backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl">

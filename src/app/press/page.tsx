@@ -7,7 +7,7 @@ import pressSections from './data/pressSections';
 
 export default function PressPage() {
   return (
-    <div className="min-h-screen bg-[#041019] text-white font-rajdhani">
+    <div className="min-h-screen bg-[#041019] text-white font-be-vietnam-pro">
       <ThanhDieuHuongResponsive />
       
       <PressContent pressSections={pressSections} />

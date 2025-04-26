@@ -6,6 +6,7 @@ import Image from 'next/image';
 import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import { FaFacebookF, FaTwitter, FaYoutube, FaDiscord, FaTelegram } from 'react-icons/fa';
 import { FaLaptopCode, FaGamepad, FaPaintBrush, FaUsers, FaRocket, FaChartLine, FaMobileAlt, FaLink } from 'react-icons/fa';
+import DarkAbstractBg from '@/components/backgrounds/DarkAbstractBg';
 
 // Component cho từng vị trí tuyển dụng
 function JobPosition({ 
@@ -19,20 +20,59 @@ function JobPosition({
   description: string; 
   index: number;
 }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <div 
-      className="relative bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-6 transition-all duration-300 transform-gpu hover:shadow-xl hover:bg-white/10 animate-fadeIn card-neon group"
+      className="relative bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-6 transition-all duration-300 transform-gpu hover:shadow-xl hover:bg-white/10 animate-fadeIn card-neon group cursor-pointer"
       style={{ 
         animationDelay: `${index * 50}ms` 
       }}
+      onClick={() => setIsExpanded(!isExpanded)}
     >
       <div className="flex items-start gap-4">
         <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)]">
           {icon}
         </div>
-        <div>
-          <h3 className="font-rajdhani text-xl font-bold text-white tracking-wide mb-2 text-shadow-blue group-hover:text-[var(--accent-blue-bright)] transition-colors duration-300">{title}</h3>
+        <div className="flex-1">
+          <div className="flex justify-between items-center">
+            <h3 className="font-rajdhani text-xl font-bold text-white tracking-wide mb-2 text-shadow-blue group-hover:text-[var(--accent-blue-bright)] transition-colors duration-300">{title}</h3>
+            <div className="flex items-center justify-center w-8 h-8">
+              <svg 
+                className={`w-5 h-5 transition-transform duration-300 text-white/70 ${isExpanded ? 'rotate-180' : ''}`} 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
           <p className="font-rajdhani text-white/80 group-hover:text-white/90 transition-colors duration-300">{description}</p>
+          
+          {isExpanded && (
+            <div className="mt-4 pt-4 border-t border-white/10 animate-fadeIn">
+              <h4 className="font-rajdhani text-lg font-bold text-[var(--accent-blue-bright)] mb-2">Yêu cầu:</h4>
+              <ul className="font-rajdhani text-white/80 space-y-2 pl-4">
+                <li className="flex items-start gap-2 before:content-['•'] before:text-[var(--accent-blue-bright)] before:mr-2">
+                  Kinh nghiệm làm việc ít nhất 1 năm trong vị trí tương tự
+                </li>
+                <li className="flex items-start gap-2 before:content-['•'] before:text-[var(--accent-blue-bright)] before:mr-2">
+                  Có portfolio/Github thể hiện năng lực
+                </li>
+                <li className="flex items-start gap-2 before:content-['•'] before:text-[var(--accent-blue-bright)] before:mr-2">
+                  Đam mê phát triển game và công nghệ mới
+                </li>
+              </ul>
+              
+              <div className="mt-4 flex justify-end">
+                <button className="px-4 py-2 bg-[var(--accent-blue-bright)]/20 hover:bg-[var(--accent-blue-bright)]/30 text-[var(--accent-blue-bright)] font-medium rounded-lg transition-colors duration-300">
+                  Ứng tuyển ngay
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       
@@ -58,9 +98,12 @@ function JobPosition({
 }
 
 export default function CareersPage() {
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+
   // Job categories and positions
   const jobCategories = [
     {
+      id: 'art',
       title: "Nghệ Sĩ & Thiết Kế Game",
       positions: [
         { icon: <FaPaintBrush className="h-6 w-6" />, title: "2D Spine Animator", description: "Tạo animation nhân vật mượt mà và hiệu ứng đặc biệt" },
@@ -70,6 +113,7 @@ export default function CareersPage() {
       ]
     },
     {
+      id: 'dev',
       title: "Lập Trình Viên",
       positions: [
         { icon: <FaLaptopCode className="h-6 w-6" />, title: "Unity Developer", description: "Xây dựng cơ chế gameplay và hệ thống game" },
@@ -79,6 +123,7 @@ export default function CareersPage() {
       ]
     },
     {
+      id: 'content',
       title: "Sáng Tạo Nội Dung",
       positions: [
         { icon: <FaGamepad className="h-6 w-6" />, title: "Game Writer", description: "Viết kịch bản, câu chuyện nhân vật" },
@@ -98,352 +143,255 @@ export default function CareersPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[var(--overwatch-dark-blue)] to-[var(--overwatch-black)]">
-      {/* Menu điều hướng */}
-      <ThanhDieuHuongResponsive />
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Nền đen tối dần */}
+      <DarkAbstractBg />
 
-      {/* Hero Banner */}
-      <div className="relative h-[100vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#041019]/30 to-[#041019] z-10"></div>
-        <div className="absolute inset-0 bg-[url('/images/overwatch_bg_2.jpg')] bg-cover bg-center bg-no-repeat">
-          {/* Animated particles */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse delay-100"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse delay-200"></div>
-            <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse delay-300"></div>
-          </div>
-        </div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
-          <h1 className="font-orbitron text-6xl md:text-8xl font-extrabold text-white tracking-tighter mb-6 uppercase text-shadow-blue animate-title-glow cyber-halo">
-            <span className="relative inline-block">
-              TUYỂN DỤNG
-              <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-            </span>
-          </h1>
-          <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in text-center">
-            CÙNG XÂY DỰNG TỰA GAME CỦA CỘNG ĐỒNG
-          </p>
-          
-          {/* Nút cuộn xuống - thêm mới */}
-          <div className="animate-slide-up">
-            <button 
-              onClick={() => document.getElementById('careers-content')?.scrollIntoView({behavior: 'smooth'})}
-              className="font-rajdhani font-bold tracking-wider text-shadow-sm px-10 py-3 button-cyber clip-hexagon hexagon-border text-white"
-            >
-              Xem vị trí
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* Content with relative positioning for proper layering */}
+      <div className="relative z-10">
+        {/* Menu điều hướng */}
+        <ThanhDieuHuongResponsive />
 
-      <div id="careers-content" className="max-w-7xl mx-auto px-4 py-12 relative z-10 -mt-10">
-        {/* Curved section top */}
-        <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#041019] -translate-y-full"></div>
-        
-        {/* Intro Section */}
-        <div className="mb-16 backdrop-blur-sm bg-white/5 p-8 rounded-xl border border-white/10 shadow-xl">
-          <div className="flex justify-center mb-6">
-            <h2 className="font-orbitron text-3xl font-bold text-white cyber-halo">
-              <span className="text-shadow-blue relative inline-block">
-                M-SCI TUYỂN DỤNG
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
+        {/* Hero Banner */}
+        <div className="relative h-[60vh] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#041019]/30 to-[#041019] z-10"></div>
+          <div className="absolute inset-0 bg-[url('/images/overwatch_bg_2.jpg')] bg-cover bg-center bg-no-repeat">
+            {/* Animated particles */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse"></div>
+              <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50 animate-pulse delay-100"></div>
+              <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-purple-400 rounded-full shadow-lg shadow-purple-400/50 animate-pulse delay-200"></div>
+              <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-yellow-400 rounded-full shadow-lg shadow-yellow-400/50 animate-pulse delay-300"></div>
+            </div>
+          </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
+            <h1 className="font-orbitron text-6xl md:text-8xl font-extrabold text-white tracking-tighter mb-6 uppercase text-shadow-blue animate-title-glow cyber-halo">
+              <span className="relative inline-block">
+                TUYỂN DỤNG
+                <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
               </span>
-            </h2>
-          </div>
-          
-          <div className="text-center max-w-4xl mx-auto mb-8">
-            <p className="font-rajdhani text-white/90 text-lg mb-6">
-              M-SCI không chỉ là một tựa game - đây là dự án game cộng đồng, nơi MỌI NGƯỜI đều có thể đóng góp sức sáng tạo để cùng xây dựng một vũ trụ game độc đáo. Chúng tôi đang phát triển một tựa game hành động khoa học viễn tưởng kết hợp hoàn hảo giữa đồ họa 2D Spine Animation và 3D, sẽ ra mắt trên nền tảng Android và iOS.
+            </h1>
+            <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in text-center">
+              CÙNG XÂY DỰNG TỰA GAME CỦA CỘNG ĐỒNG
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 card-neon">
-              <h3 className="font-orbitron text-xl font-bold text-[var(--accent-blue-bright)] mb-4">🎮 Về Dự Án M-SCI</h3>
-              <p className="font-rajdhani text-white/80 mb-4">
-                M-SCI là tựa game hành động khoa học viễn tưởng đầy tham vọng lấy bối cảnh năm 2049, khi nhân loại đối mặt với thử thách lớn nhất từ đội quân robot và drone do AI điều khiển.
-              </p>
-              <p className="font-rajdhani text-white/80 font-bold">
-                Điều đặc biệt? Chúng tôi xây dựng game CÙNG VỚI cộng đồng, không chỉ CHO cộng đồng.
-              </p>
-            </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 card-neon">
-              <h3 className="font-orbitron text-xl font-bold text-[var(--accent-blue-bright)] mb-4">🚀 Thông Số Kỹ Thuật</h3>
-              <ul className="font-rajdhani text-white/80 space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[var(--accent-blue-bright)]"></span>
-                  <span><strong>Nền tảng</strong>: Android & iOS</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[var(--accent-blue-bright)]"></span>
-                  <span><strong>Công nghệ</strong>: 2D Spine Animation + Đồ họa 3D</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[var(--accent-blue-bright)]"></span>
-                  <span><strong>Thể loại</strong>: Game bắn súng hành động sci-fi kết hợp yếu tố RPG</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[var(--accent-blue-bright)]"></span>
-                  <span><strong>Tính năng</strong>: Sưu tầm anh hùng, Hệ thống Guild, Chiến đấu PvP/PvE, Tích hợp Blockchain</span>
-                </li>
-              </ul>
+            {/* Nút cuộn xuống */}
+            <div className="animate-slide-up">
+              <button 
+                onClick={() => document.getElementById('careers-content')?.scrollIntoView({behavior: 'smooth'})}
+                className="font-rajdhani font-bold tracking-wider text-shadow-sm px-10 py-3 button-cyber clip-hexagon hexagon-border text-white"
+              >
+                Xem vị trí
+              </button>
             </div>
           </div>
         </div>
-        
-        {/* Job Categories */}
-        {jobCategories.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="mb-16">
-            <div className="flex justify-center mb-8">
-              <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
+
+        <div id="careers-content" className="max-w-7xl mx-auto px-4 py-12 relative z-10 -mt-10">
+          {/* Curved section top */}
+          <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-black/80 -translate-y-full"></div>
+          
+          {/* Intro Section */}
+          <div className="mb-16 backdrop-blur-sm bg-white/5 p-8 rounded-xl border border-white/10 shadow-xl">
+            <div className="flex justify-center mb-6">
+              <h2 className="font-orbitron text-3xl font-bold text-white cyber-halo">
                 <span className="text-shadow-blue relative inline-block">
-                  {category.title}
+                  M-SCI TUYỂN DỤNG
                   <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
                 </span>
               </h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {category.positions.map((position, index) => (
-                <JobPosition
-                  key={index}
-                  icon={position.icon}
-                  title={position.title}
-                  description={position.description}
-                  index={index + categoryIndex * 10}
-                />
+            <div className="text-center max-w-4xl mx-auto mb-8">
+              <p className="font-rajdhani text-white/90 text-lg mb-6">
+                M-SCI không chỉ là một tựa game - đây là dự án game cộng đồng, nơi MỌI NGƯỜI đều có thể đóng góp sức sáng tạo để cùng xây dựng một vũ trụ game độc đáo. Chúng tôi đang phát triển một tựa game hành động khoa học viễn tưởng kết hợp hoàn hảo giữa đồ họa 2D Spine Animation và 3D, sẽ ra mắt trên nền tảng Android và iOS.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 card-neon">
+                <h3 className="font-orbitron text-xl font-bold text-[var(--accent-blue-bright)] mb-4">🎮 Về Dự Án M-SCI</h3>
+                <p className="font-rajdhani text-white/80 mb-4">
+                  M-SCI là tựa game hành động khoa học viễn tưởng đầy tham vọng lấy bối cảnh năm 2049, khi nhân loại đối mặt với thử thách lớn nhất từ đội quân robot và drone do AI điều khiển.
+                </p>
+                <p className="font-rajdhani text-white/80 font-bold">
+                  Điều đặc biệt? Chúng tôi xây dựng game CÙNG VỚI cộng đồng, không chỉ CHO cộng đồng.
+                </p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 card-neon">
+                <h3 className="font-orbitron text-xl font-bold text-[var(--accent-blue-bright)] mb-4">🚀 Thông Số Kỹ Thuật</h3>
+                <ul className="font-rajdhani text-white/80 space-y-2">
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[var(--accent-blue-bright)]"></span>
+                    <span><strong>Nền tảng</strong>: Android & iOS</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[var(--accent-blue-bright)]"></span>
+                    <span><strong>Công nghệ</strong>: 2D Spine Animation + Đồ họa 3D</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[var(--accent-blue-bright)]"></span>
+                    <span><strong>Thể loại</strong>: Game bắn súng hành động sci-fi kết hợp yếu tố RPG</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[var(--accent-blue-bright)]"></span>
+                    <span><strong>Tính năng</strong>: Sưu tầm anh hùng, Hệ thống Guild, Chiến đấu PvP/PvE, Tích hợp Blockchain</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          {/* Category Filter */}
+          <div className="mb-10">
+            <div className="flex justify-center mb-6">
+              <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
+                <span className="text-shadow-blue relative inline-block">
+                  VỊ TRÍ ĐANG TUYỂN
+                  <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
+                </span>
+              </h2>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <button
+                onClick={() => setActiveCategory('all')}
+                className={`px-6 py-3 text-sm font-medium font-rajdhani tracking-wider transition-all duration-300 
+                  ${activeCategory === 'all' 
+                  ? 'text-white border-2 border-[var(--accent-blue-bright)] shadow-lg shadow-[var(--accent-blue-glow)]/40 transform scale-105 button-cyber clip-hexagon hexagon-corner-flash bg-[var(--accent-blue-bright)]/20' 
+                  : 'bg-white/5 text-white/90 hover:bg-[var(--accent-blue-bright)]/10 hover:text-white hover:shadow-lg hover:shadow-[var(--accent-blue-glow)]/20 border border-white/20 hover:border-[var(--accent-blue-bright)]/70 button-cyber clip-hexagon'
+                }`}
+              >
+                Tất Cả
+              </button>
+              
+              {jobCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`px-6 py-3 text-sm font-medium font-rajdhani tracking-wider transition-all duration-300 
+                    ${activeCategory === category.id 
+                      ? 'text-white border-2 border-[var(--accent-blue-bright)] shadow-lg shadow-[var(--accent-blue-glow)]/40 transform scale-105 button-cyber clip-hexagon hexagon-corner-flash bg-[var(--accent-blue-bright)]/20' 
+                      : 'bg-white/5 text-white/90 hover:bg-[var(--accent-blue-bright)]/10 hover:text-white hover:shadow-lg hover:shadow-[var(--accent-blue-glow)]/20 border border-white/20 hover:border-[var(--accent-blue-bright)]/70 button-cyber clip-hexagon'
+                    }`}
+                >
+                  {category.title}
+                </button>
               ))}
             </div>
           </div>
-        ))}
-        
-        {/* Cooperation Model */}
-        <div className="mb-16">
-          <div className="flex justify-center mb-8">
-            <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
-              <span className="text-shadow-blue relative inline-block">
-                🌟 MÔ HÌNH HỢP TÁC ĐỘC ĐÁO
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-              </span>
-            </h2>
+          
+          {/* Job Categories */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {jobCategories.map((category) => 
+              // Hiển thị tất cả hoặc theo category được chọn
+              (activeCategory === 'all' || activeCategory === category.id) &&
+              category.positions.map((position, index) => (
+                <JobPosition
+                  key={`${category.id}-${index}`}
+                  icon={position.icon}
+                  title={position.title}
+                  description={position.description}
+                  index={index}
+                />
+              ))
+            )}
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 card-neon">
-              <h3 className="font-orbitron text-xl font-bold text-[var(--accent-blue-bright)] mb-4">Đóng Góp Tài Nguyên</h3>
-              <ul className="font-rajdhani text-white/80 space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] mt-0.5">
-                    <FaRocket className="h-3 w-3" />
-                  </span>
-                  <span>Chia sẻ artwork, code, âm thanh của bạn</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] mt-0.5">
-                    <FaRocket className="h-3 w-3" />
-                  </span>
-                  <span>Tham gia với vai trò freelancer hoặc part-time</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] mt-0.5">
-                    <FaRocket className="h-3 w-3" />
-                  </span>
-                  <span>Cộng tác từ xa linh hoạt</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 card-neon">
-              <h3 className="font-orbitron text-xl font-bold text-[var(--accent-blue-bright)] mb-4">Quyền Lợi Người Đóng Góp</h3>
-              <ul className="font-rajdhani text-white/80 space-y-3">
-                <li className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] mt-0.5">
-                    <FaRocket className="h-3 w-3" />
-                  </span>
-                  <span>Tên bạn trong credits game</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] mt-0.5">
-                    <FaRocket className="h-3 w-3" />
-                  </span>
-                  <span>Nhận % doanh thu từ sản phẩm bạn đóng góp</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] mt-0.5">
-                    <FaRocket className="h-3 w-3" />
-                  </span>
-                  <span>Token và NFT độc quyền trong game</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] mt-0.5">
-                    <FaRocket className="h-3 w-3" />
-                  </span>
-                  <span>Cơ hội trở thành core team member</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        {/* Benefits */}
-        <div className="mb-16">
-          <div className="flex justify-center mb-8">
-            <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
-              <span className="text-shadow-blue relative inline-block">
-                💡 TẠI SAO NÊN THAM GIA?
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-              </span>
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {benefits.map((benefit, index) => (
-              <JobPosition
-                key={index}
-                icon={benefit.icon}
-                title={benefit.title}
-                description={benefit.description}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-        
-        {/* How to Join */}
-        <div className="mb-16 backdrop-blur-sm bg-white/5 p-8 rounded-xl border border-white/10 shadow-xl card-neon">
-          <div className="flex justify-center mb-6">
-            <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
-              <span className="text-shadow-blue relative inline-block">
-                📝 CÁCH THỨC THAM GIA
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-              </span>
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 text-center group">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] group-hover:scale-110 transition-transform duration-300">
-                <span className="text-2xl font-bold">1</span>
-              </div>
-              <h3 className="font-rajdhani text-xl font-bold text-white mb-2 group-hover:text-[var(--accent-blue-bright)] transition-colors duration-300">Gửi Portfolio</h3>
-              <p className="font-rajdhani text-white/70">Showcase tác phẩm của bạn</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 text-center group">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] group-hover:scale-110 transition-transform duration-300">
-                <span className="text-2xl font-bold">2</span>
-              </div>
-              <h3 className="font-rajdhani text-xl font-bold text-white mb-2 group-hover:text-[var(--accent-blue-bright)] transition-colors duration-300">Đề Xuất Ý Tưởng</h3>
-              <p className="font-rajdhani text-white/70">Chia sẻ vision của bạn cho M-SCI</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 text-center group">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] group-hover:scale-110 transition-transform duration-300">
-                <span className="text-2xl font-bold">3</span>
-              </div>
-              <h3 className="font-rajdhani text-xl font-bold text-white mb-2 group-hover:text-[var(--accent-blue-bright)] transition-colors duration-300">Tham Gia Discord</h3>
-              <p className="font-rajdhani text-white/70">Kết nối với cộng đồng developer</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 text-center group">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] group-hover:scale-110 transition-transform duration-300">
-                <span className="text-2xl font-bold">4</span>
-              </div>
-              <h3 className="font-rajdhani text-xl font-bold text-white mb-2 group-hover:text-[var(--accent-blue-bright)] transition-colors duration-300">Bắt Đầu Đóng Góp</h3>
-              <p className="font-rajdhani text-white/70">Chọn task phù hợp và bắt đầu sáng tạo</p>
-            </div>
-          </div>
-          
-          {/* Contact Information */}
-          <div className="mt-10 text-center">
-            <h3 className="font-orbitron text-xl font-bold text-white mb-6">Liên Hệ</h3>
-            <div className="flex flex-wrap justify-center gap-6">
-              <div className="flex items-center gap-2 text-white/90 hover:text-[var(--accent-blue-bright)] transition-colors duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span className="font-rajdhani">careers@msci.game</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/90 hover:text-[var(--accent-blue-bright)] transition-colors duration-300">
-                <FaDiscord className="h-5 w-5" />
-                <span className="font-rajdhani">discord.gg/msci-dev</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/90 hover:text-[var(--accent-blue-bright)] transition-colors duration-300">
-                <FaLink className="h-5 w-5" />
-                <span className="font-rajdhani">www.msci.game/careers</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Call to Action */}
-        <div className="mb-16 py-10 text-center">
-          <h2 className="font-orbitron text-3xl font-bold text-white mb-6 text-shadow-blue">
-            🚀 CÙNG TẠO NÊN TƯƠNG LAI GAME VIỆT
-          </h2>
-          <p className="font-rajdhani text-white/90 max-w-4xl mx-auto mb-8 text-lg">
-            M-SCI không chỉ là một dự án game - đây là cơ hội để cùng nhau xây dựng một tựa game đẳng cấp quốc tế, do cộng đồng Việt Nam phát triển. Dù bạn là developer dày dạn kinh nghiệm hay người mới bắt đầu đam mê game, chúng tôi đều chào đón!
-          </p>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 inline-block max-w-xl mx-auto">
-            <p className="font-rajdhani text-xl text-[var(--accent-blue-bright)] font-bold italic mb-0">
-              "Một người đi nhanh, nhiều người đi xa - Hãy cùng M-SCI tạo nên kỳ tích!"
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Join Us Footer */}
-      <div className="relative w-full overflow-hidden">
-        {/* Battlefield Image Background */}
-        <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden">
-          <Image 
-            src="/images/overwatch_bg_2.jpg" 
-            alt="M-SCI battlefield" 
-            fill
-            sizes="100vw"
-            className="object-cover object-center brightness-75"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#041019]/70 to-[#041019]/90"></div>
-          
-          <div className="absolute inset-0 z-10">
-            <div className="container mx-auto h-full flex flex-col items-center justify-center text-center py-10 px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-wide">
-                CHIẾN ĐẤU VÌ TƯƠNG LAI NHÂN LOẠI. GIA NHẬP M-SCI!
+          {/* Benefits Section */}
+          <div className="mb-16 backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl">
+            <div className="flex justify-center mb-8">
+              <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
+                <span className="text-shadow-blue relative inline-block">
+                  LỢI ÍCH KHI THAM GIA M-SCI
+                  <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
+                </span>
               </h2>
-              
-              <Link 
-                href="mailto:careers@msci.game"
-                className="mt-4 mb-8 px-8 py-3 bg-[#FF7D00] hover:bg-[#FF9D40] text-white font-medium rounded transition-colors duration-300 uppercase tracking-wider text-lg shadow-lg hover:shadow-[#FF7D00]/50"
-              >
-                LIÊN HỆ NGAY
-              </Link>
-              
-              <div className="mt-8">
-                <h3 className="text-gray-300 uppercase text-sm tracking-widest mb-4">THEO DÕI CHÚNG TÔI</h3>
-                <div className="flex justify-center space-x-6">
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaFacebookF className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaTwitter className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaYoutube className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaDiscord className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaTelegram className="h-6 w-6" />
-                  </a>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {benefits.map((benefit, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-[var(--accent-blue-bright)]/50 transition-all duration-300 card-neon animate-fadeIn"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="w-12 h-12 rounded-full bg-[var(--accent-blue-bright)]/20 flex items-center justify-center text-[var(--accent-blue-bright)] mb-4">
+                    {benefit.icon}
+                  </div>
+                  <h3 className="font-rajdhani text-xl font-bold text-white mb-2">{benefit.title}</h3>
+                  <p className="font-rajdhani text-white/80">{benefit.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Call To Action */}
+          <div className="text-center mb-16">
+            <h2 className="font-orbitron text-3xl font-bold text-white cyber-halo mb-6">
+              <span className="text-shadow-blue">
+                SẴN SÀNG THAM GIA?
+              </span>
+            </h2>
+            <p className="font-rajdhani text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+              Gửi CV hoặc portfolio của bạn đến <span className="text-[var(--accent-blue-bright)] font-bold">careers@m-sci.com</span> cùng với vị trí bạn quan tâm.
+            </p>
+            <button className="font-rajdhani text-lg font-bold tracking-wider px-10 py-4 button-cyber clip-hexagon hexagon-border text-white bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] hover:shadow-lg hover:shadow-[var(--accent-blue-glow)]/40 transition-all duration-300">
+              GỬI ỨNG TUYỂN NGAY
+            </button>
+          </div>
+        </div>
+        
+        {/* Join Us Footer */}
+        <div className="relative w-full overflow-hidden">
+          {/* Battlefield Image Background */}
+          <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden">
+            <Image 
+              src="/images/overwatch_bg_2.jpg" 
+              alt="Careers background" 
+              fill
+              sizes="100vw"
+              className="object-cover object-center brightness-75"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
+            
+            {/* Footer Overlay */}
+            <div className="absolute inset-0 z-10">
+              <div className="container mx-auto h-full flex flex-col items-center justify-center text-center py-10 px-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-wide">
+                  XÂY DỰNG TƯƠNG LAI GAME VIỆT
+                </h2>
+                
+                <div className="mt-8">
+                  <h3 className="text-gray-300 uppercase text-sm tracking-widest mb-4">THEO DÕI CHÚNG TÔI</h3>
+                  <div className="flex justify-center space-x-6">
+                    <a href="#" className="text-white hover:text-[var(--accent-blue-bright)] transition-colors">
+                      <FaFacebookF className="h-6 w-6" />
+                    </a>
+                    <a href="#" className="text-white hover:text-[var(--accent-blue-bright)] transition-colors">
+                      <FaTwitter className="h-6 w-6" />
+                    </a>
+                    <a href="#" className="text-white hover:text-[var(--accent-blue-bright)] transition-colors">
+                      <FaYoutube className="h-6 w-6" />
+                    </a>
+                    <a href="#" className="text-white hover:text-[var(--accent-blue-bright)] transition-colors">
+                      <FaDiscord className="h-6 w-6" />
+                    </a>
+                    <a href="#" className="text-white hover:text-[var(--accent-blue-bright)] transition-colors">
+                      <FaTelegram className="h-6 w-6" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Decorative elements */}
+      <div className="absolute top-1/4 left-8 w-16 h-16 rotate-45 border border-[var(--accent-blue-bright)]/30 rounded-lg opacity-50 animate-pulse-slow hidden md:block"></div>
+      <div className="absolute bottom-1/4 right-8 w-12 h-12 rotate-12 border border-[var(--accent-blue-bright)]/30 rounded-lg opacity-50 animate-pulse-slow delay-300 hidden md:block"></div>
     </div>
   );
 } 
