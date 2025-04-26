@@ -49,7 +49,7 @@ export default function Header() {
                 className="object-contain"
               />
             </div>
-            <span className="font-orbitron font-bold text-xl text-white">M-SCI</span>
+            <span className="font-bold text-xl text-white" style={{ fontFamily: 'var(--font-orbitron)' }}>M-SCI</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -3,26 +3,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaTasks, FaUsers, FaDragon, FaCoins } from "react-icons/fa";
+import Image from "next/image";
 
 export default function GuildMissions() {
   const missions = [
     {
-      icon: <FaUsers className="text-4xl text-green-500" />,
-      title: "Mở Rộng Guild",
-      description: "Đạt mốc số lượng thành viên",
-      rewards: "1,000 Chip + 50 Guild EXP"
+      title: "Nhiệm Vụ Hàng Ngày",
+      description: "Hoàn thành nhiệm vụ hàng ngày để nhận Guild EXP và tài nguyên quý giá",
+      rewards: "Reward: 100 Guild EXP, 1,000 Chip, Resource Box"
     },
     {
-      icon: <FaDragon className="text-4xl text-green-500" />,
-      title: "Tiêu Diệt Boss Guild",
-      description: "Hạ gục Boss tuần của Guild",
-      rewards: "5,000 Chip + Boss Box + 200 Guild EXP"
+      title: "Thử Thách Guild",
+      description: "Chiến đấu cùng đồng đội để đánh bại boss thử thách mỗi tuần",
+      rewards: "Reward: 500 Guild EXP, Guild Boss Box, Random Piece"
     },
     {
-      icon: <FaCoins className="text-4xl text-green-500" />,
-      title: "Ngân Khố Guild",
-      description: "Đóng góp M-Coin cho Guild",
-      rewards: "Buff May Mắn +5% trong 1 giờ"
+      title: "Xâm Lược Lãnh Thổ",
+      description: "Mở rộng lãnh thổ Guild bằng cách chiếm đóng vùng đất mới",
+      rewards: "Reward: Guild Resource, Territory Buff, Resource Generation"
+    },
+    {
+      title: "Đóng Góp Guild",
+      description: "Đóng góp tài nguyên để nghiên cứu công nghệ và nâng cấp Guild",
+      rewards: "Reward: Guild Tokens, Contribution Points, Technology Progress"
     }
   ];
 
@@ -33,105 +36,66 @@ export default function GuildMissions() {
   ];
 
   return (
-    <motion.section 
-      className="py-16"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <div>
-          <div className="text-left mb-8">
-            <h2 className="font-orbitron text-3xl font-bold text-green-500 mb-4">
-              🎯 NHIỆM VỤ GUILD - THỬ THÁCH TẬP THỂ
-            </h2>
-            <div className="w-20 h-1 bg-green-500"></div>
-          </div>
-          
-          <div className="space-y-6">
-            {missions.map((mission, index) => (
-              <motion.div 
-                key={index}
-                className="bg-gray-900/70 border border-green-500/30 p-6 rounded-lg backdrop-blur-sm flex items-start"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="mr-4 mt-1">
-                  {mission.icon}
-                </div>
-                <div>
-                  <h3 className="font-orbitron text-xl font-bold text-white mb-1">
-                    {mission.title}
-                  </h3>
-                  <p className="text-gray-300 mb-3 text-sm">
-                    {mission.description}
-                  </p>
-                  <div className="bg-black/30 p-2 rounded">
-                    <p className="text-green-400 text-sm font-medium">
-                      <span className="mr-2">💎</span>
-                      {mission.rewards}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        
-        <div>
-          <div className="text-left mb-8">
-            <h2 className="font-orbitron text-3xl font-bold text-amber-500 mb-4">
-              💰 NGÂN KHỐ GUILD - KHO BÁU CHUNG
-            </h2>
-            <div className="w-20 h-1 bg-amber-500"></div>
-          </div>
-          
-          <motion.div
-            className="bg-gradient-to-br from-amber-900/40 to-gray-900/70 border-2 border-amber-500/30 p-8 rounded-lg"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+    <div className="mb-20">
+      <div className="text-center mb-12">
+        <h2 className="font-orbitron text-2xl md:text-3xl font-bold text-white cyber-halo">
+          <span className="text-shadow-blue relative inline-block">
+            NHIỆM VỤ GUILD - HÀNH TRÌNH CÙNG PHÁT TRIỂN
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
+          </span>
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {missions.map((mission, index) => (
+          <div 
+            key={index} 
+            className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl group hover:border-cyan-500/30 transition-all duration-300"
           >
-            <div className="flex justify-center mb-6">
-              <div className="relative w-24 h-24 bg-amber-500/20 rounded-full flex items-center justify-center">
-                <FaCoins className="text-5xl text-amber-500" />
-                <div className="absolute w-full h-full rounded-full border-2 border-amber-500/50 animate-ping"></div>
-              </div>
+            <h3 className="font-orbitron text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{mission.title}</h3>
+            <p className="font-be-vietnam-pro text-gray-300 mb-4">{mission.description}</p>
+            <div className="p-3 bg-black/30 rounded-lg">
+              <p className="font-be-vietnam-pro text-amber-400 text-sm">{mission.rewards}</p>
             </div>
-            
-            <p className="text-center text-gray-300 mb-8">
-              Ngân khố Guild là nơi lưu trữ tài nguyên chung của Guild, được sử dụng để nâng cấp và phát triển Guild.
-              Mỗi thành viên đều có thể đóng góp để Guild ngày càng mạnh mẽ.
+          </div>
+        ))}
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/5 p-8 rounded-xl border border-white/10 shadow-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="prose prose-lg prose-invert max-w-none">
+            <h3 className="font-orbitron text-2xl text-white mb-4">Ngân Khố Guild</h3>
+            <p className="font-be-vietnam-pro text-gray-200 leading-relaxed">
+              Tất cả thành viên Guild có thể đóng góp vào ngân khố chung - nơi tích lũy tài nguyên để phát triển Guild.
+              Mỗi đóng góp đều được ghi nhận và thành viên đóng góp nhiều sẽ nhận được phần thưởng xứng đáng.
             </p>
             
-            <div className="space-y-4">
-              <h3 className="font-orbitron text-xl font-bold text-amber-400 mb-3">
-                Nội dung Ngân khố:
-              </h3>
-              <ul className="space-y-3">
-                {treasuryItems.map((item, index) => (
-                  <li key={index} className="flex items-center">
-                    <span className="text-amber-500 mr-2">▪</span>
-                    <span className="text-gray-300">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="mt-8">
-              <div className="bg-gray-900/70 p-4 rounded-lg border border-amber-500/30">
-                <p className="text-center text-amber-400 font-medium">
-                  "Thịnh vượng của Guild là thịnh vượng của mỗi người"
-                </p>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10">
+                <p className="text-cyan-400 font-semibold mb-2">Tổng Tài Nguyên</p>
+                <p className="font-be-vietnam-pro text-gray-300 text-sm">Chi tiêu hợp lý cho nâng cấp và nghiên cứu</p>
+              </div>
+              <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10">
+                <p className="text-cyan-400 font-semibold mb-2">Hệ Thống Đóng Góp</p>
+                <p className="font-be-vietnam-pro text-gray-300 text-sm">Top Contributors nhận thưởng mỗi tuần</p>
               </div>
             </div>
-          </motion.div>
+          </div>
+          
+          <div className="relative aspect-video md:aspect-square rounded-lg overflow-hidden border border-white/20">
+            <Image 
+              src="/images/guild/guild-missions.jpg" 
+              alt="Guild Missions"
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#041019]/80 to-transparent"></div>
+            <div className="absolute bottom-4 left-4 right-4 text-center">
+              <p className="font-be-vietnam-pro text-white text-lg font-bold">Đoàn kết - Thử thách - Phát triển</p>
+            </div>
+          </div>
         </div>
       </div>
-    </motion.section>
+    </div>
   );
 } 

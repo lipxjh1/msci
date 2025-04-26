@@ -6,13 +6,13 @@
 }
 
 .prose a {
-  color: #3b82f6;
+  color: #00A4EA;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .prose a:hover {
-  color: #60a5fa;
+  color: #0094D5;
   text-decoration: underline;
 }
 
@@ -92,24 +92,23 @@
   margin-bottom: 1.6em;
 }
 
-/* Event card hover effects */
-.event-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
 }
 
-.event-card:hover {
+.card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 20px rgba(0, 164, 234, 0.2);
 }
 
-/* Glowing border effect for cards */
-.glow-border {
+/* Card border hover effect */
+.card-border-hover {
   position: relative;
-  border-radius: 0.5rem;
-  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.glow-border::after {
+.card-border-hover::after {
   content: '';
   position: absolute;
   top: 0;
@@ -117,18 +116,20 @@
   right: 0;
   bottom: 0;
   border-radius: 0.5rem;
-  border: 1px solid rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-  pointer-events: none;
+  border: 1px solid rgba(0, 164, 234, 0.5);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.glow-border:hover::after {
+.card-border-hover:hover::after {
   opacity: 1;
 }
 
-/* Text glow effect */
-.glow-text {
-  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+/* Text color transitions */
+.text-hover-primary {
+  transition: color 0.3s ease;
+}
+
+.text-hover-primary:hover {
+  color: #00A4EA;
 } 

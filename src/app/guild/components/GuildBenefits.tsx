@@ -1,95 +1,83 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { FaUsers, FaTrophy, FaChessKnight, FaUserFriends, FaRocket } from "react-icons/fa";
+import Image from "next/image";
 
 export default function GuildBenefits() {
   const benefits = [
-    {
-      icon: <FaUsers className="text-4xl text-purple-500" />,
-      title: "Sức mạnh từ cộng đồng",
-      description: "Buff tăng sức mạnh cho mọi thành viên"
-    },
-    {
-      icon: <FaTrophy className="text-4xl text-purple-500" />,
-      title: "Phần thưởng khổng lồ",
-      description: "Chip, Skin Box, item hiếm từ Guild War"
-    },
-    {
-      icon: <FaChessKnight className="text-4xl text-purple-500" />,
-      title: "Trải nghiệm chiến thuật",
-      description: "Phối hợp trong các trận chiến quy mô lớn"
-    },
-    {
-      icon: <FaUserFriends className="text-4xl text-purple-500" />,
-      title: "Kết nối xã hội",
-      description: "Gặp gỡ và chiến đấu cùng những người chơi cùng chí hướng"
-    },
-    {
-      icon: <FaRocket className="text-4xl text-purple-500" />,
-      title: "Cơ hội phát triển",
-      description: "Nâng cấp hero nhanh hơn với các buff Guild"
-    }
+    "Buff sức mạnh: Tăng đến 10% damage",
+    "Buff may mắn: Tăng đến 10% tỷ lệ may mắn khi nâng cấp hero",
+    "Phần thưởng khổng lồ từ Guild War",
+    "Trải nghiệm chiến thuật trong các trận chiến quy mô lớn",
+    "Kết nối và chiến đấu cùng những người chơi cùng chí hướng",
+    "Hỗ trợ tài nguyên từ Guild Treasury",
+    "Tham gia các nhiệm vụ Guild độc quyền"
   ];
 
   return (
-    <motion.section 
-      className="py-16"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
+    <div className="mb-20">
       <div className="text-center mb-12">
-        <h2 className="font-orbitron text-4xl font-bold text-purple-500 mb-4">
-          TẠI SAO NÊN THAM GIA GUILD?
+        <h2 className="font-orbitron text-2xl md:text-3xl font-bold text-white cyber-halo">
+          <span className="text-shadow-blue relative inline-block">
+            LỢI ÍCH KHI THAM GIA GUILD
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
+          </span>
         </h2>
-        <div className="w-24 h-1 bg-purple-500 mx-auto"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {benefits.map((benefit, index) => (
-          <motion.div 
-            key={index}
-            className="bg-gray-900/70 p-6 rounded-lg backdrop-blur-sm border border-purple-500/30"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.03 }}
-          >
-            <div className="flex flex-col items-center text-center">
-              <div className="p-4 bg-purple-900/30 rounded-full mb-4">
-                {benefit.icon}
-              </div>
-              <h3 className="font-orbitron text-xl font-bold mb-2 text-white">
-                {benefit.title}
-              </h3>
-              <p className="text-gray-300">
-                {benefit.description}
+      <div className="backdrop-blur-sm bg-white/5 p-8 rounded-xl border border-white/10 shadow-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div className="prose prose-lg prose-invert max-w-none">
+              <ul className="space-y-3 text-gray-200">
+                {benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-cyan-400 mr-2">✓</span>
+                    <span className="font-be-vietnam-pro">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="mt-6 p-4 bg-gradient-to-r from-cyan-900/20 to-purple-900/20 rounded-lg border border-cyan-500/20">
+              <p className="text-center text-lg text-white font-orbitron">
+                "Đoàn kết là sức mạnh - Guild là gia đình - Chiến thắng là vinh quang!"
               </p>
             </div>
-          </motion.div>
-        ))}
-      </div>
-
-      <motion.div 
-        className="mt-16 bg-gradient-to-r from-purple-900/40 to-indigo-900/40 p-8 rounded-xl border border-purple-500/30"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="text-center">
-          <h3 className="font-orbitron text-2xl font-bold text-white mb-4">
-            Trong M-SCI, không có anh hùng đơn độc - chỉ có những Guild hùng mạnh!
-          </h3>
-          <p className="text-gray-300 max-w-3xl mx-auto">
-            Hãy tham gia hoặc tạo Guild của riêng bạn ngay hôm nay. Cùng nhau xây dựng một đế chế bất khả chiến bại và khẳng định vị thế trong vũ trụ M-SCI!
-          </p>
+          </div>
+          
+          <div className="relative aspect-video md:aspect-square rounded-lg overflow-hidden border border-white/20">
+            <Image 
+              src="/images/guild/guild-benefits.jpg" 
+              alt="Guild Benefits"
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#041019]/80 to-transparent"></div>
+            <div className="absolute bottom-4 left-4 right-4 text-center">
+              <p className="font-be-vietnam-pro text-white text-lg font-bold">Chiến đấu cùng đồng đội. Chiến thắng cùng Guild.</p>
+            </div>
+          </div>
         </div>
-      </motion.div>
-    </motion.section>
+        
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10 text-center">
+            <p className="text-cyan-400 font-semibold mb-2">Level 1-3</p>
+            <p className="font-be-vietnam-pro text-gray-300 text-sm">Buff Attack +3%</p>
+          </div>
+          <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10 text-center">
+            <p className="text-cyan-400 font-semibold mb-2">Level 4-6</p>
+            <p className="font-be-vietnam-pro text-gray-300 text-sm">Buff Attack +5%</p>
+          </div>
+          <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10 text-center">
+            <p className="text-cyan-400 font-semibold mb-2">Level 7-9</p>
+            <p className="font-be-vietnam-pro text-gray-300 text-sm">Buff Attack +8%</p>
+          </div>
+          <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10 text-center">
+            <p className="text-cyan-400 font-semibold mb-2">Level 10</p>
+            <p className="font-be-vietnam-pro text-gray-300 text-sm">Buff Attack +10%</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 } 

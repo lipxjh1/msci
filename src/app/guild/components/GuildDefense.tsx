@@ -1,27 +1,26 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { GiRobotGolem, GiTowerFall } from "react-icons/gi";
-import { FaRobot } from "react-icons/fa";
+import { FaUsers } from 'react-icons/fa';
+import { GiShield, GiDragonHead } from 'react-icons/gi';
 
 export default function GuildDefense() {
   const defenseUnits = [
     {
-      icon: <GiRobotGolem className="text-5xl text-blue-500" />,
+      icon: <GiShield className="text-2xl text-blue-400" />,
       title: "Guardian",
       description: "Lính gác mạnh mẽ với khả năng phòng thủ vượt trội",
+      color: "blue",
       features: [
         "Nâng cấp từ Level 1 đến Level 10",
         "Mỗi cấp tăng HP/Shield và số lượng",
-        "Tự động tham chiến khi Guild bị tấn công"
+        "Tự động tham chiến trong Guild War"
       ]
     },
     {
-      icon: <FaRobot className="text-5xl text-teal-500" />,
+      icon: <FaUsers className="text-2xl text-teal-400" />,
       title: "Drone",
       description: "Đơn vị tấn công nhanh nhẹn với tầm xa",
+      color: "teal",
       features: [
         "Nâng cấp từ Level 1 đến Level 10",
         "Tăng sát thương và tốc độ theo cấp",
@@ -29,9 +28,10 @@ export default function GuildDefense() {
       ]
     },
     {
-      icon: <GiTowerFall className="text-5xl text-indigo-500" />,
+      icon: <GiDragonHead className="text-2xl text-indigo-400" />,
       title: "Sentinel",
       description: "Trái tim của Guild - Mục tiêu then chốt cần bảo vệ",
+      color: "indigo",
       features: [
         "Nâng cấp để tăng HP lên đến 10,000,000",
         "Sở hữu khả năng phản công mạnh mẽ",
@@ -41,96 +41,70 @@ export default function GuildDefense() {
   ];
 
   return (
-    <motion.section 
-      className="py-16"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
+    <div className="mb-20">
       <div className="text-center mb-12">
-        <h2 className="font-orbitron text-4xl font-bold text-blue-500 mb-4">
-          🛡️ XÂY DỰNG PHÁO ĐÀI BẤT KHẢ XÂM PHẠM
+        <h2 className="font-orbitron text-2xl md:text-3xl font-bold text-white cyber-halo">
+          <span className="text-shadow-blue relative inline-block">
+            🛡️ XÂY DỰNG PHÁO ĐÀI BẤT KHẢ XÂM PHẠM
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
+          </span>
         </h2>
-        <div className="w-24 h-1 bg-blue-500 mx-auto"></div>
       </div>
 
-      <div className="relative my-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {defenseUnits.map((unit, index) => (
-            <motion.div 
-              key={index}
-              className="bg-gray-900/70 border border-blue-500/30 p-6 rounded-lg backdrop-blur-sm"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex justify-center mb-6">
-                <div className="p-4 bg-blue-900/30 rounded-full">
-                  {unit.icon}
-                </div>
-              </div>
-              <h3 className="font-orbitron text-2xl text-center font-bold mb-2 text-white">
-                {unit.title}
-              </h3>
-              <p className="text-blue-300 text-center mb-4">
-                {unit.description}
-              </p>
-              <ul className="space-y-2">
-                {unit.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start">
-                    <span className="text-blue-400 mr-2">•</span>
-                    <span className="text-gray-300 text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-20 bg-gray-900/50 rounded-xl p-8 border border-blue-500/20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h3 className="font-orbitron text-3xl font-bold text-blue-400 mb-6">
-              Chiến Thuật Phòng Thủ
-            </h3>
-            <p className="text-gray-300 mb-4">
-              Sắp xếp Guardian và Drone một cách chiến lược sẽ quyết định thắng lợi trong Guild War. Xây dựng hệ thống phòng thủ hùng mạnh và trở thành pháo đài không thể xâm phạm!
-            </p>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <span className="text-blue-400 mr-2">✓</span>
-                <span className="text-gray-300">Nâng cấp đều các đơn vị phòng thủ</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-blue-400 mr-2">✓</span>
-                <span className="text-gray-300">Ưu tiên bảo vệ Sentinel bằng mọi giá</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-blue-400 mr-2">✓</span>
-                <span className="text-gray-300">Kết hợp Guardian và Drone hợp lý</span>
-              </li>
-            </ul>
-          </div>
-          <div className="relative h-[300px] rounded-lg overflow-hidden">
-            <Image
-              src="/images/guild/guild-defense.jpg"
-              alt="Guild Defense"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-              <div className="p-6">
-                <p className="text-xl font-orbitron text-white">
-                  Bảo Vệ Danh Dự Guild
-                </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {defenseUnits.map((unit, index) => (
+          <div 
+            key={index} 
+            className={`backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-${unit.color}-500/20 shadow-xl`}
+          >
+            <div className="flex justify-center mb-4">
+              <div className={`p-3 bg-${unit.color}-900/30 rounded-full`}>
+                {unit.icon}
               </div>
             </div>
+            <h3 className="font-orbitron text-xl font-bold text-white mb-3 text-center">{unit.title}</h3>
+            <p className={`font-be-vietnam-pro text-${unit.color}-300 text-center mb-4`}>{unit.description}</p>
+            <ul className="space-y-2">
+              {unit.features.map((feature, featureIndex) => (
+                <li key={featureIndex} className="flex items-start">
+                  <span className={`text-${unit.color}-400 mr-2`}>•</span>
+                  <span className="font-be-vietnam-pro text-gray-300 text-sm">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/5 p-8 rounded-xl border border-white/10 shadow-xl">
+        <div className="text-center mb-6">
+          <h3 className="font-orbitron text-2xl font-bold text-white mb-2">
+            Chiến Lược Phòng Thủ
+          </h3>
+          <p className="font-be-vietnam-pro text-gray-300 max-w-3xl mx-auto">
+            Thiết lập một hệ thống phòng thủ vững chắc là chìa khóa để bảo vệ Guild của bạn khỏi những cuộc tấn công từ Guild đối phương. Kết hợp hiệu quả các đơn vị phòng thủ để tối ưu hóa sức mạnh của Guild.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10">
+            <p className="text-cyan-400 font-semibold mb-2">Giai đoạn 1</p>
+            <p className="font-be-vietnam-pro text-gray-300 text-sm">Nâng cấp Sentinel để tăng HP cơ bản</p>
+          </div>
+          <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10">
+            <p className="text-cyan-400 font-semibold mb-2">Giai đoạn 2</p>
+            <p className="font-be-vietnam-pro text-gray-300 text-sm">Đầu tư vào Guardian để tạo lớp phòng thủ đầu tiên</p>
+          </div>
+          <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10">
+            <p className="text-cyan-400 font-semibold mb-2">Giai đoạn 3</p>
+            <p className="font-be-vietnam-pro text-gray-300 text-sm">Bổ sung Drone để hỗ trợ tấn công từ xa</p>
+          </div>
+          <div className="backdrop-blur-sm bg-white/5 p-4 rounded-lg border border-white/10">
+            <p className="text-cyan-400 font-semibold mb-2">Giai đoạn 4</p>
+            <p className="font-be-vietnam-pro text-gray-300 text-sm">Cân bằng và tối ưu hóa toàn bộ hệ thống phòng thủ</p>
           </div>
         </div>
       </div>
-    </motion.section>
+    </div>
   );
 } 

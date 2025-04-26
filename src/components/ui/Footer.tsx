@@ -62,7 +62,7 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-orbitron font-bold text-xl text-white">M-SCI</span>
+              <span className="font-bold text-xl text-white" style={{ fontFamily: 'var(--font-orbitron)' }}>M-SCI</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               Game hành động theo đội nhóm 5v5, miễn phí với nhiều anh hùng đa dạng, 

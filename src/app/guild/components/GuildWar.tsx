@@ -9,32 +9,29 @@ import { RiSwordFill } from "react-icons/ri";
 export default function GuildWar() {
   const warTypes = [
     {
-      icon: <GiSwordClash className="text-5xl text-red-500" />,
-      title: "Daily War - Chiến Trận Hàng Ngày",
-      description: "Diễn ra mỗi ngày một lần với tối đa 100 chiến binh từ mỗi Guild tham chiến",
-      goal: "Mục tiêu: Tiêu diệt Sentinel của đối phương",
+      title: "Daily War",
+      description: "Diễn ra mỗi ngày một lần với tối đa 100 chiến binh từ mỗi Guild",
+      color: "red",
       rewards: [
-        "TOP 1: 100,000 Chip + Skin Box + Guild War Box",
+        "TOP 1: 100,000 Chip + Skin Box",
         "TOP 2: 50,000 Chip + Boss Box",
         "TOP 3: 20,000 Chip + Elite Box"
       ]
     },
     {
-      icon: <RiSwordFill className="text-5xl text-purple-500" />,
-      title: "Invasion - Xâm Lược Chiến Lược",
-      description: "Chủ động tấn công Guild khác bất cứ lúc nào",
-      details: "Số lượt xâm lược phụ thuộc vào level Guild (5-50 lần/ngày)",
+      title: "Invasion",
+      description: "Chủ động tấn công Guild khác với 5-50 lượt xâm lược mỗi ngày",
+      color: "purple",
       rewards: [
-        "10,000 Chip + Character Box + Piece Ticket",
+        "10,000 Chip + Character Box",
         "100 Guild EXP"
       ]
     },
     {
-      icon: <GiCrossedSwords className="text-5xl text-amber-500" />,
-      title: "Declaration of War - Tuyên Chiến Đặt Cược",
-      description: "Hình thức chiến đấu cao cấp nhất với đặt cược 5,000 M-Coin",
+      title: "Declaration of War",
+      description: "Chiến đấu cao cấp nhất với đặt cược 5,000 M-Coin",
+      color: "amber",
       rewards: [
-        "80% số M-Coin đối phương",
         "1,000 Guild EXP",
         "Attack Buff +10% trong 1 giờ",
         "Lucky Buff +5% khi nâng cấp hero"
@@ -43,82 +40,82 @@ export default function GuildWar() {
   ];
 
   return (
-    <motion.section 
-      className="py-16"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
+    <div className="mb-20 relative">
+      {/* Decorative background effects */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+      
       <div className="text-center mb-12">
-        <h2 className="font-orbitron text-4xl font-bold text-red-500 mb-4">
-          ⚔️ GUILD WAR - ĐẤU TRƯỜNG CỦA NHỮNG CHIẾN BINH
+        <h2 className="text-2xl md:text-3xl font-bold text-white cyber-halo" style={{ fontFamily: 'var(--font-orbitron)' }}>
+          <span className="text-shadow-blue relative inline-block">
+            ⚔️ GUILD WAR - ĐẤU TRƯỜNG CỦA NHỮNG CHIẾN BINH
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
+          </span>
         </h2>
-        <div className="w-24 h-1 bg-red-500 mx-auto"></div>
       </div>
 
-      <div className="relative mb-16">
-        <div className="h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-          <Image
-            src="/images/guild/guild-war.jpg"
-            alt="Guild War"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
-        </div>
-        <div className="absolute top-1/2 left-8 transform -translate-y-1/2 max-w-md">
-          <h3 className="font-orbitron text-3xl font-bold text-white mb-4">
-            Vinh Quang Chỉ Dành Cho Kẻ Mạnh
-          </h3>
-          <p className="text-lg text-gray-300">
-            Chứng minh sức mạnh Guild của bạn trong các trận chiến khốc liệt và nhận những phần thưởng xứng đáng.
-          </p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         {warTypes.map((type, index) => (
-          <motion.div 
-            key={index}
-            className="bg-gray-900/70 border-2 border-red-500/30 p-6 rounded-lg backdrop-blur-sm"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-            viewport={{ once: true }}
+          <div 
+            key={index} 
+            className={`backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-${type.color}-500/20 shadow-xl`}
           >
-            <div className="flex justify-center mb-4">
-              {type.icon}
-            </div>
-            <h3 className="font-orbitron text-xl text-center font-bold mb-4 text-white">
-              {type.title}
-            </h3>
-            <p className="text-gray-300 mb-4 text-center">
-              {type.description}
-            </p>
-            {type.goal && (
-              <p className="text-red-400 mb-4 text-center font-medium">
-                {type.goal}
-              </p>
-            )}
-            {type.details && (
-              <p className="text-gray-300 mb-4 text-center">
-                {type.details}
-              </p>
-            )}
-            <div className="p-4 bg-black/50 rounded-lg">
-              <p className="text-amber-400 font-semibold mb-2">Phần thưởng:</p>
-              <ul className="space-y-1">
+            <h3 className="text-xl font-bold text-white mb-3 text-center" style={{ fontFamily: 'var(--font-orbitron)' }}>{type.title}</h3>
+            <p className="font-be-vietnam-pro text-gray-300 mb-4 text-center">{type.description}</p>
+            <div className="mt-4 p-3 bg-black/30 rounded-lg">
+              <p className="text-amber-400 font-semibold mb-2 text-sm">Phần thưởng:</p>
+              <ul className="font-be-vietnam-pro text-gray-300 space-y-1 text-sm">
                 {type.rewards.map((reward, rewardIndex) => (
-                  <li key={rewardIndex} className="text-gray-300 text-sm">
-                    ✦ {reward}
-                  </li>
+                  <li key={rewardIndex}>{reward}</li>
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.section>
+
+      <div className="backdrop-blur-sm bg-white/5 p-8 rounded-xl border border-white/10 shadow-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="relative aspect-video md:aspect-square rounded-lg overflow-hidden border border-white/20">
+            <Image 
+              src="/images/guild/guild-war.jpg" 
+              alt="Guild War"
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#041019]/80 to-transparent"></div>
+            <div className="absolute bottom-4 left-4 right-4 text-center">
+              <p className="font-be-vietnam-pro text-white text-lg font-bold">Chiến đấu vì vinh quang</p>
+            </div>
+          </div>
+          
+          <div className="prose prose-lg prose-invert max-w-none">
+            <h3 className="text-2xl text-white mb-4" style={{ fontFamily: 'var(--font-orbitron)' }}>Lợi ích khi tham gia Guild War</h3>
+            <ul className="space-y-3 text-gray-200">
+              <li className="flex items-start">
+                <span className="text-red-400 mr-2">•</span>
+                <span className="font-be-vietnam-pro">Buff sức mạnh: Tăng đến 10% damage</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-400 mr-2">•</span>
+                <span className="font-be-vietnam-pro">Buff may mắn: Tăng đến 10% tỷ lệ may mắn khi nâng cấp hero</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-400 mr-2">•</span>
+                <span className="font-be-vietnam-pro">Phần thưởng khổng lồ từ Guild War</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-400 mr-2">•</span>
+                <span className="font-be-vietnam-pro">Trải nghiệm chiến thuật trong các trận chiến quy mô lớn</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-400 mr-2">•</span>
+                <span className="font-be-vietnam-pro">Kết nối và chiến đấu cùng những người chơi cùng chí hướng</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 } 

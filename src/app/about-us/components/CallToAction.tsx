@@ -23,7 +23,7 @@ export default function CallToAction() {
             </h2>
             
             <Link 
-              href="/contact"
+              href="/lien-he"
               className="mt-4 mb-8 px-8 py-3 bg-[#FF7D00] hover:bg-[#FF9D40] text-white font-medium rounded transition-colors duration-300 uppercase tracking-wider text-lg shadow-lg hover:shadow-[#FF7D00]/50"
             >
               LIÊN HỆ NGAY

@@ -81,7 +81,7 @@ export default function PartnersContent({ selectedCategory }: { selectedCategory
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
           </svg>
         </div>
-        <h3 className="font-orbitron text-xl font-bold text-red-400 mb-2 text-shadow-sm">Đã xảy ra lỗi</h3>
+        <h3 className="text-xl font-bold text-red-400 mb-2 text-shadow-sm" style={{ fontFamily: 'var(--font-orbitron)' }}>Đã xảy ra lỗi</h3>
         <p className="font-rajdhani text-white/80">{error}</p>
         <button 
           onClick={() => window.location.reload()} 
@@ -102,7 +102,7 @@ export default function PartnersContent({ selectedCategory }: { selectedCategory
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
           </svg>
         </div>
-        <h3 className="font-orbitron text-2xl font-bold text-white mb-3 text-shadow-blue">Không tìm thấy đối tác</h3>
+        <h3 className="text-2xl font-bold text-white mb-3 text-shadow-blue" style={{ fontFamily: 'var(--font-orbitron)' }}>Không tìm thấy đối tác</h3>
         <p className="font-rajdhani text-white/60 max-w-lg mx-auto">Không có đối tác nào phù hợp với điều kiện tìm kiếm. Vui lòng thử lại với bộ lọc khác.</p>
         <button 
           onClick={() => window.location.reload()} 
@@ -148,7 +148,7 @@ export default function PartnersContent({ selectedCategory }: { selectedCategory
       {Object.keys(groupedPartners).map((category) => (
         <div key={category} className="mb-20">
           <div className="mb-10">
-            <h2 className="font-orbitron text-3xl font-bold text-white mb-5 text-shadow-blue text-center">
+            <h2 className="text-3xl font-bold text-white mb-5 text-shadow-blue text-center" style={{ fontFamily: 'var(--font-orbitron)' }}>
               <span className="relative inline-block">
                 {categoryNames[category] || category.toUpperCase()}
                 <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
@@ -184,7 +184,7 @@ export default function PartnersContent({ selectedCategory }: { selectedCategory
                   <div className="h-20 w-44 relative backdrop-blur bg-white/10 p-2 rounded-lg shadow-inner border border-white/20">
                     <div className="relative h-full w-full flex items-center justify-center">
                       {/* Placeholder logo */}
-                      <div className="text-white font-orbitron font-bold text-xl tracking-tight text-center">
+                      <div className="text-white font-bold text-xl tracking-tight text-center" style={{ fontFamily: 'var(--font-orbitron)' }}>
                         {partner.name}
                       </div>
                     </div>
