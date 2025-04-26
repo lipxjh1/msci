@@ -20,7 +20,7 @@ const GachaBanner: React.FC = () => {
   }, []);
 
   return (
-    <div ref={bannerRef} className="relative h-[60vh] lg:h-[80vh] w-full overflow-hidden">
+    <div ref={bannerRef} className="relative h-[45vh] lg:h-[60vh] w-full overflow-hidden">
       {/* Background image with parallax effect */}
       <div className="absolute inset-0 h-[120%] w-full" style={{ transform: `translateY(${offsetY}px)` }}>
         <Image 

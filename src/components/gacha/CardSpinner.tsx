@@ -29,7 +29,7 @@ const CardSpinner: React.FC<CardSpinnerProps> = ({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto mb-10 relative">
+    <div className="w-full max-w-4xl mx-auto mb-6 relative">
       {/* Glow effect background */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/5 to-blue-500/10 rounded-xl blur-xl -z-10"></div>
       

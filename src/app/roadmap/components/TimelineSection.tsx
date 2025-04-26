@@ -1,25 +1,89 @@
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useCallback, memo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
+// Tách và tái sử dụng các component con để giảm re-render
 interface MilestoneProps {
   year: string;
+  quarter: string;
   title: string;
   items: {
     title: string;
     tasks: string[];
   }[];
   bgColor: string;
+  textColor: string;
   borderColor: string;
+  icon: string;
   isActive: boolean;
+  progressPercent: number;
   onClick: () => void;
 }
 
-const Milestone = ({ year, title, items, bgColor, borderColor, isActive, onClick }: MilestoneProps) => {
+const MilestoneTask = memo(({ task, textColor, delay }: { task: string; textColor: string; delay: number }) => (
+  <motion.li 
+    initial={{ opacity: 0, x: -10 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.2, delay: 0.3 + delay }}
+    className="text-gray-300 flex items-start font-rajdhani"
+  >
+    <span className={`text-${textColor} mr-2 text-lg`}>•</span>
+    <span>{task}</span>
+  </motion.li>
+));
+MilestoneTask.displayName = 'MilestoneTask';
+
+const MilestoneItem = memo(({ item, index, bgColor, borderColor, textColor }: { 
+  item: { title: string; tasks: string[] }; 
+  index: number; 
+  bgColor: string; 
+  borderColor: string;
+  textColor: string;
+}) => (
+  <motion.div 
+    key={index}
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3, delay: index * 0.1 }}
+    className={`bg-${bgColor}/10 backdrop-blur-sm rounded-lg p-4 border border-${borderColor}/30`}
+  >
+    <h4 className="font-rajdhani text-lg font-bold text-white mb-2">{item.title}</h4>
+    <ul className="space-y-2">
+      {item.tasks.map((task, taskIndex) => (
+        <MilestoneTask 
+          key={taskIndex} 
+          task={task} 
+          textColor={textColor} 
+          delay={taskIndex * 0.05} 
+        />
+      ))}
+    </ul>
+  </motion.div>
+));
+MilestoneItem.displayName = 'MilestoneItem';
+
+// Component Milestone được tối ưu hóa
+const Milestone = memo(({ 
+  year, 
+  quarter, 
+  title, 
+  items, 
+  bgColor, 
+  textColor,
+  borderColor, 
+  icon,
+  isActive, 
+  progressPercent,
+  onClick 
+}: MilestoneProps) => {
   return (
-    <div 
-      className={`relative mb-12 cursor-pointer transform transition-all duration-300 ${isActive ? 'scale-105' : 'hover:scale-102'}`}
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`relative mb-16 cursor-pointer transform transition-all duration-300 ${isActive ? 'scale-105 z-10' : 'hover:scale-102 z-0'}`}
       onClick={onClick}
     >
       {/* Vertical line */}
@@ -29,29 +93,47 @@ const Milestone = ({ year, title, items, bgColor, borderColor, isActive, onClick
       
       <div 
         className={`
-          relative rounded-xl overflow-hidden transition-all duration-300
+          relative rounded-xl overflow-hidden transition-all duration-500
           ${isActive 
-            ? `border-2 border-${borderColor} shadow-lg shadow-${borderColor}/30 mb-6` 
-            : 'border border-white/10'}
+            ? `border-2 border-${borderColor} shadow-xl shadow-${bgColor}/30 mb-6` 
+            : 'border border-white/10 hover:border-white/20'}
         `}
       >
-        {/* Background with gradient */}
+        {/* Background with gradient & subtle pattern */}
         <div 
           className={`
             absolute inset-0 
             ${isActive 
-              ? `bg-gradient-to-br from-${bgColor}/20 to-${bgColor}/5` 
+              ? `bg-gradient-to-br from-${bgColor}/30 to-${bgColor}/5` 
               : 'bg-white/5'}
           `}
+          style={{
+            backgroundImage: isActive ? `url('/images/grid_pattern.svg')` : '',
+            backgroundSize: '100px',
+            backgroundBlendMode: 'overlay',
+            opacity: isActive ? 0.1 : 0.05
+          }}
         ></div>
         
-        {/* Year Badge */}
+        {/* Quarter Badge */}
         <div 
           className={`
             absolute -top-4 left-5 px-4 py-1 rounded-full font-orbitron font-bold text-white text-sm
             ${isActive 
-              ? `bg-${bgColor} shadow-md shadow-${bgColor}/50` 
-              : 'bg-gray-700'}
+              ? `bg-${bgColor} shadow-lg shadow-${bgColor}/50` 
+              : 'bg-gray-700/80 backdrop-blur-sm'}
+          `}
+        >
+          {quarter}
+        </div>
+        
+        {/* Year Badge */}
+        <div 
+          className={`
+            absolute -top-4 right-5 px-4 py-1 rounded-full font-orbitron font-bold text-sm backdrop-blur-sm
+            ${isActive 
+              ? `bg-${textColor} text-${bgColor} shadow-lg shadow-${textColor}/30` 
+              : 'bg-gray-700/80 text-white'}
           `}
         >
           {year}
@@ -59,34 +141,52 @@ const Milestone = ({ year, title, items, bgColor, borderColor, isActive, onClick
         
         {/* Content */}
         <div className="p-6 pt-8 relative z-10">
-          <h3 className="font-orbitron text-xl font-bold text-white mb-3">{title}</h3>
+          <div className="flex items-center gap-3 mb-3">
+            {/* Icon */}
+            <div className={`w-8 h-8 flex items-center justify-center rounded-full bg-${bgColor}/20 p-1.5`}>
+              <Image 
+                src={icon} 
+                alt={title} 
+                width={24} 
+                height={24}
+                className="w-full h-full object-contain"
+                loading="eager"
+              />
+            </div>
+            <h3 className="font-orbitron text-xl font-bold text-white">{title}</h3>
+          </div>
+          
+          {/* Progress bar - always visible */}
+          <div className="mt-3 mb-4">
+            <div className="flex justify-between text-xs mb-1">
+              <span className={`font-medium ${isActive ? `text-${textColor}` : 'text-gray-400'}`}>
+                {isActive ? 'Tiến độ' : 'Tiến độ hoàn thành'}
+              </span>
+              <span className={`font-semibold ${isActive ? `text-${textColor}` : 'text-gray-400'}`}>
+                {progressPercent}%
+              </span>
+            </div>
+            <div className="h-2 w-full bg-gray-700/50 rounded-full overflow-hidden">
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: `${progressPercent}%` }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className={`h-full rounded-full bg-gradient-to-r from-${bgColor}/80 to-${bgColor}`}
+              ></motion.div>
+            </div>
+          </div>
           
           {isActive && (
             <div className="space-y-4 mt-6">
               {items.map((item, index) => (
-                <motion.div 
+                <MilestoneItem 
                   key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10"
-                >
-                  <h4 className="font-rajdhani text-lg font-bold text-white mb-2">{item.title}</h4>
-                  <ul className="space-y-1">
-                    {item.tasks.map((task, taskIndex) => (
-                      <motion.li 
-                        key={taskIndex}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.2, delay: 0.3 + taskIndex * 0.05 }}
-                        className="text-gray-300 flex items-start font-rajdhani"
-                      >
-                        <span className={`text-${borderColor} mr-2 text-lg`}>•</span>
-                        <span>{task}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
+                  item={item}
+                  index={index}
+                  bgColor={bgColor}
+                  borderColor={borderColor}
+                  textColor={textColor}
+                />
               ))}
             </div>
           )}
@@ -96,62 +196,170 @@ const Milestone = ({ year, title, items, bgColor, borderColor, isActive, onClick
       {/* Indicator dot */}
       <div 
         className={`
-          absolute left-5 top-6 w-3 h-3 rounded-full border transform translate-x-[0.5px] transition-all
+          absolute left-5 top-6 w-4 h-4 rounded-full border-2 transform translate-x-0 transition-all duration-500
           ${isActive 
-            ? `bg-${bgColor} border-${borderColor} scale-150` 
+            ? `bg-${bgColor} border-${textColor} scale-150 shadow-lg shadow-${bgColor}/50` 
             : 'bg-gray-600 border-gray-500'}
         `}
-      ></div>
-    </div>
+      >
+        {/* Inner pulse animation for active dot */}
+        {isActive && (
+          <span className={`absolute inset-0 rounded-full animate-ping bg-${bgColor}/50`}></span>
+        )}
+      </div>
+    </motion.div>
   );
-};
+});
+Milestone.displayName = 'Milestone';
+
+// Filter Button component
+const FilterButton = memo(({ 
+  milestone, 
+  index, 
+  isActive, 
+  onClick 
+}: { 
+  milestone: any; 
+  index: number; 
+  isActive: boolean; 
+  onClick: () => void; 
+}) => (
+  <motion.button
+    key={`${milestone.year}-${milestone.quarter}`}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
+    onClick={onClick}
+    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+      isActive 
+        ? `bg-${milestone.bgColor} text-white shadow-lg shadow-${milestone.bgColor}/30` 
+        : 'bg-white/10 text-gray-300 hover:bg-white/20'
+    }`}
+  >
+    {milestone.year} {milestone.quarter}
+  </motion.button>
+));
+FilterButton.displayName = 'FilterButton';
 
 export default function TimelineSection() {
-  const [activeYear, setActiveYear] = useState('2024');
+  const [activeYear, setActiveYear] = useState('2024-Q1');
+  const [animationComplete, setAnimationComplete] = useState(false);
+  const [expandedMilestone, setExpandedMilestone] = useState<string | null>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimationComplete(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
   
   // Data cần hiển thị
   const milestones = [
     {
       year: '2024',
-      title: 'KHỞI ĐỘNG & PHÁT TRIỂN',
+      quarter: 'Q1',
+      title: 'KHỞI ĐỘNG',
       bgColor: 'blue-500',
+      textColor: 'cyan-200',
       borderColor: 'blue-400',
+      icon: '/images/home/FS-img/hero.png',
+      progressPercent: 100,
       items: [
         {
-          title: 'Q1-Q2 2024: Foundation Phase',
+          title: 'Hình thành nền tảng',
           tasks: [
             'Thành lập core team 20+ members',
             'Hoàn thiện game design document',
             'Phát triển prototype đầu tiên',
-            'Phát triển 20 màn chơi đầu tiên',
-            'Thiết kế 9 nhân vật cơ bản (3 class x 3 độ hiếm)',
+            'Thiết kế 3 nhân vật cơ bản',
             'Xây dựng hệ thống backend scalable'
           ]
-        },
+        }
+      ]
+    },
+    {
+      year: '2024',
+      quarter: 'Q2',
+      title: 'PHÁT TRIỂN CORE',
+      bgColor: 'blue-600',
+      textColor: 'cyan-200',
+      borderColor: 'blue-400',
+      icon: '/images/heroes/uiux 1.png',
+      progressPercent: 85,
+      items: [
         {
-          title: 'Q3-Q4 2024: Alpha & Soft Launch',
+          title: 'Core Game Development',
+          tasks: [
+            'Phát triển 20 màn chơi đầu tiên',
+            'Thiết kế thêm 6 nhân vật mới',
+            'Cân bằng gameplay cơ bản',
+            'Xây dựng hệ thống tiến triển',
+            'Tối ưu hóa engine game'
+          ]
+        }
+      ]
+    },
+    {
+      year: '2024',
+      quarter: 'Q3',
+      title: 'ALPHA TESTING',
+      bgColor: 'indigo-500',
+      textColor: 'purple-200',
+      borderColor: 'indigo-400',
+      icon: '/images/heroes/ui 2.png',
+      progressPercent: 60,
+      items: [
+        {
+          title: 'Testing & Refinement',
           tasks: [
             'Ra mắt Closed Alpha (1,000 người chơi)',
-            'Hoàn thiện 50-100 màn chơi campaign',
+            'Hoàn thiện 50 màn chơi campaign',
             'Phát triển hệ thống Guild cơ bản',
+            'Thu thập phản hồi người dùng',
+            'Sửa lỗi và cải thiện trải nghiệm'
+          ]
+        }
+      ]
+    },
+    {
+      year: '2024',
+      quarter: 'Q4',
+      title: 'SOFT LAUNCH',
+      bgColor: 'indigo-600',
+      textColor: 'purple-200',
+      borderColor: 'indigo-400',
+      icon: '/images/heroes/uiux3.png',
+      progressPercent: 40,
+      items: [
+        {
+          title: 'Initial Public Release',
+          tasks: [
             'Open Beta với 10,000+ người chơi',
             'Soft launch tại Việt Nam (50,000+ downloads)',
-            'Battle Pass Season 1'
+            'Battle Pass Season 1',
+            'Hệ thống monetization cơ bản',
+            'Live Ops đầu tiên',
+            'Triển khai server khu vực'
           ]
         }
       ]
     },
     {
       year: '2025',
+      quarter: 'Q1-Q2',
       title: 'GLOBAL EXPANSION',
-      bgColor: 'green-500',
-      borderColor: 'green-400',
+      bgColor: 'emerald-500',
+      textColor: 'green-200',
+      borderColor: 'emerald-400',
+      icon: '/images/heroes/ui 5.png',
+      progressPercent: 20,
       items: [
         {
-          title: 'Q1-Q2 2025: Official Launch',
+          title: 'Official Launch',
           tasks: [
             'Global launch trên Android & iOS',
-            'Đạt 500,000+ downloads',
+            'Dự kiến 500,000+ downloads',
             'Marketing campaign quốc tế',
             'Localization 5+ ngôn ngữ',
             'Chapter 2: Mars Invasion',
@@ -159,26 +367,64 @@ export default function TimelineSection() {
           ]
         },
         {
-          title: 'Q3-Q4 2025: Feature Updates',
+          title: 'Expansion Features',
           tasks: [
             'PvP Arena mode',
+            'Clan Wars system',
+            'Advanced matchmaking',
+            'Daily & weekly missions',
+            'Achievement system',
+            'Seasonal events'
+          ]
+        }
+      ]
+    },
+    {
+      year: '2025',
+      quarter: 'Q3-Q4',
+      title: 'ECOSYSTEM GROWTH',
+      bgColor: 'green-600',
+      textColor: 'green-200',
+      borderColor: 'green-400',
+      icon: '/images/heroes/ui7.png',
+      progressPercent: 5,
+      items: [
+        {
+          title: 'Feature Updates',
+          tasks: [
             'World Boss raids',
             'Housing system',
             'Year-end festival event',
             'Merchandise launch',
-            'Đạt 1 triệu active users'
+            'Creator program',
+            'Community tournaments'
+          ]
+        },
+        {
+          title: 'Business Development',
+          tasks: [
+            'Brand partnerships',
+            'Cross-promotion campaigns',
+            'Ad network integration',
+            'Premium subscription options',
+            'Analytics refinement',
+            'User retention strategies'
           ]
         }
       ]
     },
     {
       year: '2026',
-      title: 'SOUTHEAST ASIA DOMINATION',
-      bgColor: 'purple-500',
-      borderColor: 'purple-400',
+      quarter: 'Q1-Q2',
+      title: 'SEA DOMINATION',
+      bgColor: 'amber-500',
+      textColor: 'yellow-200',
+      borderColor: 'amber-400',
+      icon: '/images/heroes/ui8.png',
+      progressPercent: 0,
       items: [
         {
-          title: 'Q1-Q2 2026: Regional Expansion',
+          title: 'Regional Expansion',
           tasks: [
             'Launch in 5+ SEA countries',
             'Local partnerships',
@@ -187,9 +433,21 @@ export default function TimelineSection() {
             'Local payment integration',
             'Regional marketing campaigns'
           ]
-        },
+        }
+      ]
+    },
+    {
+      year: '2026',
+      quarter: 'Q3-Q4',
+      title: 'PLATFORM EXPANSION',
+      bgColor: 'amber-600',
+      textColor: 'yellow-200',
+      borderColor: 'amber-400',
+      icon: '/images/heroes/player_game_ui 9.png',
+      progressPercent: 0,
+      items: [
         {
-          title: 'Q3-Q4 2026: Platform Expansion',
+          title: 'New Platforms',
           tasks: [
             'PC version launch',
             'Console version development',
@@ -200,132 +458,98 @@ export default function TimelineSection() {
           ]
         }
       ]
-    },
-    {
-      year: '2027',
-      title: 'M-SCI UNIVERSE',
-      bgColor: 'yellow-500',
-      borderColor: 'yellow-400',
-      items: [
-        {
-          title: 'Q1-Q2 2027: Franchise Development',
-          tasks: [
-            'M-SCI 2 announcement',
-            'Spin-off games development',
-            'Animated series production',
-            'Comic/manga launch',
-            'Novel series',
-            'Expanded universe lore'
-          ]
-        },
-        {
-          title: 'Q3-Q4 2027: Technology Innovation',
-          tasks: [
-            'VR/AR integration',
-            'AI-powered content',
-            'Blockchain gaming 2.0',
-            'Metaverse integration',
-            'User-generated content',
-            'Advanced social features'
-          ]
-        }
-      ]
-    },
-    {
-      year: '2028',
-      title: 'GLOBAL LEADERSHIP',
-      bgColor: 'red-500',
-      borderColor: 'red-400',
-      items: [
-        {
-          title: 'Q1-Q2 2028: Market Consolidation',
-          tasks: [
-            'Top 10 mobile game globally',
-            '10M+ active users',
-            'Major studio acquisitions',
-            'Technology licensing',
-            'Global esports circuit',
-            'Educational partnerships'
-          ]
-        },
-        {
-          title: 'Q3-Q4 2028: Business Expansion',
-          tasks: [
-            'IPO preparation',
-            'M&A opportunities',
-            'Gaming platform launch',
-            'Developer ecosystem',
-            'Investment fund creation',
-            'Industry standard setting'
-          ]
-        }
-      ]
-    },
-    {
-      year: '2029-2030',
-      title: 'LEGACY BUILDING',
-      bgColor: 'cyan-500',
-      borderColor: 'cyan-400',
-      items: [
-        {
-          title: '2029: Cultural Impact',
-          tasks: [
-            'Theme park development',
-            'Movie adaptation',
-            'Global brand recognition',
-            'Educational programs',
-            'Social impact initiatives',
-            'Industry leadership'
-          ]
-        },
-        {
-          title: '2030: Future Vision',
-          tasks: [
-            'Next-gen gaming pioneer',
-            '50M+ global users',
-            'Multi-platform dominance',
-            'Cultural phenomenon status',
-            'Technology innovation leader',
-            'Sustainable gaming ecosystem'
-          ]
-        }
-      ]
     }
   ];
 
+  // Xử lý click vào milestone bằng useCallback để tối ưu
+  const handleMilestoneClick = useCallback((milestoneId: string) => {
+    if (expandedMilestone === milestoneId) {
+      setExpandedMilestone(null); // Thu gọn nếu đã mở
+    } else {
+      setExpandedMilestone(milestoneId); // Mở rộng nếu chưa mở
+    }
+  }, [expandedMilestone]);
+
+  const handleFilterClick = useCallback((milestoneId: string) => {
+    setActiveYear(milestoneId);
+  }, []);
+
+  // Tìm milestone active hiện tại
+  const activeMilestone = milestones.find(
+    milestone => `${milestone.year}-${milestone.quarter}` === activeYear
+  );
+
   return (
-    <div className="py-12">
-      {/* Heading */}
-      <div className="text-center mb-12">
-        <h2 className="font-orbitron text-3xl font-bold text-white mb-4 cyber-halo">
-          <span className="relative inline-block">
+    <section className="relative mb-16">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-10"
+      >
+        <h2 className="text-3xl font-bold font-orbitron text-white mb-4">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
             LỘ TRÌNH PHÁT TRIỂN
-            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
           </span>
         </h2>
-        <p className="text-gray-300 max-w-2xl mx-auto font-rajdhani">
-          Từ game Việt đến hiện tượng toàn cầu, đây là hành trình M-SCI sẽ đi qua từ 2024 đến 2030.
+        <p className="text-gray-300 max-w-3xl mx-auto font-rajdhani">
+          Hành trình của M-SCI được lên kế hoạch cẩn thận với các cột mốc phát triển rõ ràng. 
+          Chọn mỗi giai đoạn để xem chi tiết.
         </p>
+      </motion.div>
+
+      {/* Milestone Filter Buttons */}
+      <div className="flex justify-center mb-10 flex-wrap gap-2">
+        {milestones.map((milestone, index) => {
+          const milestoneId = `${milestone.year}-${milestone.quarter}`;
+          const isActive = activeYear === milestoneId;
+          
+          return (
+            <FilterButton
+              key={milestoneId}
+              milestone={milestone}
+              index={index}
+              isActive={isActive}
+              onClick={() => handleFilterClick(milestoneId)}
+            />
+          );
+        })}
       </div>
-      
-      {/* Timeline */}
-      <div className="max-w-4xl mx-auto pl-12 pr-4 relative">
-        {/* Vertical line */}
-        <div className="absolute left-5 top-6 bottom-0 w-0.5 bg-gradient-to-b from-gray-500 to-transparent"></div>
-        
-        {milestones.map((milestone, index) => (
+
+      {/* Display only the selected milestone instead of all */}
+      <div className="max-w-3xl mx-auto px-4">
+        {activeMilestone && (
           <Milestone
-            key={index}
-            year={milestone.year}
-            title={milestone.title}
-            items={milestone.items}
-            bgColor={milestone.bgColor}
-            borderColor={milestone.borderColor}
-            isActive={activeYear === milestone.year}
-            onClick={() => setActiveYear(milestone.year)}
+            key={activeYear}
+            year={activeMilestone.year}
+            quarter={activeMilestone.quarter}
+            title={activeMilestone.title}
+            items={activeMilestone.items}
+            bgColor={activeMilestone.bgColor}
+            textColor={activeMilestone.textColor}
+            borderColor={activeMilestone.borderColor}
+            icon={activeMilestone.icon}
+            isActive={true}
+            progressPercent={activeMilestone.progressPercent}
+            onClick={() => handleMilestoneClick(activeYear)}
           />
-        ))}
+        )}
       </div>
-    </div>
+
+      {/* Hero image */}
+      <div className="absolute bottom-0 right-0 w-48 h-48 md:w-64 md:h-64 opacity-10 pointer-events-none -z-10">
+        <Image
+          src="/images/heroes/elon_musk.png"
+          alt="Tech Visionary"
+          width={250}
+          height={250}
+          className="object-contain"
+        />
+      </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-0 w-1/3 h-1/3 bg-blue-500/20 rounded-full filter blur-[150px] -z-10"></div>
+      <div className="absolute bottom-20 right-0 w-1/3 h-1/3 bg-purple-500/20 rounded-full filter blur-[150px] -z-10"></div>
+    </section>
   );
 } 

@@ -32,21 +32,21 @@ const GachaMoreInfo: React.FC = () => {
   return (
     <section 
       ref={(el) => { sectionRefs.current[0] = el; }}
-      className="reveal my-16"
+      className="reveal my-4"
     >
-      <div className="space-y-16">
+      <div className="space-y-6">
         <div 
           ref={(el) => { sectionRefs.current[1] = el; }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-left"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 reveal-left"
         >
-          <section className="bg-[#041019]/60 p-6 rounded-xl border border-[var(--accent-blue-bright)]/30 hover:border-[var(--accent-blue-bright)]/50 transition-all shadow-lg hover:shadow-[var(--accent-blue-bright)]/5 group relative">
+          <section className="bg-[#041019]/60 p-4 rounded-xl border border-[var(--accent-blue-bright)]/30 hover:border-[var(--accent-blue-bright)]/50 transition-all shadow-lg hover:shadow-[var(--accent-blue-bright)]/5 group relative">
             {/* Decorative corner elements */}
-            <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-yellow-400/60"></div>
-            <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-yellow-400/60"></div>
-            <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-yellow-400/60"></div>
-            <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-yellow-400/60"></div>
+            <div className="absolute top-0 left-0 w-4 h-4 md:w-6 md:h-6 border-t border-l border-yellow-400/60"></div>
+            <div className="absolute top-0 right-0 w-4 h-4 md:w-6 md:h-6 border-t border-r border-yellow-400/60"></div>
+            <div className="absolute bottom-0 left-0 w-4 h-4 md:w-6 md:h-6 border-b border-l border-yellow-400/60"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 md:w-6 md:h-6 border-b border-r border-yellow-400/60"></div>
             
-            <h3 className="font-orbitron text-2xl font-bold text-white mb-6 flex items-center">
+            <h3 className="font-orbitron text-lg md:text-xl font-bold text-white mb-3 flex items-center">
               <span className="text-yellow-400 mr-2 group-hover:animate-pulse transition-all">⚡</span> 
               <span className="relative inline-block">
                 Những Huyền Thoại Đang Chờ Bạn
@@ -54,12 +54,12 @@ const GachaMoreInfo: React.FC = () => {
               </span>
             </h3>
             
-            <div className="mb-8">
-              <h4 className="font-orbitron text-xl font-bold text-white/90 mb-4 text-shadow-sm pb-2 border-b border-white/10">
+            <div className="mb-4">
+              <h4 className="font-orbitron text-base md:text-lg font-bold text-white/90 mb-3 text-shadow-sm pb-2 border-b border-white/10">
                 Nhân Vật S Huyền Thoại
               </h4>
               
-              <div className="relative h-48 mb-6 grid grid-cols-3 gap-3">
+              <div className="relative h-32 md:h-40 mb-4 grid grid-cols-3 gap-3">
                 {[1, 2, 3].map((num, idx) => (
                   <div key={idx} className="relative overflow-hidden rounded-lg shadow-lg group/card">
                     <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-red-500/20 rounded-lg blur opacity-60 group-hover/card:opacity-90 transition duration-500"></div>
@@ -82,60 +82,60 @@ const GachaMoreInfo: React.FC = () => {
                 ))}
               </div>
               
-              <ul className="space-y-3 text-gray-300">
-                <li className="bg-[#051525]/80 p-4 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-red-500 transform hover:translate-x-2 transition-all duration-300">
+              <ul className="space-y-2 text-gray-300">
+                <li className="bg-[#051525]/80 p-3 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-red-500 transform hover:translate-x-2 transition-all duration-300">
                   <div className="flex items-center mb-1">
                     <span className="text-red-500 mr-2">🔥</span>
                     <span className="font-bold text-red-400">Akane (Gunner)</span>
                   </div>
-                  <p className="ml-6 text-sm">"Shooting Star" - Bắn toàn bộ robot trong 3 giây!</p>
+                  <p className="ml-6 text-xs md:text-sm">"Shooting Star" - Bắn toàn bộ robot trong 3 giây!</p>
                 </li>
-                <li className="bg-[#051525]/80 p-4 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-blue-500 transform hover:translate-x-2 transition-all duration-300">
+                <li className="bg-[#051525]/80 p-3 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-blue-500 transform hover:translate-x-2 transition-all duration-300">
                   <div className="flex items-center mb-1">
                     <span className="text-blue-500 mr-2">❄️</span>
                     <span className="font-bold text-blue-400">Alice (Sniper)</span>
                   </div>
-                  <p className="ml-6 text-sm">"Hide on Bush" - Ẩn thân và bất tử 5 giây</p>
+                  <p className="ml-6 text-xs md:text-sm">"Hide on Bush" - Ẩn thân và bất tử 5 giây</p>
                 </li>
-                <li className="bg-[#051525]/80 p-4 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-orange-500 transform hover:translate-x-2 transition-all duration-300">
+                <li className="bg-[#051525]/80 p-3 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-orange-500 transform hover:translate-x-2 transition-all duration-300">
                   <div className="flex items-center mb-1">
                     <span className="text-orange-500 mr-2">💥</span>
                     <span className="font-bold text-orange-400">Caitlyn (Rocket)</span>
                   </div>
-                  <p className="ml-6 text-sm">"Big Bang" - Càn quét toàn màn chơi</p>
+                  <p className="ml-6 text-xs md:text-sm">"Big Bang" - Càn quét toàn màn chơi</p>
                 </li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-orbitron text-xl font-bold text-white/90 mb-4 text-shadow-sm">Tiến Hóa Anh Hùng</h4>
-              <p className="text-gray-300 p-4 bg-[#051525]/80 rounded-lg mb-6">
+              <h4 className="font-orbitron text-base md:text-lg font-bold text-white/90 mb-2 text-shadow-sm">Tiến Hóa Anh Hùng</h4>
+              <p className="text-xs md:text-sm text-gray-300 p-3 bg-[#051525]/80 rounded-lg mb-3">
                 Mỗi nhân vật đều có vai trò quan trọng trong chiến lược của bạn. Đừng coi thường những anh hùng cấp thấp - họ có thể tiến hóa lên cấp S!
               </p>
               
               {/* Star evolution visualization */}
-              <div className="flex items-center justify-center p-4 bg-[#051525]/60 rounded-lg animate-pulse-very-slow">
+              <div className="flex items-center justify-center p-3 bg-[#051525]/60 rounded-lg animate-pulse-very-slow">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 bg-green-500/20 flex items-center justify-center rounded-full text-green-500 font-bold">C</div>
-                  <div className="w-8 h-0.5 bg-gradient-to-r from-green-500/50 to-blue-500/50"></div>
-                  <div className="w-10 h-10 bg-blue-500/20 flex items-center justify-center rounded-full text-blue-500 font-bold">B</div>
-                  <div className="w-8 h-0.5 bg-gradient-to-r from-blue-500/50 to-purple-500/50"></div>
-                  <div className="w-10 h-10 bg-purple-500/20 flex items-center justify-center rounded-full text-purple-500 font-bold">A</div>
-                  <div className="w-8 h-0.5 bg-gradient-to-r from-purple-500/50 to-red-500/50"></div>
-                  <div className="w-10 h-10 bg-red-500/20 flex items-center justify-center rounded-full text-red-500 font-bold">S</div>
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-green-500/20 flex items-center justify-center rounded-full text-green-500 font-bold text-sm md:text-base">C</div>
+                  <div className="w-6 md:w-8 h-0.5 bg-gradient-to-r from-green-500/50 to-blue-500/50"></div>
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-500/20 flex items-center justify-center rounded-full text-blue-500 font-bold text-sm md:text-base">B</div>
+                  <div className="w-6 md:w-8 h-0.5 bg-gradient-to-r from-blue-500/50 to-purple-500/50"></div>
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-purple-500/20 flex items-center justify-center rounded-full text-purple-500 font-bold text-sm md:text-base">A</div>
+                  <div className="w-6 md:w-8 h-0.5 bg-gradient-to-r from-purple-500/50 to-red-500/50"></div>
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-red-500/20 flex items-center justify-center rounded-full text-red-500 font-bold text-sm md:text-base">S</div>
                 </div>
               </div>
             </div>
           </section>
           
-          <section className="bg-[#041019]/60 p-6 rounded-xl border border-[var(--accent-blue-bright)]/30 hover:border-[var(--accent-blue-bright)]/50 transition-all shadow-lg hover:shadow-[var(--accent-blue-bright)]/5 group relative">
+          <section className="bg-[#041019]/60 p-4 rounded-xl border border-[var(--accent-blue-bright)]/30 hover:border-[var(--accent-blue-bright)]/50 transition-all shadow-lg hover:shadow-[var(--accent-blue-bright)]/5 group relative">
             {/* Decorative corner elements */}
-            <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-purple-400/60"></div>
-            <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-purple-400/60"></div>
-            <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-purple-400/60"></div>
-            <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-purple-400/60"></div>
+            <div className="absolute top-0 left-0 w-4 h-4 md:w-6 md:h-6 border-t border-l border-purple-400/60"></div>
+            <div className="absolute top-0 right-0 w-4 h-4 md:w-6 md:h-6 border-t border-r border-purple-400/60"></div>
+            <div className="absolute bottom-0 left-0 w-4 h-4 md:w-6 md:h-6 border-b border-l border-purple-400/60"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 md:w-6 md:h-6 border-b border-r border-purple-400/60"></div>
             
-            <h3 className="font-orbitron text-2xl font-bold text-white mb-6 flex items-center">
+            <h3 className="font-orbitron text-lg md:text-xl font-bold text-white mb-3 flex items-center">
               <span className="text-purple-400 mr-2 group-hover:animate-pulse transition-all">💎</span> 
               <span className="relative inline-block">
                 Tỷ Lệ Minh Bạch
@@ -143,9 +143,9 @@ const GachaMoreInfo: React.FC = () => {
               </span>
             </h3>
             
-            <div className="mb-8">
-              <div className="mb-6 p-4 bg-[#051525]/80 rounded-lg font-mono border border-[var(--accent-blue-bright)]/20">
-                <pre className="text-white">
+            <div className="mb-4">
+              <div className="mb-4 p-3 bg-[#051525]/80 rounded-lg font-mono border border-[var(--accent-blue-bright)]/20">
+                <pre className="text-white text-xs md:text-sm">
 {`S (Legendary): 5%
 A (Epic):      10%  
 B (Rare):      30%
@@ -154,142 +154,155 @@ C (Common):    55%`}
               </div>
               
               {/* Visualization of drop rates */}
-              <div className="relative h-36 w-full bg-[#051525]/60 rounded-lg p-3 overflow-hidden border border-[var(--accent-blue-bright)]/20">
+              <div className="relative h-28 md:h-32 w-full bg-[#051525]/60 rounded-lg p-3 overflow-hidden border border-[var(--accent-blue-bright)]/20">
                 <div className="absolute bottom-0 left-0 h-full w-[55%] bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-tl-md rounded-bl-md">
                   <div className="absolute top-2 left-2 text-xs text-green-400 font-bold">Common</div>
-                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm text-green-400 font-bold">55%</div>
+                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs md:text-sm text-green-400 font-bold">55%</div>
                 </div>
                 <div className="absolute bottom-0 left-[55%] h-full w-[30%] bg-gradient-to-t from-blue-500/40 to-blue-500/10">
                   <div className="absolute top-2 left-2 text-xs text-blue-400 font-bold">Rare</div>
-                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm text-blue-400 font-bold">30%</div>
+                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs md:text-sm text-blue-400 font-bold">30%</div>
                 </div>
                 <div className="absolute bottom-0 left-[85%] h-full w-[10%] bg-gradient-to-t from-purple-500/40 to-purple-500/10">
                   <div className="absolute top-2 left-1 text-xs text-purple-400 font-bold">Epic</div>
-                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm text-purple-400 font-bold">10%</div>
+                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs md:text-sm text-purple-400 font-bold">10%</div>
                 </div>
                 <div className="absolute bottom-0 left-[95%] h-full w-[5%] bg-gradient-to-t from-red-500/40 to-red-500/10 rounded-tr-md rounded-br-md">
-                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm text-red-400 font-bold">5%</div>
+                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs md:text-sm text-red-400 font-bold">5%</div>
                 </div>
               </div>
             </div>
             
-            <h3 className="font-orbitron text-2xl font-bold text-white mb-4 flex items-center mt-2">
-              <span className="text-cyan-400 mr-2 group-hover:animate-pulse transition-all">🚀</span> 
-              <span className="relative inline-block">
-                Mẹo Pro Gacha
-                <div className="absolute -bottom-2 left-0 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent transition-all duration-300"></div>
-              </span>
-            </h3>
-            
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex p-3 hover:bg-[#051525] rounded-lg transition-colors border-l-2 border-cyan-500 transform hover:translate-x-2 transition-all duration-300">
-                <span className="text-cyan-400 mr-3">01</span>
-                <div>
-                  <p className="font-bold text-white">Kết hợp thông minh</p>
-                  <p className="text-sm">Dùng Character Ticket cho may mắn lớn, Piece Ticket cho tiến độ ổn định</p>
-                </div>
-              </li>
-              <li className="flex p-3 hover:bg-[#051525] rounded-lg transition-colors border-l-2 border-cyan-500 transform hover:translate-x-2 transition-all duration-300">
-                <span className="text-cyan-400 mr-3">02</span>
-                <div>
-                  <p className="font-bold text-white">Săn sự kiện</p>
-                  <p className="text-sm">Rate up cho nhân vật hot trong các event đặc biệt</p>
-                </div>
-              </li>
-              <li className="flex p-3 hover:bg-[#051525] rounded-lg transition-colors border-l-2 border-cyan-500 transform hover:translate-x-2 transition-all duration-300">
-                <span className="text-cyan-400 mr-3">03</span>
-                <div>
-                  <p className="font-bold text-white">Giữ nhân vật trùng</p>
-                  <p className="text-sm">Dùng để nâng Star hoặc tiến hóa sau này</p>
-                </div>
-              </li>
-            </ul>
+            <div>
+              <h4 className="font-orbitron text-base md:text-lg font-bold text-white/90 mb-2 text-shadow-sm">Mẹo Pro Gacha</h4>
+              
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex p-3 hover:bg-[#051525] rounded-lg transition-colors border-l-2 border-cyan-500 transform hover:translate-x-2 transition-all duration-300">
+                  <span className="text-cyan-400 mr-3 text-sm md:text-base">01</span>
+                  <div>
+                    <p className="font-bold text-white text-sm md:text-base">Kết hợp thông minh</p>
+                    <p className="text-xs md:text-sm">Dùng Character Ticket cho may mắn lớn, Piece Ticket cho tiến độ ổn định</p>
+                  </div>
+                </li>
+                <li className="flex p-3 hover:bg-[#051525] rounded-lg transition-colors border-l-2 border-cyan-500 transform hover:translate-x-2 transition-all duration-300">
+                  <span className="text-cyan-400 mr-3 text-sm md:text-base">02</span>
+                  <div>
+                    <p className="font-bold text-white text-sm md:text-base">Săn sự kiện</p>
+                    <p className="text-xs md:text-sm">Rate up cho nhân vật hot trong các event đặc biệt</p>
+                  </div>
+                </li>
+                <li className="flex p-3 hover:bg-[#051525] rounded-lg transition-colors border-l-2 border-cyan-500 transform hover:translate-x-2 transition-all duration-300">
+                  <span className="text-cyan-400 mr-3 text-sm md:text-base">03</span>
+                  <div>
+                    <p className="font-bold text-white text-sm md:text-base">Giữ nhân vật trùng</p>
+                    <p className="text-xs md:text-sm">Dùng để nâng Star hoặc tiến hóa sau này</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
             
             {/* Animated tip banner */}
-            <div className="relative overflow-hidden mt-6 p-4 rounded-lg animate-pulse-very-slow">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg"></div>
-              <p className="relative z-10 text-white text-center">
-                <span className="text-yellow-400 font-bold">PRO TIP:</span> Tham gia Discord cộng đồng để nhận code quà tặng miễn phí mỗi tuần!
+            <div className="mt-4 relative p-3 bg-gradient-to-r from-[#051525]/80 to-[#05121d]/80 rounded-lg border border-cyan-500/20 overflow-hidden group/banner">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-cyan-500/0 animate-shine"></div>
+              <h5 className="font-orbitron text-sm md:text-base font-bold text-cyan-400 mb-1 flex items-center">
+                <span className="mr-2">💡</span> Không Chỉ Là Con Số
+              </h5>
+              <p className="text-xs md:text-sm text-gray-300">
+                Tỷ lệ rơi chỉ là một phần của trải nghiệm Gacha. Chiến lược sử dụng nhân vật mới mới là chìa khóa chiến thắng!
               </p>
             </div>
           </section>
         </div>
         
-        <section 
-          ref={(el) => { sectionRefs.current[2] = el; }}
-          className="bg-[#041019]/60 p-8 rounded-2xl border border-[var(--accent-blue-bright)]/30 hover:border-[var(--accent-blue-bright)]/50 transition-all shadow-lg hover:shadow-[var(--accent-blue-bright)]/5 reveal-scale relative"
-        >
-          {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-indigo-400/60 rounded-tl-2xl"></div>
-          <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-indigo-400/60 rounded-tr-2xl"></div>
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-indigo-400/60 rounded-bl-2xl"></div>
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-indigo-400/60 rounded-br-2xl"></div>
-          
-          <h3 className="font-orbitron text-3xl font-bold text-white mb-6 text-center text-shadow-blue animate-title-glow">
-            <span className="relative inline-block">
-              Không Chỉ Là Con Số
-              <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-            </span>
-          </h3>
-          
-          <p className="text-gray-300 mb-8 text-center max-w-3xl mx-auto">
-            Mỗi nhân vật trong M-SCI không chỉ là dữ liệu - họ là những anh hùng với cá tính và khả năng riêng biệt.
-          </p>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-            <div className="bg-[#051525]/80 p-6 rounded-xl border border-[var(--accent-blue-bright)]/20 text-center transform transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/10 group">
-              <div className="text-4xl mb-3 group-hover:animate-pulse-slow transition-all">📜</div>
-              <div className="text-white font-bold mb-2 group-hover:text-indigo-300 transition-colors">Câu chuyện riêng biệt</div>
-              <p className="text-gray-400 text-sm">Mỗi nhân vật có một quá khứ và động cơ riêng</p>
-            </div>
-            <div className="bg-[#051525]/80 p-6 rounded-xl border border-[var(--accent-blue-bright)]/20 text-center transform transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/10 group">
-              <div className="text-4xl mb-3 group-hover:animate-pulse-slow transition-all">🎭</div>
-              <div className="text-white font-bold mb-2 group-hover:text-indigo-300 transition-colors">Tính cách độc đáo</div>
-              <p className="text-gray-400 text-sm">Từ lạnh lùng đến nhiệt huyết, mỗi nhân vật có cá tính riêng</p>
-            </div>
-            <div className="bg-[#051525]/80 p-6 rounded-xl border border-[var(--accent-blue-bright)]/20 text-center transform transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/10 group">
-              <div className="text-4xl mb-3 group-hover:animate-pulse-slow transition-all">⚔️</div>
-              <div className="text-white font-bold mb-2 group-hover:text-indigo-300 transition-colors">Kỹ năng đặc trưng</div>
-              <p className="text-gray-400 text-sm">Kỹ năng chủ động và bị động cho chiến thuật đa dạng</p>
-            </div>
-            <div className="bg-[#051525]/80 p-6 rounded-xl border border-[var(--accent-blue-bright)]/20 text-center transform transition-all hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/10 group">
-              <div className="text-4xl mb-3 group-hover:animate-pulse-slow transition-all">♟️</div>
-              <div className="text-white font-bold mb-2 group-hover:text-indigo-300 transition-colors">Vai trò chiến lược</div>
-              <p className="text-gray-400 text-sm">Trước tuyến, hỗ trợ hay chuyên gia sát thương</p>
-            </div>
-          </div>
-          
-          <p className="text-gray-300 mb-8 text-center max-w-3xl mx-auto">
-            Khi bạn triệu hồi được những nhân vật hùng mạnh, bạn không chỉ nhận được một công cụ chiến đấu - mà là những đồng đội sẽ cùng bạn viết nên huyền thoại riêng.
-          </p>
-          
-          <div className="bg-gradient-to-r from-[#041019] via-[var(--accent-blue-bright)]/10 to-[#041019] p-8 rounded-xl shadow-inner">
-            <p className="text-center text-white font-bold text-xl italic animate-pulse-slow text-shadow-blue">
-              "Mỗi lần quay Gacha là một cơ hội để thay đổi vận mệnh - Hãy triệu hồi những anh hùng vĩ đại nhất!"
-            </p>
-          </div>
-        </section>
-        
-        <div 
-          ref={(el) => { sectionRefs.current[3] = el; }}
-          className="text-center pt-8 border-t border-[var(--accent-blue-bright)]/30 reveal"
-        >
-          <div className="inline-block relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] rounded-xl blur opacity-25"></div>
-            <a 
-              href="#" 
-              className="relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#051525]/90 text-white font-bold hover:bg-[#051525] transition-colors group"
-            >
-              <span className="text-[var(--accent-blue-bright)]">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+        {/* Extra section for desktop */}
+        <div className="hidden md:block bg-[#041019]/60 p-4 rounded-xl border border-[var(--accent-blue-bright)]/30 animate-fade-in-delayed">
+          <div className="text-center">
+            <h3 className="font-orbitron text-xl font-bold text-white mb-2">
+              <span className="relative inline-block">
+                BÍ QUYẾT GACHA HIỆU QUẢ
+                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
               </span>
-              <span>Tham Gia M-SCI Ngay Hôm Nay</span>
-            </a>
+            </h3>
+            <p className="text-sm text-gray-300 max-w-3xl mx-auto mb-4">
+              Khám phá những chiến thuật nâng cao để tối ưu hóa cơ hội nhận được những anh hùng mạnh nhất trong hệ thống Gacha!
+            </p>
+            
+            <div className="grid grid-cols-3 gap-4 mt-4">
+              <div className="bg-[#051525]/50 p-3 rounded-lg border border-[var(--accent-blue-bright)]/10 hover:border-[var(--accent-blue-bright)]/30 transition-all">
+                <div className="w-10 h-10 bg-blue-500/20 rounded-full mx-auto flex items-center justify-center mb-2">
+                  <span className="text-blue-400 text-xl">🔄</span>
+                </div>
+                <h4 className="font-bold text-white text-base">Quay Gộp</h4>
+                <p className="text-xs text-gray-300">Quay 10 lần liên tiếp để nhận thêm ưu đãi đặc biệt</p>
+              </div>
+              
+              <div className="bg-[#051525]/50 p-3 rounded-lg border border-[var(--accent-blue-bright)]/10 hover:border-[var(--accent-blue-bright)]/30 transition-all">
+                <div className="w-10 h-10 bg-purple-500/20 rounded-full mx-auto flex items-center justify-center mb-2">
+                  <span className="text-purple-400 text-xl">🎯</span>
+                </div>
+                <h4 className="font-bold text-white text-base">Gacha Mục Tiêu</h4>
+                <p className="text-xs text-gray-300">Tập trung vào các banner có rate-up cho nhân vật bạn cần</p>
+              </div>
+              
+              <div className="bg-[#051525]/50 p-3 rounded-lg border border-[var(--accent-blue-bright)]/10 hover:border-[var(--accent-blue-bright)]/30 transition-all">
+                <div className="w-10 h-10 bg-red-500/20 rounded-full mx-auto flex items-center justify-center mb-2">
+                  <span className="text-red-400 text-xl">⏱️</span>
+                </div>
+                <h4 className="font-bold text-white text-base">Thời Điểm</h4>
+                <p className="text-xs text-gray-300">Quay Gacha trong các sự kiện đặc biệt để tăng tỷ lệ thành công</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      
+      {/* Global styles */}
+      <style jsx global>{`
+        .reveal {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.6s ease-out;
+        }
+        
+        .reveal-left {
+          opacity: 0;
+          transform: translateX(-20px);
+          transition: all 0.6s ease-out;
+        }
+        
+        .active {
+          opacity: 1;
+          transform: translate(0);
+        }
+        
+        @keyframes shine {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+        
+        .animate-shine {
+          animation: shine 3s infinite;
+        }
+        
+        .animate-pulse-very-slow {
+          animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        .animate-fade-in-delayed {
+          opacity: 0;
+          animation: fadeIn 0.5s ease-out 0.3s forwards;
+        }
+        
+        @keyframes fadeIn {
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </section>
   );
 };
