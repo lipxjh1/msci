@@ -1,14 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { FaChartLine, FaCoins, FaHandsHelping, FaStar, FaTrophy, FaVideo, FaGamepad, FaNewspaper, FaPalette, FaRegNewspaper, FaCrown, FaGem, FaTimes } from 'react-icons/fa';
+import { FaChartLine, FaCoins, FaHandsHelping, FaStar, FaTrophy, FaVideo, FaGamepad, FaNewspaper, FaPalette, FaRegNewspaper, FaCrown, FaGem, FaTimes, FaAward, FaCheckCircle } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 // Component Popup hiển thị chi tiết từng loại phần thưởng
 function RewardPopup({ reward, onClose }: { reward: RewardType, onClose: () => void }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
       <div 
-        className="w-full max-w-4xl bg-gradient-to-b from-[var(--overwatch-dark-blue)]/95 to-[var(--overwatch-black)]/95 rounded-xl border border-white/10 shadow-2xl transform transition-all duration-300 overflow-hidden"
+        className="w-full max-w-4xl bg-gradient-to-b from-[#041019]/95 to-[#05080F]/95 rounded-xl border border-white/10 shadow-2xl transform transition-all duration-300 overflow-hidden"
       >
         {/* Header & Close button */}
         <div className={`p-6 ${reward.bgColor} relative`}>
@@ -25,7 +26,7 @@ function RewardPopup({ reward, onClose }: { reward: RewardType, onClose: () => v
             </div>
             
             <div>
-              <h2 className={`text-3xl font-bold ${reward.textColor} mb-1 font-rajdhani`}>
+              <h2 className={`text-3xl font-bold ${reward.textColor} mb-1`}>
                 {reward.title}
               </h2>
               <p className="text-white/70">{reward.subtitle}</p>
@@ -96,7 +97,7 @@ function RewardPopup({ reward, onClose }: { reward: RewardType, onClose: () => v
                 <p className="text-white/70 text-sm mb-3">
                   Phần thưởng được thanh toán vào ngày 15 hàng tháng, dựa trên hoạt động của tháng trước.
                 </p>
-                <button className={`w-full py-2 ${reward.buttonColor} rounded-md transition-all duration-300`}>
+                <button className={`w-full py-2 bg-gradient-to-r ${reward.gradientColor} text-white rounded-md transition-all duration-300 hover:shadow-lg hover:shadow-${reward.shadowColor} transform hover:scale-105`}>
                   Đăng Ký Ngay
                 </button>
               </div>
@@ -134,6 +135,8 @@ interface RewardType {
   bgColor: string;
   iconBg: string;
   buttonColor: string;
+  gradientColor: string;
+  shadowColor: string;
   rewards: RewardItemType[];
   howToEarn: HowToEarnType[];
   specialReward: SpecialRewardType;
@@ -154,6 +157,8 @@ export default function CreatorRewards() {
       textColor: 'text-yellow-400',
       bgColor: 'bg-yellow-500/10',
       iconBg: 'bg-yellow-500/20',
+      gradientColor: 'from-yellow-500 to-yellow-600',
+      shadowColor: 'yellow-500/30',
       buttonColor: 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 hover:bg-yellow-500/30',
       rewards: [
         { name: 'Cấp Đồng', value: '5.000 M-Coin/tháng' },
@@ -195,6 +200,8 @@ export default function CreatorRewards() {
       textColor: 'text-purple-400',
       bgColor: 'bg-purple-500/10',
       iconBg: 'bg-purple-500/20',
+      gradientColor: 'from-purple-500 to-purple-600',
+      shadowColor: 'purple-500/30',
       buttonColor: 'bg-purple-500/20 text-purple-400 border border-purple-500/40 hover:bg-purple-500/30',
       rewards: [
         { name: 'Cấp Đồng', value: 'Thông báo cập nhật sớm' },
@@ -236,6 +243,8 @@ export default function CreatorRewards() {
       textColor: 'text-blue-400',
       bgColor: 'bg-blue-500/10',
       iconBg: 'bg-blue-500/20',
+      gradientColor: 'from-blue-500 to-blue-600',
+      shadowColor: 'blue-500/30',
       buttonColor: 'bg-blue-500/20 text-blue-400 border border-blue-500/40 hover:bg-blue-500/30',
       rewards: [
         { name: 'Cấp Đồng', value: 'Huy hiệu người sáng tạo' },
@@ -251,61 +260,20 @@ export default function CreatorRewards() {
         },
         {
           title: 'Hoàn thành thử thách',
-          description: 'Hoàn thành thử thách hàng tháng dành riêng cho người sáng tạo nội dung'
+          description: 'Hoàn thành các thử thách hàng tuần và hàng tháng để nhận vật phẩm đặc biệt'
         },
         {
-          title: 'Tạo nội dung chuyên sâu',
-          description: 'Nhận vật phẩm đặc biệt khi tạo nội dung phân tích chuyên sâu về trò chơi'
+          title: 'Tạo nội dung về vật phẩm',
+          description: 'Tạo nội dung đặc biệt về các vật phẩm trong game để mở khóa vật phẩm mới'
         },
         {
-          title: 'Tổ chức sự kiện cộng đồng',
-          description: 'Tổ chức sự kiện trong game để mở khóa vật phẩm đặc biệt'
+          title: 'Tham gia sự kiện đặc biệt',
+          description: 'Tham gia các sự kiện đặc biệt dành cho Nhà Sáng Tạo để nhận vật phẩm độc quyền'
         }
       ],
       specialReward: {
-        title: 'Vật phẩm độc quyền theo mùa',
-        description: 'Bộ sưu tập vật phẩm độc quyền theo mùa chỉ dành cho Nhà Sáng Tạo Nội Dung'
-      }
-    },
-    {
-      id: 'recognition',
-      title: 'Công Nhận',
-      subtitle: 'Sự nổi tiếng và đánh giá',
-      icon: <FaTrophy className="w-8 h-8 text-green-400" />,
-      description: 'Được giới thiệu trên các kênh chính thức của M-SCI. Bao gồm xuất hiện trên blog, mạng xã hội, bản tin và các sự kiện.',
-      fullDescription: 'Chương trình Nhà Sáng Tạo Nội Dung M-SCI cung cấp nhiều cơ hội để được công nhận rộng rãi trong cộng đồng game. Nhà sáng tạo nổi bật được giới thiệu trên các kênh chính thức của M-SCI, bao gồm blog, mạng xã hội, bản tin và trang chủ của trò chơi. Ngoài ra, còn có các giải thưởng Nhà Sáng Tạo Nội Dung hàng tháng và hàng năm, cùng với cơ hội xuất hiện tại các sự kiện và hội nghị chính thức. Sự công nhận này không chỉ giúp xây dựng danh tiếng của bạn mà còn có thể dẫn đến các cơ hội hợp tác lớn hơn.',
-      textColor: 'text-green-400',
-      bgColor: 'bg-green-500/10',
-      iconBg: 'bg-green-500/20',
-      buttonColor: 'bg-green-500/20 text-green-400 border border-green-500/40 hover:bg-green-500/30',
-      rewards: [
-        { name: 'Cấp Đồng', value: 'Danh sách người sáng tạo' },
-        { name: 'Cấp Bạc', value: 'Chia sẻ trên mạng xã hội' },
-        { name: 'Cấp Vàng', value: 'Nội dung được tài trợ' },
-        { name: 'Cấp Kim Cương', value: 'Phỏng vấn độc quyền' },
-        { name: 'Cấp Huyền Thoại', value: 'Đại sứ thương hiệu' }
-      ],
-      howToEarn: [
-        {
-          title: 'Tạo nội dung nổi bật',
-          description: 'Được đội ngũ M-SCI chọn làm nội dung nổi bật của tuần/tháng'
-        },
-        {
-          title: 'Tham gia giải thưởng',
-          description: 'Đăng ký tham gia các giải thưởng Nhà Sáng Tạo Nội Dung định kỳ'
-        },
-        {
-          title: 'Đạt thành tích đáng chú ý',
-          description: 'Đạt được các mốc đáng chú ý về lượt xem, người theo dõi hoặc tương tác'
-        },
-        {
-          title: 'Đóng góp cho cộng đồng',
-          description: 'Được công nhận vì những đóng góp tích cực cho cộng đồng M-SCI'
-        }
-      ],
-      specialReward: {
-        title: 'Giải thưởng Nhà Sáng Tạo Của Năm',
-        description: 'Cơ hội giành giải thưởng danh giá Nhà Sáng Tạo Nội Dung Của Năm với phần thưởng giá trị'
+        title: 'Vật phẩm có chữ ký cá nhân',
+        description: 'Vật phẩm trong game được gắn tên và logo của bạn, không ai khác có thể sở hữu'
       }
     }
   ];
@@ -323,48 +291,58 @@ export default function CreatorRewards() {
   };
 
   return (
-    <>
-      <div className="mb-16 backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl">
-        <div className="flex justify-center mb-8">
-          <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
-            <span className="text-shadow-blue relative inline-block">
-              HỆ THỐNG PHẦN THƯỞNG
-              <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-            </span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {rewards.map((reward) => (
-            <div
-              key={reward.id}
-              className={`bg-white/5 backdrop-blur-md rounded-lg p-6 border border-white/10 hover:border-${reward.id === 'mcoin' ? 'yellow' : reward.id === 'exclusive' ? 'purple' : reward.id === 'items' ? 'blue' : 'green'}-500/50 transition-all shadow-lg hover:shadow-${reward.id === 'mcoin' ? 'yellow' : reward.id === 'exclusive' ? 'purple' : reward.id === 'items' ? 'blue' : 'green'}-500/20 flex flex-col h-full`}
-            >
-              {/* Icon */}
-              <div className={`${reward.iconBg} rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto`}>
-                {reward.icon}
+    <div className="py-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {rewards.map((reward, index) => (
+          <motion.div
+            key={reward.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 group"
+          >
+            <div className={`p-6 ${reward.bgColor} relative`}>
+              <div className="flex items-center">
+                <div className={`w-14 h-14 ${reward.iconBg} rounded-full flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                  {reward.icon}
+                </div>
+                <div>
+                  <h3 className={`text-xl font-bold ${reward.textColor}`}>
+                    {reward.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{reward.subtitle}</p>
+                </div>
               </div>
-              
-              {/* Title */}
-              <h3 className={`text-xl ${reward.textColor} text-center font-semibold mb-3 font-rajdhani tracking-wide`}>
-                {reward.title}
-              </h3>
-              
-              {/* Description */}
-              <p className="text-white/70 text-center mb-6 flex-grow">
+            </div>
+            
+            <div className="p-6">
+              <p className="text-gray-300 mb-6 min-h-[80px]">
                 {reward.description}
               </p>
               
-              {/* Button */}
+              <div className="space-y-2 mb-8">
+                {reward.rewards.slice(0, 3).map((item, idx) => (
+                  <div key={idx} className="flex items-center text-sm">
+                    <FaCheckCircle className={`mr-2 ${reward.textColor} flex-shrink-0`} />
+                    <span className="text-gray-300">{item.name}: <span className={reward.textColor}>{item.value}</span></span>
+                  </div>
+                ))}
+                {reward.rewards.length > 3 && (
+                  <div className="text-gray-400 text-sm text-center mt-1">
+                    + {reward.rewards.length - 3} mức thưởng khác
+                  </div>
+                )}
+              </div>
+              
               <button
                 onClick={() => handleOpenPopup(reward.id)}
-                className={`w-full py-2 ${reward.buttonColor} rounded-md transition-all duration-300 font-rajdhani tracking-wide font-medium mt-auto`}
+                className={`w-full py-2.5 bg-gradient-to-r ${reward.gradientColor} text-white rounded-lg transition-all duration-300 transform hover:scale-105 font-medium`}
               >
                 Xem Chi Tiết
               </button>
             </div>
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
 
       {/* Popup */}
@@ -374,6 +352,6 @@ export default function CreatorRewards() {
           onClose={handleClosePopup} 
         />
       )}
-    </>
+    </div>
   );
 } 

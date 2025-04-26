@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Modal from '@/components/ui/Modal';
 import ScheduleModal from './ScheduleModal';
+import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaUser, FaUsers, FaInfoCircle, FaArrowRight } from 'react-icons/fa';
 
 // Định nghĩa lại interface Event để phù hợp với ScheduleModal
 interface Event {
@@ -21,6 +22,8 @@ interface Event {
 export default function CreatorBanner() {
   const [loaded, setLoaded] = useState(false);
   const [showScheduleModal, setShowScheduleModal] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [activeTab, setActiveTab] = useState<string>('all');
   
   useEffect(() => {
     setLoaded(true);
@@ -95,26 +98,45 @@ export default function CreatorBanner() {
       type: 'online'
     }
   ];
+
+  const openEventDetails = (event: Event) => {
+    setSelectedEvent(event);
+  };
+
+  const getFilteredEvents = () => {
+    if (activeTab === 'all') return scheduleEvents;
+    return scheduleEvents.filter(event => event.type === activeTab);
+  };
+  
+  const getEventTypeColor = (type: 'online' | 'offline' | 'hybrid') => {
+    switch(type) {
+      case 'online':
+        return 'bg-blue-500 text-blue-100';
+      case 'offline':
+        return 'bg-purple-500 text-purple-100';
+      case 'hybrid':
+        return 'bg-green-500 text-green-100';
+      default:
+        return 'bg-gray-500 text-gray-100';
+    }
+  };
+
+  const getEventTypeName = (type: 'online' | 'offline' | 'hybrid') => {
+    switch(type) {
+      case 'online':
+        return 'Trực tuyến';
+      case 'offline':
+        return 'Trực tiếp';
+      case 'hybrid':
+        return 'Kết hợp';
+      default:
+        return 'Không xác định';
+    }
+  };
   
   return (
-    <div className="relative h-[50vh] md:h-[70vh] w-full overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/overwatch_bg_2.jpg"
-          alt="M-SCI Content Creators"
-          fill
-          sizes="100vw"
-          priority
-          className={`object-cover object-center transition-transform duration-1000 ${
-            loaded ? 'scale-100 blur-0' : 'scale-110 blur-sm'
-          }`}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#041019]/30 via-[#041019]/50 to-[#041019]/90"></div>
-      </div>
-      
-      {/* Animated overlay particles */}
-      <div className="absolute inset-0 opacity-30">
+    <section className="relative w-full py-20 bg-gradient-to-b from-[#041019] to-[#05080F] overflow-hidden">
+      <div className="absolute inset-0 opacity-20">
         <Image
           src="/images/particle_overlay.png"
           alt=""
@@ -124,51 +146,212 @@ export default function CreatorBanner() {
         />
       </div>
       
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
-      
-      {/* Content */}
-      <div className="relative h-full flex flex-col items-center justify-center text-center px-4 pt-20">
-        <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 transition-all duration-1000 ${
-          loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <span className="text-shadow-blue relative inline-block">
-            CHƯƠNG TRÌNH NHÀ SÁNG TẠO NỘI DUNG
-            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-          </span>
-        </h1>
-        
-        <div className={`max-w-xl mx-auto text-lg md:text-xl text-white/80 mb-8 transition-all duration-1000 delay-300 ${
-          loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          Sáng Tạo - Kết Nối - Phát Triển Cùng M-SCI
+      <div className="container max-w-7xl mx-auto px-4 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 inline-block">
+            LỊCH ĐỊNH HƯỚNG NHÀ SÁNG TẠO
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+          <p className="text-gray-300 max-w-2xl mx-auto mt-6 text-lg">
+            Tham gia các sự kiện đào tạo, hướng dẫn và gặp gỡ cộng đồng
+          </p>
         </div>
         
-        <div className={`text-base md:text-lg text-white/70 max-w-3xl mx-auto mb-8 transition-all duration-1000 delay-500 ${
-          loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          Chào mừng đến với Chương trình Nhà Sáng Tạo Nội Dung của M-SCI! Chúng tôi tin rằng những người sáng tạo nội dung là cầu nối quan trọng giữa game và cộng đồng. Hãy cùng chúng tôi xây dựng một cộng đồng game thủ sôi động và đam mê.
+        {/* Filter tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex bg-white/5 backdrop-blur-sm rounded-full p-1 border border-white/10">
+            <button 
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                activeTab === 'all' 
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+              onClick={() => setActiveTab('all')}
+            >
+              Tất cả
+            </button>
+            <button 
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                activeTab === 'online' 
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+              onClick={() => setActiveTab('online')}
+            >
+              Trực tuyến
+            </button>
+            <button 
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                activeTab === 'offline' 
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+              onClick={() => setActiveTab('offline')}
+            >
+              Trực tiếp
+            </button>
+            <button 
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                activeTab === 'hybrid' 
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+              onClick={() => setActiveTab('hybrid')}
+            >
+              Kết hợp
+            </button>
+          </div>
         </div>
         
-        {/* Action Button */}
-        <div className={`transition-all duration-1000 delay-700 ${
-          loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+        {/* Events grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          {getFilteredEvents().map((event) => (
+            <div 
+              key={event.id}
+              className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/50 transition-all hover:shadow-lg hover:shadow-blue-500/20 overflow-hidden group"
+            >
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${getEventTypeColor(event.type)}`}>
+                    {getEventTypeName(event.type)}
+                  </span>
+                  <span className="text-gray-400 text-sm">{event.date}</span>
+                </div>
+                
+                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  {event.title}
+                </h3>
+                
+                <div className="space-y-2 mb-5">
+                  <div className="flex items-center text-gray-400 text-sm">
+                    <FaClock className="mr-2 text-blue-400" />
+                    {event.time}
+                  </div>
+                  <div className="flex items-center text-gray-400 text-sm">
+                    <FaMapMarkerAlt className="mr-2 text-blue-400" />
+                    {event.location}
+                  </div>
+                  <div className="flex items-center text-gray-400 text-sm">
+                    <FaUser className="mr-2 text-blue-400" />
+                    {event.host}
+                  </div>
+                  <div className="flex items-center text-gray-400 text-sm">
+                    <FaUsers className="mr-2 text-blue-400" />
+                    {event.capacity}
+                  </div>
+                </div>
+                
+                <p className="text-gray-300 text-sm mb-5">
+                  {event.description}
+                </p>
+                
+                <button 
+                  onClick={() => openEventDetails(event)}
+                  className="w-full py-2 mt-2 bg-blue-500/20 text-blue-400 border border-blue-500/40 hover:bg-blue-500/30 rounded-md transition-colors flex items-center justify-center"
+                >
+                  <span>Chi tiết</span>
+                  <FaArrowRight className="ml-2" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Event detail modal */}
+        {selectedEvent && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={() => setSelectedEvent(null)}>
+            <div 
+              className="w-full max-w-2xl bg-gradient-to-b from-[#041019]/95 to-[#05080F]/95 rounded-xl border border-white/10 shadow-2xl transform transition-all duration-300 overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className={`p-6 ${getEventTypeColor(selectedEvent.type)} relative`}>
+                <button 
+                  onClick={() => setSelectedEvent(null)}
+                  className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-black/20 hover:bg-black/40 text-white transition-colors"
+                >
+                  ✕
+                </button>
+                
+                <h3 className="text-xl font-bold text-white mb-1">
+                  {selectedEvent.title}
+                </h3>
+                <p className="text-sm opacity-80">{getEventTypeName(selectedEvent.type)} • {selectedEvent.date}</p>
+              </div>
+              
+              <div className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <FaClock className="mr-3 text-blue-400" />
+                      <div>
+                        <p className="text-sm text-gray-400">Thời gian</p>
+                        <p className="text-white">{selectedEvent.time}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <FaMapMarkerAlt className="mr-3 text-blue-400" />
+                      <div>
+                        <p className="text-sm text-gray-400">Địa điểm</p>
+                        <p className="text-white">{selectedEvent.location}</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <FaUser className="mr-3 text-blue-400" />
+                      <div>
+                        <p className="text-sm text-gray-400">Host</p>
+                        <p className="text-white">{selectedEvent.host}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <FaUsers className="mr-3 text-blue-400" />
+                      <div>
+                        <p className="text-sm text-gray-400">Số lượng</p>
+                        <p className="text-white">{selectedEvent.capacity}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white/5 p-4 rounded-lg mb-6">
+                  <div className="flex items-start">
+                    <FaInfoCircle className="mr-3 text-blue-400 mt-1" />
+                    <div>
+                      <p className="text-sm text-gray-400 mb-1">Mô tả</p>
+                      <p className="text-white">{selectedEvent.description}</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex justify-between gap-4">
+                  <button 
+                    onClick={() => setSelectedEvent(null)}
+                    className="flex-1 py-2 bg-white/10 hover:bg-white/20 text-white rounded-md transition-colors"
+                  >
+                    Đóng
+                  </button>
+                  <button 
+                    className="flex-1 py-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-md transition-colors"
+                  >
+                    Đăng ký tham gia
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* View all button */}
+        <div className="text-center mt-8">
           <button 
             onClick={() => setShowScheduleModal(true)}
-            className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md shadow-lg transition-colors font-medium"
+            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-full transition-all duration-300 shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50 hover:scale-105 transform font-medium flex items-center mx-auto"
           >
-            Xem Lịch Định Hướng
+            <FaCalendarAlt className="mr-2" />
+            Xem tất cả lịch trình
           </button>
-        </div>
-        
-        {/* Scroll indicator */}
-        <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce transition-opacity duration-1000 delay-1000 ${
-          loaded ? 'opacity-70' : 'opacity-0'
-        }`}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
         </div>
       </div>
       
@@ -181,6 +364,6 @@ export default function CreatorBanner() {
       >
         <ScheduleModal events={scheduleEvents} />
       </Modal>
-    </div>
+    </section>
   );
 } 

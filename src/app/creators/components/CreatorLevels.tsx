@@ -16,6 +16,7 @@ export default function CreatorLevels() {
       requirement: '1.000+ người theo dõi',
       badge: '/images/badge-1.svg',
       color: 'from-amber-700 to-amber-500',
+      hoverGradient: 'hover:from-amber-600 hover:to-amber-400',
       shadowColor: 'shadow-amber-600/30',
       buttonColor: 'bg-amber-500/20 text-amber-500 border-amber-500/40 hover:bg-amber-500/30',
       benefits: [
@@ -39,6 +40,7 @@ export default function CreatorLevels() {
       requirement: '10.000+ người theo dõi',
       badge: '/images/badge-2.svg',
       color: 'from-gray-300 to-gray-400',
+      hoverGradient: 'hover:from-gray-200 hover:to-gray-300',
       shadowColor: 'shadow-gray-400/40',
       buttonColor: 'bg-gray-500/20 text-gray-300 border-gray-400/40 hover:bg-gray-500/30',
       benefits: [
@@ -64,6 +66,7 @@ export default function CreatorLevels() {
       requirement: '50.000+ người theo dõi',
       badge: '/images/badge-3.svg',
       color: 'from-yellow-400 to-yellow-600',
+      hoverGradient: 'hover:from-yellow-300 hover:to-yellow-500',
       shadowColor: 'shadow-yellow-500/40',
       buttonColor: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/40 hover:bg-yellow-500/30',
       benefits: [
@@ -89,6 +92,7 @@ export default function CreatorLevels() {
       requirement: '100.000+ người theo dõi',
       badge: '/images/badge-3.svg', // Sử dụng badge-3 tạm thời
       color: 'from-blue-400 to-blue-600',
+      hoverGradient: 'hover:from-blue-300 hover:to-blue-500',
       shadowColor: 'shadow-blue-500/40',
       buttonColor: 'bg-blue-500/20 text-blue-400 border-blue-500/40 hover:bg-blue-500/30',
       benefits: [
@@ -114,6 +118,7 @@ export default function CreatorLevels() {
       requirement: '500.000+ người theo dõi',
       badge: '/images/badge-3.svg', // Sử dụng badge-3 tạm thời
       color: 'from-purple-500 to-purple-700',
+      hoverGradient: 'hover:from-purple-400 hover:to-purple-600',
       shadowColor: 'shadow-purple-600/40',
       buttonColor: 'bg-purple-500/20 text-purple-400 border-purple-500/40 hover:bg-purple-500/30',
       benefits: [
@@ -144,69 +149,76 @@ export default function CreatorLevels() {
 
   return (
     <>
-      <div className="mb-16 backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl">
-        <div className="flex justify-center mb-8">
-          <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
-            <span className="text-shadow-blue relative inline-block">
-              CẤP ĐỘ NHÀ SÁNG TẠO
-              <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-            </span>
-          </h2>
-        </div>
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 inline-block">
+          CẤP ĐỘ NHÀ SÁNG TẠO
+        </h2>
+        <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+        <p className="text-gray-300 max-w-2xl mx-auto mt-6 text-lg">
+          Chọn cấp độ phù hợp với bạn và bắt đầu hành trình sáng tạo nội dung
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {levels.map((level) => (
-            <div 
-              key={level.id}
-              className={`bg-white/5 backdrop-blur-md rounded-lg p-6 border border-white/10 hover:border-${level.id}-500/50 transition-all shadow-lg hover:${level.shadowColor} group relative overflow-hidden`}
-              onMouseEnter={() => setHoveredLevel(level.id)}
-              onMouseLeave={() => setHoveredLevel(null)}
-            >
-              {/* Background glow effect */}
-              <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl bg-gradient-to-br ${level.color} opacity-10 group-hover:opacity-20 transition-opacity duration-500`}></div>
-              
-              {/* Badge and Title */}
-              <div className="flex flex-col items-center mb-4 relative">
-                <div className="relative w-16 h-16 mb-3">
-                  <Image
-                    src={level.badge}
-                    alt={`${level.name} Badge`}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <h3 className={`text-xl font-semibold font-rajdhani tracking-wide text-center relative`}>
-                  <span className={`bg-gradient-to-r ${level.color} bg-clip-text text-transparent`}>
-                    {level.name} - {level.subtitle}
-                  </span>
-                </h3>
-                <div className="text-white/60 text-sm mt-1 text-center">
-                  {level.requirement}
-                </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {levels.map((level) => (
+          <div 
+            key={level.id}
+            className={`bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-${level.id === 'gold' ? 'yellow' : level.id}-500/50 transition-all duration-300 ${level.shadowColor} hover:shadow-lg group relative overflow-hidden ${level.featured ? 'ring-2 ring-yellow-500/50' : ''}`}
+            onMouseEnter={() => setHoveredLevel(level.id)}
+            onMouseLeave={() => setHoveredLevel(null)}
+          >
+            {/* Background glow effect */}
+            <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl bg-gradient-to-br ${level.color} opacity-10 group-hover:opacity-20 transition-opacity duration-500`}></div>
+            
+            {/* Featured badge if applicable */}
+            {level.featured && (
+              <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white text-xs font-bold py-1 px-3 rounded-bl-xl rounded-tr-xl z-10 shadow-md">
+                POPULAR
               </div>
-              
-              {/* Benefits */}
-              <ul className="space-y-2 text-white/80 min-h-[180px]">
-                {level.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-baseline gap-2">
-                    <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${level.color} flex-shrink-0 mt-1.5`}></span>
-                    <span className="text-sm">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              {/* Apply button */}
-              <div className={`mt-6 transition-all duration-300 ${hoveredLevel === level.id ? 'opacity-100 translate-y-0' : 'opacity-70 translate-y-1'}`}>
-                <button 
-                  onClick={() => handleOpenPopup(level.id)}
-                  className={`w-full py-2 ${level.buttonColor} rounded-md border transition-all duration-300 font-rajdhani tracking-wide font-medium`}
-                >
-                  Xem Chi Tiết
-                </button>
+            )}
+            
+            {/* Badge and Title */}
+            <div className="flex flex-col items-center mb-6 relative">
+              <div className="relative w-20 h-20 mb-3 transform group-hover:scale-105 transition-transform">
+                <Image
+                  src={level.badge}
+                  alt={`${level.name} Badge`}
+                  fill
+                  className="object-contain filter drop-shadow-lg"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-center tracking-wide mb-1">
+                <span className={`bg-gradient-to-r ${level.color} bg-clip-text text-transparent`}>
+                  {level.name}
+                </span>
+              </h3>
+              <div className="text-white text-sm font-medium mb-1">
+                {level.subtitle}
+              </div>
+              <div className="text-gray-400 text-xs">
+                {level.requirement}
               </div>
             </div>
-          ))}
-        </div>
+            
+            {/* Benefits */}
+            <ul className="space-y-2 text-gray-300 min-h-[180px] mb-6">
+              {level.benefits.map((benefit, index) => (
+                <li key={index} className="flex items-start gap-2 group-hover:text-white transition-colors duration-300">
+                  <span className={`w-2 h-2 mt-1.5 rounded-full bg-gradient-to-r ${level.color} flex-shrink-0`}></span>
+                  <span className="text-sm">{benefit}</span>
+                </li>
+              ))}
+            </ul>
+            
+            {/* Apply button */}
+            <button 
+              onClick={() => handleOpenPopup(level.id)}
+              className={`w-full py-2.5 bg-gradient-to-r ${level.color} ${level.hoverGradient} text-white rounded-lg transition-all duration-300 transform hover:scale-105 font-medium`}
+            >
+              Xem Chi Tiết
+            </button>
+          </div>
+        ))}
       </div>
 
       {/* Popup */}
