@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import ItemDetailModal from './ItemDetailModal';
 
 interface ItemsListProps {
   category: string;
@@ -12,6 +13,18 @@ interface ItemsListProps {
     priceRange: string;
     status: string;
   };
+}
+
+// Interface cho item
+interface Item {
+  id: number;
+  name: string;
+  type: string;
+  rarity: string;
+  price: number;
+  image: string;
+  status: string;
+  description?: string;
 }
 
 // Mock data với các ảnh thật
@@ -157,6 +170,18 @@ const nfts = [
 const allItems = [...characters, ...skins, ...items, ...nfts];
 
 export default function ItemsList({ category, searchQuery, filters }: ItemsListProps) {
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openItemDetail = (item: Item) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  const closeItemDetail = () => {
+    setIsModalOpen(false);
+  };
+
   // Get items based on category
   let displayItems = allItems;
   
@@ -230,7 +255,8 @@ export default function ItemsList({ category, searchQuery, filters }: ItemsListP
           {filteredItems.map((item) => (
             <div 
               key={item.id}
-              className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-500 transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/20"
+              className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-500 transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/20 cursor-pointer"
+              onClick={() => openItemDetail(item)}
             >
               <div className="h-48 relative overflow-hidden">
                 <Image 
@@ -280,7 +306,13 @@ export default function ItemsList({ category, searchQuery, filters }: ItemsListP
                   <span className="font-bold text-amber-400">
                     {item.price.toLocaleString()} $MSCI
                   </span>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm py-1 px-3 rounded-full transition-colors">
+                  <button 
+                    className="bg-blue-600 hover:bg-blue-700 text-white text-sm py-1 px-3 rounded-full transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openItemDetail(item);
+                    }}
+                  >
                     Mua ngay
                   </button>
                 </div>
@@ -289,6 +321,13 @@ export default function ItemsList({ category, searchQuery, filters }: ItemsListP
           ))}
         </div>
       )}
+
+      {/* Item Detail Modal */}
+      <ItemDetailModal 
+        isOpen={isModalOpen}
+        onClose={closeItemDetail}
+        item={selectedItem}
+      />
     </div>
   );
 } 

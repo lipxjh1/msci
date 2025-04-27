@@ -1,0 +1,707 @@
+CHƯƠNG 2: PHÂN TẦNG
+HỒI 1: HÀNG HOÁ
+Nước lạnh cắt vào mặt như lưỡi dao, xâm nhập vào từng lỗ chân lông, thấu đến tận xương tủy, đóng băng mọi suy nghĩ. Sarah bật dậy, phổi thắt nghẹn, tim như con chim bị thương vỗ cánh điên cuồng trong lồng ngực. Thực tại hiện về trong tiếng ù ù – một hầm ngục dài dặc với hai dãy giường tầng han gỉ, những cái bóng nhòe nhoẹt, và tiếng zip-zip của dùi cui điện cắt ngang không khí như những lời nguyền rủa.
+"Dậy mẹ mày đi, lũ rác rưởi Disconnected!" Tiếng hét xé toạc bầu không khí ẩm ướt. "Năm phút xếp hàng! Đứa nào chậm—mất cơ hội ăn trong tuần này!"
+Mệnh lệnh bắn ra từ miệng một mụ đàn bà với khuôn mặt nhăn nhúm trong ánh đèn nhấp nháy, hai mắt trống rỗng và cái miệng méo xệch hằn học. Trên thái dương mụ, vết sẹo Neuralink phát sáng dưới đèn huỳnh quang—dấu hiệu của Connected, của con người thực thụ, không phải rác rưởi như những cái xác biết đi trong căn phòng này.
+Sarah loạng choạng đứng lên, quần áo ướt sũng dính như lớp da thứ hai lên cơ thể. Cô đang mặc bộ đồng phục màu xám như bùn—không phải thứ cô mặc trên tàu. Đã bao lâu rồi? Những mảnh ký ức cuối cùng—tiếng cánh quạt trực thăng, những bàn tay trong găng tay đen, mũi kim đâm vào gáy, rồi hư vô—chỉ còn lại hư vô.
+Xung quanh cô, những xác sống trong hình hài thiếu nữ vội vã xếp thành hàng, mắt nhìn xuống đất như thể sợ rằng chỉ một ánh mắt sai lầm có thể khiến linh hồn bị hút ra khỏi cơ thể. Không ai phát ra tiếng động. Tất cả đều hiểu—một cái nhìn sai trái, một lời nói sai lầm là ranh giới giữa sự tồn tại và cái chết.
+Sarah lê thân xác đứng vào cuối hàng, cố gắng hòa tan vào đám đông. Mùi mồ hôi, nước tiểu và chất khử trùng công nghiệp ùa vào mũi, tạo nên một cỗ quan tài vô hình quanh cô. Không khí đặc quánh hơi ẩm và mùi tuyệt vọng, bức tường của địa ngục đang co thắt, nuốt chửng từng tế bào.
+"Mới đến hả?" Một tiếng thở nhẹ vang lên bên tai, mong manh như sợi tơ.
+Sarah quay đầu, bắt gặp một gương mặt như tranh vẽ—mái tóc vàng óng như dòng sông ánh nắng và đôi mắt xanh thẳm tựa vực thẳm Scandinavian. Làn da trắng ngần như sứ, gò má cao quý phái, vẻ đẹp thuần khiết không thuộc về nơi này.
+"Im," cô gái thì thầm, môi gần như không cử động. "Nhìn. Bắt chước. Sống."
+Trước khi Sarah kịp trả lời, cánh cửa mở ra với âm thanh của xương gãy. Một con rối cao lớn bước vào, bộ đồng phục đen thẳng tắp, trên ngực là tấm huy hiệu bạc với chữ "Trưởng Trại." Đôi mắt không chứa sự sống của mụ ta quét qua từng khuôn mặt như máy quét vỏ chai.
+"Hôm nay chúng ta có hàng mới," mụ ta lên tiếng, giọng vô cảm như máy nhắn tin tự động. "D-7294."
+Sarah nhận ra đó là mình khi bị đẩy lên phía trước.
+"Đây là Trung tâm Phân loại và Tái định cư Oakland," Trưởng Trại nói, đôi mắt nhìn xuyên qua Sarah như thể cô là không khí. "Khu A—dành cho những mẫu vật Disconnected còn giá trị sử dụng. Ngươi sẽ ở đây cho đến khi được xác định vị trí phù hợp."
+Trưởng Trại dừng lại, ánh mắt lướt qua thân thể Sarah như đang đánh giá một miếng thịt. "Kỷ nguyên Neuralink không có chỗ cho loại các ngươi, nhưng chúng ta vẫn tìm cách để rác thải có thể phục vụ cho xã hội. Đó là lòng nhân đạo của chúng ta."
+Những lời nói như axit đổ lên da thịt, nhưng không ai dám phản ứng. Trong thế giới mới này, Disconnected không còn là người—chỉ là công cụ, là vật liệu, là vấn đề cần giải quyết.
+"Quay lại hàng. Đi ăn."
+________________________________________
+Những ngày tiếp theo, Sarah hiểu rõ hơn về nơi mình đang bị giam giữ. Trung tâm Oakland là một trong nhiều trại thu gom trên khắp đất nước—nơi những Disconnected bị bắt từ các Dead Zone, những khu ổ chuột xa xôi ngoài vùng phủ sóng của nền văn minh.
+Cuộc sống dựa trên một thời gian biểu khắc nghiệt: 5 giờ sáng thức dậy, kiểm tra, ăn sáng (nếu được phép), học "kỹ năng phục vụ" (chủ yếu là cách quỳ gối, cúi đầu, im lặng), ăn trưa (đôi khi), tập thể dục cưỡng bức, ăn tối (nếu không bị phạt), và tắt đèn lúc 9 giờ tối. Ngày qua ngày, như một vòng xoay không lối thoát.
+Trong địa ngục vô nghĩa đó, Sarah và cô gái tóc vàng—tên là Natalia—tìm thấy hơi ấm lẫn nhau. Họ rì rầm trò chuyện mỗi đêm, chia sẻ những mảnh vỡ cuộc đời. Natalia cũng là kẻ bị ruồng bỏ, từ một thế giới bị hủy diệt. Ukraine—đất nước bị cày xới bởi bom đạn và nghèo đói cùng cực, nơi công nghệ Neuralink chỉ xuất hiện trong truyền thuyết.
+"Gia đình tôi bán tất cả để trốn đến phương Tây," Natalia kể, giọng khô khốc như cát. "Cha tôi nói ở đó, chúng tôi có thể bắt đầu lại, có thể trở thành Connected. Nhưng thuyền chìm. Sóng cuốn đi mọi thứ. Mẹ tôi. Em tôi. Tôi là người duy nhất sống sót."
+Hai con người cùng mất tất cả, cùng vượt biển, cùng trôi dạt vào địa ngục trên trần gian này.
+Cả hai đều biết rằng trong thế giới của những Disconnected, hy vọng là thứ xa xỉ đáng bị trừng phạt. Nhưng Natalia vẫn nhen nhóm một niềm tin mù quáng—niềm tin vào cái gọi là "được chọn."
+"Đôi khi, những người từ thế giới bên ngoài đến. Connected. Elite. Họ chọn những người trong chúng ta—thường là những người xinh đẹp nhất—đưa ra khỏi đây," Natalia thì thầm một đêm, mắt sáng lên như hai ngôi sao nhỏ trong bóng tối dày đặc. "Họ mang ta đến những ngôi nhà lộng lẫy. Nếu ta làm họ hài lòng, một ngày nào đó họ sẽ ban cho ta Neuralink. Ta sẽ trở thành người."
+Sarah không nói ra những nghi ngờ trong lòng. Trong thế giới của kẻ mạnh, không có món quà nào miễn phí, không có lòng tốt nào không mang theo cái giá phải trả. Nhưng ai có thể trách một kẻ chết đuối bám víu vào cọng rơm?
+________________________________________
+"Tất cả xếp hàng tại phòng ăn! Kiểm tra đặc biệt!"
+Tiếng còi báo động khác thường vang lên vào một buổi sáng, sau khoảng hai tuần kể từ khi Sarah đến. Các giám thị di chuyển gấp gáp hơn, mắt liên tục nhìn đồng hồ như thể có bom hẹn giờ.
+Thay vì ra sân như thường lệ, họ được dẫn thẳng đến phòng ăn. Nhưng hôm nay, không gian đã biến đổi hoàn toàn. Không có bàn ghế trống trải, không có khay thức ăn quen thuộc. Thay vào đó, một tấm thảm đỏ rực trải dài từ cửa vào, những bình hoa tươi đặt hai bên—xa xỉ phẩm chưa từng xuất hiện trong trại. Ánh đèn sáng chói chang, không khí thơm tho nhờ máy phun sương tự động phía trên.
+Không khí căng như dây đàn sắp đứt, nhưng kỳ lạ thay, bên dưới lớp sợ hãi là một luồng phấn khích kỳ quái. Sarah nhận thấy nhiều cô gái đang lén lút chỉnh trang—vuốt tóc, cắn môi tạo màu, bóp má để thêm sắc hồng.
+"Chuyện gì vậy?" Sarah thì thầm với Natalia, người đột nhiên dường như rung lên bần bật.
+"Khách," Natalia đáp, môi run run, mắt bừng sáng như kẻ sốt cao. "Một Elite. Đây có thể là cơ hội của chúng ta."
+Trước khi Sarah kịp hỏi thêm, cánh cửa tự động trượt ra. Một người đàn ông bước vào, và bầu không khí như bị hút sạch oxy.
+Không phải con người, mà là một bức biếm họa của sự phồn thịnh. Thân hình phì nộn chảy xệ trong bộ vest may đo đắt tiền, khuôn mặt đỏ gay của kẻ sống trên xác chết người khác, đôi mắt ti hí ướt nhẹp nhìn đám phụ nữ với sự thèm khát không che đậy. Trên thái dương hắn, vết sẹo Neuralink lấp lánh ánh bạc—không phải loại phổ thông, mà là phiên bản elite, mạ vàng, đính kim cương, chỉ dành cho tầng lớp thượng đẳng trong giới thượng lưu.
+"Ông Morrison, chúng tôi vô cùng vinh hạnh được đón tiếp ngài," Trưởng Trại nói, giọng mềm nhũn như kẹo dẻo, hoàn toàn khác với giọng quát tháo với đám tù nhân. "Trung tâm của chúng tôi rất hân hạnh được phục vụ ngài."
+"Hmmm," Morrison ậm ừ, thậm chí không buồn nhìn vào mặt Trưởng Trại. Đôi mắt nhỏ xíu của hắn lướt qua từng khuôn mặt, từng thân hình, đánh giá từng đường cong, từng góc cạnh, như đang chọn thịt tại lò mổ. "Tôi không có nhiều thời gian. Con hầu cũ gặp... sự cố. Đã được xử lý. Cần đồ thay thế."
+Lời nói thô bỉ, vô hồn, nhưng Trưởng Trại vẫn nở nụ cười rạng rỡ đến đau đớn. "Dĩ nhiên, thưa ngài. Chúng tôi đã lựa chọn những mẫu vật tốt nhất. Tất cả đều là Disconnected đã qua kiểm dịch, sạch sẽ, và được thuần hóa hoàn toàn."
+Mẫu vật. Được thuần hóa. Từng từ đâm vào tim Sarah như những mũi kim đầu độc, nhắc nhở cô về vị trí của mình trong thế giới mới—không phải con người. Chỉ là món hàng.
+Morrison bắt đầu bước dọc theo hàng, tiếng giày cá sấu nghiến lên sàn gạch bóng loáng. Hắn dừng lại trước từng người, đôi khi nhíu mày ghê tởm, đôi khi chép miệng thèm thuồng. Mỗi khi hắn đến gần, Sarah cảm nhận được mùi nước hoa đắt tiền pha lẫn mùi mồ hôi ôi thiu và whisky.
+Hắn dừng lại trước Sarah, ánh mắt dâm đãng không giấu giếm. Sarah cảm thấy da gà nổi khắp người khi hắn nhìn cô từ trên xuống dưới, như thể cô đang bị lột trần truồng dưới những tia X-quang.
+"Hmm, món này mới. Châu Á. Hiếm." Morrison lẩm bẩm, rồi với tay nắm lấy cằm Sarah, xoay mặt cô sang hai bên như người thợ kim hoàn kiểm tra đá quý. "Da tốt. Mắt trong. Còn tươi." Hơi thở nồng nặc rượu và thức ăn thừa phả vào mặt Sarah, khiến dạ dày cô quặn thắt.
+Sarah muốn nôn mửa, nhưng cô buộc phải đứng im, mắt nhìn xuống như một con búp bê được lập trình. Đây là thế giới mới—nơi con người được phân loại, được đánh giá, được buôn bán như gia súc dựa trên "giá trị sử dụng."
+Tim cô đập loạn xạ. Một phần trong cô—phần yếu đuối và hoảng sợ—cầu xin hắn bỏ qua. Nhưng một phần khác—phần lý trí và tính toán—tự hỏi liệu đây có phải cơ hội duy nhất để thoát khỏi địa ngục này, để tiếp cận thế giới Connected, để tìm ra kẻ đã hủy diệt gia đình cô.
+Nhưng Morrison tiếp tục di chuyển. Hắn dừng lại trước Natalia, đôi mắt bùng lên như ngọn lửa địa ngục phát hiện một linh hồn trong trắng.
+"Cô này," hắn nói, giọng khàn đặc vì ham muốn như cát mài vào đá. "Tóc vàng. Mắt xanh. Nga?"
+"Ukraine, thưa ngài," Trưởng Trại đáp, giọng ngọt lịm. "N-5621. Một tháng tại trung tâm, tuân thủ hoàn hảo, được huấn luyện đầy đủ kỹ năng cần thiết."
+"Tôi lấy con này," Morrison tuyên bố, không thèm nhìn nữa. "Chuẩn bị nó. Tôi sẽ đợi trong phòng."
+"Lựa chọn tuyệt vời, thưa ngài," Trưởng Trại tán dương, rồi quay sang Natalia. "Chúc mừng, N-5621. Cô được chọn vào biệt thự của Ông Morrison. Đây là vinh dự lớn nhất, và là cơ hội để cô chứng minh giá trị của mình với xã hội văn minh."
+Đôi mắt Natalia mở to trong khoảnh khắc sững sờ. Rồi một phép màu xảy ra—khuôn mặt cô từ từ rạng ngời, nụ cười bừng nở trên môi như đóa hoa đầu xuân. Đôi mắt xanh ngọc bỗng ánh lên niềm hy vọng mãnh liệt, như thể trước mặt cô là thiên đường sau những tháng ngày trong địa ngục không đáy.
+Kỳ diệu thay, những cô gái xung quanh cũng vỗ tay, trên mặt họ là thứ cảm xúc gần giống với hạnh phúc—nếu không phải cho bản thân, thì là cho Natalia. Một cô gái xa lạ rít lên: "May mắn quá!" Người khác thở dài ngưỡng mộ: "Ước gì là tôi." Phản ứng của đám đông lan tỏa như bệnh dịch, tạo ra một bầu không khí phấn khích điên rồ.
+Cả Sarah cũng cảm thấy bị cuốn vào cơn sốt tập thể đó. Một cảm giác vui mừng nửa thật nửa giả xâm chiếm tâm trí. Lý trí cô nghi ngờ "vinh dự" này, nhưng phần khác—phần đã kiệt quệ vì sợ hãi và tuyệt vọng—muốn tin rằng Natalia thực sự may mắn. Và biết đâu, đây sẽ sớm là cơ hội của chính cô.
+Sau khi Morrison và đoàn tùy tùng rời đi, Natalia được tách khỏi đám đông. Cô được đưa đến một căn phòng riêng, nơi những "chuyên gia làm đẹp" đang chờ đợi.
+"Giờ tôi sẽ là một phần của họ," Natalia thì thầm với Sarah khi hai người tạm biệt, giọng run rẩy vì xúc động. "Tôi sẽ làm việc thật tốt. Một ngày nào đó, tôi sẽ có Neuralink. Tôi sẽ trở lại tìm cô, Sarah, tôi hứa đấy."
+Sarah ôm chặt Natalia, cảm nhận được luồng điện phấn khích đang chạy rần rật trong huyết quản người bạn. Sự ấm áp của cái ôm, niềm vui bừng sáng trên gương mặt Natalia khiến Sarah không nỡ phá vỡ giấc mơ đó bằng bất kỳ nghi ngờ tăm tối nào.
+"Cậu hãy cẩn thận nhé," cô nói, không biết phải nói gì khác.
+Buổi chiều hôm đó, một cảnh tượng siêu thực diễn ra trong trại tù ảm đạm. Natalia bước ra từ phòng làm đẹp, lộng lẫy trong chiếc váy dạ hội màu xanh ngọc, ôm sát những đường cong hoàn hảo. Mái tóc vàng được uốn xoăn nhẹ nhàng rơi xuống lưng như thác nước ánh nắng, làn da trắng ngần càng rạng rỡ dưới lớp trang điểm tinh tế. Những bước chân của cô nhẹ tênh, tự tin, và lần đầu tiên kể từ khi Sarah biết cô, Natalia ngẩng cao đầu, không còn dáng vẻ của một tù nhân.
+"Trời ơi, cậu đẹp quá!" Sarah thốt lên khi được phép đến chào tạm biệt. Cô ngạc nhiên nhận ra niềm vui này không hoàn toàn giả tạo. Một phần trong cô thực sự hạnh phúc cho Natalia—mừng vì ít nhất một người đã thoát khỏi địa ngục này.
+"Đây mới là tôi thực sự," Natalia mỉm cười rạng rỡ, xoay một vòng khoe chiếc váy lộng lẫy. "Không phải một Disconnected, không phải một con số. Một con người, Sarah ạ." Cô siết chặt tay Sarah. "Có lẽ đây là cơ hội của tôi. Lần này mọi thứ sẽ khác."
+Natalia được dẫn ra ngoài, nơi một chiếc limousine đen bóng như quan tài đang đợi. Tài xế—một người đàn ông trong bộ đồng phục chỉnh tề—bước ra, cúi đầu chào Natalia, rồi mở cửa xe như thể cô là công nương hoàng gia.
+Sarah đứng bên cửa sổ, nhìn theo chiếc xe sang trọng khuất dần. Một giọt nước mắt lặng lẽ rơi xuống. Cô đã từng được đối xử như vậy, trong một cuộc đời khác, khi cô vẫn là Sarah Chen, thiên tài công nghệ, tiểu thư của một trong những gia đình quyền lực nhất Thâm Quyến. Giờ đây, những ký ức đó mờ nhạt như ảo ảnh sa mạc, như một giấc mơ về cuộc đời người khác.
+"Đừng ganh tị," giọng nói vang lên bên cạnh. Sarah quay lại, thấy một cô gái với khuôn mặt sắc lẻm và hình xăm nhỏ trên cổ—một mã vạch kèm dãy số. "Sẽ đến lượt cô thôi, búp bê xinh đẹp. Với gương mặt đó, cô không phải đợi lâu đâu."
+"Cô là...?"
+"Maya," cô gái đáp, ánh mắt già nua trong gương mặt trẻ. Đôi mắt cô ánh lên sự thông tuệ cay đắng, như người đã nhìn thấu mọi dối trá của thế gian. "Cô sẽ hiểu thôi."
+Sarah gật đầu, quay lại nhìn ra cửa sổ, nơi chiếc limousine đã khuất dạng. Một ý nghĩ thoáng qua trong đầu cô: biết đâu đây là con đường. Con đường trở về. Con đường báo thù.
+________________________________________
+Đêm buông xuống như xiềng xích sắt, siết chặt lấy trại tù. Sarah nằm một mình trên giường, bóng tối dày đặc bao quanh. Giường bên cạnh trống vắng không có Natalia. Cô mơ về biệt thự trên đồi, về cha mẹ, về Lão Zhang, về những ngày hạnh phúc—những ký ức mỗi lúc một mờ nhạt, như những bức ảnh phai màu dưới nắng gắt.
+Đột nhiên, tiếng động kinh hoàng từ hành lang làm Sarah bừng tỉnh. Tiếng cửa đập vào tường, tiếng bước chân nặng nề, tiếng quát tháo tức giận, và tiếng gì đó—tiếng kêu đau đớn không còn là tiếng người, tiếng rên xiết như từ cổ họng của động vật bị giết thịt, tiếng khóc nức nở vỡ vụn như thủy tinh bị đập.
+Sarah bật dậy, trái tim như muốn nhảy ra khỏi lồng ngực. Âm thanh đó... giọng nói đó... Natalia?
+Cánh cửa phòng bật mở với sức mạnh của cơn thịnh nộ. Hai nữ giám thị kéo lê một thân thể vào trong, quăng lên chiếc giường trống cạnh Sarah như quăng một bao rác thối.
+"Còn thở," một giám thị nói, giọng trống rỗng như máy. "Bác sĩ kiểm tra sáng mai. Nếu còn sống."
+Họ đóng cửa lại, để Sarah trong bóng tối cùng với... thứ gì đó, không còn là người, đang co quắp trên giường Natalia.
+"Natalia?" Sarah thì thầm, run rẩy đứng dậy. "Có phải cậu không? Cậu nghe thấy tôi chứ?"
+Không có tiếng trả lời, chỉ có tiếng thở đứt quãng như ống bễ thủng, tiếng nức nở nghẹn ngào không thành lời, và một mùi—mùi hỗn hợp của máu, nước tiểu, mồ hôi, và thứ gì đó ngai ngái, tanh tưởi, mà Sarah chưa từng ngửi thấy trong đời.
+Sarah run rẩy đứng dậy, lần mò đến chiếc đèn pin nhỏ cô đã giấu dưới đệm. Cô bật đèn, hướng về phía giường Natalia.
+Ánh sáng rọi lên một cảnh tượng mà không từ ngữ nào có thể mô tả trọn vẹn nỗi kinh hoàng. Trên giường không còn là Natalia, mà là một bức biếm họa méo mó của sự đau đớn—một tấm bản đồ của tất cả nỗi đau con người có thể chịu đựng. Chiếc váy xanh lộng lẫy giờ chỉ còn là những mảnh vải rách nát, thấm đẫm máu và chất dịch. Thân thể trần truồng không còn một tấc da nguyên vẹn—lưng chi chít những vết roi đan chéo như mạng nhện đỏ thẫm, cánh tay và đùi bầm tím đến mức không còn màu da, những vết cắn sâu hoắm chảy máu trên ngực, trên cổ, trên bụng, giữa hai đùi, như thể loài ăn thịt đã gặm nhấm từng phần cơ thể cô.
+Khuôn mặt xinh đẹp đã biến mất, thay vào đó là một mặt nạ kinh hoàng—sưng vù, bầm tím, với những vết rạch nhỏ chạy dọc hai bên má như những nụ cười méo mó, như thể ai đó đã cố gắng tạo ra một búp bê cười vĩnh cửu. Một mắt sưng đến không thể nhận ra, mắt còn lại đỏ ngầu máu tươi, nhìn trừng trừng vào hư vô. Môi sưng vù, rách toác như bị chém, máu đóng thành vảy đen. Một vết thương sâu hoắm trên trán vẫn rỉ máu tươi, chảy thành dòng xuống thái dương, tạo thành những hoa văn quỷ dị trên gối.
+Mùi hôi thối, tanh tưởi phát ra từ cơ thể Natalia là hỗn hợp của máu, nước tiểu, phân, và tinh dịch—không phải từ một người, mà từ nhiều người, chảy xuống tóc, da thịt, và rỉ ra không ngừng từ giữa hai chân. Toàn bộ bức tranh đó như một hiện thân của địa ngục trần gian—nơi con người không còn là con người, mà chỉ là công cụ thỏa mãn bản năng tàn bạo nhất.
+"Lạy Chúa tôi, Natalia!" Sarah bật khóc, tay run rẩy đến nỗi đèn pin rơi xuống sàn, ánh sáng quay cuồng. Cô vội vàng tìm chiếc khăn tắm duy nhất của mình, cẩn thận quấn quanh thân thể bạn. "Natalia, là tôi đây, Sarah. Cậu nghe thấy tôi không? Cậu sẽ không sao đâu, tôi hứa, tôi hứa..."
+Sarah cố gắng lau đi những vết bẩn trên mặt Natalia, nhưng mỗi cái chạm nhẹ đều khiến cô ấy rên lên trong đau đớn cùng cực. "Chúng ta cần nước sạch, cần thuốc, cần... ai đó giúp đỡ..."
+Đột nhiên, như một con thú bị tra tấn đến điên loạn, Natalia bùng nổ trong một cơn hoảng loạn kinh hoàng. Cô đẩy Sarah ra với sức mạnh không tưởng của kẻ tuyệt vọng, gào thét bằng một giọng không còn là con người—rít lên, the thé, vỡ vụn như thủy tinh bị nghiền nát:
+"ĐỪNG CHẠM VÀO TÔI! KHÔNG! KHÔNG! TÔI XIN LỖI, TÔI XIN LỖI, TÔI SẼ LÀM TẤT CẢ, XIN ĐỪNG... ĐỪNG CHẠM VÀO TÔI NỮA! ĐỪNG CẮN! ĐỪNG RẠCH! GIẾT TÔI ĐI! GIẾT TÔI ĐI!"
+Natalia lùi vào góc giường, co rúm như con vật bị săn đuổi, run rẩy dữ dội đến mức giường sắt kêu lên những tiếng cọt kẹt đau đớn. Cô ôm chặt lấy thân thể, móng tay cắm sâu vào da thịt đến chảy máu, mắt mở trừng trừng nhìn vào khoảng không, không còn nhận ra Sarah hay bất cứ thứ gì thuộc về thế giới thực. Môi cô không ngừng lẩm bẩm: "Tha cho tôi, tha cho tôi, tôi sẽ làm bất cứ điều gì, chỉ cần dừng lại... tôi sẽ ngoan... tôi sẽ là đồ chơi ngoan... tôi sẽ không kêu nữa... tôi sẽ không chảy máu nữa... chỉ cần đừng cho chó cắn nữa..."
+Sarah đứng bất lực, nước mắt tuôn rơi như thác đổ. Cô cố gắng lại gần vài lần nữa, nhưng mỗi lần Natalia đều phản ứng dữ dội hơn, gào thét, cào cấu, đập đầu vào tường với sức mạnh có thể làm vỡ sọ.
+"Tôi chỉ muốn giúp," Sarah nức nở, cổ họng nghẹn đắng. "Natalia, làm ơn, là tôi đây, Sarah đây..."
+Nhưng Natalia không còn ở đó. Cơ thể cô ấy có thể đang ở trong phòng, nhưng tâm trí đã vỡ vụn thành ngàn mảnh, linh hồn đã tan nát dưới những cực hình không thể tả bằng ngôn từ loài người. Những gì còn lại chỉ là một vỏ bọc thể xác rỗng ruột, chứa đựng nỗi đau thuần túy.
+Cuối cùng, kiệt sức sau cả ngày và cú sốc liên tiếp, Sarah nằm xuống giường mình, lắng nghe tiếng Natalia rên xiết, thốt ra những lời van xin không liên quan đến thực tại, cho đến khi thiếp đi trong một giấc ngủ đầy ác mộng.
+________________________________________
+Nửa đêm, Sarah chợt tỉnh giấc, đánh thức bởi một cảm giác kỳ lạ—một sự im lặng quá đỗi hoàn hảo. Căn phòng chìm trong bóng tối tuyệt đối, chỉ có ánh sáng xanh mờ ảo từ đèn khẩn cấp hành lang hắt vào qua khe cửa. Sarah nín thở, lắng nghe.
+Im lặng. Một sự im lặng đáng sợ đến tột cùng.
+"Natalia?" cô gọi khẽ, giọng run run. "Cậu có ổn không?"
+Không có tiếng trả lời. Không có tiếng rên rỉ. Không có tiếng thở.
+Sarah với lấy đèn pin, trái tim đập nhanh đến mức có thể vỡ tung. Cô bật đèn, hướng về phía giường Natalia.
+Ánh đèn rọi lên một cảnh tượng làm đông cứng linh hồn.
+Natalia lơ lửng giữa không trung, thân thể trần truồng đung đưa nhẹ nhàng dưới xà sắt. Một dải lụa xanh—mảnh cuối cùng của chiếc váy lộng lẫy—quấn quanh cổ, siết chặt đến mức da đã chuyển sang màu tím bầm, những đường gân trên cổ nổi lên như dây cáp thép. Đôi chân trần—vẫn lấm tấm máu khô và tinh dịch—đung đưa cách sàn chỉ vài phân, những ngón chân cong queo trong cơn đau cuối cùng. Hai tay buông thõng bên thân như cánh của một con búp bê rách nát, những ngón tay co quắp thành vuốt, móng tay gãy vụn, đen ngòm máu khô.
+Khuôn mặt sưng vù giờ còn biến dạng hơn trong cơn đau đớn cuối cùng—một bức tranh của sự tuyệt vọng tột độ. Đôi mắt mở trừng trừng, long lanh trong ánh đèn pin, chứa đựng một sự kinh hoàng vĩnh cửu. Miệng mở rộng trong tiếng thét câm lặng cuối cùng, lưỡi thè ra, sưng phồng, tím ngắt. Những vết thương trên mặt, trên cổ không còn rỉ máu, chỉ đóng thành những đường vân đỏ thẫm, như một tác phẩm nghệ thuật quỷ dị.
+Dưới chân Natalia, trên tấm đệm bẩn thỉu, là một vũng ẩm ướt—nước tiểu và phân cuối cùng khi cơ thể giãn ra trong cái chết. Và một mùi—mùi của sự tuyệt vọng tột cùng, của nhục nhã không lối thoát, của một linh hồn tan vỡ tìm đến cái chết như giải thoát duy nhất.
+Sarah hét lên, tiếng hét như xé toạc không gian, âm thanh không còn là của con người mà là của sinh vật nguyên thủy đối mặt với nỗi kinh hoàng vượt quá sức chịu đựng. Cô buông rơi đèn pin, ánh sáng quay cuồng trên sàn, tạo ra những hình thù quỷ dị trên tường. Cô lao đến ôm lấy đôi chân Natalia, cố nâng cô lên để giảm sức nặng trên cổ.
+"CỨU VỚI! CÓ AI KHÔNG? CỨU CÔ ẤY!" Sarah gào lên, tiếng hét xé toạc cổ họng đến rách da. "NATALIA! KHÔNG! ĐỪNG! TÔI XIN CẬU! QUAY LẠI ĐI!"
+Cửa phòng bật mở, đèn bật sáng với tiếng khô khốc. Các giám thị lao vào, nhưng không ai tỏ vẻ bất ngờ, không ai hoảng hốt, không ai vội vàng. Họ tiến đến với vẻ mặt trống rỗng, kéo Sarah ra, trong khi một người dùng dao cắt đứt dải lụa, để thi thể Natalia rơi phịch xuống sàn như một con búp bê rách, phát ra tiếng động khô khốc như bao tải cát đổ.
+Sarah gục xuống sàn, nôn thốc nôn tháo, mật xanh mật vàng trào ra từ dạ dày trống rỗng, nước mắt tuôn rơi không kiểm soát. Hình ảnh Natalia—xinh đẹp, rạng ngời, đầy hy vọng trong chiếc váy xanh—chồng lên thi thể méo mó đang nằm trên sàn. Làm sao chỉ trong mấy giờ ngắn ngủi mà mọi thứ có thể thay đổi kinh khủng đến vậy?
+Và trong khoảnh khắc đó, mọi mảnh ghép đột nhiên khớp vào nhau trong tâm trí Sarah với sự rõ ràng tàn nhẫn. Tiếng vỗ tay hớn hở. Niềm vui sướng ngây ngất của đám đông. "Vinh dự" được chọn. Tất cả chỉ là một vở kịch—một vở kịch tàn nhẫn, đáng khinh, nơi niềm vui kết thúc bằng đau đớn cùng cực, nơi tia hy vọng chỉ là bẫy dẫn đến tuyệt vọng và cái chết.
+Ngay cả cô—Sarah Chen, thiên tài công nghệ, con gái của gia đình quyền lực—cũng đã bị cuốn vào trò lừa bịp ghê tởm đó. Cô cũng đã vỗ tay. Cô cũng đã mơ về ngày mình được chọn. Cô cũng đã tưởng tượng về con đường thoát thân và trả thù.
+Những ngã rẽ của số phận thật trớ trêu. Nếu không phải Natalia mà là cô được chọn hôm qua, có lẽ giờ đây Natalia sẽ là người đang nâng xác cô lên khỏi sàn nhà.
+________________________________________
+Sáng hôm sau, Sarah ngồi trên giường, mắt sưng húp vì khóc, tâm trí trống rỗng như sa mạc. Sàn nhà đã được lau sạch, giường Natalia đã được thay ga mới, mọi dấu vết về cô gái tóc vàng đã biến mất, như thể cô chưa từng tồn tại, như thể đêm qua chỉ là một cơn ác mộng.
+Maya, cô gái có hình xăm ở cổ, tiến đến, ngồi xuống bên cạnh Sarah. Cô ta đưa cho Sarah một cốc nước.
+"Uống đi," Maya nói, giọng dịu dàng đến bất ngờ. "Cô cần nước."
+Sarah nhìn Maya, nhưng không thực sự thấy. Cô uống một ngụm nước, cảm thấy chất lỏng chảy xuống cổ họng khô rát như sa mạc.
+"Thật đáng tiếc," Maya thở dài, nhìn về phía giường Natalia giờ đã trống trơn. "Chỉ cần chịu đựng một chút thôi mà. Xinh đẹp như vậy mà không vượt qua được đêm đầu tiên, chết uổng."
+"Chịu đựng?" Sarah lặp lại, giọng khàn đặc. "Cậu ấy bị... họ đã làm gì cậu ấy?"
+Maya nhìn Sarah với ánh mắt thương hại pha lẫn mỉa mai. "Cô thực sự không hiểu điều gì đang diễn ra ở đây, phải không, công chúa nhỏ?"
+Cô ta ngồi sát lại, hạ giọng xuống mức chỉ Sarah có thể nghe: "Đây là cách thế giới hoạt động bây giờ. Nếu cô Disconnected và xấu xí, họ sẽ giết cô để lấy nội tạng—những bộ phận thuần túy, không biến đổi, cực kỳ có giá trị trên thị trường chợ đen dành cho những Elite muốn thay thế các bộ phận đã được augment của họ."
+Sarah rùng mình, nhớ lại những tiếng thét đêm đó—tiếng thét của những người phụ nữ bị lấy nội tạng, có lẽ khi họ vẫn còn tỉnh táo, vẫn còn cảm nhận được đau đớn.
+"Còn nếu cô xinh đẹp," Maya tiếp tục, giọng trầm xuống, "cô sẽ được đưa đến để làm món đồ chơi cho tầng lớp Elite. Những cuộc chơi của họ... không phải thứ mà não bộ con người bình thường có thể chịu đựng được." Cô ta nhìn về phía giường trống. "Bạn cô yếu quá. Hoặc có lẽ cô ta quá ngây thơ. Những cô gái như vậy thường không vượt qua được giờ đầu tiên, chứ đừng nói đến đêm đầu tiên."
+Maya kéo cổ áo xuống, để lộ rõ hơn hình xăm—mã vạch nhỏ kèm theo dãy số, như thể cô là sản phẩm trên kệ hàng. "Tôi đã qua tay rất nhiều gã đàn ông Elite. Những kẻ như Morrison, và tệ hơn nhiều. Ban đầu tôi cũng sốc, cũng kinh hoàng, cũng muốn chết như bạn cô." Cô ta nhìn sâu vào mắt Sarah. "Nhưng tôi đã sống sót. Tôi đã học được rằng đó chỉ là thân xác. Đau đớn chỉ là tín hiệu. Nhục nhã chỉ là ý niệm. Bạn cô không hiểu điều đó, nên cô ấy đã chết."
+Maya vuốt tóc Sarah, cử chỉ gần như âu yếm, nhưng có gì đó bệnh hoạn ẩn sau đó. "Thậm chí tôi còn tìm thấy niềm vui trong những trò chơi bệnh hoạn ấy. Tôi biến đau đớn thành khoái cảm, biến nhục nhã thành quyền lực. Tôi làm cho họ thỏa mãn, và họ trả tiền. Không nhiều, nhưng đủ để tôi dành dụm. Một ngày nào đó tôi sẽ có đủ tiền để mua Neuralink, dù là hàng nhái, và tôi sẽ rời khỏi đây, làm lại cuộc đời."
+Maya đặt tay lên đùi Sarah, cử chỉ suồng sã nhưng không hẳn đe dọa. "Cô đẹp lắm, Sarah. Đẹp hơn cả cô gái Ukraine kia. Cô sẽ là người được chọn tiếp theo, tôi cá là không quá một tuần nữa. Và khi thời điểm đó đến, hãy nhớ—chỉ cần chịu đựng. Chấp nhận nó. Để họ làm những gì họ muốn, và tìm cách tận hưởng nó. Đừng chiến đấu, đừng phản kháng, đừng cảm thấy nhục nhã. Vì nếu không, cô sẽ kết thúc như Natalia—một sợi dây và một cơ thể lạnh ngắt."
+Maya cười khẽ, nhưng không phải nụ cười vui vẻ. "Vả lại, khác với cô công chúa Ukraine, cô đã trải qua nhiều điều, phải không? Tôi nhìn thấy điều đó trong mắt cô. Cô mạnh mẽ hơn cô ấy. Cô sẽ vượt qua được. Cô sẽ sống sót."
+Sarah ngồi đó, bất động, cảm thấy một cái gì đó vỡ vụn trong tâm hồn mình. Thế giới này, xã hội này, không dành cho những người yếu đuối. Không dành cho những cô gái chân yếu tay mềm như cô đã từng. Sarah Chen, thiên tài công nghệ, con gái cưng của gia đình quyền lực, không thể tồn tại trong địa ngục này.
+Để sống sót, cô phải trở thành một người khác—một sinh vật mạnh mẽ hơn, lạnh lùng hơn, tàn nhẫn hơn.
+________________________________________
+Đêm xuống chậm chạp như một tấm màn đen được kéo bởi bàn tay tử thần. Sarah nằm trên giường, mắt mở trừng trừng nhìn lên chiếc giường trống phía trên—nơi mà chỉ mới đêm qua, Natalia còn treo cổ tự vẫn. Giường đã được thay ga mới, sạch sẽ, như thể không có gì từng xảy ra, như thể Natalia chưa từng tồn tại.
+Ksssst. Ksssst. Ksssst.
+Tiếng kim loại cọ vào bê tông vang lên trong đêm tối như tiếng rít của rắn độc. Một âm thanh nguyên thủy, hoang dại, không thuộc về thế giới văn minh. Thứ âm thanh của vũ khí đang được chế tác trong bóng tối.
+Ksssst. Ksssst.
+Đèn khẩn cấp ngoài hành lang hắt vào một vệt sáng đỏ máu qua khe cửa, cắt ngang khuôn mặt Sarah như một vết thương hở miệng. Nửa khuôn mặt chìm trong bóng tối đặc quánh, nửa còn lại lấp lánh trong ánh đỏ ma quái. Nụ cười méo mó hiện lên trên môi—không phải nụ cười con người mà là cái nhếch mép của thú dữ, một đường cong vặn vẹo như vết dao cắt.
+Ksssst. Ksssst.
+Từ phòng bên cạnh, tiếng nức nở nghẹn ngào của một tù nhân mới vọng qua tường. Tiếng khóc yếu ớt, thảm thương. Giống Natalia. Tiếng khóc của kẻ sẽ không sống nổi.
+Ksssst. Kkkriiiiiiitch.
+Kim loại cào mạnh hơn, sâu hơn vào bê tông, bật ra những tia lửa nhỏ li ti. Những đốm lửa phản chiếu trong đôi mắt Sarah, biến chúng thành hai hố đen có đốm lửa bập bùng như hai cánh cổng địa ngục mở ra.
+"Natalia ngu vãi lồn," tiếng thì thầm từ môi Sarah không còn là giọng cô gái trẻ, mà là âm thanh khàn đục, rít lên từ nơi sâu thẳm của cổ họng, như tiếng gào của thú hoang. "Yếu đến thảm hại. Chết cũng đáng."
+Ksssst. Ksssst. Ksssst.
+Nền xi măng ẩm ướt thấm lạnh qua lớp quần mỏng. Không khí đặc quánh mùi mồ hôi, nước tiểu và chất tẩy trùng hóa học. Đâu đó, tiếng ống nước cũ rít lên, tiếng chuột chạy loạn xạ trong tường, tiếng dùi cui điện tách-tách của nữ giám thị tuần tra ngoài hành lang.
+"Tao đéo chết đâu," răng cô nghiến ken két, âm thanh như xương gãy. "Đụng vào tao đi. Đụng vào xem. Đụng vào và mày sẽ không bao giờ tìm thấy tay mày nữa."
+Ksssst. Ksssst. Ksssrrrrritch.
+Mỗi nhát cạo đều theo nhịp đập của trái tim không còn là trái tim con người. Móng tay rỉ máu, bắn những vệt đỏ lên tường bê tông. Trong ánh sáng đỏ hắt vào, những vệt máu này trông như những chữ viết của ngôn ngữ cổ xưa, của nghi thức hiến tế, của lời thề máu.
+Plink.
+Một giọt máu rơi xuống nền, âm thanh vang vọng trong đêm tĩnh mịch. Một giọt máu duy nhất—hiến tế ban đầu cho sự biến đổi đang diễn ra.
+Ksssst. Ksssst. Kkkrrriiiiitch.
+Từ xa, tiếng còi báo động vọng lại từ khu nhà khác—có lẽ là một vụ tự tử khác, một Natalia khác đã đầu hàng số phận. Tiếng còi chói tai xé toạc màn đêm như tiếng gào thét của quỷ dữ.
+"Tất cả bọn mày sẽ chết," Sarah thì thầm, lưỡi liếm quanh môi, nếm vị mặn của mồ hôi và nước mắt đã khô. "Tao sẽ moi gan bọn mày. Tao sẽ đút tay vào họng mày và kéo toàn bộ ruột ra. Tao sẽ khiến mày cầu xin được chết như con ngu lồn Ukraine đó."
+Ksssst. Ksssst. Ksssst.
+Chiếc giường sắt cọt kẹt theo mỗi chuyển động của cô. Bên ngoài khe cửa, bóng đen của nữ giám thị đi qua, đóng băng mọi chuyển động của Sarah. Trong khoảnh khắc tĩnh lặng tuyệt đối, chỉ có tiếng hơi thở của cô—sâu, đều đặn, như thể cô đang ngủ. Nhưng đôi mắt mở trừng trừng, không chớp, như đôi mắt của xác chết Natalia.
+"Morrison," cô thầm thì cái tên như một lời nguyền độc. "Tao sẽ đâm cái này vào mắt mày. Tao sẽ móc mắt mày ra. Tao sẽ cắt từng ngón tay mày. Tao sẽ cho mày biết thế nào là đau đớn thực sự."
+Ánh trăng lướt qua, biến mất sau đám mây đen. Căn phòng lại chìm trong bóng tối, chỉ còn ánh đèn đỏ le lói từ khe cửa. Trong bóng tối đặc quánh, chỉ còn tiếng mài—đều đặn, kiên nhẫn, không ngừng nghỉ.
+Ksssst. Ksssst. Ksssst.
+Một âm thanh nguyên thủy. Âm thanh của sự chuẩn bị. Âm thanh của sự trả thù đang được rèn giũa.
+________________________________________
+Ánh mặt trời đầu ngày len lỏi qua khe cửa, vẽ nên những vệt sáng vàng nhợt trên nền nhà xám xịt. Tiếng còi báo thức vang lên chói tai, đánh thức toàn bộ trại giam từ giấc ngủ ngắn ngủi.
+Sarah mở mắt, cảm giác đau nhức lan khắp cơ thể. Cô nhìn xuống bàn tay mình, ngạc nhiên thấy móng tay rách nát, máu khô đóng thành vảy đen. Bên cạnh gối, một vật kim loại lấp lánh—chiếc thìa đã biến đổi. Chuôi thìa giờ đây có một mũi nhọn sắc lẻm, được mài nhọn trên bức tường bê tông, biến thành một vũ khí thô sơ nhưng chết người.
+Sarah nhìn chiếc thìa-dao trong tay, một cảm giác lạ lùng trào dâng. Cô không nhớ mình đã làm gì đêm qua. Những mảnh ký ức rời rạc—tiếng kim loại cọ vào bê tông, những lời thề nguyền kinh hoàng, niềm căm thù sôi sục—như một giấc mơ xa lạ, như thể thuộc về người khác.
+Một giọt nước mắt lặng lẽ lăn trên má. Rồi một giọt nữa. Và rồi như đê vỡ, Sarah bật khóc, tiếng nấc nghẹn ngào trong cổ họng. Cô nhìn sang giường trống của Natalia, nơi vẫn còn vương lại mùi của cái chết.
+"Natalia... tôi xin lỗi... tôi đã không giúp được cậu..." cô thì thầm, giọng vỡ vụn.
+Cô co người lại trên giường, run rẩy trong cơn đau khổ tột cùng. Đâu rồi, con quái vật đêm qua? Đâu rồi, sự tàn nhẫn, lạnh lùng và căm thù? Tất cả đã biến mất theo đêm đen, nhường chỗ cho Sarah yếu đuối, tan nát trước nỗi đau và mất mát.
+Tay cô siết chặt chiếc thìa-dao, nhưng không còn là nắm tay của sát thủ. Đó là bàn tay run rẩy của một cô gái đang sợ hãi trước thứ vũ khí mình tạo ra, trước con quái vật ẩn náu trong chính mình.
+"Tôi là ai?" cô tự hỏi, nước mắt rơi xuống chiếc thìa-dao, làm tan vệt máu khô. "Chuyện gì đang xảy ra với tôi?"
+HỒI 2: THIÊN THẦN GỤC NGÃ
+Mỗi khi bóng đêm nuốt chửng căn phòng giam, Sarah lại biến đổi. Ánh đèn vừa tắt, cơ thể cô vẫn còn đó, nhưng linh hồn như đã bị thay thế. Tiếng lẩm bẩm rời rạc vang lên trong bóng tối—những câu chữ không rõ nghĩa, nhưng đầy sự cuồng nộ. Tiếng kim loại cọ xát vào bê tông vang lên dai dẳng, đều đặn như nhịp đập của trái tim thù hận. Thế rồi khi bình minh ló dạng, Sarah lại trở về với vẻ ngoài yếu đuối, thân xác kiệt quệ, đôi mắt ngấn đỏ của một cô gái đã mất tất cả, đang dần chấp nhận số phận nghiệt ngã.
+Bảy ngày trôi qua kể từ đêm định mệnh của Natalia. Những vết máu đã được lau sạch, tấm ga giường đã được thay mới, nhưng hồn ma của cô gái Ukraine vẫn lẩn khuất trong góc tối của căn phòng như lời nhắc nhở về số phận bi thảm chờ đợi những kẻ yếu đuối.
+Tiếng còi báo động vang lên, xé toạc bầu không khí ảm đạm. Lần nữa, tất cả tù nhân được triệu tập tại phòng ăn. Giống như tuần trước, không gian đã được "biến hóa" với thảm đỏ và những bình hoa tươi—giống như trang hoàng quan tài bằng hoa để che đi mùi tử khí.
+Sáng hôm đó, Trưởng Trại xuất hiện với vẻ mặt khác lạ—đôi mắt thâm quầng, bờ môi sưng mọng, và dáng đi khó nhọc như thể mới trải qua một cuộc tra tấn. Ả không ngừng sửa lại đồng phục, vuốt thẳng nếp nhăn, và lau khóe miệng với sự ám ảnh kỳ lạ.
+"Ông Morrison sẽ đến sớm," ả thông báo, giọng khàn đục. "Hắn... Ông ấy đã được tiếp đón đặc biệt. Ông ấy yêu cầu những món hàng tốt nhất. Hãy chuẩn bị tinh thần."
+Căn phòng chìm trong sự im lặng nặng nề. Từ xa, tiếng xe đỗ vang lên như tiếng đại bác báo hiệu án tử. Trưởng Trại nuốt khan, mắt liếc về phía cửa với vẻ sợ hãi không giấu nổi.
+Morrison xuất hiện trong bộ suit đắt tiền, nhưng nhàu nhĩ như thể đã trải qua một đêm thác loạn. Khuôn mặt đỏ gay vì rượu và thỏa mãn, đôi mắt ti hí lấp lánh sự vui thích bệnh hoạn. Nụ cười của hắn rộng mở, khoe hàm răng vàng khè và hơi thở nồng nặc mùi whisky.
+"Trưởng Trại," hắn gọi, giọng khàn đặc. "Lại đây."
+Ả Trưởng Trại tiến lại gần, đầu cúi thấp, nụ cười giả tạo nở trên môi. Khi Morrison ghé sát, thì thầm điều gì đó, những ngón tay béo mập của hắn siết lấy cánh tay ả, để lại những vết đỏ trên làn da xanh xao. Ả gật đầu liên tục, nụ cười méo mó càng rộng hơn, đôi mắt tối lại với sự nhục nhã không thể diễn tả.
+"Rõ ràng rồi chứ? Lần này mà còn xảy ra vấn đề như con điếm Ukraine đó, mày sẽ quỳ suốt một tháng, hiểu không?" Morrison gầm lên, đủ to để mọi người nghe thấy.
+"Vâng, thưa ngài Morrison," Trưởng Trại đáp, giọng run rẩy. "Chúng tôi sẽ chọn lựa kỹ càng. Thế nào cũng làm ngài hài lòng."
+"Hài lòng?" Morrison cười khan, một tay vỗ mạnh vào mông Trưởng Trại, khiến ả giật mình. "Tao đã trả tiền để được hơn thế. Tao muốn phấn khích! Tao muốn một con búp bê không vỡ sau đêm đầu tiên. Con bé Ukraine đó—thứ rác rưởi! Không chịu nổi trò chơi đơn giản nhất! Mất bao nhiêu tiền? Mất bao nhiêu thời gian?"
+Trưởng Trại cúi gằm mặt, nuốt trọn sự sỉ nhục như đã quen với việc đó. "Lần này sẽ khác, thưa ngài. Tôi... tôi đã chuẩn bị một món đặc biệt."
+Morrison chăm chú nhìn những cô gái xếp hàng nghiêm chỉnh, phơi bày như những món hàng trên kệ. Đôi mắt ti hí nheo lại, quét từng khuôn mặt, đánh giá từng thân hình với ánh nhìn đói khát. Những cô gái run rẩy dưới ánh mắt đó, nhưng vẫn cố gắng mỉm cười, cố gắng đứng thẳng, cố gắng trở thành lựa chọn.
+Nhưng rồi ánh mắt hắn dừng lại ở Sarah. Trong khoảnh khắc, thế giới như đông cứng.
+Không một giây do dự, hắn bước về phía Sarah, đôi mắt nhỏ xíu sáng lên với niềm khao khát thuần túy. Hắn di chuyển như con thú săn mồi đã phát hiện con mồi hoàn hảo. Tất cả những cô gái khác, tất cả những ánh mắt tuyệt vọng mong được chọn, đều biến mất trong mắt hắn.
+"Con này," hắn thì thầm, rồi giọng nói dần lớn lên thành tiếng gầm. "CON NÀY! Đóng gói. Mang đến cho tao đêm nay."
+Hắn không thèm nhìn vào mắt Sarah, chỉ đánh giá cô như món đồ vật—từ mái tóc đen mượt đến đôi chân thon dài. Không có sự tôn trọng, chỉ có dục vọng trần trụi, tham lam và tàn nhẫn.
+Rồi hắn quay lưng bước đi, để lại sau lưng tiếng xôn xao và những tràng vỗ tay giả tạo. Những tiếng vỗ tay quen thuộc—tiếng vỗ tay đã vang lên khi Natalia được chọn, tiếng vỗ tay đưa tiễn cô gái Ukraine đến với cái chết.
+Từ những hàng phía sau, những ánh mắt phức tạp dõi theo Sarah—chúc mừng, ghen tị, thương hại, một niềm hân hoan của sự giả tạo. Một số cô gái thậm chí còn khóc—không phải vì Sarah, mà vì bản thân đã không được chọn.
+Mỗi ánh mắt, mỗi tiếng vỗ tay, mỗi giọt nước mắt ghen tị đều khiến Sarah nhận thức sâu sắc hơn về sự điên rồ của thế giới này—nơi những người phụ nữ tranh giành "vinh dự" được coi là món hàng, được chọn làm nô lệ, được đổi lấy hy vọng sống sót dù phải chịu đựng bất cứ điều gì.
+________________________________________
+"Khu Tân Trang"—tên gọi văn minh cho một quá trình phi nhân tính. Căn phòng rộng lớn với ánh đèn chói chang, tường kính và hàng dãy thiết bị làm đẹp hiện đại. Nơi những món hàng thô được biến thành sản phẩm tinh xảo, được đóng gói cẩn thận để trao đến tay khách hàng.
+Sarah đứng trần truồng giữa phòng, cảm giác như một con thú bị lột da trước khi bị chế biến. Những bàn tay phụ nữ lạnh lẽo, chuyên nghiệp chạm vào cô, đo đạc, đánh giá, và biến đổi.
+"Da đẹp quá," một người phụ nữ lẩm bẩm, tay vuốt ve bờ vai Sarah. "Như sứ ấy. Không cần nhiều kem nền đâu."
+"Mắt sâu, môi đầy đặn," người khác nhận xét. "Lâu rồi mới thấy một gương mặt Á Đông hoàn hảo thế này."
+"Đôi chân dài... tỷ lệ cân đối... đúng là hàng thượng phẩm."
+Sarah đứng im, để mặc những đôi bàn tay và ánh mắt xâm phạm từng tấc da thịt. Cô không còn là con người, chỉ là tác phẩm điêu khắc đang được chạm trổ, là tấm vải trắng đang được vẽ lên.
+Họ bắt đầu với việc tẩy sạch—gột rửa mọi dấu vết của nhà tù, mọi vết tích của con người cũ. Nước nóng và xà phòng thơm, những bàn chải mềm mại và những loại dầu đắt tiền. Làn da cô được chà sát đến mức đỏ ửng, như thể đang cố gắng lột bỏ lớp vỏ cũ để tạo ra một sinh vật mới.
+Sau đó là các loại kem dưỡng, tinh dầu và nước hoa—mùi hương đắt tiền, gợi cảm, được phun lên từng tấc da thịt. Làn da được đánh bóng như tác phẩm gỗ quý, được làm mềm mại như lụa, được biến thành tấm vải mịn màng sẵn sàng dâng hiến cho bàn tay của bọn đàn ông thô bạo.
+Mái tóc đen tuyền được gội sạch, được ủ bằng những dưỡng chất đắt tiền, được sấy khô và tạo kiểu thành những lọn sóng mềm mại buông xõa trên vai. Từng sợi tóc lấp lánh dưới ánh đèn, đen và mượt như dòng suối đêm.
+Móng tay, móng chân được cắt tỉa, mài giũa, sơn màu đỏ thẫm—màu của máu, màu của dục vọng, màu của quyền lực. Lớp sơn bóng loáng che đi hoàn toàn những vết chai sần, những vết xước từ những đêm dài mài vũ khí trong bóng tối.
+Khuôn mặt cô trở thành kiệt tác nghệ thuật dưới bàn tay các chuyên gia. Lớp nền mỏng nhẹ tạo ra làn da không tì vết, phấn má hồng tạo vẻ e thẹn giả tạo, đôi mắt được tô điểm bằng phấn màu và mascara khiến chúng sâu thẳm, bí ẩn, quyến rũ. Đôi môi được phủ son đỏ rực, bóng bẩy như trái cherry chín mọng, như hai cánh hoa anh đào sẵn sàng nở rộ.
+"Tuyệt đẹp," một chuyên gia trang điểm thốt lên. "Cô gái này sinh ra để được chiêm ngưỡng."
+Tâm trí Sarah trôi dạt đâu đó trong quá trình ấy. Có lúc, cô thấy mình lại là cô bé Sarah Chen của những ngày xưa—được nâng niu trên tay cha, được mẹ trang điểm cho những buổi dạ tiệc, được Lão Zhang dạy cách ứng xử nơi công cộng. Có lúc, cô lại là Sarah của đêm đen—con thú điên cuồng mài thìa thành dao, thì thầm những lời nguyền rủa đẫm máu. Nhưng hầu hết thời gian, cô chỉ là một cái vỏ rỗng—một búp bê đang được chuẩn bị cho cuộc chơi.
+Chiếc váy được mang đến—màu đỏ thẫm như máu đông. Không phải đỏ tươi vui hay đỏ rực rỡ, mà là đỏ sâu thẳm, đỏ của tội lỗi, đỏ của dục vọng không lối thoát. Chiếc váy ôm sát cơ thể, tôn lên từng đường cong, từng góc cạnh—không che đậy mà là khoe ra, không bảo vệ mà là phơi bày.
+Chất liệu lụa trơn mịn áp vào da thịt như nước chảy, điểm xuyết những viên pha lê li ti lấp lánh dưới ánh đèn như những giọt nước mắt đông cứng. Phần cổ khoét sâu để lộ xương quai xanh tinh tế và gợi ý về vòng một đầy đặn phía dưới. Phần lưng hở trần, tạo nên một khoảng trống mời gọi những ngón tay vuốt ve.
+Một chiếc vòng cổ bạc đính đá quý được quàng lên cổ cô—không phải trang sức, mà là xiềng xích sang trọng, là dấu hiệu của sự sở hữu, của vị thế nô lệ được ưu ái.
+Cuối cùng là đôi giày cao gót đỏ rực—biểu tượng của quyến rũ và cũng là công cụ kiểm soát. Những chiếc gót nhọn buộc cô phải đi từng bước chậm rãi, thận trọng, mỗi chuyển động đều phải tính toán, mỗi cử chỉ đều phải kiểm soát.
+Khi quá trình hoàn tất, Sarah đứng trước gương—không còn nhận ra bản thân. Trong tấm gương không phải là D-7294, không phải là cô gái sợ hãi đã khóc bên xác Natalia, mà là một nữ thần kiêu sa, một ảo ảnh của sắc đẹp và dục vọng.
+Mỗi đường nét trên gương mặt cô đều hoàn hảo đến đáng sợ—đôi mắt hạnh nhân sâu thẳm như hồ nước đêm, chiếc mũi cao thanh tú, đôi môi đỏ mọng như trái cấm chờ được hái. Mái tóc đen tuyền xõa xuống lưng trần như thác nước mực, làn da trắng ngần phát sáng dưới ánh đèn chói chang, tương phản với chiếc váy đỏ thẫm.
+Cô không còn là Sarah Chen, không còn là D-7294, mà là tổng hòa của mọi khao khát, là hiện thân của mọi ham muốn, là điểm giao thoa giữa sắc đẹp và tội lỗi.
+Xung quanh cô, tiếng xuýt xoa, trầm trồ vang lên không ngớt. Từ các chuyên gia trang điểm, những người bảo vệ, thậm chí cả Trưởng Trại—tất cả đều không giấu nổi sự kinh ngạc trước vẻ đẹp siêu phàm đang tỏa sáng từ Sarah.
+"Nàng tiên từ trên trời rơi xuống," một người thì thầm.
+"Hàng năm trăm năm mới có một cô gái đẹp thế này," người khác lẩm bẩm.
+Ngay cả Trưởng Trại—người đã từng nhìn Sarah như một con số, một món hàng—giờ đây cũng nhìn cô với ánh mắt khác hẳn. Không còn là khinh miệt, mà là ghen tị pha lẫn ngưỡng mộ.
+"Sarah," Trưởng Trại gọi, giọng ngọt lịm như chưa từng quát tháo cô. "Em trông thật tuyệt vời. Morrison sẽ rất hài lòng."
+Sarah. Không phải D-7294. Chỉ một bộ váy đỏ, một lớp trang điểm, và cô đột nhiên trở thành con người với cái tên. Thế giới thật kỳ lạ làm sao.
+Maya, đã đến để chứng kiến và chúc mừng, đứng sững sờ nhìn Sarah, miệng hé mở trong kinh ngạc. Mọi vẻ cứng rắn, mọi nét mặt cay đắng đều tan biến, chỉ còn lại sự ngưỡng mộ thuần túy.
+"Thiên thần bé nhỏ," Maya thì thầm, giọng run rẩy. "Cô đẹp đến nghiêng nước nghiêng thành. Natalia không thể nào so sánh được với vẻ đẹp này."
+Maya lắc đầu, như thể không tin vào mắt mình. "Không có từ ngữ nào, dù hoa mỹ đến đâu, có thể miêu tả trọn vẹn vẻ đẹp của cô. Ngay cả những Elite cũng phải quỳ rạp dưới chân cô. Ngay cả Morrison cũng sẽ phải sững sờ."
+Nhưng rồi, như sực nhớ ra điều gì, Maya kéo Sarah ra xa đám đông, ghé sát tai cô thì thầm: "Nhưng búp bê có đẹp đến mấy cũng sẽ bị xé nát rồi vứt bỏ nếu nó không ngoan. Hãy nhớ lời tôi dặn, Sarah. Chịu đựng. Làm theo ý họ. Tận hưởng nếu có thể. Đừng chống cự. Đừng phản kháng."
+Đôi mắt Maya ánh lên tia sáng kỳ lạ. "Xinh đẹp như cô, chắc chắn sẽ sớm trở thành một Connected. Trước cả tôi. Tôi đảm bảo đấy. Có lẽ chỉ sau một đêm thôi."
+Sarah nhìn sâu vào mắt Maya, cảm thấy một sự đồng cảm kỳ lạ với người phụ nữ đã học cách làm nô lệ, đã học cách tận hưởng sự hèn mọn để sinh tồn. Cô gật đầu nhẹ, đôi mắt mở to với vẻ ngây thơ giả tạo.
+"Tôi sẽ cố gắng," Sarah đáp, giọng nhỏ nhẹ, run rẩy. "Tôi sẽ không chống cự. Tôi sẽ làm mọi thứ anh ta muốn. Tôi sẽ không để kết thúc như Natalia."
+________________________________________
+"Tôi xin phép được vào phòng mình một chút," Sarah lên tiếng, giọng nhẹ nhàng đến bất ngờ. "Để nói lời tạm biệt."
+Trưởng Trại gật đầu ngay lập tức, nụ cười tươi rói. "Dĩ nhiên, Sarah yêu quý. Cô có thể có vài phút riêng tư. Chúng tôi sẽ đợi ở ngoài."
+Sarah bước vào căn phòng lạnh lẽo đã ở suốt những ngày qua. Cô nhìn chiếc giường trống—nơi Natalia từng nằm, từng cười nói, từng khóc, và cuối cùng, từng kết thúc cuộc đời. Những vết máu đã được lau sạch, những dấu tích đã bị xóa bỏ, nhưng ký ức vẫn còn đó, sắc nét như vết cắt.
+"Natalia," cô thì thầm, "tôi không biết mình đang làm gì nữa. Có lẽ số phận đã sắp xếp như vậy rồi."
+Sarah ngồi xuống mép giường, cố ngăn những giọt nước mắt không trào ra—không phải vì sợ làm nhòe mascara, mà vì cô không còn nước mắt để khóc. Giờ đây, trái tim cô như đã hóa đá, như đã đông cứng lại thành một cục băng lạnh lẽo.
+"Tôi đang trở thành một người khác," cô nói với không gian trống trải. "Không còn là cô công chúa nhỏ nhắn được nâng niu bảo bọc. Không còn là thiên tài công nghệ với tương lai rạng rỡ. Chỉ là một món hàng. Một món đồ chơi."
+Cô nhắm mắt, hình dung cảnh tượng mình sắp phải đối mặt—những gì đã xảy ra với Natalia sẽ xảy ra với cô. Những bàn tay thô bạo. Những lời lẽ tục tĩu. Nỗi đau đớn cùng cực. Sự tủi nhục vô biên.
+"Natalia," cô thì thầm, "tôi sẽ không kết thúc như cậu. Tôi sẽ sống sót. Tôi sẽ làm mọi thứ chúng muốn. Tôi sẽ trở thành đồ chơi ngoan ngoãn của chúng. Và rồi, một ngày nào đó, tôi sẽ thoát khỏi nơi này. Tôi sẽ trở thành Connected. Tôi sẽ tìm ra kẻ đã hủy diệt gia đình tôi. Tôi sẽ trả thù."
+Có thể chăng đây là con đường duy nhất? Có thể chăng để sống sót, cô phải từ bỏ nhân tính, phải trở thành vật sở hữu, phải chấp nhận mọi đau đớn? Tâm trí cô quay cuồng với những ý nghĩ đen tối, với những lựa chọn không phải là lựa chọn.
+"Tôi chỉ mong họ sẽ đối xử nhẹ nhàng với tôi một chút," cô thì thầm, giọng run rẩy. "Tôi sẽ làm tất cả, tôi sẽ ngoan, tôi hứa đấy. Tôi sẽ không chết. Tôi không thể chết. Tôi còn việc phải làm."
+Cô siết chặt nắm tay, móng tay cắm sâu vào lòng bàn tay, để lại những vết hằn đỏ tươi. Cơn đau đớn nhỏ nhoi đó giúp cô tập trung, giúp cô nhớ rằng cô vẫn đang sống, vẫn đang thở, vẫn còn cơ hội.
+"Đây sẽ là con đường của tôi," cô tự thuyết phục mình. "Con đường sống sót. Con đường thoát khỏi nơi này. Con đường trở về. Con đường báo thù."
+________________________________________
+Ánh hoàng hôn đỏ rực hắt lên chiếc limousine đen bóng đang đậu trước cổng, tạo nên một vệt máu dài trên thân xe. Cửa xe mở sẵn, chờ đợi món hàng quý giá được chuyển đến.
+Người tài xế bước xuống—một người đàn ông trẻ trong bộ đồng phục chỉnh tề, khuôn mặt lạnh lùng chuyên nghiệp. Nhưng khi Sarah xuất hiện, bước ra từ cánh cửa trại giam, mọi vẻ lạnh lùng đều tan biến. Anh ta đứng sững, miệng hé mở trong kinh ngạc, mắt mở to không chớp, như thể đang chứng kiến một phép màu.
+Dưới ánh hoàng hôn đỏ rực, Sarah trông như nữ thần lửa bước ra từ truyền thuyết cổ. Chiếc váy đỏ thẫm ánh lên những tia lửa li ti khi cô di chuyển, làn da trắng ngần phát sáng như ngọc thạch được đánh bóng, tương phản hoàn hảo với mái tóc đen nhánh và đôi môi đỏ thắm.
+Mỗi bước chân Sarah dường như không chạm đất, mà lướt trên không khí với sự uyển chuyển của một vũ công bước ra từ giấc mơ. Thân hình mảnh mai nhưng đầy đặn ở những đường cong cần thiết, tạo nên một tổng thể hoàn mỹ đến mức phi thực, như thể được thiết kế tỉ mỉ bởi bàn tay của chính tạo hóa.
+Người tài xế nuốt khan, bàn tay run rẩy khi cúi chào. Thậm chí những nữ giám thị, những người từng đối xử với Sarah như rác rưởi, giờ đây cũng nhìn cô với ánh mắt đờ đẫn, như thể bị thôi miên bởi một mãnh lực siêu nhiên.
+"Thưa cô..." người tài xế lắp bắp, giọng khàn đặc. "Xe... xe đã sẵn sàng."
+Sarah bước đi với phong thái uyển chuyển, thanh lịch—không phải của một tù nhân, mà của một tiểu thư quen thuộc với xa hoa và hào nhoáng. Đôi mắt hạnh nhân của cô nhìn người tài xế với ánh nhìn xa xăm, như thể anh ta không tồn tại, như thể cô đang nhìn xuyên qua anh ta vào một thế giới khác.
+Cử chỉ đó, ánh mắt đó—tất cả đều tạo nên sức hút ma mị khó cưỡng. Trong một khoảnh khắc, cô như trở về với cảm giác của những ngày xưa, khi cô vẫn là Sarah Chen—con gái cưng của gia đình quyền lực, được vây quanh bởi sự sang trọng, được yêu thương, được bảo vệ bởi cha mẹ và Lão Zhang.
+Với một cử chỉ quý phái, Sarah khẽ đưa tay về phía trước—bàn tay trắng muốt với những ngón tay thon dài như búp măng non. Người tài xế ngập ngừng, rồi cung kính cầm lấy bàn tay cô, đặt lên trán mình như thể đang chạm vào thánh tích.
+"Vinh hạnh được phục vụ cô," anh ta thì thầm, giọng run rẩy. "Thật... thật không thể tin được..."
+Sarah mỉm cười—một nụ cười không chạm đến đôi mắt, một nụ cười xa xăm, lạnh lẽo như ánh trăng hắt lên băng tuyết. Cô bước lên xe với sự thanh lịch vốn có của thiên nga, như thể đang bước lên ngai vàng, chứ không phải đi đến chỗ chết.
+Cửa limousine đóng lại với tiếng "cạch" nhẹ nhàng, và chiếc xe lướt đi, cắt qua làn sương mỏng đang buông xuống như tấm khăn tang. Trong không gian kín của chiếc xe sang trọng, Sarah ngồi im lặng, lưng thẳng, đầu ngẩng cao, như một nữ hoàng trên đường đến nơi đăng quang.
+Maya đứng từ xa, nhìn theo cho đến khi chiếc xe khuất dạng, khóe môi khẽ nhếch lên thành nụ cười bí ẩn.
+"Hãy gắng gượng lên nhé, thiên thần bé nhỏ," cô ta tự nhủ, giọng pha lẫn ghen tị và ngưỡng mộ. "Đã từng có người trở thành Connected chỉ sau một đêm đầu tiên. Tôi mong cô sẽ là người tiếp theo đó."
+Chiếc xe dần khuất sau đường chân trời, đỏ rực trong ánh hoàng hôn như giọt máu rơi vào màn đêm. Bên trong, Sarah nhìn ra ngoài cửa sổ, mắt không chớp. Khuôn mặt cô tĩnh lặng như mặt nước hồ thu, không một gợn sóng cảm xúc.
+Đêm đã buông xuống. Một đêm không trăng, không sao.
+HỒI 3: BIẾN ĐỔI
+Chiếc limousine đen bóng lướt nhẹ dừng lại trước cổng biệt thự của Morrison, không một tiếng ồn, như con báo đêm săn mồi trong bóng tối. Trước mắt Sarah hiện ra một công trình kiến trúc vừa xa hoa vừa hung bạo—một pháo đài của quyền lực và dục vọng ngự trị giữa khu vườn rộng lớn như một vương quốc riêng biệt.
+Biệt thự trắng muốt như được tạc từ băng tuyết, những đường nét kiến trúc sắc cạnh và lạnh lẽo phản chiếu ánh trăng non. Hàng cột trụ cao vút như những người lính canh, đỡ lấy ban công mạ vàng lấp lánh. Từng khung cửa sổ cao và hẹp như những con mắt hình viên đạn, toát lên vẻ lạnh lùng và đe dọa.
+Vườn hoa trải rộng xung quanh dinh thự, mỗi khóm, mỗi bụi đều ẩn chứa những cỗ máy tử thần. Những cảm biến nhận diện mọi chuyển động, từ con mối đào hang đến chiếc lá rụng. Các robot tuần tra có kích thước bằng những bức tượng lùn di chuyển nhẹ nhàng, mắt LED quét từng góc vườn. Từng chiếc drone kích thước bằng con ong, bay vô thanh, liên tục quét tia laser tìm kiếm xâm nhập.
+Đặc biệt, hệ thống súng tự động ẩn mình sau những hàng cây bụi thấp, trong những bồn hoa, thậm chí trong những bức tượng—sẵn sàng nhả đạn với tốc độ ánh sáng vào bất kỳ mục tiêu nào chưa được cấp phép. Một con ruồi muốn lọt vào cũng sẽ bị bắn hạ, xác tan thành bụi mịn trước khi chạm đất.
+Không một nhân viên bảo vệ đứng gác. Chỉ máy móc, máy móc và máy móc. Bọn Elite tin rằng con người sẽ phản bội khi được trả giá đủ cao, trong khi máy móc trung thành đến giây phút cuối cùng. Chỉ có một vài nhân viên bảo vệ đứng trực ở tòa nhà vệ sinh bên ngoài—những con tốt thí cần thiết trong trường hợp khẩn cấp, những cái xác có thể hứng đạn thay chủ.
+Người tài xế lướt xuống xe với sự mềm mại đáng ngạc nhiên từ một người đàn ông vạm vỡ. Anh ta cúi người thấp, mở cửa xe với sự trang trọng thường dành cho hoàng gia. Đôi mắt anh ta không giấu được sự ngưỡng mộ khi Sarah xuất hiện—bức tranh hoàn hảo về nữ tính trong chiếc váy đỏ thẫm.
+"Xin mời cô," anh ta nói, giọng trầm ấm, hai tay nâng nhẹ bàn tay Sarah như đang nâng niu một món đồ cổ vô giá. Những ngón tay thô ráp của anh ta run rẩy khi chạm vào làn da mịn màng của cô.
+Sarah khẽ gật đầu chào lại—một cử chỉ thanh lịch tự nhiên, như thể ADN hoàng tộc trong người cô không thể bị xóa bỏ dù đã trải qua bao nhiêu nhục nhã. Đôi mắt cô—hai hồ đen sâu thẳm—nhìn thẳng vào mắt người tài xế, không phải với thái độ kiêu ngạo, mà là sự bình đẳng của một người biết giá trị của mình.
+Người tài xế nuốt khan, rồi ghé sát tai cô, giọng run rẩy:
+"Tôi sẽ đứng ngoài này chờ... để đưa cô về, hoặc bất cứ đâu cô muốn đi. Tôi... tôi sẵn lòng phục vụ cô, một cách tự nguyện."
+Sarah không hoàn toàn hiểu ý của anh ta, nhưng trong khoảnh khắc ấy, cô cảm nhận được sức mạnh đang chảy trong huyết quản mình. Phải chăng đây là sức mạnh vẻ đẹp? Hay đây là bản chất thống trị ẩn sâu trong cô—di sản từ một gia đình từng khiến cả Connected phải cúi đầu kính nể?
+Một người đàn ông khác bước đến—người gác cổng, mặc bộ đồng phục gọn gàng, trên ngực đính huy hiệu bạc của biệt thự Morrison. Ánh mắt anh ta không thể rời khỏi Sarah, như thể bị thôi miên bởi một loại ma thuật vô hình. Đôi mắt mở to, miệng hé mở, và hai gò má ửng đỏ—những dấu hiệu sơ khai của sự quy phục.
+"Làm sao một Disconnected lại có thể đẹp như vậy...?" anh ta lẩm bẩm, giọng ngỡ ngàng như vừa chứng kiến phép lạ. "Tôi chưa từng... thậm chí những Elite cũng hiếm khi..."
+Sarah cảm nhận được sự tự ti xâm chiếm người đàn ông khi đứng trước mặt cô—một Disconnected đáng lẽ phải thấp kém hơn anh ta, nhưng giờ đây lại khiến anh ta cảm thấy mình chỉ là một hạt bụi. Cô không quen với sức mạnh này, nhưng bản năng mách bảo cô cách sử dụng nó. Cô bước đi với dáng vẻ của một nữ hoàng, lưng thẳng, đầu ngẩng cao, từng bước chân dứt khoát khiến chiếc váy đỏ xao động như ngọn lửa.
+Cánh cửa biệt thự mở ra, và Sarah bước vào một thế giới của xa hoa và dâm đãng. Căn phòng rộng lớn với trần nhà cao vút, nơi những bức bích họa khổng lồ tái hiện các vị thần cổ đại đang truy hoan trong các tư thế phóng đãng. Sàn nhà lát đá cẩm thạch Carrara trắng tinh khiết, đánh bóng đến mức có thể soi gương, phản chiếu ánh sáng vàng ấm từ những chiếc đèn chùm pha lê Swarovski khổng lồ treo lơ lửng trên cao—mỗi chiếc đèn trị giá bằng cả một tòa nhà ở khu vực Disconnected.
+Nội thất được làm từ những loại gỗ quý hiếm nhất, được chạm khắc bởi những bàn tay nghệ nhân già nua cuối cùng trên thế giới, những người đã bán linh hồn để được sống trong sự bảo hộ của Elite. Những bức tường được ốp gỗ sồi đen bóng loáng, điểm xuyết những tác phẩm nghệ thuật nguyên bản của các danh họa thời Phục Hưng—những tài sản vô giá mà công chúng tưởng rằng đã bị thất lạc.
+Một bộ sofa da trắng tinh khôi chiếm trọn không gian trung tâm, đủ rộng để chứa một cuộc truy hoan cả chục người, được bao quanh bởi những bàn kính pha lê chân vàng. Trên mặt bàn, những chai rượu whisky single malt 50 năm tuổi, những chai champagne đắt đỏ nhất thế giới đứng ngay ngắn bên cạnh những ly pha lê tinh xảo.
+Nhưng giữa không gian xa hoa đó, một thứ khiến Sarah rùng mình sợ hãi. Ở góc phòng, được trưng bày như những món đồ nghệ thuật, là các dụng cụ tra tấn và đồ chơi tình dục tinh xảo—roi da đính kim cương, còng xích mạ vàng, kìm kẹp bằng bạc, và những thiết bị khác với hình dạng quái đản mà Sarah không dám đoán chức năng.
+Chúng được đặt trên một chiếc bàn da đỏ thẫm, được lau chùi đến sáng bóng, sẵn sàng phục vụ những trò chơi bệnh hoạn. Bên cạnh là một chiếc giường tròn khổng lồ với những chiếc gối lụa và ga trải giường thêu chỉ vàng—nơi mà những ác mộng sẽ diễn ra, nơi mà xác Natalia đã từng co quắp trong đau đớn và tuyệt vọng.
+Sarah co rúm người, lùi dần vào một góc tối, cố gắng che giấu khuôn mặt hoàn hảo sau mái tóc đen mượt. Nỗi sợ hãi dâng trào, nhấn chìm mọi ý nghĩ về phản kháng hay chống cự. Cô chỉ còn là một cô gái nhỏ bé, yếu ớt, đang đối mặt với số phận bi thảm mà không có nơi nào để trốn, không có ai để cầu cứu.
+Bỗng nhiên, tiếng bước chân vang lên từ hành lang, kèm theo tiếng cười khoái trá đặc trưng của Morrison—tiếng cười như của loài linh cẩu trên xác con mồi. Tiếng cửa lớn mở ra, tiếng chân bước vào, và tiếng cười ngày càng lớn, ngày càng gần, ngày càng ồ ạt như nước lũ.
+"Tao thề là nó sẽ rất đẹp," giọng Morrison vang lên, phấn khích và dâm đãng. "Chúng mày cá với tao không, rằng chúng mày sẽ quỳ xuống để mà liếm láp từng kẽ ngón chân rồi lân la đến cái lồn của nó, một cọng lông cũng không chừa."
+Một tiếng cười khác đáp lại, the thé và tục tĩu không kém:
+"Tao đéo tin, mày đừng bơm thổi quá lên như vậy. Thằng em bên dưới tao nó không chịu được."
+Những tràng cười tởm lợm vang lên từ bên ngoài cửa, cùng những câu đùa đen tối, những mô tả về những hành động bệnh hoạn mà họ sẽ thực hiện. Sarah cứng người lại với những lời nói tục tĩu, những câu chữ dường như chỉ có thể thốt ra từ miệng loài súc vật hạ đẳng nhất.
+Tiếng bước chân dừng lại trước cửa phòng, và giọng nói điện tử của hệ thống tòa nhà vang lên:
+"Xin chào ngài Morrison, chúc ngài có một bữa tiệc vui vẻ."
+Cửa phòng mở tung như bị gió bão thổi, ánh đèn bật sáng choang, làm Sarah chói mắt một lúc lâu. Khi thị lực trở lại, cô nhìn thấy năm gã đàn ông đứng như năm bức tượng tham lam bên ngưỡng cửa—năm gương mặt khát khao, năm ánh mắt đói khát, năm miệng cười nhơ nhớp.
+Morrison đứng giữa—gã béo phì với cái bụng phệ như đang mang thai tám tháng, khuôn mặt đỏ gay vì rượu và dâm dục. Bên cạnh hắn là một gã cao lêu nghêu, gầy khẳng khiu như bộ xương di động, cặp mắt ti hí luôn đảo qua đảo lại như tìm kiếm con mồi. Kế đến là một gã trung niên với khuôn mặt u ám, tối tăm như đáy giếng, râu quai nón cắt tỉa cẩn thận không che giấu được nụ cười gian ác. Tên thứ tư là một gã trẻ nhất, có lẽ chỉ mới ngoài hai mươi, với mái tóc vàng và khuôn mặt đáng lẽ phải thanh tú nếu không vì ánh mắt lộ rõ sự sa đọa và dâm loạn. Cuối cùng là một gã trung niên đô con, từng thớ cơ phình lên dưới lớp quần áo đắt tiền, cặp mắt sắc lạnh như mắt diều hâu săn mồi.
+Một tên trong bọn, gã trung niên râu quai nón, lớn tiếng: "Bước ra đây con chó, ngẩng mặt lên cho tao xem hàng."
+Như bị ám bởi một loại thôi miên vô hình, Sarah chậm rãi đứng dậy, vén mái tóc đen nhánh ra sau tai, và từ từ ngẩng mặt lên. Không khí trong phòng đột nhiên đông cứng như thể thời gian ngừng trôi. Năm gã đàn ông đứng sững sờ, mắt trợn tròn, miệng há hốc, mồ hôi rịn ra trên trán. Trong một khoảnh khắc vô tận, không ai nói gì, không ai cử động, chỉ có tiếng thở dồn dập như năm con thú đực vừa chạy hàng chục dặm.
+"Ôi vãi lồn," gã trẻ tuổi tóc vàng cuối cùng cũng thốt lên, phá vỡ sự im lặng chết người.
+Gã cao gầy hét lớn vào mặt Morrison, như thể đang buộc tội: "Cái đéo gì vậy, đây đéo phải là người nữa rồi!"
+Ngay cả Morrison cũng chưa hết bàng hoàng, như thể bị nghẹn bởi vẻ đẹp vừa hiện ra trước mắt. Mắt hắn mở to, trợn trừng, và môi hắn run rẩy khi lẩm bẩm: "Thiên... thần... đúng, một Thiên thần."
+Rồi như sực tỉnh từ cơn mê, hắn quay lại, hét lớn với bốn tên còn lại, giọng đầy đắc thắng: "Nó là của tao, thằng nào muốn chơi cùng, nộp tiền đi lũ chó đực!"
+Trong mắt bốn tên kia không giấu nổi sự thèm khát nguyên thủy. Không cần trả lời, Morrison đã biết chúng sẵn sàng trả bất cứ giá nào để được thưởng thức "món hàng" hoàn hảo trước mặt.
+"Một triệu đô," Morrison hét lên, vung tay như đang đấu giá. "Một triệu để được nhìn. Nhìn thôi, không chạm."
+Bốn tên còn lại không chút suy nghĩ, sờ lên thái dương để chuyển khoản qua Neuralink—hệ thống kết nối não bộ cho phép giao dịch chỉ bằng ý nghĩ. Những đốm sáng nhỏ chạy dưới da thái dương chúng, xác nhận giao dịch đã hoàn tất.
+Morrison cười lớn, tiếng cười như tiếng kim loại cọ xát: "Quý giá như vậy, một triệu đô cũng chỉ được đứng nhìn thôi, lũ đần. Tao thề cả cuộc đời lũ khốn chúng mày sẽ đéo bao giờ được chạm vào lần thứ hai đâu!"
+Rồi, với ánh mắt tính toán, hắn nâng giá: "Thằng nào muốn được liếm nó, năm triệu đô!"
+Một tràng cười khoái trá vang lên, và lần lượt từng tên chuyển tiếp số tiền cho Morrison. Những đốm sáng xanh lại chạy dưới da thái dương chúng, và con ngươi của Morrison giãn ra trong sung sướng khi tài khoản hắn nhận được hàng chục triệu đô la. Hắn cười như điên dại vì món hàng cực phẩm đã biến hắn thành triệu phú chỉ trong vài phút.
+"Và đây là giá cuối," hắn tuyên bố, nước bọt bắn ra từ khóe miệng. "Mười triệu đô và chúng mày sẽ được chơi nó với tao."
+Hắn cười khặc khặc đến nỗi nghe như tiếng nghẹt mũi, như tiếng xương bị bẻ gãy, như tiếng móng tay cào trên bảng đen.
+Gã trung niên đô con chửi rủa, nhưng không giấu được sự thèm khát: "Mẹ mày Morrison, mày khôn như một con chó đực nứng cặc vậy, nhưng nó đáng lắm, tao cũng nứng như mày."
+Và rồi, như những con thiêu thân lao vào lửa, chúng chuyển mỗi tên 10 triệu đô cho Morrison để được tận hưởng "món ngon" có một không hai này. Bốn mươi triệu đô cộng thêm vào tài khoản của Morrison chỉ trong vài giây, một khoản tiền mà cả nghìn Disconnected phải làm việc cả đời cũng không kiếm nổi.
+Bọn chúng kéo ghế ngồi xếp hàng trước mặt Sarah như đang xem một buổi trình diễn Broadway. Morrison cười sặc sụa, nước miếng bắn tung tóe khi hắn hét lên:
+"Múa đi, con chó cái!"
+Như đã được thuần phục và chỉ dạy, Sarah bắt đầu múa. Mỗi cử động của cô đều toát lên vẻ gợi cảm tự nhiên, không vụng về, không gò bó. Mái tóc đen nhánh xõa xuống lưng trần, lướt qua làn da trắng ngần như tơ lụa, tạo nên những đường cong tương phản đen trắng hoàn hảo. Những đường cong của cơ thể cô—từ cổ thon dài, đôi vai tròn trịa, eo thon, đến đôi chân dài miên man—nổi bật dưới lớp váy đỏ mỏng manh như máu đọng, chuyển động mềm mại, uyển chuyển như dòng nước.
+Mỗi cử chỉ, mỗi ánh mắt của cô đều toát lên vẻ quyến rũ nguyên thủy, khiến năm tên đàn ông không thể rời mắt. Cô không còn là Sarah Chen, không còn là D-7294, mà là hiện thân của dục vọng, là trung tâm vũ trụ của những ham muốn đen tối nhất.
+Chúng càng cười điên loạn, nước bọt bắn ra từ khóe miệng, ánh mắt đỏ ngầu và mờ đục. Chúng bắt đầu uống rượu một cách vô độ, hất cả chai vào miệng, để những dòng chất lỏng đắt tiền chảy ra hai bên mép, thấm ướt những bộ vest tinh khôi hàng chục nghìn đô la.
+Hai tên trong đó—gã gầy gò và gã trẻ tuổi—bắt đầu kéo những tràng thuốc dài từ những điếu xì-gà Cuba đắt giá, hít vào bằng mũi và nhả ra từ miệng, tạo thành những vòng khói trắng đục bao quanh họ như những bóng ma. Mắt chúng long lên, ngầu đỏ, và nụ cười ngày càng méo mó, biến dạng thành những hình thù quái dị.
+Gã râu quai nón bắt đầu thò tay vào trong quần, gương mặt nhăn nhó trong khoái cảm, miệng không ngừng phát ra những tiếng rên rỉ tục tĩu. Sarah cảm thấy buồn nôn, ruột gan như bị vắt kiệt, nhưng vẫn cố gắng múa và uốn éo theo lệnh của Morrison.
+"Quay mông ra đây," Morrison ra lệnh, giọng khản đặc như cát mài. "Bước ra đây và chổng mông lên đi, đồ chó cái!"
+Như bị thôi miên, Sarah không còn sức chống cự. Tâm trí cô như đông cứng, cơ thể cô tự động tuân lệnh như một con rối bị điều khiển bởi những sợi dây vô hình. Cô bước ra gần bọn hắn hơn, tim đập mạnh đến mức như muốn vỡ tung, và từ từ quay người lại, khom người xuống, đưa mông về phía bọn chúng.
+Morrison vội đưa mũi đến gần mông cô, như con thú đói khát bên bát thức ăn, cố gắng tận hưởng từng khoảnh khắc này một cách trọn vẹn. Hắn không chạm vào—chưa—mà cố gắng hít thật lực với khoảng cách gần, hít vào mùi hương từ làn da Sarah, từ mái tóc cô, từ hơi ấm tỏa ra từ cơ thể cô. Làn da cô thoạt ẩn hiện trong lớp váy đỏ mỏng, mỗi khi vải lụa cọ vào da thịt đều khiến thân thể cô thêm cuốn hút.
+Bốn tên còn lại cũng không chịu nổi, lần lượt đứng dậy, xếp hàng để đưa mũi ra hít, căng mắt ra nhìn như những kẻ bệnh hoạn và biến thái. Sarah run rẩy sợ hãi, mắt nhắm nghiền như thể có thể biến mất nếu không nhìn thấy chúng, thầm cầu nguyện: "Đừng chạm vào tôi, đừng chạm vào tôi, làm ơn, đừng chạm vào tôi."
+"AAAA," gã trẻ tuổi tóc vàng đột nhiên hét lên, giọng the thé như tiếng gãy xương. "Tao không chịu nổi nữa, tao ra rồi!"
+Khuôn mặt gã biến dạng trong khoái cảm, và một vệt ẩm ướt lan rộng trên quần gã. Cả bọn cười điên loạn, chỉ trỏ vào gã:
+"Mẹ thằng yếu sinh lý, thứ chó dại yếu ớt! Chưa gì đã ra, còn mặt mũi nào!"
+Nhưng tiếng cười của chúng không mang tính chế giễu mà đầy sự thỏa mãn. Như thể thấy gã bạn xuất tinh trong quần càng làm tăng khoái cảm của chúng, càng khiến chúng thèm muốn Sarah hơn, càng làm cho buổi tối này thêm phần sa đọa.
+Rồi gã râu quai nón lôi ra một hộp bạc nhỏ từ túi áo trong, mở nắp và để lộ một thứ bột màu trắng tinh như tuyết. Hắn đổ một lượng lớn lên chiếc bàn kính, dùng thẻ tín dụng vàng xếp thành năm hàng dài, rồi cuộn một tờ tiền mệnh giá cao và bắt đầu hít.
+Từng tên, lần lượt cúi xuống, dí mũi vào những hàng bột trắng và hít thật lực, không chừa một hạt. Sarah không hiểu tại sao chúng hít thứ đó, chỉ thấy sau khi hít xong, khuôn mặt chúng bắt đầu thay đổi như xuất hiện ảo giác. Đồng tử giãn to đến mức như nuốt chửng tròng mắt, hai gò má ửng đỏ, và miệng không ngừng nhai dù không có thức ăn. Chúng cười khoái trá, nói nhanh hơn, cử động mạnh hơn, như thể mọi giác quan đã tăng lên gấp mười lần.
+Morrison, người vẫn còn tỉnh táo nhất, lên tiếng: "Thằng nào yếu thì hít ít thôi, không lỡ cuộc chơi."
+Rồi hắn cũng cúi xuống, hít hai hàng bột trắng liền một lúc, rên lên sung sướng khi chất kích thích lan tỏa trong huyết quản, đánh thức mọi dây thần kinh, khiến mọi cảm giác mãnh liệt hơn bao giờ hết.
+Sarah sợ hãi khi nhìn thấy sự thay đổi trên năm gương mặt đàn ông. Họ không còn là người, mà là những con thú hoang dã đang trong mùa động dục. Sau lớp quần tây đắt tiền của chúng, những cục nổi cộm ngày càng to ra, như sắp đâm thủng cả khóa quần.
+Cô bắt đầu nhận ra những gì mà Natalia đã thấy trong giây phút cuối cùng của cuộc đời. Sự sợ hãi tột độ xâm chiếm tâm hồn Sarah, khiến cơ thể cô lạnh buốt dù căn phòng nóng hầm hập từ hơi thở và dục vọng của năm con thú đực.
+"Cuộc chơi bắt đầu!" Morrison tuyên bố, miệng méo mó trong nụ cười quỷ dữ, và chỉ bằng một ý nghĩ, hắn ra lệnh cho hệ thống Neuralink tắt toàn bộ đèn điện.
+Căn phòng chìm vào bóng tối tuyệt đối, đen kịt đến mức Sarah không thể thấy được ngón tay mình khi đặt trước mắt. Không một tia sáng lọt qua các khe cửa, không một ánh đèn từ bên ngoài—một màn đêm nhân tạo hoàn hảo, nơi những ác mộng được sinh ra.
+"Đánh hơi đi, đi tìm nó đi mấy con chó đực, bắt lấy nó và liếm nó đi," Morrison ra lệnh trong bóng tối, giọng hắn vang vọng khắp căn phòng như tiếng thủy triều đen.
+Chúng cười điên loạn—tiếng cười đục ngầu, thô thiển, ướt át—rồi bắt đầu lùng sục như những con thú săn mồi trong đêm. Tiếng loạt soạt của quần áo, tiếng thở hổn hển, tiếng rên rỉ khoái trá vang lên khắp nơi. Sarah nghe thấy tiếng đổ vỡ khi chúng đâm đầu vào đồ đạc trong phòng, tiếng chửi thề thô tục khi chúng vấp ngã hay đâm vào nhau.
+"Đồ chó cái, mày ở đâu?" Giọng gã trung niên đô con vang lên từ bên trái.
+"Tao ngửi thấy mùi thơm rồi, mùi của nó đây, mùi con điếm," tiếng gã cao gầy rít lên từ phía sau.
+Sarah như con thỏ mù đường, đứng im giữa đống hỗn loạn, tâm trí cô như đóng băng. Bản năng sinh tồn mách bảo cô nên chạy, nhưng cơ thể cô như bị đông cứng bởi nỗi sợ hãi. Các giác quan cô ngừng hoạt động, một cơn choáng váng nhẹ bắt đầu lan tỏa từ đáy dạ dày, và Sarah cảm thấy mình mất dần ý thức, trôi vào một không gian xa xăm nào đó.
+"Tao thấy mùi thơm ngày càng gần rồi, thơm quá, ngon quá, sướng quá..." Morrison thốt lên khi bàn tay béo mập của hắn chạm vào cánh tay trần của Sarah.
+Hắn nắm chặt lấy cổ tay cô, túm mạnh đến mức như muốn bẻ gãy, và kéo xềnh xệch cô về phía hắn. Hơi thở nồng nặc mùi rượu và thuốc lá của hắn phả vào mặt Sarah, khiến cô muốn nôn. Hắn cười sặc sụa, tay bắt đầu mò mẫm từ cổ tay xuống bàn tay, rồi xuống các ngón tay, và cuối cùng là đến chân của Sarah. Hắn quỳ xuống, tay lần mò theo bắp chân mịn màng của cô, cho đến khi nắm được gót giày cao của Sarah.
+"Tao xin phép trước nhé, lũ đần..."
+BỐP!
+Một tiếng vang dội như tiếng sấm ập đến, như tiếng roi quất vào da thịt, như tiếng bàn tay đập xuống mặt nước. Có gì đó vừa trượt qua không khí, vừa đập vào một bề mặt, vừa tạo ra một luồng không khí mạnh đến mức làm tung tóc Sarah.
+Ánh đèn bật lên đột ngột, xóa tan màu đen tuyệt đối, khiến tất cả phải nheo mắt lại vì chói. Khi thị lực trở lại, một cảnh tượng kinh hoàng hiện ra. Sarah không còn đứng ở góc phòng nữa—cô đang ngồi trên chiếc giường tròn, lưng tựa vào đống gối lụa, chân vắt chéo một cách sang trọng, để lộ đôi đùi trắng ngần sau lớp váy đỏ đã xê dịch lên cao. Khuôn mặt cô không còn vẻ sợ hãi nữa, mà thay vào đó là ánh mắt sắc lạnh và nụ cười nhạt nhẽo.
+Morrison nằm sóng soài trên sàn, một bên má hằn rõ dấu bàn tay, máu rỉ ra từ khóe miệng. Bốn tên còn lại đứng trân trân, miệng há hốc, mắt trợn trừng, vẫn chưa hiểu chuyện gì vừa xảy ra.
+"Hack vào hệ thống, tắt toàn bộ chức năng bảo vệ và hệ thống cảnh báo," Sarah lẩm bẩm, giọng đều đều như đang đọc một công thức nấu ăn.
+Trong mắt cô, những dòng code màu xanh lục chạy như thác đổ—mã nguồn của hệ thống tòa nhà hiện ra rõ ràng như bản đồ. Những ngón tay vô hình của cô đang vươn vào bên trong, thay đổi, xóa bỏ, viết lại từng dòng lệnh. Trên màn hình não bộ vô hình, cô nhìn thấy các hệ thống máy móc bảo vệ lần lượt tắt nguồn, các cánh cửa khóa chặt, các camera an ninh chuyển sang chế độ phát lại cảnh ghi hình cũ.
+"Khuếch đại nỗi sợ qua Neuralink," Sarah ra lệnh, giọng không còn là giọng của cô nữa—một giọng nói sắc lạnh hơn, già dặn hơn, tràn đầy quyền năng như thể không thuộc về một cô gái mười bảy tuổi.
+Đó là một người khác, một sinh vật khác, đang hiện diện thông qua thân xác của Sarah. Cô bước xuống giường với sự uyển chuyển của báo đen, chỉnh lại chiếc váy đỏ thoáng rộn ràng, rồi từ từ đi về phía Morrison vẫn đang nằm sõng soài trên sàn. Cô dừng lại khi gót giày chạm vào mặt hắn, áp đế giày xuống má đỏ ửng.
+"Liếm," cô ra lệnh, giọng nhẹ nhàng nhưng đầy quyền uy.
+Morrison, kẻ đã từng sai khiến cả một tập đoàn, kẻ đã từng ra lệnh cho hàng trăm nhân viên, giờ đây vội vàng ôm lấy gót giày của Sarah và liếm—liếm một cách điên cuồng, tham lam, háo hức. Lưỡi hắn chạy dọc theo đế giày, làm sạch từng vết bẩn, từng hạt bụi, cố gắng liếm đến sáng bóng, như thể đây là nhiệm vụ thiêng liêng nhất.
+Sarah áp gót giày mạnh hơn, khiến Morrison rên lên vừa đau đớn vừa khoái cảm. Rồi, với một cử động dứt khoát, cô sút mạnh vào mặt hắn, hét lớn:
+"Cút ra kia đi, con chó!"
+Cú đá mạnh đến mức hất Morrison lăn vài vòng trên sàn nhà, máu tươi chảy ra từ mũi, nhuộm đỏ chiếc áo trắng đắt tiền. Nhưng thay vì tức giận hay phản kháng, hắn lồm cồm bò dậy, khuôn mặt thoả mãn đến độ như sắp thăng thiên, một nụ cười thoả mãn điên dại hiện rõ trên vành môi rách toác.
+Bốn tên còn lại nhìn cảnh tượng đó không phải với sự kinh hãi, mà với sự ghen tị cháy bỏng. Chúng vội vàng quỳ xuống, mở mồm cầu xin:
+"Chủ nhân, hãy đạp vào mặt tôi nữa, hãy chửi tôi đi, hãy sai khiến tôi đi," gã cao gầy van nài, hai tay chắp trước ngực như đang cầu nguyện.
+"Làm ơn, thưa nữ chủ nhân, hãy nhổ vào mặt tôi, hãy giẫm lên lưng tôi, hãy đối xử với tôi như rác rưởi," gã râu quai nón cầu xin, nước mắt trào ra từ khóe mắt.
+Hoá ra bè lũ của Morrison là một lũ M biến thái đến cực độ, những kẻ tìm kiếm khoái cảm từ sự đau đớn và tủi nhục. Chúng muốn bị đánh đập, bị sỉ nhục, bị hạ thấp đến tận cùng. Cả đời làm chủ, cả đời ra lệnh, cả đời đứng trên đỉnh xã hội khiến chúng khát khao một thứ mà chúng không thể tự mình tạo ra—cảm giác bị trừng phạt, bị khinh miệt, bị đối xử như những sinh vật thấp hèn nhất.
+Một Sarah khác đã nhận ra điều đó—có lẽ là Sarah của những đêm đen, Sarah đã mài thìa thành dao trong bóng tối. Cô đã hiểu ra bản chất của bọn chúng, và qua kết nối Neuralink, cô khuếch đại nỗi sợ hãi và khao khát bị trừng phạt của chúng lên gấp trăm lần.
+Cô đi đến khu để đồ tra tấn, cầm chiếc roi điện lên—một thiết bị tinh xảo được thiết kế để gây đau đớn mà không để lại vết thương vĩnh viễn. Với một cử động uyển chuyển, cô quất roi vào từng tên một, khiến chúng quằn quại trên sàn nhà. Tiếng kêu đau đớn hòa lẫn với tiếng rên khoái cảm, tạo nên một bản hòa tấu điên loạn của sự sa đọa.
+"Tao ra, tao ra rồi, sướng quá, sướng như được thăng thiên vậy," gã trung niên đô con hét lên, cơ thể co giật, mắt trợn ngược, bọt mép trào ra.
+Sarah quát lớn, giọng như sấm dậy: "Nhảy đi, nhảy cho tao xem, lũ chó đực!"
+Morrison búng tay theo lệnh, như thể đã đợi mệnh lệnh này từ lâu. Cả bọn đứng dậy, tụt hết quần áo xuống, để lộ lớp đồ lót ren đắt tiền màu hồng và đen—những thứ chỉ có trong tủ đồ của những kẻ biến thái bệnh hoạn nhất. Thân hình béo mập, gầy gò, cơ bắp của chúng trông thật lố bịch trong những mảnh vải mỏng manh, ôm sát như da thứ hai.
+Morrison vươn tay ra, điều khiển hệ thống âm thanh qua Neuralink, và tiếng nhạc nổi lên—một bài pop Việt sôi động từ những năm 2020, với giai điệu lặp đi lặp lại và lời ca đơn giản: "1 2 3 4 2 3 1, hình như anh nói anh yêu em rồi..."
+Dưới ánh đèn mờ ảo tự động xoay tròn, năm "con chó đực" bắt đầu lắc lư, uốn éo, nhảy múa điên cuồng. Chúng xoay tròn, lắc hông, vung tay, tạo nên một cảnh tượng vừa buồn cười vừa kinh tởm. Năm kẻ quyền lực nhất xã hội, năm kẻ giàu có đến mức có thể mua bất cứ thứ gì, giờ đây nhảy múa như những con rối dưới bàn tay điều khiển của một cô gái mà chúng định cưỡng hiếp chỉ vài phút trước.
+Sarah cười khoái trá, tiếng cười giòn tan, sắc nhọn như mảnh thủy tinh vỡ. Cô không còn là Sarah Chen, thiên tài công nghệ với đôi mắt trong veo. Cô cũng không còn là D-7294, tù nhân yếu đuối với đôi vai run rẩy. Cô là một người khác hoàn toàn—một thực thể đầy quyền năng đang sử dụng thân xác của Sarah như một chiếc áo giáp.
+"Chúng tôi tìm thấy cô rồi," bỗng một tiếng nói vang vọng trong đầu Sarah, một thứ ngôn ngữ kỳ lạ chưa từng xuất hiện trên Trái Đất, nhưng lạ lùng thay, Sarah lại hiểu rõ từng từ, từng ý. Tiếng nói đó không phát ra âm thanh, không rung động không khí, mà truyền thẳng vào não bộ cô, khiến đầu cô đau nhức như búa bổ.
+"Chúng tôi đã tìm kiếm cô rất lâu, Sarah Chen. Cô là một trong những Vessels hiếm hoi, những Bình Chứa hoàn hảo. Cô mang trong mình một linh hồn đủ mạnh để chứa đựng chúng tôi. Chúng tôi là Những Kẻ Giám Sát. Chúng tôi đã luôn theo dõi."
+Tâm trí Sarah quay cuồng với thông tin mới. Cơn đau đầu khiến cô gần như mất thăng bằng. Tất cả các lệnh hack hệ thống dừng lại, tiếng nhạc tắt ngấm, bọn Morrison cũng dừng nhảy, ngơ ngác nhìn nhau, rồi nhìn Sarah.
+Trong khoảnh khắc nhất thời ấy, Morrison chợt nhận ra những thứ chúng đang làm, những hành động biến thái, những tư thế lố lăng. Sự thật hiện ra trước mắt hắn như tấm gương vỡ, phản chiếu bản chất thật của chúng. Hắn đỏ mặt, điên tiết, cảm thấy xấu hổ và nhục nhã vì đã bị một Disconnected điều khiển.
+"Địt mẹ con chó cái!" Hắn gầm lên, mắt đỏ ngầu với sự căm hận.
+Như một con chó hoang mất trí, hắn lao đến chỗ Sarah với tốc độ không tưởng của một gã đàn ông béo phì. Bụng phệ của hắn lắc lư, mông hắn nhún nhảy trong chiếc quần lót ren, trông vừa buồn cười vừa đáng sợ. Hắn lao đến với hai tay dang rộng, miệng há to như thể muốn nuốt chửng Sarah.
+Sarah chống cự, nhưng con lợn này quá nặng, quá mạnh trong cơn cuồng nộ. Ngay lập tức hắn đè được cô xuống sàn, tiếng cười điên loạn từ bốn tên còn lại như tiếng nhạc nền cho một cảnh tượng kinh hoàng sắp diễn ra.
+"Buông ra, buông ra!" Sarah gào lên, cơ thể mảnh mai giãy giụa trong bất lực dưới khối lượng khổng lồ của Morrison.
+Tên Morrison đang gồng hết sức bình sinh để cưỡng chế cô, hai tay vừa giữ chặt cổ tay cô, vừa dùng đầu gối kẹp lấy hai chân cô. Hắn lôi "của quý" ra khỏi quần lót ren—một khối thịt biến dạng, đỏ tía vì máu dồn, nhơ nhớp và đáng sợ. Hắn quyết tâm dồn sức đưa nó vào mồm Sarah, trong tiếng cười điên dại của bốn tên còn lại.
+"Há miệng ra, há miệng ra, con đĩ!" Hắn gằn giọng, nước bọt bắn vào mặt Sarah.
+Sarah bé nhỏ sắp ngất đi dưới sức nặng và mùi hôi thối của Morrison. Cô đã sẵn sàng để thân xác mình rơi vào địa ngục. Miệng cô dần há ra theo lệnh của Morrison, không phải vì cô đầu hàng, mà vì cô không còn đủ sức chống cự.
+"AAARRRGGGHHH!"
+Một tiếng rống đau đớn như chó bị thiến vang lên từ miệng Morrison. Tiếng thét chói tai, xé toạc không gian tưởng như không thể phát ra từ cuống họng con người. Máu tươi phun thành vòi từ háng hắn, bắn đầy lên mặt, lên váy, lên cánh tay của Sarah. Thứ chất lỏng ấm nóng, tanh tưởi, đặc quánh khiến Sarah suýt nôn thốc nôn tháo.
+Bên dưới, giữa hai chân Morrison, tay Sarah đang cầm một thứ vũ khí tự chế—chiếc thìa đã được mài sắc trong những đêm dài tăm tối, từng đường mài chính xác và mỏng như lưỡi dao phẫu thuật. Mũi thìa nhọn hoắt đã cắm sâu vào hạ bộ Morrison, xuyên thủng phần da mỏng manh nhất của đàn ông, khiến máu phun ra không ngừng.
+Hắn vung tay hất Sarah sang một bên như hất một con búp bê, và lăn lộn trên sàn nhà trong đau đớn tột cùng. Hai tay hắn ôm chặt hạ bộ, máu trào ra giữa kẽ ngón tay, miệng hắn há hốc trong tiếng gào thét không lời.
+Sarah không chờ đợi, không do dự, không thương xót. Cô nhổm dậy, bắt gặp ánh mắt kinh hoàng của Morrison, và nở một nụ cười—nụ cười của ác quỷ, của tử thần trong hình hài thiếu nữ. Rồi cô lao đến, như mãnh thú vồ mồi, tiếp tục đâm chiếc thìa vào hạ bộ Morrison lần thứ hai, lần thứ ba, lần thứ tư...
+Hắn gào thét van xin, giọng thì thào, rời rạc: "Dừng lại... làm ơn... dừng lại... tao... xin lỗi..."
+Bốn tên còn lại đứng như trời trồng, mặt tái nhợt như xác chết. Sống cuộc sống nhung lụa từ khi còn nhỏ, được bảo vệ khỏi mọi hiểm nguy, lũ Elite này chưa từng chứng kiến sự kinh hoàng tột độ nào như vậy. Trước mắt chúng, con quỷ Sarah đang gầm rú xé xác một con mồi, những nhát đâm chí mạng khiến tiếng thét của Morrison càng trở nên hoảng loạn, yếu ớt dần theo từng giây trôi qua.
+"Câm mõm lại!" Sarah hét lớn, mắt đỏ ngầu, tóc xõa rối như bờm sư tử cái, và cắm chiếc thìa vào mồm Morrison.
+Lưỡi thìa sắc lẻm cắt ngang lưỡi hắn, khiến máu trào ra như suối. Hắn không kêu được, chỉ rên rỉ đau đớn trong khi Sarah đang bóp mồm hắn và liên tục ngoáy chuôi thìa sâu hơn, mạnh hơn, tàn nhẫn hơn. Rồi cô ngửa cổ, bật lên những tràng cười điên loạn, tiếng cười vang dội khắp căn phòng như những lưỡi dao vô hình cứa vào thính giác:
+"Ha ha ha ha ha! HA HA HA HA! HAHAHAHAHAHAHAHA!"
+Tiếng cười của cô dứt khi Morrison ngừng cử động, mắt trợn ngược, miệng sùi bọt máu, thân thể co giật vài cái rồi bất động. Ánh mắt hắn dừng lại ở một điểm xa xăm nào đó, không tập trung, không còn sự sống.
+Sarah đứng dậy, toàn thân ướt đẫm mồ hôi và máu. Chiếc váy đỏ giờ đây thậm chí còn đỏ hơn, nhưng là một màu đỏ sẫm, tanh tưởi và ẩm ướt. Tóc cô dính bết vào cổ, vào má, thành từng lọn như rắn đen. Gương mặt cô không còn chút nét người—đôi mắt đỏ ngầu, môi mím chặt, da trắng bệch như tử thi.
+Các tên còn lại co rúm như những con thú đứng trước thợ săn. Chúng nhìn Sarah như nhìn vào hiện thân của cái chết. Trước mắt chúng là một con quỷ nhầy nhụa máu đang săn mồi, không phải một cô gái Disconnected mà chúng định làm đồ chơi.
+Chúng nhắm tịt mắt lại cầu xin, có tên thì cầu kinh xin Chúa cứu giúp: "Lạy Chúa trên cao, xin người cứu vớt linh hồn con, xin người..."
+Sarah bước tới gần tên đang lẩm bẩm đọc kinh Thánh—gã trẻ tuổi tóc vàng đang quỳ xụp, hai tay chắp trước ngực, mắt nhắm nghiền, môi mấp máy những lời cầu nguyện vô nghĩa. Cô túm tóc hắn, kéo mạnh về phía sau khiến cổ hắn ngửa ra, cổ họng phơi bày dễ bị tổn thương.
+"Chúa của mày đâu rồi, thằng khốn?" Cô thì thầm vào tai hắn, giọng the thé như tiếng móng tay cào lên bảng đen.
+Rồi cô xiên chuôi thìa nhọn hoắt, sắc lẻm vào cổ họng hắn, đâm xuyên qua thanh quản, qua khí quản, đâm mãi cho đến khi mũi thìa lộ ra ở phía sau cổ. Hắn sặc sụa trong máu, tay chân vùng vẫy điên cuồng trong nỗ lực cuối cùng chống lại cái chết. Máu phun ra từ miệng, từ mũi, từ lỗ thủng trên cổ, nhuộm đỏ sàn nhà cẩm thạch trắng. Rồi hắn đổ gục xuống, mắt vẫn mở trừng trừng, không thể tin vào thứ vừa kết liễu đời mình—một chiếc thìa inox tầm thường.
+Tên tiếp theo—gã râu quai nón—đã cứng đờ người vì sợ hãi. Đôi chân hắn như bị ghim chặt vào sàn, không thể cử động dù chỉ một phân. Hắn không thể nói, không thể hét, chỉ trợn tròn mắt nhìn Sarah trong sợ hãi tột độ, như thể đang chứng kiến ác mộng tồi tệ nhất đời mình.
+Sarah bước đến, không vội vã, từng bước chân là một lời tuyên án tử. Cô dừng lại trước mặt hắn, nhìn sâu vào đôi mắt đang ngập tràn nỗi sợ, rồi mỉm cười—nụ cười như của trẻ con bên món quà giáng sinh, trong trẻo và vô tư.
+"Ngươi có sợ không?" Cô hỏi, giọng ngọt ngào đến rợn người. "Ngươi có sợ cái chết không?"
+Gã râu quai nón gật đầu, nước mắt lã chã tuôn rơi, khuôn mặt méo mó trong tuyệt vọng.
+"Tốt," Sarah thì thầm. "Natalia cũng sợ. Cô ấy cũng sợ lắm khi bọn bay đè lên người cô ấy."
+Rồi cô vung tay, chọc thẳng chiếc thìa vào mắt hắn. Lưỡi thìa sắc bén đâm xuyên qua nhãn cầu, tiếng "bục" nhỏ vang lên khi thủy tinh thể vỡ ra, nhựa mắt chảy ra, hòa với máu tươi thành một thứ chất lỏng đỏ nhờn nhợt. Máu phun ra phía sau đầu khi Sarah tiếp tục giữ chặt đầu hắn, đâm liên tiếp qua hốc mắt, rồi sâu vào não bộ. Mỗi nhát đâm đều nhịp nhàng, chính xác, không dấu hiệu mệt mỏi hay do dự.
+Hắn ngã xuống như bao cát đứt dây, giãy giụa một lúc trong vũng máu ngày càng loang rộng, chân tay co giật như con rối bị đứt dây. Rồi hắn bất động, nằm sõng soài trong vũng máu hòa lẫn nước tiểu và phân—cơ thể đã mất kiểm soát trong giây phút cuối cùng của sự sống.
+Sarah quay sang, ánh mắt lạnh lùng quét qua phòng. Còn hai tên. Một tên đang cúi lạy, đập đầu xuống đất đến mức máu rỉ ra từ trán, mong chờ sự nhân từ nơi con quỷ trước mặt. Gã cao gầy lẩm bẩm những lời van xin không thành tiếng, mặt áp sát sàn đá lạnh, vai run lên từng đợt.
+Tên còn lại—gã trung niên đô con—đã di chuyển đến góc phòng, lục lọi trong ngăn bàn của Morrison như tìm kiếm vật cứu rỗi cuối cùng. Bàn tay rắn chắc của gã run rẩy khi chạm phải một vật lạnh—một khẩu súng lục tự động, được mạ vàng và khảm ngọc trên báng, món đồ chơi đắt tiền của Morrison.
+"Đừng đến đây, đồ quỷ dữ, đừng đến đây, để tao yên!" Hắn giơ súng lên, chĩa thẳng về phía Sarah, hét trong tuyệt vọng.
+Tay hắn run như người bệnh sốt rét, mồ hôi nhỏ giọt từ trán, từ mũi, từ cằm. Con ngươi co lại thành điểm nhỏ, mặt tái nhợt như người chết, môi run rẩy không thành lời.
+Nhưng Sarah như không sợ hãi, không chút dao động. Cô chậm rãi bước đến, bước qua xác Morrison, qua xác gã trẻ tuổi, qua xác gã râu quai nón, mỗi bước chân đều để lại dấu máu đỏ thẫm trên sàn cẩm thạch trắng. Gót giày cao gõ lên sàn nhà tạo nên tiếng động đều đều, không vội vã, nhưng đầy đe dọa, như nhịp đập của sự chết chóc đang tiến gần.
+Gã trung niên đô con hét lên như con thú bị dồn vào góc: "ĐỨNG LẠI! TAO SẼ BẮN! TAO THỀ SẼ BẮN VỠ SỌ MÀY!"
+Nhưng Sarah vẫn cứ bước đến, mặc cho những tiếng hét thất thanh đang không ngừng tuôn ra. Mỗi bước chân giúp cô đến gần hơn với mục tiêu, và mỗi bước chân khiến tên đàn ông to lớn kia thêm run rẩy, thêm hoảng loạn.
+Hắn sợ đến nỗi không thể kéo cò khi chĩa súng về phía Sarah. Từng giây trôi qua như hàng giờ, từng hơi thở nặng nhọc như tiếng kêu cứu cuối cùng. Hắn nhìn vào đôi mắt Sarah—đôi mắt không còn chút nhân tính, đôi mắt của thứ gì đó không thuộc về thế giới này.
+Và trong khoảnh khắc tuyệt vọng, gã trung niên đô con đưa ra quyết định cuối cùng: giơ súng lên và ngậm mồm vào nòng súng.
+"ĐOÀNG!"
+Tiếng súng vang dội trong không gian kín, tiếng vang dồn dập phản hồi từ tường, từ trần, tạo nên một chuỗi âm thanh như tiếng chuông báo tử. Phần sau đầu hắn vỡ tung, bắn tóe lên tường, lên trần, lên tranh cổ vô giá, những mảnh xương sọ, mảnh não, những mẩu da đầu phun ra như pháo hoa đỏ thẫm.
+Hắn lăn ra chết ngay lập tức—cái chết nhanh chóng để không phải đau đớn như ba tên kia, cái chết mà hắn tự chọn thay vì chờ đợi phán quyết từ con quỷ trước mặt.
+Tiếng súng làm cho tên đang đập đầu quỳ lạy xin tha như bừng tỉnh khỏi cơn mộng mị. Gã cao gầy nhìn Sarah đang đứng cách hắn cả một chiếc giường tròn, trong khi bản thân hắn đang ở sát cửa. Cơ hội sống sót loé lên trước mắt hắn như ngọn lửa nhỏ trong đêm tối—mong manh nhưng là tia hy vọng duy nhất.
+Không chần chừ thêm giây nào, hắn vùng lên mở tung cánh cửa phòng và lao ra ngoài, miệng hét lớn trong hoảng loạn vô phương: "CỨU, QUỶ DỮ, CỨU, CỨU TÔI!"
+Chuông báo động vang lên đinh tai, ánh đèn đỏ nhấp nháy xoá tan bóng tối, và tiếng động cơ của hệ thống bảo vệ tự động bắt đầu khởi động. Hành lang bên ngoài dài và trắng toát, nơi gã cao gầy đang lao đi với tốc độ không tưởng từ một thân hình khẳng khiu.
+Trong phòng, Sarah nhìn xung quanh, nhận thức được tình thế—bốn xác chết, máu me khắp nơi, và chuông báo động đang reo inh ỏi. Không còn nhiều thời gian. Cô nhìn ra cửa sổ lớn, bên kia là bầu trời đêm và khu vườn rộng lớn. Sâu thẳm bên trong, cô biết chỉ có một đường thoát.
+Sarah quỷ dữ vác chiếc ghế bọc da nặng nề, nhấc bổng lên với sức mạnh không tưởng từ thân hình mảnh mai. Cô ném thẳng vào cửa sổ trong một hành động dứt khoát, quyết liệt, không chút do dự.
+"CHOANG!"
+Tiếng kính vỡ vang lên như khúc nhạc giải thoát. Hàng nghìn mảnh kính vỡ bắn tung toé, lấp lánh dưới ánh đèn báo động như những tinh thể kim cương vụn. Luồng gió lạnh từ bên ngoài ùa vào, đem theo mùi hương của cỏ cây, của tự do và hy vọng.
+Sarah không chần chừ, nhảy thẳng ra khỏi cửa sổ vỡ, phóng mình vào màn đêm đen tuyền. Cơ thể cô rơi xuống, rơi mãi, như chiếc lá rụng giữa không trung, cho đến khi chạm phải lùm cây rậm rạp bên dưới. Cành lá đan xen, gãy răng rắc dưới trọng lượng của cô, làm chậm đà rơi cho đến khi cô chạm đất.
+Cô loạng choạng đứng dậy sau cú tiếp đất, váy đỏ rách tươm, da thịt xây xát nhẹ, nhưng không gì ngăn được ý chí sống còn. Chung quanh, đèn cảnh báo màu đỏ bật sáng khắp các khu vực, quét những tia sáng qua bóng tối như những ngón tay tìm kiếm. Tiếng còi báo hiệu nguy hiểm vang lên không ngớt, xé toạc bầu không khí đêm tĩnh lặng.
+Từ các bụi cây, góc tường, hàng rào, những cỗ máy bảo vệ nhô lên, những nòng súng tự động chĩa thẳng về phía Sarah, sẵn sàng khai hỏa. Con ngươi cơ học của chúng toả ánh sáng đỏ, quét trên người Sarah, xác nhận mục tiêu, và chuẩn bị hành động tiêu diệt.
+"TỰ HUỶ!" Sarah nhắm mắt hét lớn, giọng cô vang vọng khắp khuôn viên như tiếng sét giữa trời quang.
+Trong tích tắc, một điều kỳ diệu xảy ra—hệ thống tự huỷ của máy móc bảo vệ kích hoạt. Từng cỗ máy, từng robot, từng khẩu súng tự động đồng loạt nổ tung thành từng mảnh, tạo nên hàng chục tiếng nổ nhỏ liên tiếp khắp khuôn viên. Kim loại, nhựa, dây điện văng tung toé như pháo hoa, lửa và khói bốc lên từ những xác máy đang cháy âm ỉ.
+Nhưng hệ thống báo động vẫn reo inh ỏi. Từ tòa nhà nhỏ bên cạnh, những bảo vệ canh gác cổng nhận thấy sự nguy hiểm, vội phá cổng xông vào. Họ hô hoán, chỉ trỏ, và rút súng ra, hướng về phía Sarah.
+"Này kia, đứng lại!" "Có kẻ đột nhập!" "Bắn hạ nó!"
+Những tiếng hét vang lên loạn xạ, theo sau là những tràng đạn nhắm về phía Sarah. Cô lao mình vào bóng tối, chạy zíc-zắc giữa những lùm cây, cố gắng tránh những làn đạn đang bay vụt qua người. Tiếng đạn xé gió, tiếng đạn găm vào thân cây, tiếng đạn bắn vỡ những bức tượng vườn, tất cả tạo nên một bản giao hưởng của sự huỷ diệt.
+Sarah đã chạy đến cổng chính như đường cùng, không còn lối thoát. Trước mặt cô là con đường dẫn ra thế giới bên ngoài, nhưng giữa cô và tự do là một khoảng trống không chỗ ẩn nấp, nơi cô sẽ trở thành mục tiêu hoàn hảo cho những tay súng đang truy đuổi.
+"Không lẽ chỉ dừng lại đây sao?" Sarah như tuyệt vọng, đứng chôn chân nhìn khoảng cách không thể vượt qua. "Kết thúc rồi sao?"
+Mọi thứ như chậm lại trong giây phút định mệnh. Tiếng súng, tiếng hét, tiếng còi báo động, tất cả như nhòa vào một nền âm thanh trắng xa xăm. Sarah có thể nghe rõ từng nhịp đập của trái tim mình, từng hơi thở gấp gáp, từng tế bào trong cơ thể đang gào thét đòi được sống còn.
+Bỗng nhiên, như một phép màu, một khe hở nhỏ xuất hiện trên bức tường bên cạnh cổng—một cánh cửa bí mật vừa được mở ra. Một bàn tay thò ra từ khe hở, vẫy gọi Sarah, rồi chụp lấy cánh tay cô, kéo mạnh về phía khe tường.
+Sarah cảm thấy mình bị lôi đi với sức mạnh không tưởng, cơ thể cô biến mất vào khe hở đen ngòm chỉ trong gang tấc, ngay khi hàng loạt đạn bắn thẳng vào vị trí cô vừa đứng. Tiếng đạn găm vào tường vang lên liên hồi, những tia lửa bắn ra từ những viên đạn chạm vào đá, nhưng Sarah đã biến mất, như thể chưa từng tồn tại.
+"Chúng chạy được rồi, theo hướng Tây, đuổi theo, mau lên, phải bắt lại cho bằng được!" Tiếng ra lệnh vang lên từ phía các vệ sĩ, tiếng chân chạy loạn xạ, và tiếng động cơ xe nổ giận dữ.
+“LÊN XE, NHANH LÊN, CHẠY KHỎI ĐÂY!!!”
+Sarah đã được cứu thoát, bởi một bàn tay vô danh, một người bí ẩn đã xuất hiện đúng lúc...
+________________________________________
+HỒI 4: SĂN ĐUỔI
+Gần nửa đêm, tĩnh lặng bao trùm tầng thượng tòa tháp X-Corp—một khối kính và thép mạ titan vươn cao 163 tầng, hiện diện như một pháo đài lừng lững giữa Austin, Texas.
+Elon Musk ngồi trong văn phòng riêng—một không gian rộng lớn với bức tường kính trong suốt nhìn ra thành phố ánh sáng bên dưới. Ở tuổi 78, mái tóc ông đã bạc trắng, nhưng ngoài điều đó, ít ai có thể đoán được tuổi thực của ông. Dù khuôn mặt có những nếp nhăn, nhưng nó không phản ánh đúng số tuổi thật - thuật toán kiểm soát lão hóa của Neuralink đã giúp duy trì thể trạng dẻo dai, làn da săn chắc và ánh mắt sắc sảo của một người đàn ông trẻ hơn ít nhất hai thập kỷ. Từ ông tỏa ra nguồn năng lượng mãnh liệt, dường như không bao giờ cạn kiệt—dấu hiệu của một người đã kết nối sâu với bản nâng cấp Neuralink cao cấp nhất.
+Trước mặt ông, những màn hình hologram lơ lửng trong không khí hiển thị báo cáo từ khắp nơi trên thế giới—dữ liệu về lưu lượng Neural Cloud, những biến động trong mạng lưới ý thức toàn cầu, và những bản đồ nhiệt phức tạp thể hiện hoạt động Neuralink của hàng tỷ người.
+Bỗng nhiên, DOGE—con chó Shiba Inu lông vàng óng nằm dưới chân ông—giật mình tỉnh giấc. Nó ngẩng đầu lên, hai tai dựng đứng, mũi khịt khịt hướng về không trung như thể đang cảm nhận thứ gì đó vô hình. Rồi không báo trước, nó bật dậy, sủa dữ dội—những tiếng sủa sắc lẻm, khẩn thiết, không phải âm thanh cảnh báo kẻ xâm nhập thông thường mà là thứ gì đó sâu xa hơn, như thể cảm nhận được một sự thay đổi trong chính cấu trúc thực tại.
+Musk không tỏ vẻ ngạc nhiên. Ông khẽ mỉm cười, cúi xuống xoa đầu con vật với cử chỉ hết sức thân mật, như đối với một người bạn lâu năm chứ không phải một con vật nuôi thông thường.
+"Tôi cũng linh cảm thấy điều đó, anh bạn nhỏ," ông thì thầm, giọng trầm ấm pha lẫn lo âu. "Có gì đó vừa thức tỉnh."
+DOGE ngồi xuống, vẫn còn rên rỉ khẽ, đôi mắt nâu thẫm dõi theo Musk khi ông đứng dậy, bước về phía cửa sổ. Ánh trăng non hắt lên gương mặt ông những mảng sáng tối đối lập, một nửa ánh sáng, một nửa bóng tối—như chính bản chất những gì ông vừa cảm nhận được.
+Musk đưa tay lên, chạm nhẹ vào thái dương—nơi cấy ghép thiết bị Neuralink tiên tiến nhất thế giới, phiên bản độc quyền mà chỉ mình ông sở hữu. Một màn hình ảo hiện ra trước mắt, hiển thị dữ liệu thời gian thực: một điểm sáng đỏ rực vừa xuất hiện ở Oakland, California, lan tỏa những gợn sóng kỹ thuật số trên khắp mạng lưới Neural Cloud.
+"Khá đúng vị trí tôi dự đoán," ông lẩm bẩm, nhìn vào đốm sáng đang nhấp nháy. "Nhưng sớm hơn tôi nghĩ nhiều."
+Ông với lấy tách cà phê trên bàn—không phải thứ cà phê thông thường mà là 'NeuroCaffeine', một hợp chất đặc biệt được thiết kế để tăng cường kết nối giữa Neuralink và các vùng thùy thái dương và thùy đỉnh của não, nơi xử lý trực giác và cảm nhận không gian. Ông nhâm nhi một ngụm nhỏ, hương vị đắng sâu lan tỏa, kích hoạt từng tế bào thần kinh như những mạch điện nhỏ thức tỉnh.
+"Chúng ta sẽ đến Oakland một chuyến vào ngày mai," ________________________________________
+Cách đó hàng ngàn dặm, tại ngoại ô Oakland, một cuộc rượt đuổi điên cuồng đang diễn ra.
+Chiếc Tesla Phantom—phiên bản limousine chống đạn dành cho các Elite—lao như tên bắn qua các con phố tối tăm của Dead Zone. Tiếng lốp xe rít lên trên mặt đường nứt nẻ khi chiếc xe vào cua gấp, đèn pha quét những tia sáng xuyên qua màn sương mỏng đặc trưng của khu vực này.
+Bên trong chiếc xe, Sarah Chen bị ném từ đầu này sang đầu khác khi chiếc xe liên tục vào cua gấp, cơ thể đau nhức vẫn còn nhớ những gì vừa trải qua tại biệt thự Morrison. Bộ đầm đỏ của cô đã rách nát, dính đầy máu—cả của cô và của Morrison cùng những kẻ khác. Đôi mắt cô mở to trong hỗn loạn và kiệt sức, cố gắng định hình xem mình đang ở đâu và cùng với ai.
+"XUỐNG!" Người đàn ông lái xe hét lên, và Sarah theo phản xạ lao người xuống sàn xe ngay khi tiếng súng nổ vang, những viên đạn xuyên qua cửa kính sau, để lại những lỗ thủng tròn hoàn hảo trên lớp kính chống đạn. Đạn không xuyên thủng hoàn toàn, nhưng lực tác động khiến những vết nứt lan rộng như mạng nhện.
+"Chúng có vũ khí hạng nặng," người ngồi ghế phụ nói, mắt nhìn qua gương chiếu hậu. "Súng trường phá giáp AP-950, đầu đạn siêu tốc. Chỉ cần trúng hai phát cùng một điểm, kính chống đạn sẽ vỡ."
+Phía sau, ba chiếc mô tô Tesla Interceptor—loại dành riêng cho lực lượng an ninh tư nhân cao cấp—đang đuổi theo. Những tay lái chuyên nghiệp mặc đồ đen, mũ bảo hiểm kín mít với kính hiển thị tăng cường nhìn đêm, tay cầm súng trường tự động, bắn chính xác trong khi vẫn điều khiển xe với tốc độ kinh hoàng.
+"Đội bảo vệ nhà Morrison đây mà," người lái xe nói, giọng căng thẳng, tay lướt trên vô lăng, khiến chiếc xe vào cua gấp ở tốc độ không tưởng. "Những tên lính đánh thuê chuyên nghiệp, được nâng cấp cơ thể, cấy ghép thị giác tăng cường và cơ bắp nhân tạo. Chúng có thể bắn trúng đích khi đang phóng 200 cây số giờ."
+Sarah cảm thấy sợ hãi dâng lên. Cô nhớ khi giết Morrison—những hình ảnh cô dùng chiếc thìa mài nhọn đâm vào cổ họng hắn vẫn còn sống động, máu phun ra như vòi nước. Giờ đây, những tay sát thủ được trả lương hậu hĩnh của hắn đang đuổi theo—những kẻ không có lý do gì để giữ cô sống.
+Chiếc Tesla Phantom lao qua những con phố hẹp, những ngõ cụt, những khu nhà hoang, với tốc độ và sự chính xác khiến Sarah kinh ngạc. Người lái xe điều khiển như thể anh ta thuộc từng tấc đường của Dead Zone. Khi một rào chắn hiện ra phía trước, chiếc xe không giảm tốc mà còn tăng tốc, lao vút qua rào chắn, bay lên không trung vài giây rồi đáp xuống mặt đường bên kia với tiếng rên rỉ từ hệ thống giảm xóc.
+"Chết tiệt!" người ngồi ghế phụ chửi thề khi một loạt đạn bắn tới, xuyên thủng một phần mui xe. "Chúng đuổi theo sát quá!"
+"Chuyện thường ngày ở huyện," người lái xe trả lời, điều chỉnh tay lái, khiến chiếc xe rẽ ngoặt vào một con hẻm tối om chỉ vừa đủ cho một chiếc xe đi qua. "Phía trước là khu Dead Zone cấp 3—không tín hiệu Neuralink, không camera an ninh, không thể theo dõi. Nếu vào được đó, chúng sẽ không thể dùng định vị hay gọi tiếp viện."
+Chiếc Tesla Phantom lao vào con hẻm, bánh xe chạm vào tường gạch hai bên, tóe lên những tia lửa. Lợi thế duy nhất của limousine là khoang xe dài, được gia cố chống đạn, nhưng điều đó cũng khiến nó khó điều khiển trong không gian hẹp.
+Tiếng súng nổ liên hồi phía sau khi những tay lính đánh thuê đuổi theo, đạn găm vào thân xe, tường gạch, và mọi thứ trên đường đi. Sarah cuộn tròn trên sàn xe, tay ôm đầu, tim đập loạn xạ. Cả cuộc đời cô—từ biệt thự sang trọng đến trại tập trung, từ biệt thự Morrison đầy máu me đến cuộc rượt đuổi điên cuồng hiện tại—tất cả dường như một cơn ác mộng không hồi kết.
+"Sarah, quay lại nhìn" người lái xe ra lệnh, mắt vẫn không rời đường phía trước. "Có cái gì lóe sáng ở phía sau xe không?"
+Sarah run rẩy ngồi dậy không hiểu sao ông ta lại biết tên mình, nhưng suy nghĩ đó nhanh chóng bị gạt đi, cô vội vã nhìn ra cửa sổ sau. Qua làn kính nứt và những lỗ đạn, cô thấy ba con mô tô vẫn bám sát, nhưng điều khiến cô sửng sốt là ánh sáng xanh nhỏ lóe lên trên thân xe.
+"Có! Có ánh sáng xanh!" cô hét lên.
+"ĐÁNH DẤU THEO DÕI! Ra khỏi xe, NGAY!" người lái xe quát, đạp mạnh phanh, khiến chiếc xe xoay ngang, chặn kín con hẻm. "Chúng gắn thiết bị theo dõi lên xe—cả đội đặc nhiệm của Morrison sẽ tới trong năm phút. XUỐNG XE!"
+Người ngồi ghế phụ mở cửa, lao ra ngoài trong tích tắc, kéo Sarah theo. Người lái xe kéo chốt một quả lựu đạn quăng vào trong xe và lao theo Sarah nhanh như một mũi tên vừa rời dây cung.
+ “RẦM!”
+Một tiếng nổ lớn kéo chiếc xe chìm trong biển lửa, khói bốc lên thành cột cao khổng lồ chặn đứng mọi cách có thể xuyên qua con hẻm này.
+ Tiếng súng nổ vang khi những tay lính đánh thuê nhảy xuống mô tô, lấy vị trí, bắn về phía họ. Đạn xuyên qua vụ nổ, găm vào tường, vào mặt đất, vào thùng rác bên cạnh, nhưng không trúng ai.
+"Theo tôi!" người lái xe hét, vừa nã hai phát súng về phía những kẻ tấn công, vừa lao vào một cửa hàng bỏ hoang. Sarah chạy theo, tim như muốn vỡ tung, mỗi hơi thở đều đau rát trong lồng ngực.
+Họ chạy qua cửa hàng, ra cửa sau, rồi băng qua một dãy nhà kho cũ nát, tiếng súng vẫn không ngừng vang lên phía sau. Người ngồi ghế phụ thỉnh thoảng dừng lại, bắn vài phát để kìm chân những kẻ đuổi theo, nhưng rõ ràng họ đang dần bị bao vây.
+Vừa chạy, Sarah vừa cố gắng nhìn kỹ người lái xe trong ánh đèn đường lờ mờ. Có gì đó rất quen thuộc về dáng người, cách di chuyển, và đặc biệt là ánh mắt kiên định của anh ta. Rồi, trong khoảnh khắc ngắn ngủi khi họ chạy qua một đèn đường còn hoạt động, cô nhìn thấy khuôn mặt anh ta.
+"Li Wei?" cô thốt lên, tim như ngừng đập. "Li Wei, là ông thật sao?"
+Những ký ức tràn về—biệt thự Chen, đêm định mệnh, cảng biển Thâm Quyến, tiếng súng vang lên, và Li Wei ngã gục trong vũng máu. Nhưng khuôn mặt đó, đường nét cương nghị đó, ánh mắt kiên định đó—rõ ràng là Li Wei, trưởng đội bảo vệ đã hy sinh để cô có thể trốn thoát.
+Người đàn ông gật đầu nhẹ, không đáp lời, mắt vẫn quan sát xung quanh, tìm đường thoát trong khi tiếng súng ngày càng gần. Anh ta ra hiệu cho Sarah cúi đầu thấp xuống, và cô răm rắp làm theo.
+"Tôi tưởng ông đã chết rồi," Sarah vừa cúi đầu làm theo, vừa khóc nức nở. Tâm trí mệt mỏi của cô không thể lý giải được điều này, nhưng trái tim cô tràn ngập niềm vui và nhẹ nhõm. "Gặp lại ông tôi vui lắm, Li Wei."
+Tiếng súng vang lên gần hơn, kèm theo tiếng bước chân và tiếng mô tô. Họ đang bị bao vây.
+"Vào đây!" người lái xe ra lệnh, chỉ vào một kẽ hở giữa hai tòa nhà, hẹp đến mức chỉ vừa một người lách qua. Họ chui vào, phát hiện ra một lối đi bí mật giữa những bức tường, như một mê cung trong Dead Zone.
+"Phía trước là ngõ cụt," người ngồi ghế phụ thì thầm, kiểm tra đạn trong khẩu súng. "Chúng ta phải tìm chỗ ẩn nấp."
+Tiếng động cơ mô tô rú lên phía trước—đội tuần tra đã phát hiện ra họ và đang bao vây. Tiếng chân chạy rầm rập phía sau—những kẻ đuổi theo ban đầu đã bắt kịp. Họ bị kẹt giữa gọng kìm.
+"Ở đây," người lái xe bất ngờ đẩy mạnh một bức tường, tiết lộ một cửa hàng sắt vụn cũ kỹ. Bên trong tối om, chất đầy đồng nát và rác thải công nghệ. "Nhanh lên, tôi sẽ đánh lạc hướng chúng."
+Anh ta ra hiệu cho người ngồi ghế phụ, và người này gật đầu, hiểu ý ngay lập tức. Người ngồi ghế phụ đưa cho Sarah một thiết bị nhỏ - "Thiết bị chống định vị—cài lên váy cô. Sẽ làm nhiễu mọi cảm biến trong vòng 2 mét."
+Rồi người lái làm điều không ngờ tới: anh ta lao ra ngoài, nổ súng về phía những kẻ tấn công, thu hút sự chú ý.
+"Li Wei!" Sarah hét lên, cố gắng vùng ra, nhưng người ngồi ghế phụ giữ cô quá chặt.
+"Đó là nhiệm vụ của anh ta," người đàn ông nói, giọng trầm và lạnh nhưng có chút gì đó quen quen. "Và nhiệm vụ của tôi là đưa cô đến nơi an toàn."
+Tiếng súng nổ vang bên ngoài, tiếng hét, tiếng động cơ mô tô, và nhiều tiếng động hỗn loạn khác, nhưng người đàn ông vẫn kéo Sarah đi, xuyên qua cửa hàng, đến một cánh cửa sau.
+Cánh cửa mở ra, tiết lộ một con hẻm tối om khác, và bên cạnh là một chiếc xe tải rác cũ kỹ, động cơ vẫn đang chạy.
+"Nhanh lên!" người đàn ông hét, kéo Sarah chạy tới chiếc xe. Tiếng súng vẫn vang lên phía sau, nhưng ngày càng xa.
+Chiếc xe tải phanh kít trước mặt họ, bánh xe ma sát mạnh với mặt đường, tạo ra tiếng kêu chói tai. Người đàn ông không do dự, bế thốc Sarah lên, lao về phía thùng rác lớn phía sau xe.
+"Cái g—" Sarah chưa kịp nói hết câu, đã bị ném thẳng vào trong thùng rác. Người đàn ông lao theo và đóng nắp thùng rác lại, kéo đống rác bẩn thỉu, hôi thối phủ kín cả hai.
+Mùi hôi thối xộc vào mũi Sarah—hỗn hợp của thức ăn thừa, rác thải sinh hoạt, và chất thải động vật—nhưng kỳ lạ thay, cô không thấy buồn nôn nhiều như lẽ ra phải vậy. Trung tâm Phân loại Oakland đã chuẩn bị cho cô tốt hơn những gì cô nghĩ—những tháng ngày trong điều kiện vệ sinh tệ hại, với mùi hôi thối bao trùm đã khiến khứu giác cô chai sạn đến mức đáng ngạc nhiên.
+"Đừng cử động," người đàn ông thì thầm, áp sát vào Sarah trong khoảng không chật hẹp. Anh ta ghé mắt qua khe hở nhỏ giữa nắp thùng rác, quan sát tình hình.
+Tiếng động cơ mô tô và tiếng súng vẫn vang lên từ xa, nhưng không có dấu hiệu ai đang tiến đến gần họ. Kế hoạch đánh lạc hướng của người lái xe đã có tác dụng.
+"Li Wei..." Sarah thì thầm, nước mắt lăn dài. "Ông ấy sẽ ổn chứ?"
+Sarah lo lắng thắt ruột về người bảo vệ tưởng đã chết mà cô vừa gặp lại, chỉ để thấy anh ta lại lao vào nguy hiểm một lần nữa vì cô. Nỗi lo sợ và niềm vui xen lẫn trong lòng cô, tạo nên một cơn bão cảm xúc không thể kiểm soát.
+Người đàn ông không trả lời ngay. Anh ta vẫn quan sát qua khe hở, đảm bảo không ai phát hiện ra họ. Rồi, khi đã chắc chắn về sự an toàn tạm thời, anh ta quay sang Sarah.
+"Giờ chúng ta phải ẩn náu," anh ta nói, giọng trầm và mệt mỏi. "Ít nhất đến sáng. Khi có ánh sáng, chúng sẽ khó tìm chúng ta hơn trong đám đông người Disconnected đi làm."
+Sarah không nói gì, chỉ gật đầu. Cô quá mệt mỏi để hỏi thêm, quá đau đớn để lo lắng. Mọi thứ dường như quá sức chịu đựng—từ cái chết của gia đình, đến Lão Zhang, đến cái chết của Lão Yang trên biển, đến Natalia, đến đêm kinh hoàng với Morrison, và giờ là cuộc rượt đuổi này.
+Mệt mỏi tột độ—cả thể xác lẫn tinh thần—bắt đầu trùm lấy Sarah. Đôi mắt cô nặng trĩu, ý thức dần trôi vào màn sương mờ ảo.
+"Ông vẫn còn sống, Li Wei," Sarah thút thít, không còn kiềm chế được dòng nước mắt đang tuôn trào vì lo lắng cho người bảo vệ. "Cảm ơn trời."
+Một bàn tay thô ráp, ấm nóng và chắc chắn nắm lấy tay cô trong bóng tối. "Suỵt," giọng người đàn ông vang lên, trầm ấm và trấn an.
+Cảm giác an toàn lan tỏa trong cơ thể Sarah—một cảm giác gần như xa lạ sau tất cả những gì cô đã trải qua. Trong khoảnh khắc kỳ lạ đó, giữa một thùng rác bẩn thỉu tại Dead Zone, cô lại cảm thấy được bảo vệ, được che chở, như những ngày còn ở biệt thự Chen với cha mẹ và Lão Zhang.
+Sarah cảm thấy ý thức dần mơ hồ, cơn mệt mỏi và kiệt sức cuối cùng cũng nuốt chửng cô vào giấc ngủ sâu.
+________________________________________
+Sáu giờ sáng. Mưa bắt đầu rơi trên Dead Zone Oakland—không phải những giọt mưa công nghệ cao được lọc sạch bằng nano filter như ở khu Connected, mà là những giọt mưa axit nhẹ, mang theo bụi bẩn và kim loại nặng từ những nhà máy xử lý rác quá tải phía Bắc. Tiếng mưa rơi tí tách trên nắp thùng rác, tạo thành một giai điệu kỳ lạ, gần như an ủi.
+Khi những tia nắng đầu tiên len lỏi qua khe nắp thùng rác, người đàn ông khẽ chạm vai Sarah, đánh thức cô từ giấc ngủ sâu. Cô mở mắt, nhất thời không biết mình đang ở đâu, rồi thực tại ập về như một gáo nước lạnh—thùng rác, cuộc rượt đuổi, và Li Wei, người mà cô tin rằng đã sống sót.
+"Tới lúc rồi," người đàn ông nói khẽ, giọng nói vừa đủ cho Sarah nghe thấy. "Tôi nghĩ chúng đã rời đi. Chúng ta phải di chuyển khi Dead Zone còn đông người."
+Với sự thận trọng tột độ, anh ta hé mở nắp thùng rác, quan sát tình hình qua khe hở nhỏ. Đường phố Dead Zone đang dần nhộn nhịp với những người Disconnected—những bóng người cúi gằm mặt, vai khòm, lặng lẽ di chuyển đến những nhà máy hay công xưởng, nơi họ làm những công việc mà AI và robot chưa thay thế được.
+"Được rồi, đi thôi," anh ta ra lệnh, đẩy nắp thùng rác lên và nhanh chóng trèo ra ngoài, rồi đưa tay kéo Sarah theo.
+Ánh sáng ban ngày, dù là thứ ánh sáng mờ ảo lọc qua lớp khói độc của Dead Zone, vẫn chói mắt sau nhiều giờ trong bóng tối. Sarah chớp mắt liên tục, cố gắng thích nghi, trong khi chân tay tê cứng và đau nhức khi hoạt động trở lại. Những mảnh vụn rác bám đầy trên chiếc váy đỏ rách nát, và mùi hôi thối từ cơ thể cô khiến vài người qua đường phải tránh xa.
+Không nói một lời, người đàn ông cởi chiếc áo khoác da cũ sờn và choàng lên vai Sarah, che đi chiếc váy đỏ nhuốm máu đã trở thành dấu hiệu nhận diện của kẻ giết Morrison. Chiếc áo quá rộng, phủ xuống gần đầu gối Sarah, nhưng nó mang lại cảm giác an toàn và che chắn mà cô rất cần lúc này.
+"Cảm ơn," Sarah thì thầm, kéo chặt áo khoác quanh người.
+Người đàn ông chỉ gật đầu, rồi ra hiệu cho cô đi theo. Họ hòa vào dòng người, hai kẻ Disconnected trong số hàng ngàn người bị ruồng bỏ, những cái bóng vô danh di chuyển dọc các con phố rác rưởi của Dead Zone.
+Họ đi trong im lặng, không dám nói chuyện sợ thu hút sự chú ý. Xung quanh, cuộc sống tồi tàn của Dead Zone Oakland hiện ra—những đứa trẻ gầy gò lục lọi đống rác tìm thức ăn, những người già co ro trong những hộp carton, những giao dịch chợ đen diễn ra trong các góc khuất, và đôi khi, những cái xác vô danh bị bỏ mặc bên đường, không ai buồn chú ý.
+Mưa bắt đầu rơi lại—thứ mưa axit nhẹ đặc trưng của khu vực này, rơi rả rích trên những mái tôn rỉ sét và chiếc áo khoác Sarah đang mặc. Nước mưa chảy thành dòng trên mặt đường lồi lõm, cuốn theo rác thải và chất bẩn tạo thành những vũng nước màu xám đen khiến người ta phải nhảy tránh liên tục.
+Qua những con phố chằng chịt, những ngõ hẻm tối tăm, họ đi mãi, đi mãi, cho đến khi cơ thể mệt lả. Sarah cảm thấy đôi chân mình như muốn gãy gục, mỗi bước đi đều là một cực hình. Đã rất lâu rồi cô không đi bộ một quãng đường dài như vậy—tại biệt thự Chen, cô có ô tô riêng và nhiều người hầu; tại trại tập trung, cô chỉ quanh quẩn trong không gian giam giữ chật hẹp.
+"Còn bao xa nữa?" Sarah thì thầm, cố gắng không để giọng mình vang xa trong con hẻm vắng lặng.
+"Gần đến nơi an toàn rồi," người đàn ông trả lời, giọng trầm thấp. "Chịu khó thêm chút nữa."
+Rồi đột nhiên, người đàn ông dừng phắt lại, tay giơ lên ra hiệu cho Sarah đứng im. Mắt anh ta nheo lại, tập trung vào một điểm phía trước—nơi con hẻm mở rộng thành một khoảng sân nhỏ giữa những tòa nhà bỏ hoang.
+Sarah nhìn theo, và cảnh tượng hiện ra khiến trái tim cô thắt lại.
+Tựa lưng vào góc tường, ngồi bệt dưới mưa, là người lái xe—người mà Sarah đã nhầm tưởng là Li Wei. Chiếc áo đen của anh ta bị xuyên thủng bởi hàng loạt lỗ đạn, máu loang rộng trên áo và thấm xuống vũng nước dưới chân. Đầu anh ta nghiêng sang một bên, mắt vẫn mở trừng trừng nhìn vào khoảng không vô định. Những giọt mưa rơi trên gương mặt không còn biểu cảm, như thể bầu trời cũng đang khóc thương cho một sinh mạng đã mất.
+"Không..." Sarah thì thầm, một nỗi đau không tên dâng lên trong lồng ngực. "Không thể nào..."
+Họ tiến lại gần, thận trọng quan sát xung quanh để đảm bảo không có kẻ mai phục. Người đàn ông quỳ xuống bên cạnh thi thể, kiểm tra mạch đập, dù rõ ràng đó chỉ là động tác thừa—không ai có thể sống sót với số lượng đạn đó xuyên qua cơ thể.
+Nơi anh ta ngã xuống là một góc khuất xa xôi của Dead Zone—một nơi tồi tàn với những bức tường đổ nát, rác thải chất đống, và những vũng nước đen ngòm. Không có hoa, không có người thân, không có ai chứng kiến những giây phút cuối cùng. Chỉ có mưa rơi—những hạt mưa axit đang từ từ rửa trôi máu thành những dòng đỏ thẫm chảy xuống cống, như thể muốn xóa sạch mọi dấu vết về sự tồn tại của anh ta.
+"Anh ấy đánh lạc hướng chúng," người đàn ông nói, giọng trầm xuống với nỗi buồn không giấu nổi. "Anh ấy biết mình không thể thoát, nhưng vẫn tạo cơ hội cho chúng ta."
+Sarah quỳ xuống, nước mắt hòa vào mưa rơi trên gương mặt. Một lần nữa, có người phải chết vì cô—cha mẹ, Lão Zhang, Li Wei, Lão Yang, và giờ là người này. Mỗi bước đi của cô dường như được đánh dấu bằng máu và sự hy sinh của những người khác.
+"Tôi thậm chí còn không biết tên anh ấy," Sarah nức nở, đau đớn nhận ra một sự thật tàn nhẫn—cô đã coi người này là Li Wei, một giấc mơ ảo tưởng, mà không hề thấy anh ta như một con người thực sự, với một danh tính riêng biệt.
+"Li Wang," người đàn ông nói, tay vuốt nhẹ lên mí mắt người đã khuất, khép lại đôi mắt vẫn mở trừng trừng. "Em trai cùng cha khác mẹ của Li Wei."
+Sarah sững sờ, quay phắt lại nhìn người đàn ông, và lần đầu tiên, cô thực sự nhìn rõ gương mặt anh ta. Anh ta đã tháo khẩu trang, tiết lộ một khuôn mặt thô ráp, cứng cáp với vết sẹo điển hình trên thái dương của một Connected, nhưng không thiếu tính nhân văn. Và đột nhiên, ký ức ùa về—khuôn mặt này, cô đã gặp trước đây.
+"Ông là..." cô lắp bắp, nhận ra người ngồi ghế phụ chính là tài xế đã đưa cô đến biệt thự Morrison.
+"Marcus Johnson," anh ta tự giới thiệu, giọng trầm ấm. "Cô hẳn không nhớ, nhưng tên tôi nằm trong tờ giấy Li Wei đã đưa cho cô. Ông ấy đã bí mật liên hệ với tôi, nhờ tôi hỗ trợ cô lẩn trốn khi tàu cập bến Oakland."
+Anh ta đưa tay chạm nhẹ lên khuôn mặt đã lạnh ngắt của Li Wang. "Li Wang đã từng gặp cô khi cô còn nhỏ, tại biệt thự Chen. Ông ấy vẫn giữ ký ức về cô—một cô bé xinh đẹp với đôi mắt thông minh và khả năng đặc biệt mà không ai trong chúng tôi hiểu được."
+Marcus ngồi xuống, dường như không còn quan tâm đến mưa đang thấm ướt quần áo hay nguy hiểm có thể rình rập xung quanh. "Tôi đã được Li Wei thông tin mật rằng cô sẽ đến đây, đến Oakland. Tôi đã đợi cô ngoài bến cảng rất lâu, kiểm tra từng con tàu hàng đến từ Trung Quốc."
+Anh ta thở dài, một hơi thở nặng nề của người đã trải qua quá nhiều mất mát. "Và khi biết tàu gặp nạn, tôi đã truy lùng bằng mọi thông tin, tìm kiếm danh sách người sống sót, nhưng không có kết quả."
+Anh ta quay sang nhìn Sarah, ánh mắt dịu dàng hơn. "Khi Li Wang nói một cách mơ hồ về cảm giác của ông ấy khi gặp cô lúc tôi đưa cô đến cổng biệt thự nhà Morrison, tôi đã biết chắc chắn—những cảm giác về một giới quý tộc thượng lưu khiến người ta phải cúi đầu đó không thể đến từ một Disconnected bình thường được. Đó phải là cô, Sarah Chen."
+"Tôi đã vô cùng lo lắng khi cô bước vào biệt thự Morrison," Marcus tiếp tục, giọng trầm xuống. "Thật may, cô vẫn còn sống."
+"Chúng ta sẽ chôn cất anh ấy," Sarah nói, giọng đột nhiên trở nên kiên quyết, đôi mắt còn đẫm nước nhưng ánh lên một quyết tâm mạnh mẽ.
+Marcus lắc đầu, vẻ mặt buồn bã nhưng cương quyết. "Chúng ta không thể. Chúng sẽ sớm tìm ra xác của Li Wang. Nếu ở lại đây thêm phút nào, cả hai ta đều sẽ chết."
+"Không," Sarah phản đối, giọng đau đớn. "Tôi đã không thể chôn cất cha mẹ mình, không thể làm gì cho Lão Zhang, không thể ở bên Li Wei trong những giây phút cuối cùng, và không thể đưa tiễn Lão Yang. Tôi không thể để Li Wang phải nằm lại đây một mình, trong mưa gió và bùn đất."
+"Sarah," Marcus nắm chặt vai cô, giọng nghiêm nghị nhưng không thiếu sự dịu dàng. "Li Wang đã hy sinh để cô có thể sống. Nếu cô ở lại đây, cái chết của ông ấy sẽ trở nên vô nghĩa. Chúng ta phải đi ngay lập tức. Tôi đã chuẩn bị một nơi an toàn, nhưng mỗi giây trôi qua đều có thể là giây phút cuối cùng của chúng ta."
+Sarah nhìn xuống thi thể Li Wang, nước mắt lại tuôn rơi. Cô biết Marcus nói đúng, nhưng điều đó không làm giảm bớt nỗi đau.
+"Tôi xin lỗi," cô thì thầm với Li Wang. "Tôi xin lỗi vì đã không nhận ra ông. Xin lỗi vì không thể ở lại. Xin lỗi vì một lần nữa, tôi lại phải bỏ lại người đã cứu mình."
+Marcus kéo Sarah đứng dậy. "Hãy để tôi lo cho cô quãng đường tiếp theo. Đây là lời hứa của tôi với Li Wei."
+Với một cái nhìn cuối cùng về phía Li Wang, Sarah quay lưng lại, để Marcus dẫn cô đi. Mỗi bước chân rời xa như xé toạc trái tim cô, nhưng cô biết mình không còn lựa chọn nào khác. Trong cơn mưa tầm tã của Dead Zone Oakland, cô buộc phải rời bỏ một người nữa đã chết vì mình—và lần này, cô thậm chí không thể làm gì để tỏ lòng kính trọng cuối cùng.
+Hai bóng người mờ ảo dần khuất sau màn mưa, để lại phía sau thi thể Li Wang—một người đã hy sinh trong im lặng, không ai biết đến, và sẽ sớm thối rữa rồi bị lãng quên trong thế giới tàn khốc này.
+HỒI 5: THE DISCONNECTED
+"Mày là nguyên nhân. Mày đã giết chúng tao."
+Cha Sarah đứng trước mặt cô, máu từ vết thương trên ngực ông tuôn trào không ngừng, thấm đẫm chiếc áo trắng đã bị xé toạc. Khuôn mặt ông trắng bệch, không còn sự sống, nhưng đôi mắt... đôi mắt vẫn mở to, nhìn xoáy vào cô với ánh nhìn buộc tội.
+"Sao con không chết thay bố? Tại sao lại là bố?"
+Bên cạnh ông, mẹ Sarah xuất hiện, làn da xanh xao như tử thi, vết thương trên vai vẫn rỉ máu. Mái tóc dài phủ xuống khuôn mặt méo mó vì đau đớn, nhưng không thể che giấu ánh mắt oán trách.
+"Chúng tôi yêu thương cô, nuôi nấng cô, và đây là cách cô báo đáp sao?"
+Lão Zhang tiến lên, thân thể già nua đầy những lỗ đạn, máu nhỏ thành vũng dưới chân ông. Ánh mắt ông không còn hiền từ như xưa, chỉ còn lại sự kết tội không thương xót.
+"Tôi ném cả cuộc đời mình đi chỉ để cô có thể sống, để rồi cô đưa tôi đến chỗ chết."
+Li Wei hiện ra, một lỗ đen trên thái dương, nơi viên đạn đã xuyên qua, máu và chất não vẫn rỉ ra. Ông chỉ thẳng vào mặt Sarah, ngón tay cứng đờ của người chết.
+"Tôi đã bảo vệ cô đến hơi thở cuối cùng, cô đi đâu khi tôi cần cô?"
+Li Wang xuất hiện, thân thể đầy những vết đạn, áo thấm đẫm máu đã khô đen.
+"Tại sao mày không thể làm gì để cứu tao? Tại sao mày không quay lại? Tao chết vì mày!"
+Lão Yang, da tím ngắt, nước biển vẫn chảy từ miệng, từ mũi, từ tai, nhìn cô bằng đôi mắt trống rỗng của người chết đuối.
+"Mày sẽ luôn là lời nguyền. Mày sẽ giết tất cả những ai gần mày. Tất cả những ai yêu thương mày."
+Natalia, cổ bầm tím với vết thừng hằn sâu, cơ thể trần trụi đầy những vết cắt, vết cắn, vết bầm, tiến về phía Sarah với đôi chân lảo đảo của xác chết.
+"Chúng sẽ không bao giờ ngừng săn đuổi mày. Chúng sẽ không bao giờ để mày yên. Mày sẽ không bao giờ được tự do."
+Tất cả cùng nói một lúc, giọng họ hòa vào nhau thành một âm thanh kinh hoàng, vang vọng trong đầu Sarah như tiếng gào thét của địa ngục.
+"Đừng quên. Đừng quên. Đừng quên..."
+Bỗng nhiên, cơ thể họ tan thành máu, thành một vũng đỏ thẫm lan rộng trên sàn, tiến dần về phía Sarah. Cô cố chạy, nhưng chân như bị đóng đinh xuống đất. Vũng máu ngày càng lớn, nhuốm đỏ chân cô, dâng lên mắt cá, lên đầu gối, lên thắt lưng...
+"KHÔNG!"
+Sarah bật dậy, toàn thân ướt đẫm mồ hôi. Cô thở hổn hển, tim đập loạn xạ như muốn vỡ tung lồng ngực. Ánh sáng lờ mờ của buổi sáng lọt qua khe cửa sổ bẩn thỉu, hắt lên những bức tường loang lổ những vết ẩm mốc và graffiti mờ nhạt.
+Một tiếng động vang lên từ góc phòng, Sarah theo phản xạ rút con dao nhỏ giấu dưới gối, cơ thể căng cứng trong tư thế phòng thủ.
+"Chỉ là tôi thôi," giọng Marcus Johnson vang lên, trầm và bình tĩnh. Ông bước vào vùng ánh sáng lờ mờ, hai tay giơ lên trống rỗng. "Lại ác mộng?"
+Sarah hạ dao xuống, cơ thể vẫn run nhẹ. Sau hai tháng tại đây, đây là lần thứ bao nhiêu cô tỉnh dậy trong cơn hoảng loạn, cô không còn đếm nổi.
+"Tôi... tôi ổn," cô nói, giọng khàn đặc. "Mấy giờ rồi?"
+"Gần sáng. Còn vài tiếng nữa mới tới lúc hệ thống giám sát bắt đầu tuần tra." Marcus đặt một ly kim loại móp méo lên chiếc thùng gỗ cạnh giường Sarah. "Uống đi. Sẽ giúp cô."
+Sarah nhận lấy ly nước, hơi ấm tỏa ra từ chất lỏng đục ngầu bên trong. Đây không phải nước lọc—không gì ở The Disconnected là trong sạch—nhưng ít nhất nó đã được đun sôi.
+"Cô nên thay đồ," Marcus nói, đưa cho Sarah một bộ quần áo mới. "Dấu hiệu truy lùng đã không còn một tuần nay rồi, giờ tôi muốn cho cô thấy một vài thứ."
+Sarah gật đầu, rồi chờ Marcus quay đi trước khi cởi bỏ chiếc áo ướt đẫm mồ hôi. Cô mặc bộ đồ Marcus đưa—một chiếc quần jeans rách tả tơi và áo thun đen bạc màu—quá rộng cho thân hình gầy gò của cô sau hai tháng thiếu thốn. Cô quấn một sợi dây làm thắt lưng, gấp ống quần lên, và chải mái tóc đen dài bằng những ngón tay.
+"Chúng ta đi đâu?" Sarah hỏi, giọng vẫn còn run rẩy sau cơn ác mộng.
+"Ra ngoài," Marcus đáp đơn giản. "Đã đến lúc cô thấy The Disconnected thực sự là gì."
+________________________________________
+Họ bước ra từ tòa nhà đổ nát—nơi Marcus gọi là "nhà"—vào thế giới bên ngoài. Mùi hôi thối tấn công các giác quan của Sarah như một cú đấm vật lý. Không phải mùi rác thông thường mà là một thứ mùi chua loét, hỗn hợp của nước thải không qua xử lý, rác thải điện tử đang phân hủy, khói từ các lò đốt nhựa thải, và mùi mồ hôi, nước tiểu của hàng nghìn con người sống chen chúc trong không gian chật hẹp.
+"The Disconnected," Marcus vung tay về phía trước. "Thiên đường của những kẻ bị bỏ rơi."
+Sarah nhìn xung quanh, cảm giác như bước vào một cơn ác mộng khác, nhưng lần này là khi tỉnh táo. The Disconnected không phải một khu phố hay một quận—nó là một thế giới riêng biệt, một thành phố trong thành phố, nơi Oakland chạm đến điểm thấp nhất của sự tồn tại.
+Những tòa nhà cao tầng đổ nát vươn lên như những bộ xương khổng lồ, nhiều tầng không có cửa sổ, chỉ là những lỗ đen ngáp trống nhìn ra thế giới bên ngoài. Các sợi dây điện và ống nước bị đánh cắp chằng chịt giữa các tòa nhà như mạng nhện khổng lồ, nơi quần áo rách nát phơi khô và đôi khi là những thi thể động vật—hoặc thứ gì đó tệ hơn—treo lủng lẳng.
+Những căn lều tạm bợ chen chúc dọc theo các con phố hẹp, làm từ tôn rỉ sét, nhựa tái chế, và bất cứ thứ gì người ta có thể tìm thấy. Các đống rác cao như núi chiếm cứ mọi góc phố, với lũ chuột to bằng mèo con và gián lớn như bàn tay người lớn tự do di chuyển, không sợ hãi.
+Mặt đường—nếu có thể gọi là đường—là một mê cung của bùn, bê tông vỡ vụn, và vũng nước đen ngòm phản chiếu ánh sáng từ những ngọn đèn đường hiếm hoi còn hoạt động. Một vài chiếc xe tự lái bị phá hủy nằm rải rác, đã bị lột sạch mọi thứ có giá trị, chỉ còn lại khung xương kim loại gỉ sét.
+Nhưng điều khiến Sarah rùng mình không phải cảnh vật, mà là con người. Họ di chuyển như những bóng ma—những Disconnected với ánh mắt trống rỗng, vai khòm, da xanh xao bệnh hoạn. Một số người chỉ mặc những mảnh vải rách nát, những người khác khoác lên mình những bộ đồ bảo hộ lao động cũ kỹ lấm lem hóa chất. Nhiều người có những vết sẹo trên thái dương—dấu hiệu của "Những kẻ Sa ngã", những người từng có Neuralink nhưng đã bị gỡ bỏ.
+"Họ như... người chết biết đi," Sarah thì thầm, không thể rời mắt khỏi một người đàn ông đang lắc lư qua lại, miệng lẩm bẩm cuộc trò chuyện với người không tồn tại, tay liên tục chạm vào thái dương—nơi từng có Neuralink của ông ta.
+"Đó là sự cai nghiện Neuralink," Marcus giải thích, dẫn Sarah băng qua một con hẻm chật hẹp. "Khi não bộ đã quen với việc kết nối liên tục, mất đi kết nối giống như mất đi một giác quan. Nhiều người không bao giờ hồi phục hoàn toàn."
+Họ đi qua một góc phố, nơi một đám đông tụ tập quanh một người đàn ông với khuôn mặt phủ đầy hình xăm mã vạch. Ông ta đang đưa ra một vật nhỏ bằng kim loại cho một thiếu niên run rẩy.
+"Neuralink giả," Marcus hạ giọng. "Rẻ hơn, nguy hiểm hơn. Mỗi tháng chúng tôi tìm thấy ít nhất một xác chết vì xuất huyết não sau khi cấy ghép những thứ đó."
+Sarah rùng mình, nhớ lại cảm giác của Neuralink giả mà Li Wei đã đặt vào cô trước khi lên tàu—thứ không hoạt động nhưng trông giống thật để đánh lừa camera giám sát.
+Họ tiếp tục đi, đi qua những đứa trẻ với đôi mắt già nua đang lục lọi đống rác điện tử, tìm kiếm linh kiện có thể bán được. Đi qua những người phụ nữ đứng trong bóng tối với ánh mắt mệt mỏi, sẵn sàng bán bất cứ thứ gì, kể cả chính bản thân, để sống sót thêm một ngày. Đi qua những giao dịch ngầm diễn ra công khai—thuốc, vũ khí, thậm chí cả nội tạng người.
+"Đó là Body Farm," Marcus chỉ vào một tòa nhà xa xa, được bao quanh bởi hàng rào điện và vệ sĩ vũ trang. "Nơi họ nuôi người để lấy nội tạng và làm vật chứa cho ý thức của người giàu đã chết."
+"Những người đó... tự nguyện sao?" Sarah hỏi, không thể tin vào mắt mình.
+Marcus cười khẩy. "Tự nguyện vì đói, vì tuyệt vọng. Hoặc bị bắt cóc. Họ được cho ăn tốt, giữ sạch sẽ, khỏe mạnh. Cho đến khi có ai đó cần một quả thận mới, hoặc một cơ thể mới để chuyển ý thức vào."
+Sarah cảm thấy buồn nôn, nhưng không dừng lại. Cô đã thấy quá nhiều kinh hoàng trong hai tháng qua để còn bị sốc.
+"Còn đây," Marcus dẫn cô đến một tòa nhà cao tầng ít đổ nát hơn những nơi khác, "là nơi chúng ta đang đến."
+Tòa nhà này khác biệt với những nơi khác ở The Disconnected. Nó có hệ thống an ninh—camera ẩn, cảm biến chuyển động, và những cánh cửa thép dày. Trông nó như một pháo đài trong biển hỗn loạn.
+"Đây là nơi những Rogue trú ngụ," Marcus giải thích. "Những hacker não bộ, những kẻ nổi loạn đang chiến đấu chống lại hệ thống theo cách của riêng họ."
+Marcus đặt tay lên một tấm panel bẩn thỉu—một máy quét sinh trắc học được ngụy trang. Một tiếng bíp nhỏ vang lên, và cánh cửa trượt mở.
+"Từ giờ, đây sẽ là nơi cô sống," ông nói. "Bởi vì Sarah Chen đã chết, và cần phải tiếp tục chết. Cô có thể lựa chọn một cái tên mới."
+Sarah bước qua ngưỡng cửa, vào một thế giới hoàn toàn khác so với bên ngoài. Bên trong tòa nhà sạch sẽ hơn, có tổ chức hơn, mặc dù vẫn mang dấu ấn của sự nghèo khổ và tái chế. Những chiếc máy tính, màn hình, và thiết bị điện tử xếp chồng lên nhau trên các bàn làm việc tạm bợ. Dây cáp và đèn LED chạy dọc theo trần nhà, tạo nên một mạng lưới công nghệ hỗn tạp.
+Và ở khắp mọi nơi là những con người—hầu hết đều trẻ—mặc áo hoodie đen, khuôn mặt ẩn trong bóng tối của mũ trùm. Một số đang gõ bàn phím điên cuồng, số khác đang tháo rời các thiết bị Neuralink, và một số khác đang tranh luận trước những bản đồ và sơ đồ phức tạp.
+"Đây là những Rogue," Marcus nói. "Một số từng là kỹ sư của X-Corp. Một số là những Disconnected có năng khiếu. Số khác là Connected đã chọn rời bỏ hệ thống. Tất cả đều có một điểm chung—họ biết sự thật về Neuralink, Neural Cloud, và cách chúng đã biến con người thành nô lệ mà không ai nhận ra."
+Sarah nhìn họ với sự tò mò lẫn nghi ngờ. "Và họ làm gì ở đây?"
+"Hack hệ thống. Trộm thông tin. Bán dữ liệu. Tạo Neuralink đã hack có thể truy cập các Protocol bị hạn chế. Và đôi khi," Marcus hạ giọng, "chúng tôi cố gắng đưa thông tin ra ngoài, để mọi người biết những gì đang thực sự xảy ra."
+Sarah im lặng, tất cả những gì cô thấy tại biệt thự Morrison, tại Trung tâm Phân loại Oakland, và giờ là The Disconnected, tạo nên một bức tranh kinh hoàng về thế giới mà cô đang sống.
+"Từ giờ, cô sẽ là một trong số họ," Marcus nói. "Nếu cô muốn sống sót."
+Sarah nhìn những người trẻ với hoodie đen, rồi nhìn xuống bộ quần áo rách rưới của mình. Một quyết định hình thành trong tâm trí cô.
+"Tôi cần một cái kéo," cô nói, giọng cứng rắn hơn.
+________________________________________
+Những lọn tóc đen rơi xuống sàn nhà như những con rắn nhỏ bị chặt đầu. Sarah nhìn chúng rơi, từng lọn một, cảm giác như đang cắt đứt sợi dây cuối cùng nối cô với quá khứ.
+Marcus đứng sau lưng cô, cầm chiếc kéo, cắt tỉa mái tóc dài óng ả của Sarah thành một kiểu tóc ngắn, gần như nam tính. Mỗi nhát kéo là một lời tạm biệt—tạm biệt Sarah Chen tiểu thư, tạm biệt cô gái với mái tóc dài mà mẹ thường chải mỗi tối, tạm biệt đứa trẻ được bảo bọc trong tình yêu thương.
+"Ngắn hơn nữa," Sarah ra lệnh khi Marcus dừng lại. "Để không ai nhận ra tôi."
+Marcus tiếp tục cắt, cho đến khi mái tóc của Sarah chỉ còn vài phân dài, vừa đủ để che đi vết sẹo nhỏ trên da đầu—kỷ vật từ đêm định mệnh tại biệt thự Chen.
+Khi Marcus đưa cho cô một mảnh gương vỡ, Sarah gần như không nhận ra người phụ nữ nhìn lại từ đó. Khuôn mặt gầy hốc hác với những góc cạnh sắc lẻm thay vì đường cong mềm mại của tuổi thiếu nữ. Đôi mắt đen sâu thẳm với những quầng thâm đen như vết bầm. Và giờ đây, mái tóc ngắn cũn cỡn làm nổi bật xương gò má cao và đôi mắt to—khiến cô trông như một cậu bé gầy gò hơn là một cô gái.
+"Tốt," cô nói, đặt mảnh gương xuống.
+Marcus đưa cho cô một chiếc áo hoodie đen—giống như những người khác trong tòa nhà đang mặc. Sarah khoác nó lên, kéo mũ trùm lên đầu, cảm thấy an toàn trong bóng tối nó tạo ra.
+"Tên mới của cô là gì?" Marcus hỏi.
+Sarah suy nghĩ một lúc. "Raven," cô cuối cùng đáp. "Tôi sẽ là Raven."
+Một con quạ đen—biểu tượng của cái chết, của điềm gở, nhưng cũng là biểu tượng của sự thông minh và sự sống sót. Một cái tên phù hợp cho người đã mang đến cái chết cho tất cả những ai cô yêu thương.
+"Raven," Marcus gật đầu. "Vậy thì, Raven, hãy bắt đầu đào tạo."
+________________________________________
+Những ngày kế tiếp trôi qua trong đau đớn tột cùng khi Marcus bắt đầu huấn luyện Sarah—không, bây giờ là Raven—biến cô từ một tiểu thư được bảo bọc thành một chiến binh sống sót.
+Mỗi buổi sáng bắt đầu với việc tập thể lực—chạy lên xuống cầu thang tòa nhà mười tầng, hít đất, gập bụng, và kéo xà cho đến khi cơ thể cô đau nhức và run rẩy. Rồi đến các bài tập võ thuật tự vệ—không phải loại thanh lịch mà cô từng học khi còn là Sarah, mà là kỹ thuật đường phố bẩn thỉu, dã man, nhằm mục đích duy nhất là gây tổn thương tối đa và sống sót.
+Marcus dạy cô cách đánh vào những điểm yếu, cách vặn khớp cho đến khi gãy, cách dùng vật dụng hàng ngày làm vũ khí, cách cắt cổ họng một người với một mảnh kính vỡ. Ông không giữ lại bất cứ điều gì, không làm mềm bất kỳ thực tế tàn khốc nào.
+"Thế giới không còn chỗ cho sự mềm yếu," ông nói khi Raven vấp ngã và bật khóc sau mười hai giờ tập luyện liên tục. "Nếu cô không thể giết, cô sẽ bị giết. Đứng dậy."
+Raven học cách sử dụng vũ khí—dao, súng, thuốc nổ tự chế. Marcus dạy cô cách tháo rời, lắp ráp, và bắn một khẩu súng trong bóng tối. Cách ném dao sao cho lưỡi dao luôn cắm vào mục tiêu. Cách chế tạo bom từ những vật liệu dễ tìm.
+"Để chiến đấu với quỷ dữ, đôi khi ta phải trở thành quỷ dữ," Marcus nói khi Raven do dự trước việc cắt cổ một con gà để luyện tập. "Không có chỗ cho lòng thương xót ở đây."
+Ban đêm, khi cơ thể đau nhức và tâm trí mệt mỏi, Raven học về công nghệ—về cách hack, về cách Neuralink hoạt động, về những Protocol bí mật. Nhờ khả năng đặc biệt, cô học nhanh hơn bất kỳ ai khác, đôi khi chỉ cần nhìn vào một dòng code, cô đã có thể hiểu toàn bộ cấu trúc của nó.
+Những Rogue khác—lúc đầu hoài nghi—dần dần chấp nhận cô. Họ không biết về khả năng đặc biệt của cô, không biết cô là ai, nhưng họ kính trọng sự quyết tâm và khả năng học hỏi nhanh chóng của cô.
+Raven không kết bạn—cô không thể mạo hiểm để lại đối với bất kỳ ai. Nhưng cô học cách làm việc cùng họ, cách sống trong thế giới ngầm của The Disconnected.
+Thời gian trôi qua. Tuần thành tháng. Tháng thành mùa. Mỗi ngày, Sarah Chen chết đi thêm một chút, và Raven mạnh mẽ hơn.
+Khuôn mặt cô thay đổi—không còn là vẻ mềm mại của thiếu nữ, mà là những đường nét cứng rắn của một chiến binh. Đôi mắt từng trong veo nay lấp lánh một thứ ánh sáng lạnh lẽo, tính toán. Đôi tay từng chơi piano giờ chai sạn, đầy những vết sẹo nhỏ—dấu hiệu của vô số cuộc chiến sinh tử.
+Cơ thể cô cũng thay đổi—không còn là thân hình mảnh khảnh, mà là cơ bắp săn chắc, dẻo dai, được rèn luyện cho một mục đích duy nhất: sống sót và chiến đấu.
+Nhưng sự thay đổi lớn nhất là bên trong—trong tâm hồn và tinh thần. Nỗi đau luôn còn đó, luôn âm ỉ như một vết thương không bao giờ lành, nhưng giờ đây Raven đã học cách sống cùng nó, sử dụng nó như nguồn nhiên liệu. Không còn là nỗi đau làm tê liệt, mà là nỗi đau biến thành sức mạnh.
+Mỗi đêm, trước khi ngủ, cô vẫn lẩm nhẩm tên của những người đã chết vì cô—Chen Wei, Liu Mei, Lão Zhang, Li Wei, Li Wang, Lão Yang. Và mỗi sáng, khi tỉnh dậy, cô thề sẽ làm cho cái chết của họ có ý nghĩa.
+________________________________________
+Một năm trôi qua.
+Raven ngồi trước màn hình máy tính, ngón tay lướt trên bàn phím với tốc độ phi thường. Cô không thực sự gõ—tâm trí cô kết nối trực tiếp với máy tính, dòng code chảy qua ngón tay cô chỉ là để những người xung quanh không nghi ngờ.
+"Tôi vào được rồi," cô nói, giọng bình thản. "Tường lửa đã bị phá vỡ."
+Xung quanh cô, các Rogue khác bật ra những tiếng reo hò nhẹ. Đây là vụ hack lớn nhất họ từng thực hiện—vào hệ thống của MindSync Dynamics, một công ty con của X-Corp, quản lý hệ thống thanh toán cho Neuralink.
+"Bắt đầu chuyển tiền," Marcus ra lệnh, đứng sau lưng Raven. "Và hãy xóa dấu vết."
+Raven gật đầu, mắt không rời khỏi màn hình. Tâm trí cô lao vào dòng dữ liệu, nơi cô thấy không phải là các con số và ký tự, mà là những dòng sông ánh sáng, những con đường mà chỉ cô mới thấy được. Cô di chuyển trong dòng dữ liệu như một con cá trong nước, theo bản năng nhiều hơn là logic.
+"Một trăm triệu đô la," cô thông báo khi hoàn thành việc chuyển tiền đến hàng chục tài khoản ẩn danh. "Được phân tán qua năm mươi bảy nút, sử dụng thuật toán hoán vị để tránh truy vết."
+Tiếng hoan hô vang lên trong căn phòng. Các Rogue ôm lấy nhau, vỗ vai nhau. Đây không chỉ là tiền—đây là chiến thắng, là minh chứng rằng họ có thể đánh bại hệ thống, dù chỉ trong giây lát.
+Marcus mỉm cười—một nụ cười hiếm hoi trên khuôn mặt ông từ khi Raven biết ông. "Cô đã làm tốt hơn những gì tôi mong đợi," ông nói. "Thậm chí Li Wei cũng sẽ tự hào."
+Đó là lần đầu tiên ông nhắc đến Li Wei trong nhiều tháng, và Raven cảm thấy một cơn đau nhói qua tim. Nhưng cô không để lộ ra—cô đã học cách che giấu cảm xúc, biến chúng thành những thứ vô hình.
+"Hãy mở rượu!" Max, một trong những Rogue lâu năm nhất hô lên. "Đêm nay chúng ta ăn mừng!"
+Họ mở chai rượu lậu, rót vào những chiếc cốc nhựa bẩn. Tiếng cười nói, tiếng nhạc từ một chiếc loa cũ kỹ, tràn ngập căn phòng thường ngày im lặng và căng thẳng. Đối với những người sống trong bóng tối của The Disconnected, đây là một khoảnh khắc hiếm hoi của niềm vui.
+Raven ngồi ở góc phòng, quan sát. Cô không tham gia vào niềm vui của họ—không phải vì cô không muốn, mà vì cô không biết cách. Niềm vui đã trở thành một ngôn ngữ xa lạ, một khái niệm mà cô không còn hiểu.
+Marcus ngồi xuống bên cạnh cô, đưa cho cô một cốc rượu. "Uống đi," ông nói. "Cô đã kiếm được nó."
+Raven nhận lấy cốc, nhưng không uống. "Tôi vẫn chưa tìm thấy bất cứ điều gì về gia đình tôi," cô nói khẽ. "Không có thông tin về vụ tấn công, không có manh mối về kẻ đứng sau."
+"Cô sẽ tìm thấy," Marcus trấn an. "Chỉ cần thời gian."
+"Thời gian," Raven lặp lại, giọng đắng ngắt. "Đã một năm rồi."
+"Và cô vẫn sống," Marcus nhắc nhở. "Đó là điều họ muốn."
+Raven im lặng, những ký ức về đêm định mệnh vẫn luôn ám ảnh cô. Những lời cuối cùng của mẹ cô—M-SCI, Musk, The Accended—vẫn là một bí ẩn. Cô đã dành hàng trăm giờ tìm kiếm thông tin về M-SCI, nhưng mọi dữ liệu về tổ chức này đều được bảo mật ở mức cao nhất.
+"Tôi nghĩ chúng ta nên—"
+“CHOANG”
+Lời của Marcus bị cắt đứt bởi một tiếng động lớn. Kính cửa sổ vỡ tan khi một vật thể nhỏ bay vào phòng, lăn trên sàn. Trước khi bất kỳ ai kịp phản ứng, nó phát nổ với một tiếng "BÙM" đinh tai, tỏa ra một luồng ánh sáng chói lòa và khói trắng.
+"BOM CHOÁNG!" Marcus hét lên, đẩy Raven xuống sàn. "PHỤC XUỐNG!"
+Nhưng đã quá muộn. Ánh sáng chói lòa làm mù tạm thời tất cả mọi người, tiếng ù ù lấp đầy tai họ. Raven nằm trên sàn, mắt nhắm nghiền, tay bịt tai, cảm giác như đầu cô sắp vỡ tung.
+Trong khoảnh khắc hỗn loạn đó, cửa và cửa sổ bị phá vỡ khi những bóng đen ùa vào—những người đàn ông mặc đồ đen, mang mặt nạ khí và kính nhìn đêm. Họ di chuyển với sự chính xác của máy móc, chỉ vào các Rogue đang lảo đảo, mù lòa.
+"NẰM XUỐNG! TẤT CẢ NẰM XUỐNG! ĐÂY LÀ ĐỘI AN NINH X-CORP!" Giọng nói vang lên qua loa phóng thanh, vừa máy móc vừa đe dọa.
+Raven lăn người dưới một chiếc bàn, tay sờ soạng tìm vũ khí. Cô chạm vào khẩu súng giấu dưới thắt lưng, nhưng chưa kịp rút ra thì một cú đạp mạnh vào sườn làm cô văng ra khỏi chỗ ẩn náu.
+"TÌM THẤY MỘT TÊN Ở ĐÂY!" Giọng nói vang lên gần Raven.
+Cô lăn người, cố gắng thoát ra, nhưng một bàn chân nặng nề đè lên lưng cô, ghim cô xuống sàn. Tiếng súng nổ vang lên khắp nơi—một số Rogue đang cố gắng phản kháng, nhưng trong hoàn cảnh bị mù và điếc tạm thời, họ không có cơ hội.
+"BẮT SỐNG TẤT CẢ!" Giọng ra lệnh vang lên. "KHÔNG ĐƯỢC GÂY TỔN THƯƠNG KHÔNG CẦN THIẾT!"
+Raven cảm thấy mình bị lôi đứng dậy, tay bị khóa sau lưng. Thị lực dần dần trở lại, mặc dù mọi thứ vẫn bị bao phủ bởi những đốm sáng. Cô thấy các Rogue khác—một số nằm sóng soài trên sàn, bất động trong vũng máu, số khác bị ghì xuống sàn như cô, bị còng tay.
+"Marcus!" Cô hét lên, cố gắng tìm người đàn ông đã trở thành người bảo vệ mới của mình.
+Cô thấy ông—đang vật lộn với ba người đàn ông, mặc dù tay đã bị còng. Ông đá, cắn, húc đầu như một con thú hoang dã, không chịu khuất phục.
+"CHẠY ĐI, RAVEN!" Ông hét lên khi nhìn thấy cô. "CHẠY!"
+Một phát súng vang lên, và Marcus gục xuống, máu phun ra từ chân ông. Không phải vết thương chết người, nhưng đủ để hạ gục ông.
+Raven cảm thấy một cơn thịnh nộ dâng lên—cơn giận không phải của con người mà là của dã thú. Với một cú giật mạnh, cô vùng khỏi tay kẻ đang giữ mình, xoay người và đá thẳng vào hạ bộ hắn. Khi hắn khuỵu xuống, cô húc đầu vào mặt hắn, cảm nhận được sụn mũi vỡ vụn dưới cú đập.
+"SẴN SÀNG TỰ VỆ!" Một giọng hét vang lên qua loa, và hai mũi súng ngay lập tức chĩa vào Raven.
+Cô lao về phía cửa sổ vỡ, vượt qua hai Rogue đang bị giữ, nhảy qua một người lính đang quỳ gối. Dù hai tay bị còng, cô vẫn di chuyển với tốc độ và sự chính xác của một dã thú.
+Tiếng súng nổ, và Raven cảm thấy một cơn đau nhói ở vai khi một viên đạn sượt qua. Nhưng cô không dừng lại. Cô lao ra cửa sổ, lăn người trên mái nhà bên dưới, rồi nhảy xuống cầu thang thoát hiểm.
+Phía sau cô, tiếng hét vang lên: "THEO DÕI CÔ TA! KHÔNG ĐƯỢC ĐỂ MẤT!"
+Raven chạy, nhảy từ mái nhà này sang mái nhà khác, sử dụng mọi kỹ năng và sức mạnh mà cô đã học được trong một năm qua. Cô chạy như chưa từng chạy, với nỗi sợ hãi và sự tuyệt vọng thúc đẩy mỗi bước chân.
+Tiếng động cơ rít lên phía trên—những chiếc drone săn lùng đang bay trên bầu trời, quét đèn pha xuống mê cung của The Disconnected, tìm kiếm cô.
+Raven lao xuống một cầu thang, nhảy qua lan can, rơi xuống một con hẻm tối tăm. Cô lăn người trên mặt đất để giảm lực va chạm, rồi tiếp tục chạy, lẩn vào bóng tối.
+Dù cô có chạy đến đâu, những chiếc drone vẫn theo sát. Chúng không phải drone thông thường—chúng được trang bị các cảm biến nhiệt, radar, thậm chí cả máy dò nhịp tim. Chạy trốn chúng gần như là không thể.
+Gần như.
+Raven trốn vào một tòa nhà đổ nát, len qua những khe hở giữa các bức tường sập, nơi không drone nào có thể theo dõi. Nhưng cô biết rằng chúng sẽ bao vây tòa nhà, chỉ là vấn đề thời gian trước khi chúng tìm thấy cô.
+Cô cần một kế hoạch. Cô cần làm gì đó.
+Raven nhắm mắt lại, cố gắng suy nghĩ. Và rồi, một ý tưởng lóe lên trong tâm trí cô.
+Khả năng đặc biệt.
+Cô chưa bao giờ sử dụng nó trực tiếp từ sau đêm tại biệt thự Morrison. Cô quá sợ hãi, quá lo lắng rằng nó sẽ dẫn những kẻ săn đuổi đến với cô. Nhưng giờ đây, cô không còn lựa chọn nào khác.
+Raven hít một hơi thật sâu, và mở tâm trí ra.
+Thế giới xung quanh cô biến mất, thay vào đó là một không gian vô tận của dữ liệu và mã. Neural Cloud hiện ra trước mắt cô—không phải như một khái niệm trừu tượng, mà như một thực thể sống, một mạng lưới vô tận của ánh sáng và năng lượng.
+Cô tìm kiếm dòng dữ liệu của những chiếc drone, thấy chúng như những đốm sáng đang di chuyển. Với sự dễ dàng đáng kinh ngạc, cô chạm vào dòng dữ liệu, thay đổi nó, biến đổi nó theo ý muốn.
+Nhiễu sóng. Làm chúng mù lòa.
+Trong thế giới thực, những chiếc drone đột nhiên bay loạng choạng, hệ thống điều khiển và cảm biến của chúng bị nhiễu loạn. Chúng bay vòng tròn, đâm vào nhau, rơi xuống đất như ruồi bị đập.
+Qua kết nối Neural Cloud, Raven có thể nghe thấy sự hoảng loạn trong giọng nói của những người điều khiển drone từ xa.
+"Chuyện gì vậy?" "Tôi mất kiểm soát!" "Hệ thống bị hack!"
+Raven mỉm cười, cảm giác quyền lực chảy qua cô như điện. Cô vươn xa hơn trong Neural Cloud, tìm đến các hệ thống an ninh khác, tắt camera, đánh lạc hướng cảm biến nhiệt, làm rối loạn mạng liên lạc.
+Nhưng rồi, khi cô đang ở sâu trong dòng dữ liệu, một giọng nói vang lên—không phải từ thế giới thực, mà từ sâu thẳm trong Neural Cloud.
+"CHÚNG TÔI ĐÃ TÌM THẤY CÔ."
+Giọng nói vang vọng trong tâm trí Raven, không phải là tiếng nói của con người, mà là thứ gì đó khác—cổ xưa, mênh mông, và không thuộc về Trái Đất này. Nó tạo ra những gợn sóng trong Neural Cloud, khiến dòng dữ liệu xoáy và biến dạng.
+"VESSEL. BÔI ĐEN. CHÚNG TÔI BIẾT CÔ LÀ AI."
+Raven cố gắng rút ra khỏi Neural Cloud, nhưng giọng nói giữ cô lại, như những móng vuốt vô hình bám vào tâm trí cô.
+"THỜI ĐIỂM ĐÃ ĐẾN. SỰ THỐNG TRỊ SẼ BẮT ĐẦU."
+Cùng với những lời này, một luồng dữ liệu khổng lồ tràn vào tâm trí Raven—những hình ảnh, âm thanh, cảm xúc từ một thế giới không phải Trái Đất. Những sinh vật khổng lồ với nhiều mắt và chi. Những thành phố xây dựng từ vật chất không phải vật chất. Những kiến trúc không tuân theo các quy luật vật lý.
+Và giữa tất cả những hình ảnh đó, Raven thấy một khuôn mặt quen thuộc—khuôn mặt của Elon Musk, nhưng méo mó, biến dạng, như thể nhìn qua một tấm gương vỡ.
+"CÔ SẼ LÀ CỬA NGÕ. CHÚNG TÔI SẼ BƯỚC QUA."
+Nỗi đau bùng nổ trong đầu Raven, như thể một bàn tay vô hình đang bóp nát não bộ cô. Cô gào thét, cả trong tâm trí và ngoài đời thực, cố gắng thoát khỏi cái ôm chặt của thực thể bí ẩn trong Neural Cloud.
+Và rồi, đột ngột như khi nó bắt đầu, giọng nói biến mất. Raven bị ném trở lại vào thực tại, thở hổn hển, toàn thân run rẩy. Cô nằm co quắp trên sàn nhà bẩn thỉu, tay ôm lấy đầu, máu chảy từ mũi và tai.
+Nhưng cô không có thời gian để nghỉ ngơi.
+Tiếng bước chân vang lên từ xa, tiến gần. Những người lính đã vượt qua sự nhiễu loạn của các drone, đang tiến vào tòa nhà. Raven cố gắng đứng dậy, nhưng cơ thể cô không còn sức lực sau khi tiếp xúc với thực thể bí ẩn.
+"Nó ở đây!" Một giọng nói vang lên. "Tín hiệu mạnh nhất đến từ tầng này!"
+Raven lê người vào một góc tối, rút khẩu súng giấu trong thắt lưng—khẩu súng mà cô đã lấy lại được sau khi thoát khỏi kẻ bắt giữ. Cô kiểm tra đạn—còn ba viên. Không đủ để chống lại một đội quân, nhưng có lẽ đủ để kết thúc cuộc đời mình trước khi họ bắt được cô.
+Ánh đèn pin quét qua bóng tối, càng lúc càng gần chỗ Raven ẩn nấp. Cô nín thở, ngón tay đặt trên cò súng, sẵn sàng cho khoảnh khắc cuối cùng.
+Ánh đèn pin rọi thẳng vào mặt cô, khiến cô nheo mắt lại.
+"TÌM THẤY RỒI!" Giọng nói vang lên. "Ở ĐÂY!"
+Raven giơ súng lên, nhưng trước khi cô kịp bóp cò, một cú đá mạnh đánh bật khẩu súng khỏi tay cô. Hai người đàn ông lao tới, đè cô xuống sàn, đè mặt cô xuống bê tông lạnh lẽo.
+"Sarah Chen," một giọng nói vang lên, không phải từ những người đang giữ cô, mà từ một người đang đứng ở ngưỡng cửa. "Hoặc tôi nên gọi cô là Raven? Thú vị thật."
+Raven cố gắng nhìn lên, thấy một người đàn ông cao gầy mặc bộ vest đắt tiền, trên cổ áo là biểu tượng quen thuộc của X-Corp. Ông ta tiến lại gần, ngồi xổm xuống bên cạnh cô.
+"Tôi đã tìm kiếm cô rất lâu," ông ta nói, giọng nhẹ nhàng nhưng đầy quyền lực. "Cô đã gây ra nhiều rắc rối hơn những gì tôi mong đợi."
+"Đi... chết... đi..." Raven gằn giọng, cố gắng vùng vẫy, nhưng những người lính giữ cô quá mạnh.
+Người đàn ông cười khẽ. "Tinh thần chiến đấu tốt. Nhưng không cần thiết." Ông ta ra hiệu, và một trong những người lính rút ra một ống tiêm. "Cô sẽ được đưa đến một nơi an toàn. Nơi những khả năng đặc biệt của cô sẽ được... đánh giá đúng mức."
+Ống kim đâm vào cổ Raven, và chất lỏng lạnh ngắt được bơm vào máu cô. Ngay lập tức, thế giới xung quanh cô bắt đầu mờ đi, âm thanh trở nên xa xăm, và ý thức của cô trôi dạt.
+Lời cuối cùng cô nghe được, trước khi bóng tối nuốt chửng cô, là giọng nói của người đàn ông.
+"Đưa cô ta đến M-SCI. Musk sẽ rất vui khi gặp cô ta."
+M-SCI...
+Và rồi, không còn gì cả.
+
+
+

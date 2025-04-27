@@ -1,0 +1,560 @@
+CHƯƠNG 1: ĐÔI CÁNH GÃY
+HỒI 1: THIÊN ĐƯỜNG SỤP ĐỔ
+Màn đêm đã buông xuống Thâm Quyến, nhưng trong phòng thí nghiệm ChenTech, ánh sáng vẫn rực rỡ như giữa ban ngày. Những dòng mã lượng tử phức tạp chảy trong không khí, uốn lượn thành những đường cong hoàn mỹ, phản chiếu ánh xanh dương lên gương mặt Sarah Chen. Mười bảy tuổi, thân hình mảnh mai trong chiếc áo trắng đơn giản, cô đứng giữa vòng tròn màn hình hologram, đôi mắt đen láy như hai viên ngọc trai đêm đang chăm chú quan sát, đôi bàn tay thanh mảnh vẽ những đường nét vô hình trong không trung.
+Không một thiết bị nào gắn trên người - không Longwire, không Neuralink, không chip điện tử. Chỉ có bộ não thiên tài của cô - sinh ra đã có khả năng kết nối trực tiếp với Neural Cloud, thứ mà cả thế giới công nghệ đều thèm khát, thứ mà tập đoàn X-Corp của Elon Musk đã nỗ lực tạo ra suốt hai thập kỷ mà không thành.
+Ngón tay Sarah khẽ vẽ một đường cong hoàn hảo trong không trung, và các dòng mã nguồn chuyển động theo ý nghĩ, xoay, gập, tái cấu trúc như những dải lụa mềm mại trong tay một vũ công bậc thầy. Những thuật toán lượng tử phức tạp nhất trên thế giới, với Sarah, chúng đơn giản như những bản nhạc đang chờ được diễn tấu.
+"Tiểu thư lại phá vỡ kỷ lục rồi," giọng nói ấm áp, già nua vang lên từ góc phòng.
+Sarah không cần quay lại để biết đó là ai. Tiếng chân quen thuộc, hương trà xanh thơm ngát - chỉ có thể là Lão Zhang, người quản gia đã gắn bó với gia đình cô hơn ba mươi năm, người đã ẵm cô trong vòng tay từ khi chào đời.
+Cô mỉm cười, ánh mắt vẫn không rời khỏi những dòng mã, "Chú Zhang, cháu chỉ đang giải trí thôi," giọng cô vang lên trong trẻo như tiếng chuông gió. "Thuật toán lượng tử này còn nhiều điểm cần tối ưu lắm."
+Lão Zhang bước lại gần, đặt khay trà nóng xuống bàn, những nếp nhăn quanh khóe mắt ông sâu hơn khi ông mỉm cười - nụ cười đã rộng mở chào đón cô từ những ngày đầu tiên. Hơi ấm thơm ngát lan tỏa, mùi hương quen thuộc của loại trà xanh Long Tĩnh đặc biệt mà chỉ những bàn tay lão luyện của ông mới có thể pha chế hoàn hảo.
+"Tôi vẫn nhớ như in ngày cô mới ba tuổi," ông nói, rót trà vào chén sứ mỏng tang, đôi mắt nhăn nheo ánh lên niềm tự hào không giấu nổi. "Ngồi trên đùi của Chen Wei, rồi đột nhiên, tất cả màn hình trong phòng đều sáng lên. Hệ thống an ninh toàn tòa nhà bị hack chỉ bởi... ý nghĩ của một đứa trẻ ba tuổi."
+Ông khẽ lắc đầu, vẻ không thể tin nổi vẫn còn đó sau bao nhiêu năm. "Các kỹ sư điên đầu cả tuần để hiểu làm thế nào một đứa trẻ có thể làm được điều đó. Và đến giờ, họ vẫn chưa hiểu."
+Sarah bật cười, âm thanh trong trẻo lan tỏa khắp căn phòng như những giọt sương mai rơi trên những chiếc lá. Cô vẫy tay, và dòng mã nguồn đang xoay chậm lại, tạm dừng như một tác phẩm nghệ thuật giữa không trung. "Đừng để cha nghe thấy chú nói Longwire đã lỗi thời nhé. Ông ấy sẽ giận cho xem."
+Đôi tay nhỏ nhắn của cô nhận lấy chén trà từ Lão Zhang, hít sâu hương thơm thanh khiết. Đôi mắt ánh lên niềm vui tinh nghịch.
+"Nhưng sự thật là ông ấy tự hào về con gái mình hơn cả công nghệ mình tạo ra."
+Giọng nói trầm ấm vang lên từ cửa phòng thí nghiệm. Chen Wei, cha của Sarah, bước vào với dáng vẻ oai nghiêm của một thiên tài công nghệ, nhưng ánh mắt lại đầy trìu mến khi hướng về phía con gái. Ở tuổi năm mươi, ông vẫn toát lên vẻ phong độ của một trong những bộ óc vĩ đại nhất thế kỷ, mái tóc điểm bạc chỉ làm tăng thêm vẻ uy nghiêm.
+Theo sau ông là Liu Mei, mẹ Sarah, người phụ nữ xinh đẹp với thần thái thanh lịch và đôi mắt thông minh sắc sảo - di sản mà Sarah thừa hưởng. Dù đã ngoài bốn mươi, Liu Mei vẫn giữ được vẻ đẹp trầm lắng của một nhà khoa học hàng đầu, một vẻ đẹp không cần phải cố gắng.
+"Hai mươi phút," Chen Wei nói, đưa mắt nhìn những dòng mã lượng tử đang lơ lửng, không giấu nổi sự hãnh diện trong giọng nói. "Chỉ hai mươi phút để giải một thuật toán mà đội kỹ sư giỏi nhất thế giới mất ba ngày để phá giải." Ông tiến lại gần, đặt tay lên vai con gái, siết nhẹ. "Con gái cha thật phi thường."
+Từ trong ánh mắt của cha mình, Sarah thấy được tình yêu sâu đậm, niềm tự hào vô bờ, nhưng cũng có cả nỗi lo âu. Cô biết, khả năng đặc biệt của mình không phải không có cái giá phải trả. Suốt bao năm qua, cha mẹ cô đã phải che chở cô khỏi những ánh mắt tham lam của thế giới bên ngoài - những tập đoàn, chính phủ, tổ chức muốn nghiên cứu, sao chép, hoặc thậm chí kiểm soát khả năng kỳ diệu của cô.
+"Con còn có thể làm tốt hơn nữa," Sarah đáp khẽ, khoát tay để tắt hologram. Màn hình số tan biến vào không khí, để lại căn phòng chỉ với ánh đèn dịu nhẹ. "Thuật toán này vẫn còn một số điểm chưa tối ưu."
+Liu Mei tiến đến, ôm vai con gái, hương thơm nhẹ nhàng của mẹ - mùi hoa nhài và sách cũ - khiến Sarah luôn cảm thấy an toàn. "Ngày mai sẽ là ngày quan trọng," bà nói, giọng dịu dàng nhưng nghiêm túc. "Đại diện chính phủ sẽ đến tham quan. Nếu thành công, ChenTech sẽ trở thành nhà cung cấp chính thức cho hệ thống quốc phòng Neural."
+Sarah gật đầu, mắt ánh lên sự kiên định. "Con sẽ không làm cha mẹ thất vọng đâu."
+Liu Mei mỉm cười, vuốt nhẹ tóc con gái. "Con chưa bao giờ làm chúng ta thất vọng, Sarah. Từ ngày con ra đời với... món quà đặc biệt này, chúng ta biết con được định sẵn cho những điều vĩ đại."
+Bà dừng lại, đôi mắt thoáng chút u buồn. "Nhưng đôi khi... ta ước món quà ấy đừng đến quá sớm. Để con có thể có một tuổi thơ bình thường hơn."
+Sarah siết nhẹ tay mẹ, cảm nhận được nỗi lo âu ẩn sâu trong lời nói của bà. "Mẹ, con đã có một tuổi thơ tuyệt vời mà," cô nói, giọng đầy chân thành. "Không một đứa trẻ nào được yêu thương nhiều như con. Nhờ có cha, mẹ, và cả chú Zhang nữa."
+Cô quay sang Lão Zhang, người đã lặng lẽ đứng bên cạnh với nụ cười hiền hậu. "Và con cũng không bao giờ thiếu những câu chuyện cổ tích Trung Hoa tuyệt vời trước khi đi ngủ."
+Lão Zhang cúi đầu, xúc động trước lời nói của cô. "Tiểu thư quá khen rồi. Tôi chỉ làm những gì một người ông có thể làm cho cháu gái mình thôi."
+Trong khoảnh khắc đó, Sarah cảm thấy tràn ngập hạnh phúc. Cô được bao bọc trong tình yêu thương, được che chở, được trân trọng không chỉ vì khả năng đặc biệt mà vì con người thật của mình. Nếu thời gian có thể đứng yên, cô ước rằng nó sẽ đứng yên mãi ở giây phút này - giây phút của sự trọn vẹn, nơi gia đình là tất cả, và tất cả đều là tình yêu.
+Nhưng thời gian có bao giờ đứng yên?
+________________________________________
+Trên đường về biệt thự Chen, Sarah ngồi bên cửa sổ xe, im lặng ngắm nhìn thành phố Thâm Quyến rực rỡ ánh đèn bên dưới. Những tòa tháp chọc trời như những ngón tay khổng lồ vươn lên bầu trời đêm, phủ đầy ánh đèn và màn hình kỹ thuật số khổng lồ phát sáng cả một góc trời.
+Với đôi mắt thông thường, đó chỉ là một thành phố hiện đại. Nhưng với Sarah, cảnh tượng trước mắt còn hơn thế rất nhiều. Neural Cloud hiện ra trong tâm trí cô, không phải như một khái niệm trừu tượng hay một mạng lưới ảo, mà như một dòng sông sống động của dữ liệu và ý thức, chảy qua và kết nối mọi điểm sáng của thành phố. Cô có thể cảm nhận được từng luồng thông tin dịch chuyển, từng giao dịch điện tử, từng cuộc trò chuyện Neuralink đang diễn ra giữa hàng triệu người.
+Với mọi người, kết nối vào Neural Cloud đòi hỏi Longwire hoặc Neuralink - những bộ vi mạch được cấy vào não, những chiếc chìa khóa nhân tạo mở ra cánh cửa vào thế giới số. Nhưng với Sarah, cánh cửa ấy chưa bao giờ đóng. Từ khi sinh ra, cô đã có khả năng nhìn thấy, cảm nhận, và di chuyển trong dòng chảy dữ liệu mà không cần bất kỳ thiết bị trung gian nào.
+"Sarah," giọng Chen Wei kéo cô về thực tại. "Con đang thấy gì?"
+Sarah quay sang cha, đôi mắt vẫn giữ ánh sáng của thế giới mà chỉ mình cô nhìn thấy. "Dữ liệu, cha ạ. Rất nhiều dữ liệu... Hôm nay có vẻ đang có một đợt cập nhật lớn cho Longwire." Cô nhíu mày. "Và... một điều gì đó khác. Con không chắc. Nó giống như... có những mảng dữ liệu đang bị che giấu, được mã hóa theo cách rất lạ."
+Chen Wei và Liu Mei trao đổi ánh mắt lo lắng. "Con có thể xác định nguồn không?" Liu Mei hỏi, giọng cẩn trọng.
+Sarah nhắm mắt lại, tập trung. "Có vẻ giống trung tâm điều khiển Longwire của chính phủ," cô nói sau vài giây. "Nhưng... có một cái gì đó không đúng. Con không thể giải thích được."
+Chen Wei siết chặt tay vợ. "Có lẽ chỉ là những biện pháp an ninh mới cho cuộc họp ngày mai," ông nói, nhưng Sarah có thể cảm nhận sự căng thẳng trong giọng nói của ông. "Chính phủ luôn thận trọng trước những sự kiện lớn."
+Sarah không đáp, quay lại nhìn ra cửa sổ. Cô không tin đó chỉ là biện pháp an ninh thông thường. Có điều gì đó... không ổn. Nhưng cô không muốn làm cha mẹ lo lắng thêm. Họ đã có quá đủ những nỗi lo về cô, về khả năng của cô, về tương lai của cô.
+________________________________________
+Biệt thự Chen nằm trên đỉnh đồi Nanshan, một dinh thự sang trọng với kiến trúc kết hợp hoàn hảo giữa cổ điển và hiện đại. Từ cửa sổ lớn của phòng khách, cả thành phố Thâm Quyến trải ra như một biển ánh sáng bất tận.
+Sau bữa tối thịnh soạn, gia đình Chen quây quần trong phòng khách. Sarah ngồi bên đàn piano, những ngón tay thon dài lướt trên phím đàn, chơi bản concerto của Chopin mà mẹ cô yêu thích. Chen Wei và Liu Mei ngồi bên cạnh, nét mặt rạng rỡ khi lắng nghe tiếng đàn du dương của con gái. Lão Zhang đứng gần đó, trái tim già nua của ông tràn ngập niềm hạnh phúc khi chứng kiến sự bình yên của gia đình mà ông đã phục vụ hơn ba mươi năm.
+Nhưng bỗng nhiên, Sarah ngừng chơi. Đôi tay cô đông cứng trên phím đàn, mắt mở to nhìn vào khoảng không phía trước.
+"Sarah?" Liu Mei hỏi, giọng lo lắng. "Con sao vậy?"
+"Cha," Sarah nói, từng lời như bật ra với nỗ lực, "con cảm thấy... có điều gì đó không ổn."
+Chen Wei ngồi thẳng dậy, sự lo lắng hiện rõ trên khuôn mặt. "Con cảm thấy gì, Sarah?"
+Sarah nhíu mày, cố gắng mô tả cảm giác kỳ lạ đang tràn ngập trong tâm trí. "Neural Cloud... có quá nhiều dữ liệu đang chảy vào." Cô đưa tay lên thái dương, như thể điều đó có thể làm dịu cơn đau đang hình thành. "Dường như... có ai đó đang cố gắng xâm nhập vào hệ thống. Không phải xâm nhập thông thường... mà như thể... họ đang tìm kiếm gì đó cụ thể."
+Liu Mei trao đổi ánh mắt lo lắng với chồng. Họ đã quá quen với những khoảnh khắc như thế này - khi khả năng đặc biệt của Sarah cho phép cô cảm nhận được những điều mà thậm chí cả hệ thống an ninh tiên tiến nhất cũng không phát hiện ra.
+"Con có thể định vị nguồn không?" Chen Wei hỏi, sắc mặt nghiêm trọng.
+Sarah nhắm mắt lại, tập trung. Thế giới vật chất mờ dần, và cô thấy mình đang trôi giữa dòng chảy dữ liệu của Neural Cloud. Một trong những tài năng độc đáo của cô là khả năng "nhìn thấy" dòng chảy dữ liệu như những con sông hữu hình. Cô có thể theo dõi một luồng thông tin từ nguồn đến đích, có thể cảm nhận được những bất thường, những rò rỉ, những xâm nhập.
+"Từ phía Tây..." cô nói chậm rãi, trán nhăn lại trong nỗ lực tập trung. "Không phải trong Trung Quốc. Có lẽ là... Mỹ?"
+Liu Mei đứng dậy, di chuyển nhanh về phía thiết bị liên lạc gắn trên tường. "Tôi sẽ gọi cho đội an ninh."
+Nhưng trước khi bà kịp chạm vào thiết bị, đèn trong toàn bộ biệt thự đột ngột tắt phụt. Bóng tối như một tấm chăn đen đặc bao trùm lấy căn phòng, chỉ có ánh sáng mờ ảo từ thành phố bên dưới hắt vào qua cửa sổ lớn.
+"Hệ thống dự phòng sẽ hoạt động trong vài giây," Chen Wei nói, giọng căng thẳng nhưng cố giữ bình tĩnh, ông di chuyển về phía vợ và con gái.
+Nhưng không có gì xảy ra. Căn phòng vẫn chìm trong bóng tối sâu thẳm.
+"Cha, mẹ," Sarah cất tiếng, tim đập loạn nhịp khi cảm giác nguy hiểm ngày càng rõ rệt. Cô có thể cảm nhận được một thứ gì đó... một sự hiện diện đang tiến đến gần. "Chúng ta nên—"
+Tiếng kính vỡ vang lên chói tai, cắt ngang lời cô. Cửa sổ lớn của phòng khách bị đập vỡ, mảnh kính bay tung tóe như những mũi dao sắc bén. Trong ánh sáng mờ ảo, Sarah thấy những bóng đen nhanh như chớp lao vào, tất cả đều mang vũ khí, di chuyển với sự chính xác của những sát thủ được huấn luyện chuyên nghiệp.
+"SARAH, NẰM XUỐNG!" Chen Wei hét lên, lao về phía con gái.
+Liu Mei cũng vậy, nhưng trước khi họ kịp đến bên Sarah, tiếng súng vang lên - một âm thanh khô khốc xé toạc không gian. Chen Wei gục ngã với một tiếng rên đau đớn, vết máu loang nhanh trên chiếc áo sơ mi trắng.
+"CHA!" Sarah thét lên, đôi mắt mở to trong kinh hoàng, cơ thể đông cứng bởi cú sốc. Thế giới dường như đang quay cuồng quanh cô, giống như trong một cơn ác mộng mà cô không thể tỉnh dậy.
+Liu Mei hét lên khi một viên đạn xuyên qua vai bà, nhưng bà vẫn cố gắng tiến về phía con gái, khuôn mặt biến dạng vì đau đớn nhưng ánh mắt tràn đầy quyết tâm - quyết tâm của một người mẹ sẵn sàng chết để bảo vệ con mình.
+"Chạy đi, Sarah!" Liu Mei ra lệnh, giọng đứt quãng vì đau đớn. "CHẠY ĐI!"
+Sarah đứng đó, chôn chân tại chỗ, không thể tin vào những gì đang diễn ra trước mắt. Cha cô nằm bất động trong vũng máu đang lan rộng trên sàn gỗ quý. Mẹ cô quỳ gối, máu loang từ vết thương trên vai, mắt vẫn nhìn cô, van nài cô chạy trốn. Cảnh tượng quá phi thực, quá khủng khiếp để có thể là sự thật.
+"Giết hết," một giọng lạnh lùng ra lệnh từ bóng tối, không cảm xúc như thể đang đặt một đơn hàng cà phê. "Không để lại nhân chứng."
+Một trong những kẻ xâm nhập giơ súng về phía Sarah. Cô gái đứng đó, không thể động đậy, như một con thỏ đối diện với ánh đèn pha, thời gian như đông cứng lại trong khoảnh khắc kinh hoàng này.
+"TIỂU THƯ SARAH!"
+Tiếng hét của Lão Zhang vẳng lại như từ một cõi xa xăm. Trong khoảnh khắc chậm như thể thời gian bị kéo giãn, Sarah thấy thân hình già nua nhưng vẫn mạnh mẽ của Lão Zhang lao về phía cô, đôi mắt già nua tràn đầy tình yêu thương và sự quyết tâm tột cùng.
+Ông đẩy cô sang một bên đúng lúc hai tiếng súng vang lên, tiếng nổ đinh tai vọng lại trong không gian đóng kín của căn phòng. Lão Zhang ngã xuống ngay trước mặt cô, thân thể co giật khi những viên đạn xuyên qua lưng ông.
+"Chú... Zhang..." Sarah thì thầm, đau đớn như thể chính trái tim cô bị xé toạc, nước mắt tuôn trào không kiểm soát.
+Khuôn mặt già nua của ông nhăn nhó vì đau đớn, nhưng vẫn nở một nụ cười yếu ớt khi nhìn lên cô. Đôi mắt ông mờ dần, nhưng vẫn ánh lên tình yêu vô bờ - tình yêu của một người ông dành cho đứa cháu duy nhất của mình, dù không cùng huyết thống.
+"Lối... thoát hiểm..." Lão Zhang thì thầm, máu rỉ từ khóe miệng, từng lời nói là một nỗ lực vô cùng. "Phía sau... giá sách... Đi đi..."
+Với nỗ lực cuối cùng, ông đẩy Sarah về phía giá sách ở góc phòng. Ngón tay già nua nhuốm máu của ông vẫn cố gắng xua đi, như thể có thể đẩy cô chạy nhanh hơn, xa hơn, an toàn hơn.
+"Tìm con bé!" giọng lạnh lùng ra lệnh. "Nó không thể đi xa!"
+Sarah loạng choạng bước đi, nước mắt làm mờ tầm nhìn, trái tim nhói đau với mỗi bước chân xa dần những người thân yêu. Cô biết lối thoát hiểm mà Lão Zhang đề cập - một cầu thang bí mật được xây dựng đề phòng tình huống khẩn cấp, được cha cô thiết kế với sự hoang tưởng mà giờ đây chứng tỏ là có cơ sở.
+Cô đặt tay lên cuốn sách đặc biệt trên giá - "Truyền thuyết Mẹ Thiên Nhiên", tác phẩm mà cha cô luôn yêu thích và đọc cho cô nghe mỗi tối trước khi đi ngủ. Giá sách trượt sang một bên, không một tiếng động, để lộ lối vào hẹp.
+Sarah quay lại nhìn lần cuối, cảnh tượng đẫm máu khắc sâu vào tâm trí cô như một vết bỏng không bao giờ lành. Cha cô nằm bất động trong vũng máu. Và Lão Zhang, người đã dành cả đời chăm sóc cô, đang thở những hơi thở cuối cùng, đôi mắt già nua vẫn hướng về phía cô, đảm bảo rằng cô đã tìm được lối thoát. Còn mẹ cô đâu, cô hoảng hốt nhìn xung quanh để tìm kiếm như gà con lạc mẹ.
+"Sarah," một giọng nói yếu ớt vọng đến. Sarah quay lại, thấy Liu Mei, mẹ cô, đang cố gắng với tay về phía cô, bàn tay đẫm máu vươn ra trong nỗ lực tuyệt vọng để chạm vào con gái mình lần cuối. Trong ánh mắt của mẹ cô, Sarah thấy không chỉ có đau đớn và tuyệt vọng, mà còn có một thông điệp.
+"M-SCI..." Liu Mei thì thầm, từng lời như rút cạn sinh lực cuối cùng. "Tìm... Musk... The Accended..."
+Những từ ngữ không có ý nghĩa gì với Sarah, nhưng cô không có thời gian để suy nghĩ. Tiếng bước chân đang tiến đến gần. Với trái tim nặng trĩu, cô lao vào lối thoát hiểm, nước mắt vẫn tuôn rơi không ngừng, cánh cửa đóng sập lại sau lưng cô đúng lúc những kẻ tấn công áp sát.
+Cầu thang dốc đứng dẫn xuống một đường hầm nhỏ, được chiếu sáng bởi những đèn khẩn cấp lờ mờ. Sarah chạy, mỗi bước chân như đạp lên chính trái tim tan nát của mình, hơi thở gấp gáp, nước mắt trào ra không ngừng, tim đập loạn xạ.
+Cô không biết mình đã chạy bao lâu, chỉ biết rằng mỗi giây trôi qua, khoảng cách giữa cô và những người thân yêu - giờ đây có lẽ đã không còn trên đời này - càng xa. Mỗi bước đi đều cảm giác như một sự phản bội, như thể cô đang bỏ rơi họ, dù lý trí mách bảo rằng cô không còn lựa chọn nào khác.
+Cuối đường hầm, một bóng người đang đợi - Li Wei, trưởng đội bảo vệ của gia đình Chen, người đàn ông đã ở bên cạnh gia đình cô suốt một thập kỷ.
+"Tiểu thư Sarah!" ông kêu lên khi nhìn thấy cô, khuôn mặt thoáng vẻ nhẹ nhõm nhưng vẫn đầy căng thẳng. "Tạ ơn trời cô vẫn an toàn! Chúng tôi phát hiện có kẻ xâm nhập nhưng không thể liên lạc. Mọi hệ thống đều bị ngắt."
+"Cha mẹ tôi... Lão Zhang..." Sarah không thể nói hết câu, cổ họng nghẹn đắng bởi nỗi đau và nước mắt. Nhưng Li Wei không cần cô nói hết. Ông có thể nhìn thấy sự thật trong đôi mắt đỏ hoe, trong thân hình run rẩy, trong vệt máu trên tay áo trắng của cô - máu của Lão Zhang, người đã dùng thân mình để bảo vệ cô.
+Li Wei cúi đầu, nỗi đau và sự hối hận hiện rõ trên khuôn mặt cứng rắn. "Tôi đã thất bại trong trách nhiệm của mình," ông nói, giọng đầy tự trách. "Tôi lẽ ra phải ở đó, để bảo vệ họ, bảo vệ cô."
+"Không phải lỗi của ông," Sarah nói, giọng vỡ vụn như thủy tinh. "Ông không thể biết..."
+"Chúng ta phải đi ngay," Li Wei nói, giọng trầm xuống, đặt tay lên vai Sarah. "Nếu chúng tìm ra lối vào đường hầm, chúng sẽ đuổi theo."
+"Nhưng... tôi không thể bỏ mặc họ..." Sarah thì thầm, nửa muốn quay lại, dù biết rằng chỉ có cái chết đang chờ đợi.
+"Cô không thể giúp họ nữa, tiểu thư," Li Wei nói, giọng nghiêm trọng nhưng đầy cảm thông. "Họ đã hy sinh để cô có thể sống. Điều tốt nhất cô có thể làm là tôn trọng sự hy sinh đó - sống sót và tìm ra kẻ đứng sau vụ này."
+Sarah biết ông nói đúng, dù đau đớn đến thế nào. Cô gật đầu, lấy tay lau nước mắt đầm đìa trên má, và chạy theo Li Wei về phía cánh cửa ở cuối đường hầm, nơi dẫn ra một gara ngầm bí mật.
+Khi xe lao ra khỏi khu biệt thự, Sarah quay lại nhìn ngôi nhà trên đỉnh đồi - ngôi nhà mà chỉ vài giờ trước còn tràn ngập tiếng cười, tiếng đàn piano, và tình yêu thương, giờ đây là nơi chứng kiến bi kịch của đời cô. Mọi thứ đã thay đổi trong chớp mắt. Gia đình cô không còn. Cuộc sống cô từng biết đã kết thúc.
+Đôi cánh thiên tài của cô đã gãy, với trái tim tan nát, với linh hồn rỉ máu, và đôi mắt vẫn nhạt nhoà chưa tin vào sự thật, Sarah Chen dần chìm đi vào những ánh đèn đường
+HỒI 2: TRỐN CHẠY
+Mùi nước thải và rác thối xộc vào mũi Sarah Chen, đánh thức cô từ cơn ác mộng quen thuộc - cảnh tượng máu me và tiếng súng nổ, khuôn mặt cha mẹ và ánh mắt cuối cùng của Lão Zhang. Nhưng thức dậy không phải là sự giải thoát. Cô chỉ rời khỏi một ác mộng để bước vào một ác mộng khác còn tàn nhẫn hơn – thực tại.
+Ba tuần đã trôi qua kể từ đêm định mệnh ấy, ba tuần kể từ khi Sarah mất tất cả. Ba tuần ngắn ngủi nhưng cảm giác như cả một đời người. Ba tuần để thế giới bên ngoài tưởng rằng Sarah Chen đã chết cùng gia đình trong một vụ tấn công khủng bố vào biệt thự Chen, nhưng thực sự là ba tuần để Sarah biết rằng một phần của cô thực sự đã chết đêm đó.
+Cô cuộn tròn người trên tấm đệm mỏng trải dưới sàn căn phòng chật hẹp, ẩm thấp trong khu ổ chuột Bảo An – vùng ngoại ô nghèo khổ nhất Thâm Quyến, nơi không ai tìm kiếm một thiên tài công nghệ vừa mất gia đình. Mưa rơi tí tách qua mái tôn rỉ sét, tạo thành vũng nước nhỏ trên sàn xi măng nứt nẻ. Tiếng ồn không ngừng từ ngoài đường – tiếng cãi vã, tiếng trẻ con khóc, tiếng xe máy ầm ĩ – xâm chiếm không gian sống tồi tàn này.
+Cách đây ba tuần, những âm thanh duy nhất Sarah nghe thấy khi thức dậy là tiếng chim hót, tiếng Lão Zhang hát khẽ bài hát dân ca cổ trong khi chuẩn bị trà sáng, và đôi khi, tiếng mẹ cô gọi dịu dàng từ dưới nhà. Giờ đây, những âm thanh đó chỉ còn là ký ức xa vời, một thế giới đã vĩnh viễn biến mất.
+Sarah chậm rãi ngồi dậy, cơ thể mảnh khảnh đau nhức vì ngủ trên nền cứng. Cô nhìn xuống đôi bàn tay mình – đôi bàn tay từng mềm mại, trắng trẻo, từng lướt trên phím đàn piano, từng vẽ nên những dòng mã lượng tử phức tạp trong không khí. Chỉ ba tuần, mà chúng đã chai sần, móng tay gãy vụn, những ngón tay thon dài nhuốm đầy vết bẩn khó tẩy rửa.
+Cô đưa tay chạm vào khuôn mặt mình, cảm nhận xương gò má nhô cao dưới làn da – khuôn mặt từng được tạp chí công nghệ hàng đầu Trung Quốc gọi là "gương mặt của tương lai" giờ đây hốc hác, xanh xao, như một chiếc mặt nạ của đau khổ. Mái tóc đen dài óng ả từng được mẹ chải mỗi đêm giờ xơ xác, bết dính vì thiếu chăm sóc.
+Sarah nhìn xuống bộ quần áo – chiếc áo thun rộng thùng thình và chiếc quần cũ kỹ được mua từ chợ đồ cũ với số tiền ít ỏi mà Li Wei có thể rút ra an toàn từ tài khoản ẩn. Vải thô cứng cọ vào da cô, khác xa những bộ trang phục lụa là, cotton Ai Cập mà cô từng mặc.
+"Cô tỉnh rồi." Giọng Li Wei vang lên từ góc phòng, nơi người đàn ông đang thu xếp một túi đồ nhỏ. Trưởng đội bảo vệ của gia đình Chen – người duy nhất còn lại bên cô sau thảm kịch – trông già đi cả chục tuổi chỉ trong vài tuần. Khuôn mặt hốc hác, râu ria lởm chởm, đôi mắt thâm quầng vì thiếu ngủ và nỗi day dứt không nguôi.
+"Hôm nay chúng ta sẽ di chuyển," ông nói, giọng trầm thấp, cẩn trọng, không nhìn thẳng vào mắt cô. "Tôi đã liên lạc được với một người bạn cũ làm việc tại cảng. Có một tàu hàng sẽ rời đi vào đêm mai. Họ đồng ý đưa chúng ta theo... với một cái giá."
+Sarah biết "chúng ta" chỉ là một cách nói. Không có "chúng", chỉ có "cô" sẽ rời đi. Li Wei đã nói rõ ràng rằng ông sẽ ở lại, để tìm ra kẻ thật sự đứng sau vụ tấn công.
+"Giá gì?" Sarah hỏi, giọng khàn đặc, không còn nhận ra được âm thanh của chính mình – giọng nói từng trong trẻo như chuông gió giờ đây khô khốc như cát sa mạc.
+Li Wei do dự trong giây lát, ánh mắt thoáng buồn. "Chiếc nhẫn của cô."
+Sarah theo phản xạ chạm vào chiếc nhẫn ngọc bích trên ngón tay – món quà sinh nhật thứ 16 từ cha mẹ, vật duy nhất còn lại gắn kết cô với quá khứ. Chiếc nhẫn không chỉ là trang sức, mà còn là minh chứng cuối cùng rằng Sarah Chen từng sống trong yêu thương, từng là một phần của gia đình hạnh phúc. Từng được cha mẹ ôm vào lòng mỗi đêm. Từng có Lão Zhang kể chuyện cổ tích. Từng cười. Từng yêu thương. Từng sống thực sự.
+Cô cảm thấy trái tim thắt lại, nước mắt dâng lên nhưng không rơi – cô đã khóc quá nhiều trong ba tuần qua, đến mức ngay cả nước mắt cũng cạn kiệt. Nhưng cô gật đầu. Sống sót quan trọng hơn kỷ niệm. Đó là bài học đầu tiên và cay đắng nhất mà cô học được kể từ đêm định mệnh.
+"Tôi... tôi sẽ tìm cách trả lại cho cô sau này," Li Wei nói, giọng trầm xuống. "Khi mọi chuyện kết thúc."
+"Sẽ không bao giờ kết thúc," Sarah thì thầm, ánh mắt vô hồn nhìn ra cửa sổ nhỏ, nơi có thể thấy một phần của thành phố Thâm Quyến với những tòa tháp chọc trời – thế giới mà cô từng thuộc về và giờ đây xa vời như một hành tinh khác. "Họ sẽ không dừng lại cho đến khi tìm được tôi."
+Li Wei không phản đối. Ông biết cô nói đúng. Vụ tấn công đã được dàn dựng như một vụ trộm cướp bình thường đi sai hướng, nhưng cả hai đều biết sự thật: đó là một vụ ám sát có chủ đích. Ai đó muốn gia đình Chen chết, và không ai được sống sót. Đặc biệt là Sarah - đứa trẻ có khả năng kỳ diệu cần phải bị xóa sổ.
+Tiếng gõ cửa làm cả hai giật mình. Li Wei lập tức rút khẩu súng giấu trong áo khoác, ra hiệu cho Sarah ẩn vào góc khuất. Ba tuần qua, họ đã luyện tập quy trình này nhiều lần – chuẩn bị cho tình huống xấu nhất, luôn sẵn sàng chạy trốn, luôn nghi ngờ mọi thứ.
+"Ai?" Li Wei hỏi, giọng cảnh giác, khẩu súng sẵn sàng.
+"Tôi, Lão Huang," một giọng già nua đáp lại. "Có đồ ăn đây."
+Li Wei thở phào, tra súng vào bao và mở cửa cho một cụ già nhỏ bé, gầy gò mang theo một túi ni lông đựng thức ăn. Mùi dầu mỡ và gia vị nồng nặc tỏa ra từ đó – mùi hương xa lạ và khó chịu đối với Sarah, người từng quen với những món ăn tinh tế do đầu bếp năm sao chuẩn bị.
+"Cảm ơn ông, Lão Huang," Li Wei nói, nhận túi đồ ăn và đưa cho người già một tờ tiền nhàu nát. "Có gì lạ ở khu phố không?"
+Lão Huang lắc đầu, đôi mắt già nua đảo qua căn phòng tồi tàn và dừng lại một giây ở Sarah – cô gái mà ông chưa bao giờ hỏi tên, nhưng luôn cảm thấy có điều gì đó đặc biệt, như một viên ngọc giữa đống tro tàn.
+"Vẫn như mọi ngày," ông nói, rồi thấp giọng hơn. "Nhưng có thêm tuần tra ở các điểm kiểm soát. Họ kiểm tra kỹ hơn. Có vẻ như đang tìm kiếm ai đó."
+Li Wei gật đầu, vẻ mặt căng thẳng. "Cảm ơn vì thông tin."
+Khi Lão Huang rời đi, Li Wei kéo Sarah lại gần và đặt túi thức ăn xuống sàn. "Ăn đi. Chúng ta cần sức khỏe cho hành trình phía trước."
+Sarah mở hộp cơm nhựa, thấy bên trong là một loại cháo trắng đục với vài miếng thịt lợn mỡ và rau héo. Mùi hương nồng nặc của dầu tái sử dụng và gia vị rẻ tiền khiến dạ dày cô quặn lại.
+Cô vẫn nhớ như in những bữa sáng tại biệt thự Chen – những đĩa trái cây tươi được bày biện như tác phẩm nghệ thuật, bánh mì nướng Pháp thơm phức, trứng hữu cơ từ trang trại The Organic Road. Cô nhớ ánh mắt tự hào của cha mỗi khi cô vào bàn sau một đêm làm việc với code. Nhớ nụ cười dịu dàng của mẹ khi bà đặt tách trà nóng xuống bên cạnh cô. Nhớ Lão Zhang luôn pha trà xanh thượng hạng mỗi sáng, theo cách chỉ ông mới biết, luôn kèm theo một câu nói khôn ngoan từ cổ thư.
+Lão Zhang... Người đã dùng thân mình che chắn cho cô. Người đã chết để cô được sống. Người đã yêu thương cô như cháu gái ruột suốt mười bảy năm.
+"Ăn đi," Li Wei nhắc nhở, giọng dịu dàng hơn khi thấy ánh mắt xa xăm của cô. "Tôi biết nó không như những gì cô quen thuộc, nhưng..."
+"Tôi sẽ ăn," Sarah ngắt lời, cố tỏ ra mạnh mẽ, dù bên trong, trái tim cô đã vỡ nát thành nghìn mảnh và không bao giờ có thể lành lại.
+Cô cầm đôi đũa nhựa dùng một lần, bẻ đôi, và bắt đầu ăn. Hương vị đánh úp vào vị giác đã quen với sự tinh tế – mặn quá, dầu mỡ, thịt dai và có mùi hôi nhẹ, gạo nấu nhão đến mức không còn hạt. Sarah phải cố gắng hết sức để không nôn ra. Từng ngụm cháo như tra tấn cổ họng cô, nhưng cô vẫn buộc mình nuốt xuống, biết rằng đây là cái giá cho sự sống còn.
+"Chúng ta nên dành thời gian còn lại để luyện tập," Li Wei nói, dọn dẹp hộp đồ ăn. "Cô cần biết cách tự vệ, và cách... sống sót ngoài kia. Không có tôi."
+Sarah nhìn ông, cảm giác như trái tim vốn đã tan nát giờ còn bị nghiền nát thêm. "Ông sẽ không đi cùng tôi sao?" cô hỏi, dù đã biết câu trả lời.
+Li Wei lắc đầu, ánh mắt buồn bã nhưng kiên định. "Tôi không thể. Ai đó phải ở lại để tìm ra sự thật. Tìm ra ai đứng sau vụ tấn công. Và tại sao. Nếu chúng ta cùng biến mất, chúng sẽ không bao giờ ngừng tìm kiếm. Nhưng nếu tôi ở lại... tôi có thể là mồi nhử, trong khi cô thoát khỏi đây."
+"Nhưng nếu họ phát hiện ra ông..." Sarah không dám nói hết câu, không dám nghĩ đến kết cục có thể xảy ra cho người đàn ông duy nhất còn lại từ cuộc đời cũ của cô.
+"Tôi đã chuẩn bị cho điều đó," Li Wei nói, giọng kiên định. "Tôi đã thất bại trong việc bảo vệ cha mẹ cô. Tôi đã thất bại khi để Lão Zhang phải hy sinh. Tôi sẽ không thất bại trong việc bảo vệ cô, và trong việc đòi lại công lý cho họ."
+Có điều gì đó trong giọng nói của ông - một sự quyết tâm sắt đá, một sự chấp nhận số phận - khiến Sarah rùng mình. "Li Wei..." cô thì thầm, sợ hãi cho số phận của ông.
+"Đừng lo cho tôi," ông nói, giọng dịu dàng hơn. "Hãy lo cho chính mình. Hãy sống sót. Đó là cách tốt nhất để tôn vinh sự hy sinh của những người đã ra đi."
+Suốt nhiều giờ tiếp theo, Li Wei kiên nhẫn dạy Sarah những kỹ năng cơ bản của tự vệ. Làm thế nào để thoát khỏi một đòn tấn công. Cách di chuyển không gây chú ý. Cách nhận biết mối nguy hiểm. Cách đọc ngôn ngữ cơ thể của kẻ đối diện. Cô học với sự tập trung cao độ, cố gắng ghi nhớ từng chi tiết nhỏ nhất, hiểu rằng từng chút kiến thức có thể là ranh giới mỏng manh giữa sống và chết.
+"Khả năng đặc biệt của cô," Li Wei nói khi họ dừng lại để nghỉ, giọng trầm xuống. "Cô phải giấu nó. Đừng bao giờ để ai biết, đừng bao giờ sử dụng nó, trừ khi đó là vấn đề sống còn."
+"Tại sao?" Sarah hỏi, dù trong thâm tâm cô đã biết câu trả lời.
+"Bởi vì đó có thể là lý do họ muốn cô chết," Li Wei đáp, ánh mắt nghiêm trọng. "Cha mẹ cô đã rất cẩn thận trong việc che giấu mức độ thực sự của khả năng cô. Họ nói với thế giới rằng cô chỉ có khả năng kết nối mạnh hơn một chút so với bình thường. Nhưng sự thật là cô có thể làm những điều mà không ai khác có thể - điều mà một số người sẽ giết để sở hữu, hoặc để hủy diệt."
+Sarah lặng người. Khả năng đặc biệt của cô - món quà mà cô từng tự hào - giờ đây là gánh nặng. Là lý do khiến gia đình cô bị nhắm đến. Là lý do khiến cha mẹ cô, Lão Zhang phải chết. Là lời nguyền đeo bám cô.
+"Có lẽ tôi nên để họ giết tôi," cô thì thầm, giọng trống rỗng. "Nếu không có khả năng này, cha mẹ tôi, Lão Zhang vẫn còn sống."
+Li Wei siết chặt vai cô, ánh mắt bừng lên lửa giận. "Đừng bao giờ nói vậy. Đừng bao giờ nghĩ vậy. Cha mẹ cô yêu cô vì cô là chính cô, không phải vì khả năng của cô. Họ chết không phải vì cô, mà vì bọn sát nhân. Và nếu cô bỏ cuộc, sự hy sinh của họ sẽ vô nghĩa."
+Lời nói của ông thức tỉnh một điều gì đó trong Sarah - một tia lửa nhỏ của ý chí, một ý định mong manh của sự sống còn. Không phải vì bản thân, mà vì những người đã chết để cô được sống.
+"Tôi sẽ không bỏ cuộc," cô nói, giọng nhỏ nhưng kiên định. "Tôi sẽ sống. Sẽ tìm ra kẻ đứng sau vụ tấn công. Và sẽ khiến chúng phải trả giá."
+Li Wei gật đầu, ánh mắt đầy tự hào. "Đó mới là con gái của Chen Wei và Liu Mei."
+Đêm đó, nằm trên tấm đệm mỏng, Sarah không thể ngủ. Cô nhìn chằm chằm lên trần nhà rỉ sét, lắng nghe tiếng mưa rơi và tiếng ồn của khu ổ chuột. Trong tâm trí, cô lại thấy cảnh tượng đẫm máu của đêm định mệnh. Tiếng súng. Máu loang. Ánh mắt của cha khi ông ngã xuống. Tiếng hét của mẹ. Thân hình Lão Zhang co giật khi những viên đạn xuyên qua lưng ông.
+Và tất cả vì cô. Vì khả năng mà cô không hề lựa chọn.
+"Con xin lỗi," cô thì thầm vào bóng tối, nước mắt lại tuôn rơi. "Con xin lỗi, cha, mẹ, chú Zhang. Lẽ ra con nên biết. Lẽ ra con nên cảm nhận được nguy hiểm sớm hơn. Lẽ ra con nên làm gì đó..."
+Nhưng không có tiếng trả lời. Chỉ có tiếng mưa rơi trên mái tôn, và tiếng thở đều đặn của Li Wei từ góc phòng bên kia.
+________________________________________
+Sarah bật dậy khi nghe tiếng bước chân vội vã bên ngoài. Mặt trời chưa mọc, căn phòng vẫn chìm trong bóng tối. Cửa mở tung và Li Wei lao vào, khuôn mặt tái nhợt, hơi thở gấp gáp, nước mưa nhỏ giọt từ mái tóc và quần áo ông.
+"Họ biết rồi," ông thì thầm, đóng cửa lại và khóa chặt, ánh mắt tràn ngập nỗi sợ hãi và bất lực mà cô chưa từng thấy ở người đàn ông luôn điềm tĩnh này. "Không hiểu làm thế nào, nhưng họ biết cô còn sống. Đang rà soát toàn bộ khu vực ngoại ô và cảng. Chúng ta phải đi ngay. Ngay bây giờ."
+"Đi đâu?" Sarah hỏi, tim đập loạn xạ, cảm giác như máu trong người đông cứng lại.
+"Kế hoạch vẫn không thay đổi. Tàu hàng. Nhưng chúng ta phải đi sớm hơn dự định." Li Wei vội vàng lấy ra một chiếc ba lô màu đen từ dưới gầm giường, đưa cho Sarah. "Mở ra xem."
+Sarah làm theo, tay run rẩy mở khóa ba lô. Bên trong có một chai nước lọc, một túi lương khô, vài hộp thuốc, đồ bảo hộ trên biển bọc trong túi nhựa, một cây pháo sáng nhỏ, một con dao gấp, và một khẩu súng ngắn cỡ nhỏ.
+"Tôi không biết dùng súng," Sarah thì thầm, sợ hãi nhìn vũ khí, thứ mà cô từng chỉ thấy trong phim ảnh, không bao giờ nghĩ mình sẽ phải cầm nó trong tay.
+"Cầu trời cô sẽ không bao giờ phải dùng đến," Li Wei đáp, đôi mắt ánh lên nỗi buồn sâu thẳm. "Nhưng tôi sẽ không để cô đi mà không có nó. Nhả chốt an toàn, ngắm, và bóp cò. Chỉ khi nào tính mạng cô bị đe dọa trực tiếp."
+Sarah gật đầu, đóng ba lô lại và khoác lên vai. Cô không mang theo gì khác ngoài những gì Li Wei đã chuẩn bị. Mọi dấu hiệu của Sarah Chen đều phải bị bỏ lại. Từ giờ, cô là Lin Mei, một sinh viên nghèo 19 tuổi từ một tỉnh nhỏ. Sarah Chen đã chết cùng gia đình trong vụ tấn công. Đó là câu chuyện mà thế giới tin, và sẽ tiếp tục tin.
+"Đừng mang theo bất cứ thứ gì có thể nhận dạng là Sarah Chen," Li Wei dặn dò, như thể đọc được suy nghĩ của cô. "Nhớ kỹ câu chuyện chúng ta đã luyện tập. Lin Mei đến từ Hà Nam, đang tìm việc làm ở Thâm Quyến. Gia đình nghèo. Không ai quan tâm. Không ai nhìn hai lần."
+"Ông sẽ đi cùng tôi, phải không?" Sarah hỏi, giọng run rẩy, dù biết câu trả lời, dù đã chuẩn bị tinh thần cho khoảnh khắc này.
+Li Wei không trả lời trực tiếp. Ông chỉ khoác chiếc áo mưa lên vai cô, siết nhẹ vai cô như cha cô từng làm. "Chúng ta phải đi thôi. Giờ."
+________________________________________
+Cảng Thâm Quyến xộn xạo với hoạt động ngay cả vào nửa đêm. Những chiếc cần cẩu khổng lồ chuyển động không ngừng, bốc dỡ container từ những con tàu vĩ đại. Công nhân, thủy thủ và nhân viên an ninh qua lại tấp nập.
+Sarah và Li Wei lẩn trốn trong bóng tối, di chuyển giữa những container và thùng hàng, tránh xa ánh đèn pha và các điểm kiểm soát. Li Wei dẫn đường, di chuyển với sự cẩn trọng của một người đã quen với việc ẩn mình. Sarah đi sát theo, tim đập loạn xạ mỗi khi nghe tiếng bước chân hoặc thấy bóng người.
+Cuối cùng, họ đến được một con tàu hàng cũ kỹ, gỉ sét, treo cờ Panama, đậu ở cuối cảng – không phải những con tàu hiện đại và sạch sẽ ở những bến chính, mà là một con tàu hàng cũ đã thấm mệt mỏi của nhiều năm lênh đênh trên biển.
+"Đó là nó," Li Wei chỉ, giọng trầm xuống. "Tàu 'Horizon Dawn'. Họ sẽ đưa cô đến San Francisco."
+Một ông lão gầy gò đang đứng đợi gần cầu tàu, liên tục nhìn đồng hồ và quan sát xung quanh như thể lo sợ bị theo dõi. Khi thấy Li Wei, ông ta gật đầu nhẹ, một cử chỉ gần như không thể nhận ra nếu không chú ý.
+"Các vị trễ giờ," người đàn ông nói bằng tiếng Quảng Đông, giọng khàn đục.
+"Có vấn đề phát sinh," Li Wei đáp, cũng bằng tiếng Quảng Đông. Ông đưa cho người đàn ông một phong bì dày. "Hộ chiếu và tiền, như đã thỏa thuận."
+Người đàn ông mở phong bì, kiểm tra nhanh nội dung rồi gật đầu hài lòng. Sarah cảm thấy trái tim thắt lại khi nhận ra trong phong bì đó có chiếc nhẫn ngọc bích của cô – món quà cuối cùng từ mẹ, vật kỷ niệm cuối cùng của một cuộc đời đã mất. Giờ đây, nó đã được bán để đổi lấy tự do cho cô – để đổi lấy một tương lai mà cô không chắc mình có muốn hay không.
+"Cô ấy sẽ được an toàn," người đàn ông nói, nhét phong bì vào túi áo trong. "Chúng tôi không hỏi tên thật, không quan tâm quá khứ. Nhưng đừng tạo rắc rối trên tàu."
+"Tàu sẽ khởi hành trong mười phút," người đàn ông nói thêm. "Cô nên lên tàu ngay."
+Li Wei gật đầu, rồi quay sang Sarah. Lần đầu tiên kể từ đêm định mệnh, Sarah thấy đôi mắt ông đỏ hoe, ngập tràn xúc động khi nắm chặt hai bàn tay cô – đôi bàn tay đã chai sần, không còn mềm mại như trước.
+"Nghe tôi nói, Sarah," ông thì thầm, giọng khàn đặc với cảm xúc dồn nén. "Đừng tìm cách trả thù nữa. Tổ chức sát thủ đó có liên quan đến chính phủ, cô sẽ gặp nguy hiểm. Đi đi và đừng bao giờ quay trở lại nơi đây nữa."
+Sarah cảm thấy nước mắt dâng lên, cổ họng nghẹn lại. "Nhưng cha mẹ tôi... Lão Zhang... Họ xứng đáng được đòi lại công lý."
+"Họ muốn cô sống," Li Wei nói, siết chặt tay cô, ánh mắt nhìn thẳng vào đôi mắt đỏ hoe của cô. "Đó là lý do tại sao họ hy sinh. Đừng phụ lòng họ bằng cách tự lao vào chỗ chết. Sống là cách tốt nhất để tưởng nhớ họ."
+Sarah nuốt nghẹn, nước mắt lăn dài trên má. "Ông cũng sẽ đi, phải không? Khi mọi chuyện lắng xuống?"
+Li Wei mỉm cười buồn bã, không trả lời trực tiếp. Thay vào đó, ông đặt vào tay cô một mảnh giấy nhỏ. "Ở Mỹ, tìm đến địa chỉ này. Họ sẽ giúp cô."
+Sarah nhìn xuống mảnh giấy, rồi ôm chầm lấy Li Wei – người bảo vệ, người duy nhất còn lại từ cuộc đời cũ của cô, người đã cứu cô và chăm sóc cô suốt ba tuần qua. "Cảm ơn ông, vì tất cả," cô thì thầm, giọng nghẹn ngào.
+"Đã đến lúc rồi," người đàn ông gầy gò nhắc, giọng căng thẳng.
+Sarah miễn cưỡng buông Li Wei ra, không muốn rời đi, không muốn chia tay người duy nhất còn lại từ thế giới cũ của mình. Nhưng cô biết mình không có lựa chọn. Cô quay lưng về phía cầu tàu, từng bước đi nặng nề như kéo cô xa hơn khỏi quá khứ, khỏi Thâm Quyến, khỏi mọi thứ cô từng biết và yêu thương.
+Mỗi bước lên cầu tàu là một nỗ lực vô cùng, như thể cơ thể cô đang phản kháng, không muốn rời xa nơi này – nơi chôn cất cha mẹ cô, nơi còn giữ những ký ức cuối cùng về Lão Zhang, nơi vẫn còn dấu vết của cuộc sống mà cô từng có.
+Khi đã lên đến boong tàu, Sarah quay lại nhìn xuống bến cảng, nơi Li Wei vẫn đứng đó, dáng người cao lớn của ông nổi bật trong ánh đèn mờ ảo. Cô vẫy tay chào tạm biệt, trái tim nặng trĩu, cảm giác như một phần của mình đang bị bỏ lại.
+Li Wei nhìn lên, đôi mắt ánh lên dưới ánh đèn cảng mờ ảo. Lần đầu tiên kể từ đêm định mệnh ấy, Sarah thấy một nụ cười rạng rỡ trên khuôn mặt Li Wei – một nụ cười không còn vẻ căng thẳng và lo âu, như thể mọi gánh nặng đã được trút bỏ. Ông vẫy tay chào cô, đôi mắt ánh lên những xúc cảm phức tạp – tự hào, yêu thương, và một nỗi buồn sâu thẳm đến tận cùng.
+"Hãy sống thật tốt nhé!" Li Wei hét lên, giọng vang vọng qua không gian cảng vắng lặng. "Sẽ không ai tìm thấy cô nữa đâu! Sống thật tốt nhé, vì gia đình, vì lão Zhang, và vì cả tôi nữa..."
+Sarah không hiểu ý nghĩa đằng sau những lời này, cho đến khi cô thấy Li Wei rút từ trong áo khoác ra một vật – khẩu súng ngắn mà ông luôn mang theo bên mình.
+"Li Wei...?" cô thì thầm, trái tim đập loạn xạ với linh cảm khủng khiếp.
+Thời gian như đông cứng lại. Li Wei ngước nhìn lên cô lần cuối, khoảnh khắc kéo dài như cả một đời người. Trong đôi mắt ông, Sarah thấy không chỉ có sự quyết tâm, mà còn có sự bình yên – sự bình yên của một người đã đưa ra quyết định cuối cùng. Rồi ông đưa khẩu súng lên thái dương, miệng lẩm bẩm điều gì đó mà Sarah không thể nghe thấy từ khoảng cách này, nhưng cô có thể đọc được từ chuyển động của môi ông:
+"Con ơi, vợ ơi, bố xin lỗi..."
+"KHÔNG!" Sarah hét lên, âm thanh xé toạc cổ họng cô như một con dao. Cô nhào về phía lan can, vươn tay như thể có thể vượt qua khoảng cách giữa tàu và bến cảng, như thể có thể níu giữ ông lại, ngăn ông làm điều không thể cứu vãn.
+Tiếng súng vang lên – "ĐOÀNG!" – âm thanh khủng khiếp xé toạc màn đêm, âm vang trong không gian cảng vắng như tiếng sét đánh. Thân hình cao lớn của Li Wei đổ gục xuống, mặt đập xuống mặt đất cảng. Máu bắn tung tóe, nhuộm đỏ một mảng bê tông, hòa cùng nước mưa thành những dòng đỏ thẫm chảy xuống mép cảng.
+Tiếng hét kinh hoàng thoát ra từ cổ họng Sarah, nhưng bị át đi bởi tiếng còi tàu vang lên – tiếng còi báo hiệu khởi hành, báo hiệu không còn đường quay lại. Cô cảm thấy có bàn tay kéo mình lùi lại, giọng nói nào đó ra lệnh cô phải xuống dưới boong tàu ngay lập tức, rằng cảnh sát sẽ đến ngay, rằng tàu phải rời đi trước khi họ đến.
+Trong khoảnh khắc cuối cùng trước khi bị kéo đi, Sarah chợt hiểu ra hành động của Li Wei. Ông đã tự sát không chỉ vì tuyệt vọng, mà còn vì cô. Bí mật về sự sống sót của Sarah Chen sẽ chết cùng ông. Không ai có thể tra khảo ông, không ai có thể bắt ông tiết lộ nơi cô đang đi. Và nếu ai đó theo dõi ông, họ sẽ nghĩ rằng bí mật đã chết cùng ông – rằng không còn lý do để truy tìm Sarah Chen nữa.
+Ông đã hy sinh mạng sống của mình không chỉ vì cảm giác có lỗi, mà còn vì cô – vì tương lai của cô, vì cơ hội cuối cùng để cô có thể sống.
+Nỗi đau tưởng đã đạt đến cực điểm giờ lại bùng lên mạnh mẽ hơn trong lồng ngực Sarah, như thể trái tim cô đang bị xé nát từng mảnh. Cô đã mất tất cả – cha mẹ, Lão Zhang, và giờ là Li Wei. Tất cả đều chết để cô có thể sống. Tất cả đều ra đi, để lại cô một mình trong thế giới lạnh lẽo và thù địch này.
+Khi được đưa xuống một cabin chật hẹp, tối tăm dưới boong tàu, Sarah lao vào góc tường, ôm chặt ba lô vào lòng như thể đó là điểm tựa cuối cùng, và bật khóc nức nở. Nước mắt trào ra như thể không bao giờ có thể ngừng lại được nữa. Mỗi hơi thở đều đau đớn, mỗi nhịp tim đều như một lưỡi dao cứa vào tâm hồn đã tan nát của cô. Cô khóc cho cha mẹ, cho Lão Zhang, cho Li Wei. Cô khóc cho cuộc sống đã mất, cho tuổi thơ đã kết thúc quá sớm, cho tương lai không còn chắc chắn.
+Nhưng sâu thẳm bên trong nỗi đau tột cùng ấy, một tia lửa nhỏ bắt đầu hình thành. Không phải ngọn lửa của hy vọng – hy vọng là thứ xa xỉ mà cô không dám mơ tới. Đó là ngọn lửa của quyết tâm. Quyết tâm sống sót. Quyết tâm không phụ lòng những người đã chết để cô được sống. Quyết tâm một ngày nào đó, dù phải mất bao lâu, dù phải trả giá thế nào, cô sẽ tìm ra sự thật và khiến kẻ thủ ác phải trả giá.
+Dưới lớp sàn gỗ mỏng, Sarah cảm nhận được động cơ tàu bắt đầu hoạt động, rung lên từng đợt. Con tàu rời bến, mang cô đi xa khỏi quê hương, xa khỏi mọi thứ từng là cuộc sống của cô, xa khỏi những nấm mồ của người thân.
+Trong khoang tối, cô lấy ra mảnh giấy Li Wei đã đưa, cố nhìn dưới ánh sáng leo lét từ khe cửa. Một địa chỉ tại Oakland, California, và một cái tên: Marcus Johnson, "The Disconnected".
+Sarah không hiểu ý nghĩa của dòng chữ này, nhưng cô biết đây là mảnh ghép cuối cùng Li Wei để lại – một manh mối, một hy vọng mong manh trong bóng tối bao trùm, một ngọn nến mong manh trong đêm đen vô tận của đau thương.
+"Con hứa," Sarah thì thầm vào bóng tối, nắm chặt mảnh giấy trong tay. "Con hứa, cha, mẹ, chú Zhang, Li Wei. Con sẽ sống. Con sẽ sống xứng đáng với sự hy sinh của mọi người. Và một ngày nào đó, con sẽ tìm ra sự thật. Con thề."
+Khi tàu từ từ ra khơi, những ánh đèn của Thâm Quyến dần biến mất sau chân trời, Sarah Chen nhìn ra cửa sổ nhỏ của cabin, biết rằng cuộc đời cô sẽ không bao giờ như cũ. Cô từ từ chìm dần vào trong bóng tối của sự cô độc…
+HỒI 3: TÁI SINH
+Không gian tối tăm của khoang tàu nuốt chửng mọi ý niệm về thời gian. Sarah không biết mình đã ngủ bao lâu – những giấc ngủ không phải vì mệt mỏi thông thường, mà là sự kiệt quệ của một linh hồn đã khóc cạn nước mắt. Giấc ngủ của cô không mang lại sự nghỉ ngơi, mà đầy những cơn ác mộng - cha mẹ gục ngã trong vũng máu, Lão Zhang đẩy cô vào lối thoát, và Li Wei với khẩu súng kề thái dương.
+Sarah giật mình tỉnh giấc khi thân tàu chao đảo mạnh, ném cô xuống sàn. Cảm giác buồn nôn trào lên cổ họng. Thế giới quanh cô chao đảo, mọi thứ dường như nghiêng ngả không ngừng. Cô với tay tìm chiếc ba lô - vật duy nhất cô sở hữu trên thế giới này - ôm chặt vào lòng và cố gắng đứng dậy.
+Căn phòng chật hẹp, tối tăm ngột ngạt khiến cô khó thở. Trên người vẫn là bộ quần áo cũ kỹ cô mặc từ khi rời khỏi khu ổ chuột, giờ đã nhàu nát và ẩm ướt vì mồ hôi. Sarah loạng choạng bước về phía cửa, bám vào các vật cố định để giữ thăng bằng. Cô cần không khí, cần nhìn thấy bầu trời, cần biết mình đang ở đâu.
+Hành lang tàu vắng lặng, ánh đèn khẩn cấp leo lét tạo nên những bóng ma quái dị trên tường. Sarah bước từng bước cẩn trọng, hướng về phía luồng không khí tươi mát từ cuối hành lang. Tiếng động cơ tàu ầm ĩ hòa với tiếng gió gầm rú từ bên ngoài.
+Khi Sarah đẩy cánh cửa dẫn ra boong tàu, một cơn gió dữ dội ập vào cô với sức mạnh khủng khiếp, gần như hất cô ngã. Cô bám chặt lan can, tim đập thình thịch khi nhìn ra đại dương mênh mông đang giận dữ. Những con sóng cao như núi ập vào thân tàu, khiến nó rung chuyển như một chiếc lá mỏng manh. Bầu trời đen kịt, không một vì sao, không mặt trăng, chỉ có những đám mây đen cuồn cuộn như quái vật.
+Đứng trước sức mạnh vô song của thiên nhiên, Sarah cảm thấy mình nhỏ bé đến tội nghiệp, như một hạt bụi giữa bão táp. Nước biển bắn lên ướt sũng quần áo và mặt cô, nhưng cô không buồn lau đi. Cô đưa mắt nhìn xung quanh, chỉ thấy biển và bầu trời đen kịt, không một dấu hiệu của đất liền. Cô không biết mình đã đi bao xa, không biết còn bao lâu nữa mới đến nơi, không biết chuyện gì đang chờ đợi mình ở phía trước.
+"Cô không nên ra đây lúc này!" Một giọng nói vang lên sau lưng, át cả tiếng gió. Sarah quay phắt lại, sợ hãi hiện rõ trên gương mặt.
+Người đàn ông già gầy - người đã nhận tiền từ Li Wei tại bến cảng - đang bước về phía cô, tay vịn vào lan can để khỏi ngã. Gương mặt ông nhăn nheo, mái tóc bạc phơ bị gió thổi tung, nhưng đôi mắt vẫn sắc sảo đầy cảnh giác.
+"Đây không phải là chỗ cho hành khách," ông già nói, giọng khàn đục, khó nghe rõ giữa tiếng gió. "Đặc biệt là khi có bão. Xuống dưới ngay!"
+Sarah không cãi lại. Cô để ông già dẫn mình quay vào bên trong, nơi ít nhất không có những cơn sóng đánh vào mặt. Đôi chân cô lạnh cóng, ướt sũng, run rẩy với mỗi bước đi.
+"Chúng tôi không thường xuyên có... khách," ông già nói, liếc nhìn cô. "Nhất là khách nữ."
+"Tôi đã ngủ bao lâu rồi?" Sarah hỏi, giọng khàn đặc vì lâu không nói chuyện.
+"Năm ngày," ông già đáp. "Tôi đã mang đồ ăn vào nhưng cô ngủ như chết. Tôi chỉ còn cách để đó."
+Sarah nhận ra mình đang đói cồn cào. Năm ngày không ăn không uống, chỉ chìm đắm trong cơn mê man của đau thương.
+"Còn bao lâu nữa đến nơi?" cô hỏi.
+"Còn lâu," ông già đáp, không nhìn cô. "Bão sẽ làm chúng ta chậm lại. Có lẽ thêm một tuần."
+Sarah gật đầu, không nói gì thêm. Một tuần nữa trên con tàu này, giữa biển cả mênh mông, biệt lập khỏi thế giới. Một tuần để lấy lại bình tĩnh, để suy nghĩ, để chuẩn bị cho tương lai bất định phía trước.
+"Đi tắm đi," ông già bất ngờ nói. "Cô trông tệ lắm, và mùi cũng tệ không kém."
+Sarah nhìn xuống bản thân - quần áo nhàu nát, bẩn thỉu, mái tóc xơ xác bết dính. Cô biết mình trông như thế nào - như một kẻ sống sót sau thảm họa. Và quả thực, đó chính xác là những gì cô đang là.
+"Ở đâu?" cô hỏi.
+"Cuối hành lang bên phải," ông già chỉ. "Nước nóng chảy khoảng mười phút, không hơn. Tôi sẽ để quần áo khô bên ngoài. Không phải đồ mới, nhưng sạch hơn cái cô đang mặc."
+Sarah muốn hỏi tại sao ông lại giúp mình, nhưng không có năng lượng nào còn sót lại để bắt chuyện. Cô chỉ gật đầu và lê bước về phía ông đã chỉ.
+Phòng tắm trên tàu nhỏ đến khó tin, nhưng là thiên đường đối với Sarah lúc này. Nước nóng - thứ xa xỉ mà cô không được chạm đến kể từ đêm định mệnh ấy - tuôn chảy qua từng centimet trên cơ thể, rửa trôi lớp bụi bẩn, mồ hôi và nước mắt. Sarah nhắm mắt lại, để nước ấm vỗ về làn da đã nhợt nhạt, và trong khoảnh khắc ngắn ngủi ấy, cô gần như cảm thấy như một con người bình thường - không phải một kẻ chạy trốn, không phải một đứa trẻ mồ côi, không phải một mục tiêu.
+Khi bước ra, cô thấy một bộ quần áo khô - quần jean bạc màu và áo phông rộng - được đặt gọn gàng trên một chiếc ghế nhỏ bên ngoài. Sarah thay đồ, cảm thấy khác lạ trong bộ quần áo sạch sẽ dù rộng thùng thình.
+Cô vừa xong xuôi, đang cố gắng gỡ rối mái tóc ướt bằng những ngón tay, thì nghe thấy tiếng động từ cuối hành lang. Tiếng cười đàn ông. Rồi tiếng bước chân nặng nề, ngày một gần.
+Bản năng tự vệ, thứ đã được mài giũa suốt ba tuần sống trong sợ hãi, lập tức thức tỉnh. Sarah lùi lại, tìm kiếm lối thoát, nhưng không có. Hành lang hẹp chỉ có một lối đi, và tiếng bước chân đang đến từ hướng đó.
+Hai người đàn ông xuất hiện - những thủy thủ với nước da sạm nắng, thân hình vạm vỡ vì lao động nặng nhọc trên biển. Họ dừng bước khi nhìn thấy Sarah, sự ngạc nhiên nhanh chóng biến thành một cái nhìn khiến cô rùng mình - cái nhìn của thú săn mồi khi phát hiện con mồi.
+"Xem kìa, chúng ta có khách," người cao hơn nói, giọng đầy thích thú. "Một cô gái nhỏ xinh đẹp."
+"Tôi không biết có hành khách nữ," người còn lại nói, cười khẩy. "Đặc biệt là một người xinh như vậy."
+Sarah lùi lại, tim đập loạn xạ. Cả hai người đàn ông đều cao to hơn cô rất nhiều, và hành lang quá hẹp để có thể chạy thoát. Cô với tay vào ba lô, nhớ ra con dao Li Wei đã cho.
+"Tôi cần... quay lại cabin," cô nói, cố giữ giọng bình tĩnh.
+"Ồ, không vội," người cao hơn nói, bước tới. "Chúng tôi muốn làm quen. Không phải ngày nào chúng tôi cũng gặp được một cô gái đẹp giữa biển cả." Hắn tiến thêm một bước, ánh mắt lướt trên thân hình Sarah với vẻ thèm thuồng không giấu giếm. "Cô là ai? Tại sao lại ở trên tàu chúng tôi?"
+Sarah không trả lời. Cô tiếp tục lùi lại cho đến khi lưng chạm vào tường. Tay cô lần mò trong ba lô, cảm nhận được cán dao lạnh băng.
+"Này!" Một giọng nói quen thuộc vang lên từ phía sau hai người đàn ông. Ông già đứng đó, khuôn mặt nhăn nheo căng thẳng. "Để cô ấy yên."
+Hai người đàn ông quay lại. "Cụ Lão, cụ biết chuyện này à?" Người cao hơn hỏi. "Tại sao không ai báo cho chúng tôi là có hành khách xinh đẹp vậy?"
+"Cô ấy trả tiền để đi nhờ," ông già nói. "Và cô ấy không phải để các anh quấy rầy."
+"Ồ," người thấp hơn cười khẩy. "Chúng tôi không quấy rầy, chỉ muốn làm quen thôi." Hắn tiến về phía Sarah. "Này, đẹp quá, đi biển lâu quá rồi, thèm người phụ nữ lắm rồi."
+Sarah rút con dao ra, tay run rẩy. "Đừng lại gần tôi," cô nói, giọng run run vì sợ hãi. "Tôi có dao."
+Người đàn ông dừng lại, nhưng không vì sợ hãi. Hắn cười lớn. "Cô định làm gì với con dao nhỏ đó? Cứa cho tôi một vết nhỏ à?"
+"Đủ rồi!" Ông già lên tiếng, bước tới. "Các anh đang say. Quay lại làm việc đi."
+Nhưng người đàn ông cao hơn đẩy ông già sang một bên, khiến ông loạng choạng đập vào tường. "Im đi, lão già. Chúng tôi chỉ muốn vui vẻ một chút." Hắn quay sang Sarah, mắt rực lửa ham muốn. "Đừng sợ, chúng tôi sẽ không làm đau cô... trừ khi cô thích thế."
+Sarah cảm thấy sự sợ hãi nhường chỗ cho thứ khác - sự giận dữ. Giận dữ vì luôn bị săn đuổi, luôn là nạn nhân, luôn bị đối xử như một món đồ chơi. Cô giơ con dao lên, không còn run rẩy nữa.
+"Lùi lại," cô nói, giọng trầm thấp và nguy hiểm. "Hoặc tôi sẽ cắt cổ các người."
+Hai người đàn ông dừng lại, ngạc nhiên bởi sự thay đổi đột ngột trong thái độ của cô. Nhưng ngạc nhiên nhanh chóng biến thành giận dữ.
+"Con nhóc này cần được dạy dỗ," người cao hơn gầm lên, lao về phía Sarah.
+Cô vung dao, nhưng bị tay hắn chặn lại. Con dao cứa một đường dài trên cánh tay hắn, máu bắt đầu rỉ ra. Nhưng thay vì lùi lại vì đau đớn, người đàn ông càng trở nên điên cuồng. Hắn tóm lấy cổ tay Sarah, siết mạnh đến mức cô phải buông dao.
+"Mày dám cắt tao?" Hắn gầm lên, khuôn mặt biến dạng vì giận dữ.
+Ông già lao tới, cố gắng kéo hắn ra khỏi Sarah. "Dừng lại! Đừng động vào cô ấy!"
+Người đàn ông thấp hơn đá mạnh vào bụng ông già, khiến ông ngã xuống, thở hổn hển vì đau đớn. "Im đi, lão già."
+Sarah cố gắng vùng vẫy, nhưng người đàn ông cao lớn quá mạnh. Hắn đẩy cô vào tường, áp sát đến mức cô có thể ngửi thấy mùi rượu và mồ hôi nồng nặc. "Mày nghĩ mày là ai, hả? Một con nhóc chẳng là gì trên tàu của chúng tao." Hắn bắt đầu cởi thắt lưng, nụ cười nhơ nhuốc hiện rõ trên khuôn mặt thô ráp. "Tao sẽ cho mày biết chỗ của mày là ở đâu."
+Người đàn ông còn lại mở chai rượu, uống một ngụm lớn, rồi cười khẩy. "Đừng giữ cô ta một mình, anh bạn. Chúng ta đã bao lâu rồi không được như thế này?"
+Sarah cảm thấy toàn bộ cơ thể mình đông cứng lại vì khiếp sợ. Những hình ảnh kinh hoàng chạy qua tâm trí - bàn tay thô ráp trên làn da, hơi thở nồng nặc mùi rượu, nỗi đau và sự tủi nhục không thể chịu đựng nổi. Không, cô không thể để điều này xảy ra. Với một nỗ lực cuối cùng, cô thò tay vào ba lô, cảm nhận được khẩu súng lạnh ngắt mà Li Wei đã cho.
+"Buông tôi ra!" Cô hét lên, rút súng ra và chĩa vào khuôn mặt gã đàn ông. "Tôi sẽ bắn!"
+Gã đàn ông dừng lại, nhìn khẩu súng với vẻ ngạc nhiên. Nhưng nhanh chóng, ngạc nhiên biến thành tiếng cười man rợ.
+"Mày thậm chí không biết cách dùng súng," hắn cười lớn, chỉ vào chốt an toàn vẫn còn nguyên. "Nếu mày định bắn, ít nhất hãy biết cách tháo chốt an toàn đã."
+Sarah nhìn xuống khẩu súng trong tay, nhận ra hắn nói đúng. Li Wei đã dạy cô, nhưng trong cơn hoảng loạn, cô quên mất. Trước khi cô kịp phản ứng, gã đàn ông đá mạnh vào tay cô, khiến khẩu súng văng ra xa.
+"Giờ thì không còn gì để che chắn nữa," hắn cười khẩy, tiếp tục cởi quần. "Ta sẽ dạy cho mày biết phép lịch sự."
+Người đàn ông còn lại túm lấy hai tay Sarah, giữ chặt trong khi đồng bọn sờ soạng khắp người cô. Sarah la hét, vùng vẫy, nhưng không thể thoát khỏi những bàn tay thô bạo đang xâm phạm cơ thể mình.
+"Giúp với! Làm ơn!" Cô gào khóc, nước mắt tuôn rơi khi hai gã đàn ông mỗi lúc một táo bạo hơn. Người đàn ông cao to bắt đầu kéo quần cô xuống, hơi thở nặng nề vì ham muốn trần tục.
+"Tao không chịu được nữa," hắn gầm lên, nhìn Sarah với ánh mắt thèm khát. "Thưởng thức bữa tiệc thôi."
+"ĐOÀNG!"
+Tiếng súng vang lên chói tai trong không gian chật hẹp của hành lang. Máu và mảnh xương bắn tung tóe khi gã đàn ông cao to ngã gục, một lỗ đen hiện rõ giữa trán. Sarah đứng đó, sững sờ và hoảng loạn, máu của gã bắn lên khuôn mặt và quần áo cô.
+"ĐOÀNG!"
+Một tiếng súng nữa vang lên, và người đàn ông còn lại cũng ngã xuống, đầu vỡ nát, máu loang khắp sàn tàu.
+Sarah quay lại, chân run rẩy, không thể tin vào mắt mình. Ông già đứng đó, khẩu súng - khẩu súng của cô - trong tay, khói vẫn bốc lên từ nòng. Khuôn mặt ông méo mó trong một biểu cảm khó hiểu - nửa kinh hoàng, nửa quyết tâm.
+"ĐOÀNG! ĐOÀNG! ĐOÀNG!"
+Ông bắn thêm ba phát nữa vào hai cái xác đã bất động, như thể muốn chắc chắn chúng không thể sống lại. Tay ông run rẩy, nước mắt chảy dài trên khuôn mặt nhăn nheo.
+"Tôi... tôi đã giết người," ông thì thầm, giọng đầy kinh hoàng. "Sau bảy mươi năm sống, tôi đã trở thành kẻ giết người."
+Sarah không thể nói gì. Cô đứng đó, toàn thân run rẩy, kinh hoàng trước cảnh tượng máu me trước mắt. Cô đã suýt bị hãm hiếp, và giờ đây hai người đàn ông đã chết - vì cô, vì bảo vệ cô. Thêm hai cái chết nữa vào danh sách những người đã chết vì Sarah Chen.
+"Chúng là thủy thủ," ông già nói, giọng run rẩy, ánh mắt vô định. "Là lái tàu chính. Giờ chúng chết rồi. Chúng ta sẽ làm gì đây? Làm sao để tàu đến bến?"
+Sarah quỳ xuống, nôn thốc nôn tháo lên sàn tàu. Toàn bộ cơ thể cô co giật trong cơn buồn nôn dữ dội, không phải vì mùi máu hay cảnh tượng ghê rợn, mà vì sự nhận thức kinh hoàng: cô thực sự là một lời nguyền. Bất cứ ai ở gần cô đều sẽ chết hoặc buộc phải giết người. Có lẽ Li Wei đã đúng khi tự sát. Có lẽ cái chết là con đường duy nhất để thoát khỏi vòng xoáy bạo lực này.
+"Còn một người," ông già nói sau một lúc im lặng. "Một thủy thủ nữa. Người đang lái tàu lúc hai tên này nghỉ."
+Ông cúi xuống, nhặt khẩu súng lên, thở dài nặng nề. "Giúp tôi ném xác chúng xuống biển. Chúng ta không thể để người kia biết chuyện đã xảy ra." 
+Sarah gật đầu, vẫn còn trong trạng thái sốc. Cô không biết làm gì khác ngoài vâng lời. Với đôi tay run rẩy, cô giúp ông già lôi hai xác chết đến lan can. Máu loang lổ trên sàn tàu, nhưng may mắn thay, cơn mưa dữ dội bên ngoài nhanh chóng rửa sạch mọi thứ khi họ kéo xác ra ngoài.
+"Không ai sẽ tìm thấy chúng," ông già nói khi hai cái xác biến mất trong biển đen. "Đại dương sẽ giữ bí mật của chúng ta."
+Ông quay sang Sarah, đôi mắt đỏ ngầu vì mệt mỏi và sợ hãi. "Đi tắm lại đi. Tẩy sạch máu. Tôi sẽ lấy đồ ăn và nước nóng. Cô cần nó."
+Sarah lê bước trở lại phòng tắm, toàn thân vẫn run rẩy. Lần thứ hai trong ngày, cô đứng dưới vòi nước nóng, nhưng lần này không phải để tẩy bụi bẩn mà là để rửa máu - máu của những kẻ đã định làm nhục cô, máu của những kẻ đã chết vì cô.
+Tiếng súng vẫn còn vang vọng trong tâm trí Sarah khi cô cố gắng rửa sạch máu của hai tên thủy thủ khỏi cơ thể mình. Dù đã cọ xát da đến mức rát bỏng, cô vẫn cảm thấy bẩn thỉu, vẫn thấy bàn tay của chúng đang sờ soạng trên người. Cảm giác nhơ nhớp ấy, không thể tẩy rửa, đeo bám như một lớp màng vô hình trên da thịt.
+Khi bước ra khỏi phòng tắm lần thứ hai trong ngày, Sarah nhìn thấy Lão Yang ngồi co ro ở góc hành lang, tay run rẩy cầm một chiếc khay đựng bánh mì khô và cá hộp. Đôi mắt ông trống rỗng, nhìn chằm chằm vào tường như thể đang thấy những bóng ma vô hình.
+"Ăn đi," ông nói, giọng khàn đặc, không nhìn Sarah. "Ăn đi rồi chúng ta... chúng ta phải nghĩ cách..."
+Sarah cầm lấy khay thức ăn, ngồi xuống đối diện Lão Yang. Đây là bữa ăn đầu tiên đàng hoàng sau cả tháng trời, nhưng dạ dày cô thắt lại sau những gì vừa trải qua. Cô cố gắng nuốt từng miếng nhỏ, nước mắt vẫn rơi không ngừng.
+"Ông… không sao chứ?" Sarah hỏi, nhận thấy hành vi bất thường của ông già.
+Lão Yang không trả lời. Ông móc từ túi áo ra một điếu thuốc lá cong queo, bật diêm với bàn tay run rẩy đến mức phải thử đến lần thứ ba mới thành công. Hít một hơi thuốc thật sâu, ông thở ra, khói thuốc vẽ nên những hình thù quái dị trong không gian chật hẹp.
+"Tôi... tôi chưa bao giờ giết người," ông thì thầm, giọng run rẩy. "Bảy mươi hai năm sống... chưa bao giờ..."
+Sarah cảm thấy có một sự bất an đang tăng dần. Dù đã cứu cô, nhưng Lão Yang vẫn là một người già bình thường, không phải sát thủ hay chiến binh. Việc giết hai người, dù là để tự vệ, hẳn đã gây chấn động tâm lý cho ông.
+"Ông…tôi…xin lỗi…" Sarah run rẩy. "Chỉ vì cứu tôi..."
+Lão Yang đột nhiên đứng dậy, lảo đảo đến bồn rửa gần đó. Ông vặn vòi nước, bắt đầu rửa tay với sự cuồng loạn đáng sợ - cọ xát, chà mạnh, như thể cố gắng rửa sạch thứ gì đó không thể nhìn thấy.
+"Máu," ông lẩm bẩm. "Nhiều máu quá… không rửa được. Không bao giờ rửa sạch được."
+Sarah đứng dậy, cảm thấy lo lắng. "Ông Yang... ông đừng làm tôi sợ."
+Nhưng ông già tiếp tục chà rửa tay, mạnh đến mức da bắt đầu đỏ ửng. Điếu thuốc lá vẫn kẹp giữa môi, tro thuốc rơi xuống áo mà ông không hề để ý.
+"Ông Yang?" Sarah tiến lại gần hơn, đặt tay lên vai ông. "Ông--"
+Điếu thuốc bất ngờ rơi khỏi miệng Lão Yang, văng xuống sàn. Ông đứng bất động, nước vẫn chảy ào ào trên đôi bàn tay nhăn nheo. Rồi, chậm rãi, ông quay đầu lại, ánh mắt đột nhiên thay đổi - không còn vẻ sợ hãi, hoảng loạn, mà là một điều gì đó tối tăm, nguy hiểm.
+"Tại mày," ông thì thầm, giọng trầm thấp đến rợn người. "Tại mày mà tao thành kẻ giết người."
+Sarah lùi lại một bước, bất ngờ trước sự thay đổi đột ngột. "Gì cơ?"
+"Không phải tại tao," Lão Yang tiếp tục, mắt trừng trừng nhìn Sarah. "Là do mày... Mày là lời nguyền. Mày mang đến cái chết."
+Sarah lùi lại thêm một bước nữa, tim đập loạn xạ. Bản năng mách bảo cô rằng có điều gì đó rất, rất sai đang xảy ra. Cô với tay vào ba lô, tìm kiếm khẩu súng mà cô tưởng là Lão Yang đã trả lại sau khi bắn hai tên thủy thủ.
+Nhưng ba lô trống rỗng.
+Mắt Sarah mở to khi nhận ra khẩu súng đang được dắt trên thắt lưng Lão Yang. Ông đã lấy nó lúc nào? Ông đã lục ba lô cô khi cô tắm?
+"Tìm cái này à?" Lão Yang cười khẩy, vỗ nhẹ lên báng súng. "Mày nghĩ tao ngu đến mức để một con nhóc như mày cầm súng sao?"
+Sarah cảm thấy mọi sức lực rút khỏi cơ thể, chân cô mềm nhũn, và cô ngã bịch xuống sàn. Lão Yang là người đã mang thức ăn đến cho cô mấy ngày nay, lão đã cứu cô, lão đã bắn chết hai kẻ định làm nhục cô. Và giờ... giờ ông ta lại như một người hoàn toàn khác.
+"Ông đang làm gì vậy?" Sarah thì thầm, giọng run rẩy. "Ông đã cứu tôi..."
+"Cứu mày?" Lão Yang bước đến gần, khuôn mặt già nua biến dạng vì giận dữ. "Tao cứu cái mạng của tao thì có! Mày nghĩ nếu hai thằng đó giết mày, chúng sẽ để tao sống sao? Tất cả là vì tao, đéo phải vì mày!"
+Ông túm lấy mái tóc ướt của Sarah, kéo mạnh đến mức cô phải kêu lên đau đớn. "Và giờ tao phải làm gì đây? Hai xác chết, không đủ người lái tàu, và tất cả vì cái gì? Vì một con đàn bà vô dụng!"
+Sarah vùng vẫy, cố gắng thoát khỏi bàn tay như gọng kìm của ông già, nhưng Lão Yang mạnh một cách đáng kinh ngạc. Ông kéo cô đứng dậy bằng tóc, đau đến mức nước mắt Sarah trào ra.
+"ĐI, NHANH LÊN, THEO TAO, CON MẸ MÀY!" Lão Yang hét lớn, lôi Sarah đi xềnh xệch qua hành lang. Cô gào thét, van xin, nhưng ông già như không nghe thấy, hoặc không quan tâm.
+"Ông định làm gì?" Sarah khóc nức nở. "Làm ơn... tôi không hiểu..."
+"Không hiểu?" Lão Yang cười gằn, tiếng cười khô khốc như tiếng xương gãy. "Mày không hiểu thì tao nói cho mà nghe. Tàu này còn một thủy thủ nữa - người duy nhất có thể đưa chúng ta đến bờ. Và mày... mày sẽ là món quà của tao cho hắn."
+Sarah cảm thấy máu đông cứng trong huyết quản. "Không... ông không thể..."
+"Tao có thể, và tao sẽ làm," Lão Yang gằn giọng, kéo Sarah lên cầu thang dẫn đến boong tàu trên. "Mày nghĩ mạng mày quý hơn mạng tao à? Tao đã sống bảy mươi hai năm, và tao sẽ không chết trên con tàu chết tiệt này vì một con nhóc như mày!"
+Sarah cố gắng với lấy bất cứ thứ gì - một thanh chắn, một cánh cửa, một dây thừng - bất cứ thứ gì để bám víu, nhưng Lão Yang kéo cô quá mạnh. Cô cảm thấy từng sợi tóc như muốn bứt ra khỏi da đầu.
+"Làm ơn!" Sarah van xin, giọng vỡ vụn vì đau đớn và tuyệt vọng. "Đừng làm vậy... tôi sẽ làm bất cứ điều gì..."
+"Đúng rồi," Lão Yang gầm lên. "Mày sẽ làm bất cứ điều gì tên lái tàu muốn. Và nếu hắn hài lòng, có lẽ hắn sẽ không ném chúng ta xuống biển."
+Họ đến một cánh cửa kim loại nặng nề. Lão Yang đẩy mạnh, cánh cửa bật mở, và ông đẩy Sarah vào trong, khiến cô ngã sõng soài xuống sàn. Đây là buồng lái của con tàu - một căn phòng nhỏ đầy màn hình radar, bản đồ, và thiết bị hàng hải.
+Một người đàn ông trẻ hơn ngồi trước bảng điều khiển, quay phắt lại khi nghe tiếng động. Cao to, vai rộng, với bộ râu quai nón rậm rạp và đôi mắt nhỏ xíu đục ngầu - hắn trông như một thủy thủ điển hình, thô lỗ và hung bạo.
+"Lão Yang?" hắn nhướn mày ngạc nhiên. "Cái gì thế này?"
+Lão Yang túm tóc Sarah, kéo cô dậy và đẩy về phía người lái tàu. "Bắt được con nhỏ này trốn trong khoang hàng," ông nói, giọng cộc cằn. "Một con nhóc trốn vé."
+"Một con nhóc hả?" Người lái tàu cười lớn, ánh mắt đảo từ đầu đến chân Sarah, dừng lại ở ngực và đùi cô. "Trông không giống nhóc lắm, Lão Yang ạ."
+"Hai đứa kia đâu?" Lão Yang hỏi, giọng căng thẳng.
+"Chắc vẫn uống say dưới kia," tên lái tàu đáp, mắt vẫn dán chặt vào Sarah như thể cô là miếng thịt tươi ngon. "Sao, lão đã 'thưởng thức' nó chưa?"
+Lão Yang lắc đầu. "Tao già rồi. Nhưng nghĩ mày sẽ thích nó."
+Tên lái tàu đứng dậy, khóa cần điều khiển tàu lại, rồi tiến về phía Sarah. Hắn cao hơn Lão Yang cả cái đầu, thân hình vạm vỡ của một người đã quen lao động nặng. Mùi mồ hôi, rượu và thuốc lá nồng nặc xộc vào mũi Sarah, khiến cô muốn nôn ọe.
+"Quả thực là một món quà đẹp," hắn nói, nắm cằm Sarah, xoay mặt cô sang trái rồi phải như đang xem xét món hàng. "Lâu lắm rồi không thấy một con đàn bà trên tàu. Chưa kể là một con đàn bà xinh như vậy."
+Sarah giật mặt ra, cố tránh xa hắn, nhưng Lão Yang vẫn giữ chặt tóc cô.
+"Sắp đến cảng chưa?" Lão Yang hỏi, giọng thản nhiên như thể không có chuyện gì đang xảy ra.
+"Hai ngày nữa là tới," tên lái tàu đáp, tay bắt đầu cởi thắt lưng. "Đủ thời gian để... vui vẻ."
+Hắn kéo Sarah về phía mình, hơi thở nồng nặc mùi rượu phả vào mặt cô. Bàn tay thô ráp của hắn vuốt ve cổ Sarah, xuống vai, rồi tiến dần xuống ngực. "Nhỏ à, mày có biết lâu rồi tao chưa được chạm vào một con đàn bà không? Sáu tháng. Sáu tháng toàn ở giữa biển với một đám thằng đực rích hôi hám."
+Sarah cố đẩy tay hắn ra, nhưng tên thủy thủ túm chặt cổ tay cô, bóp mạnh đến mức có thể nghe thấy tiếng xương kêu răng rắc.
+"Đừng phản kháng," hắn gầm gừ. "Mày sẽ thích nó thôi. Tất cả bọn chúng đều vậy. Ban đầu thì làm cao, sau thì rên rỉ như đĩ."
+Sarah cảm thấy mật đắng dâng lên cổ họng. Cô ngước nhìn Lão Yang, người vừa cứu cô khỏi hai tên khác, đã giết người để bảo vệ cô. Nhưng ánh mắt đáp lại chỉ là sự thờ ơ lạnh lùng.
+"Cứ việc," Lão Yang nói với tên thủy thủ, buông tay khỏi tóc Sarah và bước lui lại. "Tao sẽ đợi ở ngoài."
+"Ở lại cũng được," tên thủy thủ cười khẩy, kéo áo Sarah lên, phơi bày làn da trắng ngần. "Lão có thể xem. Hay tham gia cũng được. Có khi cổ họng nó cũng ngon như cái lồn."
+Sarah cảm thấy một cơn buồn nôn dâng lên khi tên thủy thủ hoàn toàn cởi bỏ quần áo, để lộ thân hình trần truồng, thô kệch. Hắn giữ chặt hai tay cô bằng một tay, tay kia bắt đầu tìm cách cởi quần cô.
+"Làm ơn... đừng..." Sarah thì thầm, nước mắt chảy dài trên khuôn mặt tái nhợt. "Làm ơn..."
+"Nó xin kìa," tên thủy thủ cười lớn, quay sang Lão Yang. "Tao thích khi chúng xin xỏ. Làm cho tao cứng hơn."
+Hắn quay lại Sarah, mặt áp sát cô đến mức cô có thể đếm từng sợi râu cứng nhám trên khuôn mặt thô bạo. "Đêm nay làm cho anh vui nhé," hắn thì thầm, giọng khàn đặc vì ham muốn. "Không thì em sẽ chịu nhiều hình phạt đấy."
+Sarah nhắm nghiền mắt lại, chuẩn bị tinh thần cho nỗi đau và sự nhục nhã không thể tránh khỏi. Không ai cứu cô nữa. Không còn ai. Xung quanh cô giờ chỉ toàn quái vật!
+"Mày biết không," tên thủy thủ nói, vừa kéo quần Sarah xuống, vừa liếm môi đầy thèm thuồng. "Tao đã ăn nhiều con rồi, nhưng mày... mày đặc biệt. Tao sẽ làm mày đau đến mức không thể đi được. Và đó mới chỉ là màn dạo đầu."
+"ĐOÀNG!"
+Tiếng súng nổ vang dội trong không gian chật hẹp của buồng lái. Sarah đứng chết trân, nhìn Lão Yang cầm khẩu súng, khói vẫn bốc lên từ nòng. Tên thủy thủ nghiêng người, máu bắn ra từ vết thương trên lưng, ngã gục xuống.
+"Mày cũng như chúng nó," Lão Yang thì thầm, ánh mắt trống rỗng. "Cũng đáng phải chết như chúng nó."
+Sarah không thể tin vào mắt mình. Vài giây trước, ông già vừa dâng cô cho tên thủy thủ như một món quà... rồi lại bắn hắn? Cô đứng đó, chết lặng, ý thức về thực tại như vỡ vụn quanh cô.
+"Ông... ông..." Sarah không thể nói hết câu, đầu óc quá hỗn loạn, choáng váng.
+Lão Yang tiến đến gần xác tên thủy thủ, muốn kiểm tra xem hắn đã chết chưa. Đó là khi điều không ai ngờ tới xảy ra.
+Như một con thú bị thương, tên thủy thủ bỗng vùng dậy, mắt đỏ ngầu, miệng sùi bọt mép. Hắn gầm lên như dã thú, quật mạnh vào tay Lão Yang, khiến khẩu súng văng ra xa, rơi xuống góc phòng cách Sarah chỉ vài bước chân.
+"MÀY BẮN TAO?" Hắn gầm lên, cổ nổi đầy gân. "ĐỒ KHỐN GIÀ, MÀY DÁM BẮN TAO?"
+Lão Yang loạng choạng lùi lại, choáng váng trước sức mạnh dường như phi thường của tên thủy thủ. Mặc dù bị thương nặng, máu vẫn đang chảy ròng ròng từ vết thương trên lưng, nhưng sự giận dữ và rượu trong người đã biến hắn thành một cỗ máy giết người điên cuồng.
+"Tao... tao nghĩ mày..." Lão Yang lắp bắp, lùi dần về phía Sarah.
+Tên thủy thủ đạp mạnh vào ngực ông già, khiến ông văng ra đất, đầu đập mạnh xuống sàn tàu. "NGHĨ CÁI ĐẦU BUỒI TAO, THẰNG GIÀ CHÓ!" hắn gầm lên, máu từ vết thương nhỏ giọt xuống sàn.
+Hắn chụp lấy chai rượu vẫn còn đầy một nửa từ bàn điều khiển, ngửa cổ uống một hơi dài, rồi đập vỡ chai vào thành tàu, tạo thành một vũ khí sắc nhọn nguy hiểm.
+"MÀY TƯỞNG MỘT VIÊN ĐẠN CÓ THỂ GIẾT TAO Á?" Hắn cười điên loạn, nước miếng bắn ra từ miệng. "BẢY NĂM TRONG TÙ, HAI MƯƠI NĂM TRÊN BIỂN. TAO ĐÃ BỊ BẮN NHIỀU HƠN MÀY NGHĨ!"
+Hắn quay sang Sarah, người vẫn đứng đó như bị đóng băng, mắt mở to kinh hoàng. Hắn liếm môi, vẻ mặt thèm khát điên dại.
+"Ngồi đấy đợi tao xử thằng già này xong," hắn gầm gừ, giọng lạ lẫm vì đau đớn và giận dữ. "Tao sẽ hiếp mày như một con chó cái đến khi mày van xin chết, rồi tao sẽ hiếp mày tiếp! Con đĩ chết tiệt, mày sẽ gào khóc xin tao ngừng lại, nhưng tao sẽ không bao giờ ngừng!"
+Sarah cảm thấy mọi giọt máu trong người như đông cứng lại trước những lời lẽ tục tĩu và ánh mắt điên dại của hắn. Cô nhìn về phía khẩu súng nằm trong góc phòng, nhưng chân cô như bị đóng đinh xuống sàn.
+Tên thủy thủ gầm lên một tiếng thú tính, rồi lao về phía Lão Yang đang cố gượng dậy. Hai người đàn ông va chạm với nhau trong tiếng rên đau đớn. Mặc dù bị thương, tên thủy thủ vẫn mạnh hơn Lão Yang rất nhiều. Hắn đấm mạnh vào mặt ông già, khiến máu bắn ra từ mũi, rồi túm cổ áo ông kéo lên.
+"Mày nghĩ bắn tao thì sẽ kết thúc à?" Hắn thì thầm, áp mặt vào Lão Yang. "Đêm nay, mày sẽ thấy tao hành hạ con đĩ đó, trước khi tao ném cả hai chúng mày xuống biển."
+Lão Yang cố vùng vẫy, đấm vào vết thương trên lưng tên thủy thủ, khiến hắn rít lên đau đớn, buông tay trong tích tắc. Ông già cố lăn người, bò về phía khẩu súng, nhưng tên thủy thủ lại túm được chân ông, kéo ngược lại.
+"Mày không đi đâu được cả," hắn gầm lên.
+Hai người đàn ông vật lộn trên sàn tàu, máu và mồ hôi hòa vào nhau, tạo thành vũng nhớp nháp. Lão Yang, dù già yếu, vẫn chiến đấu với sự quyết tâm của người không còn gì để mất. Ông đấm, cào, cắn - bất cứ thứ gì có thể làm tổn thương đối phương.
+Nhưng cuối cùng, sức lực của tuổi trẻ và thân hình vạm vỡ đã chiến thắng. Tên thủy thủ, mặc cho vết thương đang rỉ máu, đè được Lão Yang xuống sàn, ngồi lên ngực ông, khiến ông không thể cử động.
+"Giờ thì..." hắn thở hổn hển, máu chảy từ nhiều vết thương trên khuôn mặt sau cuộc vật lộn. "Tao sẽ lấy mạng mày trước."
+Hắn giơ mảnh chai vỡ lên cao, ánh đèn khẩn cấp phản chiếu trên bề mặt sắc nhọn. Lão Yang cố gắng dùng hai tay nắm chặt cổ tay tên thủy thủ, ngăn mảnh chai cắm xuống cổ mình.
+"Mày... quá yếu... rồi..." tên thủy thủ cười khan, ấn mạnh mảnh chai xuống, mỗi lúc một gần cổ Lão Yang hơn.
+Sarah đứng đó, tim đập loạn xạ, nhìn hai người đàn ông vật lộn với cái chết. Cô không hiểu chuyện gì đang xảy ra, không hiểu tại sao Lão Yang lại bắn tên thủy thủ sau khi dâng hiến cô cho hắn. Nhưng cô biết một điều - nếu tên thủy thủ giết được Lão Yang, cô sẽ là người tiếp theo.
+"LÀM CÁI GÌ ĐI, NHANH LÊN!" Lão Yang hét lên trong tuyệt vọng, mặt đỏ bừng vì gắng sức, tay vẫn cố giữ mảnh chai cách cổ vài phân.
+Tiếng hét như một cú sốc điện, kéo Sarah ra khỏi trạng thái đông cứng. Cô hoảng loạn nhìn quanh, và ánh mắt dừng lại ở khẩu súng trong góc phòng. Không còn thời gian để suy nghĩ, cô lao đến, chụp lấy khẩu súng, tay run rẩy đến mức gần như đánh rơi nó.
+Cô quay lại, chĩa súng về phía tên thủy thủ đang ấn mảnh chai xuống cổ Lão Yang.
+"BẮN NÓ!" Lão Yang gào lên, mặt méo mó vì đau đớn khi mảnh chai bắt đầu cắt vào da cổ, máu rỉ ra.
+Sarah đứng đó, tay run rẩy, không thể giữ súng thẳng. Cô chưa bao giờ bắn súng. Cô là một thiên tài công nghệ, không phải sát thủ. Nhưng giờ đây, mạng sống của cô và Lão Yang phụ thuộc vào khả năng cô có bóp được cò súng hay không.
+Cô nhắm mắt lại, và bóp cò.
+"ĐOÀNG!"
+Tiếng súng vang dội, nhưng khi Sarah mở mắt ra, tên thủy thủ vẫn còn đó. Viên đạn chỉ sượt qua tai hắn, để lại một vết rách nhỏ, máu chảy xuống mặt Lão Yang bên dưới.
+Tên thủy thủ quay phắt lại, ánh mắt điên cuồng nhìn Sarah. "MÀY... DÁM... BẮN... TAO?"
+Sarah hoảng hốt, lại nhắm mắt bóp cò lần nữa.
+"Xoạch."
+Không có tiếng súng nổ. Cô mở mắt, kinh hoàng nhận ra đạn đã hết. Cô bóp cò liên tục trong tuyệt vọng.
+"Xoạch, xoạch, xoạch."
+Không có gì xảy ra. Khẩu súng đã trở thành một miếng kim loại vô dụng trong tay cô.
+"Con đĩ..." tên thủy thủ cười khẩy. "Mày đợi đấy. Tao sẽ xử mày sau."
+Hắn quay lại Lão Yang, người đã kiệt sức sau cuộc vật lộn kéo dài. Những giọt mồ hôi lớn lăn dài trên khuôn mặt già nua, hơi thở ông đứt quãng, tay không còn đủ sức để ngăn mảnh chai tiến gần đến cổ.
+Mảnh chai tiến gần hơn, gần hơn, gần hơn... và chạm vào da. Máu rỉ ra, ban đầu chỉ là những giọt nhỏ, rồi nhiều hơn khi mảnh chai cứa sâu hơn.
+Lão Yang nhắm mắt lại, sẵn sàng đón nhận cái chết. Ông đã chiến đấu tốt nhất có thể. Ông đã cố gắng chuộc lỗi. Ông đã...
+Một tiếng hét thất thanh xé toạc không khí, một tiếng thét không phải từ Lão Yang, không phải từ Sarah, mà từ tên thủy thủ.
+Lão Yang mở mắt ra, và thấy tên thủy thủ quỳ gối trên người ông, tay buông thõng mảnh chai. Đôi mắt hắn mở to, miệng há hốc, phát ra những tiếng "ợ, ợ" kỳ lạ. Và từ đỉnh đầu hắn, nhô ra cán dao - con dao từ ba lô của Sarah.
+Sarah đứng sau lưng hắn, tay vẫn nắm chặt con dao đã cắm vào đỉnh đầu tên thủy thủ. Cô đã đâm xuyên qua hộp sọ hắn trong một khoảnh khắc tuyệt vọng.
+Nhưng cô không dừng lại ở đó. Sự sợ hãi, căm hận, và bản năng sinh tồn đã biến cô thành một người hoàn toàn khác. Cô rút dao ra, và một lần nữa, cắm mạnh xuống đầu tên thủy thủ.
+"CHẾT ĐI!" Cô hét lên, giọng không còn là giọng của Sarah Chen thiên tài công nghệ, mà là tiếng thét của một sinh vật đang chiến đấu để sống sót.
+Cô rút dao ra lần nữa, và đâm xuống lần nữa.
+"CHẾT ĐI! CHẾT ĐI!"
+Mỗi nhát dao đi kèm với một tiếng thét, và mỗi lần dao cắm xuống, máu và những mảnh não vỡ bắn ra, văng khắp buồng lái, lên quần áo, lên mặt Sarah, lên bảng điều khiển tàu.
+"CHẾT ĐI! CHẾT ĐI! CHẾT ĐI!"
+Sarah không nhận ra mình đang hét. Cô không nhận ra rằng tên thủy thủ đã chết từ nhát dao đầu tiên. Cô không nhận ra rằng mình đang đâm con dao vào một cái xác đã không còn sự sống. Tất cả những gì cô biết là phải tiếp tục, phải chắc chắn rằng hắn không thể đứng dậy một lần nữa, không thể làm hại cô, không thể chạm vào cô.
+Chỉ khi cánh tay cô đau nhức vì mệt mỏi, và con dao trở nên trơn tuột vì máu, Sarah mới dừng lại. Tên thủy thủ nằm đó, đầu không còn nhận ra được hình dáng, một vũng máu và chất não loang rộng dưới sàn tàu.
+Lão Yang, đã thoát khỏi sức nặng của cái xác, gượng dậy, nhìn Sarah với ánh mắt không thể đọc được. Nửa kinh hoàng, nửa kính trọng, và có lẽ, một chút đồng cảm.
+"Cô..." ông thì thầm, lấy tay lau vết máu trên cổ. "Cô đã cứu tôi."
+Sarah nhìn xuống hai tay mình, ướt đẫm máu, rồi nhìn con dao vẫn nắm chặt trong tay. Cô buông rơi nó, như thể nó đột nhiên bỏng rẫy.
+"Tôi... tôi..." cô không thể nói hết câu, đột nhiên cảm thấy buồn nôn trước cảnh tượng mình vừa tạo ra. Cô quỳ xuống, nôn thốc nôn tháo, cơ thể co giật trong cơn buồn nôn dữ dội.
+Sau một hồi, khi không còn gì để nôn ra nữa, Sarah ngồi bệt xuống sàn, mắt trống rỗng nhìn vào không trung. Cô vừa mới giết một người. Cô, Sarah Chen, con gái của Chen Wei và Liu Mei, vừa dùng dao đâm vỡ sọ một con người.
+"Tôi đã giết người," cô thì thầm, giọng vỡ vụn.
+Lão Yang chậm rãi tiến đến bên cô, quỳ xuống, đặt tay lên vai Sarah. "Cô đã cứu mạng tôi," ông nói, giọng khàn đặc. "Và cô đã cứu chính mình."
+Sarah ngước lên, vẫn còn choáng váng. "Nhưng tại sao... tại sao ông lại... ông đẩy tôi cho hắn..."
+"Đó là cách duy nhất để tiếp cận và giết hắn," Lão Yang giải thích, lau máu trên mặt. "Nếu tôi xuất hiện một mình, hắn sẽ cảnh giác ngay. Nhưng một ông già mang đến một cô gái? Hắn sẽ không bao giờ nghi ngờ."
+Sarah im lặng, thông tin từ từ thấm vào tâm trí mệt mỏi của cô. Lão Yang không phản bội cô. Ông đã diễn một màn kịch - diễn quá xuất sắc đến mức cô hoàn toàn tin vào đó - để có thể tiếp cận và giết tên lái tàu.
+"Cô nên đi tắm," Lão Yang nói, giọng nhẹ nhàng. "Rửa sạch hết... tất cả. Tôi sẽ dọn dẹp ở đây."
+Sarah gật đầu như một cái máy, đứng dậy trên đôi chân run rẩy. Cô bước đi như một kẻ mộng du, không còn nhận thức rõ ràng về không gian và thời gian.
+Lần thứ ba trong một ngày, Sarah đứng dưới vòi nước nóng, cố gắng rửa sạch máu và não của một người đàn ông khỏi cơ thể mình. Cô cọ, cọ mạnh, cọ đến khi da đỏ ửng, đau rát, nhưng cảm giác bẩn thỉu không biến mất. Nó không bao giờ biến mất được nữa.
+Cô đã trở thành một kẻ giết người.
+Khi Sarah bước ra khỏi phòng tắm, Lão Yang đang đợi với một cốc nước nóng. "Uống đi," ông nói, đưa cốc cho cô. "Nó sẽ giúp cô bình tĩnh."
+Sarah nhận lấy cốc nước, uống một ngụm. Chất lỏng ấm áp chảy xuống cổ họng đau rát vì nôn mửa, mang đến một chút dễ chịu.
+"Chúng ta sẽ làm gì bây giờ?" cô hỏi, giọng nhỏ đến mức gần như không nghe thấy. "Tất cả thủy thủ đều chết rồi."
+"Tôi sẽ lái tàu," Lão Yang đáp, giọng mệt mỏi nhưng kiên định. "Tôi biết cách. Trước khi làm kẻ trung gian, tôi đã là thủy thủ bốn mươi năm."
+Ông nhìn Sarah, ánh mắt đầy thấu hiểu. "Không dễ dàng, phải không? Giết người."
+Sarah lắc đầu, nước mắt lại dâng lên. "Tôi không biết... tôi không biết mình có thể làm được điều đó."
+"Mỗi người đều có khả năng giết chóc khi bị dồn vào đường cùng," Lão Yang nói, giọng trầm thấp. "Đó là bản năng sinh tồn. Không phải tội lỗi hay ác quỷ. Chỉ là sinh tồn."
+Sarah không trả lời. Từ "sinh tồn" cứ vang vọng trong tâm trí cô. Đó là những gì cô đang làm kể từ đêm định mệnh ấy - sinh tồn. Không phải sống, mà chỉ là tồn tại. Và cô đã sẵn sàng giết người để tiếp tục tồn tại – không đúng, là để “TÁI SINH”.
+"Nghỉ ngơi đi," Lão Yang nói, đặt tay lên vai Sarah. "Cô cần nó."
+Sarah gật đầu, quay về cabin nhỏ tối tăm. Cô nằm xuống tấm nệm mỏng, ôm ba lô vào lòng như một đứa trẻ ôm gấu bông.
+Chẳng còn Sarah Chen thiên tài, thần đồng nữa, chẳng còn những ngây thơ, trong sáng nữa, chẳng còn thiên đường nào cho cô nữa, và từ đống đổ nát, một sinh vật mới đã được sinh ra - một sinh vật biết giết để sinh tồn, biết rằng trên thế giới này, đôi khi bạn phải trở thành quái vật để không bị quái vật nuốt chửng.
+Và dù giấc ngủ có đến, không có giấc mơ nào có thể an ủi cô nữa.
+HỒI 4: ĐỐI MẶT TỬ THẦN
+Sarah chìm trong giấc mơ về ngôi nhà xưa. Mẹ cô đang chải tóc cho cô bằng chiếc lược ngà, cha cô đọc sách bên cạnh, và Lão Zhang đang pha trà trong góc phòng. Mùi hương Long Tĩnh thơm ngát lan tỏa, tiếng đàn piano vang lên du dương. Cô đang ở nhà, an toàn, được bao bọc bởi tình thương...
+Chiếc tàu bỗng giật mạnh, hất Sarah khỏi giấc mộng ngọt ngào. Cô vùng dậy trong hoảng loạn, tim đập thình thịch. Ánh đèn trong phòng lập lòe, khi sáng khi tắt như điệu nhảy của quỷ dữ. Những tiếng nổ đinh tai vang lên từ bên ngoài, át cả tiếng hét trong cổ họng cô.
+Thân tàu chao đảo dữ dội, ném Sarah vào vách tường. Cô loạng choạng đứng dậy, chộp lấy chiếc ba lô—vật duy nhất cô sở hữu trên thế giới—khoác lên vai. Tiếng sóng đập vào thành tàu như những đòn búa khổng lồ, từng đợt, từng đợt không ngừng nghỉ.
+"Lão Yang!" Cô gọi lớn, nhưng tiếng gọi chìm nghỉm trong tiếng gầm rú của thiên nhiên.
+Sarah biết rằng lúc này cô không thể co rúm trong góc tối. Không thể hèn nhát. Không thể đơn độc. Cô phải tìm Lão Yang, phải xem mình có thể giúp được gì.
+Cô lảo đảo bước ra khỏi cabin, bám vào tường hành lang để giữ thăng bằng. Mỗi bước đi là một cuộc chiến với lực hất của con tàu đang vật lộn giữa biển cả. Cô phải dừng lại vài lần khi thân tàu nghiêng đến mức không thể đứng thẳng.
+Khi Sarah mở cửa bước ra boong tàu, cả thế giới như muốn nuốt chửng cô.
+Trời đêm đen như mực, không trăng không sao, chỉ có những đám mây đen cuồn cuộn như những con quái vật khổng lồ trên cao. Mưa trút xuống không phải từng giọt mà là từng khối nước đặc, đập vào mặt cô đau rát. Gió gào thét, xé toạc không khí với sức mạnh như muốn bứt cả da thịt.
+Những con sóng cao như tòa nhà nhiều tầng đang ập xuống con tàu, nuốt chửng boong tàu rồi rút đi, để lại mặt sàn trơn tuột. Mỗi lần sóng đến, thân tàu rên xiết, những tiếng kim loại cọ xát chói tai, như thể con tàu cũ kỹ đang kêu cứu trong tuyệt vọng.
+Sarah bám vào lan can, móng tay bấu chặt đến trắng bệch. Cô cố gắng nhìn xuyên qua làn nước mưa và bọt biển để tìm đường đến buồng lái, nơi cô chắc chắn Lão Yang đang ở đó.
+Một tia chớp xé toạc bầu trời, thắp sáng cả đại dương trong khoảnh khắc chói lòa. Sarah thấy được toàn cảnh của cơn bão: biển động như đang sôi, những con sóng như những bàn tay khổng lồ đang vươn lên để kéo con tàu xuống vực sâu. Tiếng sấm nổ vang ngay sau đó, rung chuyển cả không gian, như thể trời đất đang vỡ vụn.
+"Thần Chết đang gõ cửa," Sarah thì thầm, một câu nói của Lão Zhang chợt hiện về trong tâm trí. Nhưng cô đã nhìn thẳng vào mắt thần chết quá nhiều lần rồi.
+Từng bước một, Sarah bám vào mọi thứ cô có thể—dây thừng, ống khói, thùng chứa—để tiến đến buồng lái. Mỗi bước đi là một trận chiến sinh tử với thiên nhiên. Gió như muốn thổi bay cô xuống biển, sóng như muốn cuốn cô đi, và mưa như muốn đánh gục cô tại chỗ.
+Thân người ướt sũng, tóc dính bết vào mặt, Sarah cắn chặt môi để ngăn tiếng rên khi đầu gối cô va mạnh vào thành tàu trong một đợt nghiêng. Máu tanh lan trong miệng, nhưng cô không dừng lại. Không thể dừng lại.
+Cuối cùng, sau những gì như cả thế kỷ, Sarah đạp cửa buồng lái. Bên trong, Lão Yang đang vật lộn với vô lăng, toàn thân căng cứng như một sợi dây đàn, mồ hôi và nước biển nhễ nhại trên khuôn mặt già nua.
+"CHUYỆN GÌ ĐANG XẢY RA?" Sarah hét lên để át tiếng gào thét của bão tố.
+Lão Yang liếc nhìn cô, đôi tay vẫn giữ chặt vô lăng, cố gắng điều khiển con tàu không bị sóng đánh lật. "TỬ THẦN BIỂN CẢ ĐẾN RỒI!" ông hét đáp lại. "CHÚNG TA ĐANG Ở VÀNH ĐAI CƠN BÃO. TÔI CHƯA TỪNG THẤY CƠN BÃO NÀO ĐẾN BẤT NGỜ MÀ MẠNH ĐẾN VẬY!"
+Sarah nhìn qua cửa sổ buồng lái. Cảnh tượng trước mắt như một bức tranh của địa ngục: biển và trời hòa làm một trong cơn thịnh nộ không tên, xóa nhòa ranh giới giữa nước và không khí, giữa tồn tại và hư vô.
+"TÔI CÓ THỂ GIÚP GÌ?" Sarah gào lên.
+"KÉO CẦN ĐÓ XUỐNG KHI TÔI BẢO!" Lão Yang chỉ vào một cần điều khiển ở bảng điều khiển. "VÀ CẦU NGUYỆN!"
+Sarah lao đến vị trí, nắm chặt cần điều khiển, sẵn sàng kéo xuống khi có lệnh. Cô không biết cầu nguyện, cô chưa bao giờ tin vào thần thánh, nhưng lúc này, giữa cơn thịnh nộ của thiên nhiên, cô thấy mình thì thầm: "Xin cứu chúng tôi... ai đó... xin hãy cứu chúng tôi..."
+Lão Yang gồng mình, quay mạnh vô lăng về bên phải khi một con sóng khổng lồ ập tới. "BÂY GIỜ!" ông hét lên.
+Sarah kéo mạnh cần điều khiển. Con tàu chao đảo dữ dội, nghiêng sang một bên đến mức Sarah tưởng nó sẽ lật, nhưng rồi nó cắt qua con sóng, ngóc đầu lên như một con ngựa bất kham đang chiến đấu với dây cương.
+"TIẾP TỤC!" Lão Yang gào lên, vô lăng xoay tròn dưới đôi bàn tay chai sần. "GIỮ CHO TÔI!"
+Sarah đảm nhận vô lăng khi Lão Yang phải chạy đến một bảng điều khiển khác để điều chỉnh động cơ. Cô cảm nhận được sức nặng khủng khiếp của con tàu qua cách vô lăng giật mạnh trong tay, như thể đại dương đang kéo nó về một hướng còn cô phải kéo về hướng ngược lại.
+"GIẢM TỐC ĐỘ XUỐNG TỪNG ĐỢT!" Lão Yang hét lên chỉ dẫn, tay vẫn đang vặn các núm điều khiển. "ĐỂ CON TÀU LÁI THEO SÓNG, ĐỪNG CHỐNG LẠI NÓ!"
+Sarah làm theo, cảm nhận được nhịp điệu của đại dương qua thân tàu, điều chỉnh hướng đi để con tàu "cưỡi" trên sóng thay vì chống lại chúng. Đôi tay thon nhỏ từng chỉ quen với phím đàn piano và bàn phím máy tính giờ đang vật lộn để giữ cho hàng trăm tấn thép không bị biển cả nuốt chửng.
+Trong một giờ—hoặc có thể là cả đời người, Sarah không còn khái niệm về thời gian nữa—họ chiến đấu với từng con sóng, từng cơn gió, từng đợt mưa. Mỗi lần sóng ập tới, họ điều khiển con tàu vượt qua. Mỗi lần gió thổi mạnh, họ điều chỉnh hướng đi. Mỗi lần tàu nghiêng, họ cân bằng lại.
+Dần dần, sóng biển dịu đi. Gió không còn gào thét mà chỉ rít lên từng hồi. Mưa không còn trút xuống như thác mà chỉ rơi từng giọt nặng nề.
+"Chúng ta... thắng rồi?" Sarah thở hổn hển, mồ hôi và nước biển nhỏ giọt từ mái tóc ướt sũng.
+Lão Yang nhìn cô, một nụ cười mệt mỏi hiện lên trên khuôn mặt già nua. "Chiến thắng vòng đầu thôi," ông nói, giọng khàn đặc vì hét quá nhiều. "Chúng ta đang ở trong tâm bão."
+"Tâm bão?"
+"Phải," Lão Yang gật đầu, chỉ ra cửa sổ. "Nhìn kìa."
+Sarah nhìn theo hướng ông chỉ và sững sờ trước cảnh tượng: xung quanh họ, biển và trời đều tĩnh lặng một cách kỳ lạ, như thể họ đang ở trong một quả cầu thủy tinh. Nhưng xa xa, một bức tường mây đen khổng lồ bao quanh họ, sét đánh liên hồi, tạo nên một vương quốc ánh sáng và bóng tối không ngừng thay đổi.
+"Chúng ta chỉ có vài phút," Lão Yang nói, giọng nghiêm trọng. "Lấy đồ ăn trong thùng đằng kia, mang rượu ra đây, nhanh lên!"
+Sarah không hỏi gì thêm, cô lao đến thùng đồ, lấy ra những gói lương khô và chai rượu. Lão Yang túm lấy chai rượu, mở nắp rồi uống một ngụm lớn trước khi đưa cho Sarah.
+"Uống đi," ông nói. "Làm ấm người."
+Sarah nhìn chai rượu với vẻ ngần ngừ. Cô chưa từng uống rượu mạnh bao giờ.
+"UỐNG ĐI!" Lão Yang gắt gỏng. "VÀI PHÚT NỮA THÔI, CÔ SẼ THẤY!"
+Sarah đưa chai rượu lên miệng, uống một ngụm. Chất lỏng đốt cháy cổ họng cô, lan xuống dạ dày như lửa, khiến cô ho sặc sụa. Nhưng ngay sau đó, một cảm giác ấm áp lan tỏa khắp cơ thể, xua tan phần nào cái lạnh thấm vào xương tủy.
+"Ăn nữa đi," Lão Yang thúc giục, chén vội những gói lương khô, không quan tâm đến vị. "Cần năng lượng."
+Sarah ăn mặc dù không cảm thấy đói. Cái lạnh và sự mệt mỏi đã làm tê liệt mọi giác quan, nhưng cô biết Lão Yang đúng—cô cần năng lượng cho những gì sắp tới.
+Lão Yang nhìn cô, ánh mắt đột nhiên trở nên sâu sắc kỳ lạ. "Cô tên gì?"
+"Lin Mei," Sarah đáp theo bản năng, cái tên giả mà Li Wei đã dạy cô sử dụng.
+Lão Yang lắc đầu. "Không, không phải tên giả. Tôi muốn biết tên thật của cô."
+Có gì đó trong giọng nói của ông - một sự chân thành, một sự cởi mở trước mặt tử thần - khiến Sarah do dự rồi trả lời:
+"Sarah. Sarah Chen."
+"Tên đẹp lắm," Lão Yang gật đầu, ánh mắt dịu lại. "Đừng bao giờ đánh mất nó, Sarah Chen. Tên của chúng ta là điều cuối cùng còn lại khi mọi thứ đã mất."
+Sau khi ăn uống vội vã, Lão Yang kéo Sarah đứng dậy. "NHANH LÊN! GIÚP TÔI LẤY THUYỀN CỨU SINH RA!"
+Họ vật lộn với các đồ đạc trong khoang chứa, đẩy qua một bên những thùng hàng và dụng cụ. Cuối cùng, họ tìm thấy một chiếc thuyền cứu sinh bằng cao su, kéo nó lên phòng điều khiển.
+"BƠM NHANH LÊN!" Lão Yang hét, kéo máy bơm điện ra và cắm vào ổ điện.
+Ngay khi họ cắm máy bơm, một tia sét chói lòa xé toạc bầu trời, đánh thẳng xuống con tàu. Sarah nghe thấy tiếng nổ đinh tai, rồi mọi ánh đèn và thiết bị điện trên tàu tắt ngấm.
+"CHẾT TIỆT!" Lão Yang chửi thề, chạy đến bảng điều khiển, bấm nút SOS nhiều lần liên tiếp. "SOS! SOS! CÓ AI NGHE THẤY KHÔNG? CHÚNG TÔI ĐANG GẶP NẠN! TỌA ĐỘ..."
+Không có tiếng trả lời, chỉ có tiếng rít của nhiễu sóng phát ra từ máy vô tuyến.
+Lão Yang chửi rủa trời đất bằng mọi ngôn ngữ có thể, rồi lôi ra một cái bơm tay. "TAO ĐÉO CẦN BƠM ĐIỆN!"
+Ông bắt đầu bơm thuyền cứu sinh bằng tay, mỗi động tác đều đòi hỏi sức lực khủng khiếp. Sarah nhìn thấy những giọt mồ hôi lăn dài trên khuôn mặt nhăn nheo của ông già, cách ông nghiến răng mỗi khi ấn bơm xuống.
+"Để tôi giúp," cô nói, đến bên cạnh Lão Yang.
+Họ thay phiên nhau bơm, mỗi người làm đến khi cánh tay mỏi nhừ rồi đổi cho người kia. Dần dần, thuyền cứu sinh phồng lên, nhưng vẫn chưa đủ chắc chắn để chịu được sức tàn phá của cơn bão.
+Lão Yang liếc nhìn ra ngoài, thấy bức tường mây đen đã gần hơn, sét giật liên hồi như một dàn pháo hoa ma quái. Ông quay sang Sarah, ánh mắt nghiêm túc như chưa từng thấy.
+"Cô biết bơi chứ?"
+Sarah gật đầu, tim đập thình thịch. "Tôi bơi rất tốt, nhưng chưa bao giờ bơi trên biển cả." Giọng cô run rẩy.
+"Được rồi," Lão Yang gật đầu, có vẻ yên tâm hơn một chút. "Khoác áo phao vào đi." Ông lôi từ một ngăn tủ ra hai chiếc áo phao màu cam sặc sỡ. "Sẵn sàng tinh thần đi, chúng ta sẽ đâm xuyên qua nó!"
+Sarah mặc áo phao, tay run run khi cài các khóa. Cô đã sống sót qua vụ thảm sát gia đình, qua ba tuần bị truy sát, qua những kẻ cưỡng hiếp và giết người. Nhưng giờ đây, đối mặt với sức mạnh của thiên nhiên, cô cảm thấy mình nhỏ bé và vô dụng đến tuyệt vọng.
+Họ vừa hoàn thành việc bơm thuyền cứu sinh thì cơn bão ập tới—phần thứ hai của nó, sau khoảnh khắc yên bình giả tạo trong tâm bão.
+Con sóng đầu tiên cao hơn chục mét lao tới, đen ngòm và hung dữ như một bức tường thép di động. Tiếng gầm của nó hòa cùng tiếng thét kinh hoàng của sấm sét, như thể đại dương đang hét lên: "CHẾT ĐI, LŨ GIẾT NGƯỜI!"
+Lão Yang đứng đó, mắt mở to nhìn vào tử thần đang tiến đến. "ĐỊT CON MẸ MÀY!" ông hét lên.
+Con sóng ập xuống con tàu với sức mạnh của một quả bom. Kính cửa sổ buồng lái vỡ vụn, nước biển tràn vào như thác đổ. Sarah hét lên khi dòng nước lạnh buốt tràn qua người, đẩy cô ngã xuống sàn, cuốn cô xoay vòng như một con búp bê giẻ.
+"BÁM VÀO!" Lão Yang gào lên, một tay giữ chặt thuyền cứu sinh, tay kia vươn ra nắm lấy Sarah.
+Sarah bám lấy tay ông, cố gắng chống lại dòng nước. Mỗi hơi thở đều phải tranh đấu với nước biển đang tràn vào phổi cô.
+Họ loạng choạng đứng dậy khi nước rút bớt, nhưng con tàu đã nghiêng hẳn sang một bên, không còn giữ được thăng bằng.
+"RÁP THUYỀN CỨU SINH!" Lão Yang nói lớn, mắt nhìn ra cửa sổ nơi con sóng thứ hai còn lớn hơn đang tiến đến. "NHANH LÊN!"
+Sarah giúp ông kéo thuyền cứu sinh ra cửa, đôi tay run rẩy không ngừng. Họ vừa kéo được thuyền ra boong tàu thì con sóng thứ hai ập tới.
+"NẰM XUỐNG!" Lão Yang gào lên, kéo Sarah sát vào thành tàu, một tay vẫn giữ chặt thuyền cứu sinh.
+Nước ập xuống người họ như một khối xi măng khổng lồ, đè nặng đến mức Sarah tưởng phổi mình sẽ vỡ tung. Cô không biết mình đã ở dưới nước bao lâu, chỉ biết rằng khi nước rút đi, cô vẫn còn sống, vẫn còn thở được.
+"DẬY ĐI!" Lão Yang lôi cô đứng dậy, chỉ vào một vật gì đó phía trước mũi tàu. "CHÚA ƠI, CÁI GÌ THẾ KIA?"
+Sarah nheo mắt nhìn qua màn mưa dày đặc, và trái tim cô như ngừng đập: một tảng băng trôi khổng lồ đang hiện ra phía trước, cao như một tòa nhà và cứng như thép. Con tàu, mất khả năng điều khiển, đang lao thẳng về phía nó.
+"KHÔNG CÒN THỜI GIAN!" Lão Yang hét, lôi Sarah về phía thuyền cứu sinh. "NHẢY ĐI!"
+Sarah không kịp suy nghĩ. Cô nhảy theo Lão Yang xuống thuyền cứu sinh đã được thả xuống mặt nước, cảm giác như rơi vào vực thẳm khi thuyền chạm mặt biển, nảy lên xuống dữ dội.
+Tiếng va chạm kinh hoàng vang lên khi con tàu đâm vào tảng băng trôi. Kim loại bị xé toạc, uốn cong, vỡ vụn trong một bản hòa tấu của sự hủy diệt. Nước biển tràn vào các khoang tàu qua những vết rách, con tàu rên xiết như một sinh vật đang hấp hối.
+"Ôi Chúa ơi..." Sarah thì thầm, nhìn cảnh tượng hủy diệt trước mắt.
+"KỆ MẸ NÓ!" Lão Yang hét lớn. "ĐƯA CÁI MÁI CHÈO ĐÂY, NHÌN CÁI ĐÉO GÌ”
+Tình hình ngày càng tồi tệ. Con tàu đang chìm, kéo theo một luồng xoáy nước nguy hiểm. Các thùng hàng từ trên boong rơi xuống biển, tạo thành những mảnh vỡ trôi nổi xung quanh họ. Thuyền cứu sinh bị cuốn vào vòng xoáy, quay tròn như chiếc lá trong cơn lốc.
+Lão Yang chiến đấu với mái chèo, cố gắng đưa thuyền ra xa khỏi vùng nguy hiểm. Nhưng gió và sóng quá mạnh, sức người quá nhỏ bé.
+Rồi một con sóng xuất hiện—cao hơn, đen hơn, và hung dữ hơn bất kỳ con sóng nào họ đã thấy. Nó tiến đến như một bức tường thủy tinh đen khổng lồ, che khuất cả bầu trời.
+"BỎ MẸ RỒI!" Lão Yang ấp úng, rồi hét lớn, "ÔM LẤY THUYỀN!"
+Sarah vừa kịp bám chặt vào thuyền thì con sóng khổng lồ ập xuống. Cú đập mạnh đến nỗi động đất cũng không bằng, thuyền cứu sinh bị nhấn chìm hoàn toàn dưới sức nặng của khối nước.
+Khi nước rút đi, Sarah thấy mình vẫn ở trên thuyền, nhưng Lão Yang đã biến mất. Trái tim cô đông cứng.
+"LÃO YANG!" cô hét lên, điên cuồng nhìn quanh.
+Một cái đầu nhô lên cách thuyền vài mét—Lão Yang, đang vùng vẫy trong làn nước đen ngòm, cố gắng bơi về phía thuyền. Sarah vươn người ra, tay với về phía ông.
+"BÁM CHẶT VÀO!" Lão Yang gào lên khi với được mép thuyền. Nhưng khi ông vừa chạm vào, một đợt sóng khác ập tới, ném cả hai xuống biển.
+Sarah ngụp lặn trong biển sâu, tay chân đập loạn xạ, cố gắng tìm đường lên mặt nước. Áo phao kéo cô lên, và cô hớp lấy một hơi thở quý giá khi đầu nhô lên khỏi mặt nước.
+"LÃO YANG!" cô lại gọi, giọng khàn đặc.
+"Ở ĐÂY!" tiếng ông vang lên gần đó. Ông đang bơi về phía cô, chiến đấu với từng con sóng nhỏ hơn nhưng vẫn đủ mạnh để nhấn chìm một người.
+Họ đã tìm thấy nhau, nhưng thuyền cứu sinh đã biến mất, chỉ có thể nhìn thấy từng mảnh cao su vụn nổi trên mặt nước. Một mảnh vỡ của con tàu đã xuyên qua thuyền, xé toạc nó như dao cắt giấy.
+Lão Yang quyết tâm không để lạc mất Sarah. Ông bơi đến bên cô, nắm chặt tay cô, mắt nhìn quanh tìm kiếm bất cứ thứ gì có thể giúp họ nổi.
+"BÁM VÀO TÔI!" ông hét lên khi một con sóng khác ập tới.
+Sarah bám chặt lấy Lão Yang, cảm nhận được sức mạnh đáng kinh ngạc trong thân hình già nua của ông. Họ cùng nhau chiến đấu với từng con sóng, từng cơn gió, từng giây phút của tử thần.
+Thời gian trôi qua, Sarah không còn biết đã bao lâu họ trôi dạt giữa đại dương. Cơ thể cô lạnh cóng, tay chân tê dại, ý thức dần mơ hồ.
+Khi cơn sóng cuối cùng qua đi, Lão Yang vẫn giữ được Sarah, nhưng cô đã gần như bất tỉnh. Ông nhìn quanh, tuyệt vọng tìm kiếm bất cứ thứ gì có thể cứu họ.
+Rồi, như một phép màu, một mảnh vỡ lớn của con tàu trôi ngang qua—một tấm vách gỗ đủ lớn để đỡ một người. Lão Yang dùng hết sức bình sinh còn lại để bơi đến đó, rồi với một nỗ lực phi thường, ông đẩy Sarah lên trên tấm gỗ.
+Mảnh vỡ chìm xuống dưới sức nặng của cô, nhưng vẫn nổi trên mặt nước. Lão Yang bám vào mép tấm gỗ, toàn thân dưới biển để giữ cho mảnh thuyền được cân bằng. Nước biển lạnh như băng, thấm qua quần áo, đâm xuyên vào da thịt đến tận xương tủy.
+"Dậy đi, dậy đi, đừng ngủ lúc này," Lão Yang lay Sarah, giọng yếu dần vì kiệt sức và cái lạnh.
+Sarah vùng tỉnh, mở mắt nhìn xung quanh. Cơn bão đã tan, mặt biển bỗng nhiên bình lặng đến kỳ lạ, như thể những con sóng vừa rồi chỉ là ảo giác. Mặt trời đang lên ở đường chân trời, tô điểm bầu trời bằng những sắc hồng và cam rực rỡ.
+"Lão Yang..." cô thì thầm, nhìn khuôn mặt già nua đã tái nhợt của người đã cứu cô.
+"Chai rượu còn trong balo chứ?" ông hỏi, răng đánh lập cập. "Đưa cho tôi một ngụm."
+Sarah với lấy chiếc balo—như một phép màu, Lão Yang đã buộc nó vào người cô từ lúc nào không biết. Cô lấy ra chai rượu vẫn còn một nửa, đưa cho ông.
+"Tại sao ông phải cố gắng vậy?" Sarah hỏi, cổ họng đau rát vì nước biển. "Tại sao đến giờ này vẫn cứu tôi?"
+Lão Yang uống một ngụm rượu, rồi thở ra một hơi đầy mệt mỏi “ Sống rồi!”, ánh mắt ông mơ màng nhìn về phía chân trời. Ông im lặng một lúc, như đang tìm kiếm từ ngữ, hoặc có lẽ đang quyết định liệu có nên nói hay không.
+"Tôi từng có một cô con gái," cuối cùng ông lên tiếng, giọng yếu ớt nhưng đầy cảm xúc. "Ngày đó cũng bằng tuổi cô bây giờ."
+Sarah nín thở lắng nghe, không dám ngắt lời.
+"Để thoát khỏi cuộc sống nơi khốn khổ ở Trung Quốc, tôi đã đưa con gái trốn lên tàu hàng để sang Mỹ tìm cuộc sống mới," Lão Yang tiếp tục, mắt nhìn xa xăm. "Nhưng con gái tôi đã bị hãm hiếp ngay trên chuyến tàu đó."
+Giọng ông nghẹn lại, như có thứ gì đó đang chặn ngang cổ họng. "Tôi đã không thể bảo vệ con gái mình. Sự hèn nhát đã khiến tôi không thể làm gì. Tôi đau khổ tột cùng khi con gái không vượt qua được cú sốc tinh thần... và đã tự sát…nó đã nhảy xuống biển…trước mắt của tôi"
+Sarah cảm thấy trái tim mình thắt lại. Giờ cô hiểu vì sao Lão Yang đã bắn chết hai tên thủy thủ định làm hại cô.
+"Từ đó tôi lênh đênh trên biển," ông nói tiếp, "mong một ngày nào đó sẽ mơ thấy con gái mình, vì tôi nghĩ rằng linh hồn cô ấy vẫn đâu đó nơi đây, trên biển cả này."
+Ông nhìn Sarah, ánh mắt chan chứa tình cảm. "Và rồi tôi thấy cô, Sarah... giống con gái tôi đến kỳ lạ. Tôi quyết tâm không để mình mất con gái thêm một lần nào nữa."
+Sarah cảm thấy nước mắt dâng lên, nóng hổi trên khuôn mặt lạnh giá. Cô hiểu ra tất cả—sự bảo vệ, những mạo hiểm, hy sinh của Lão Yang không chỉ vì tiền, không chỉ vì lương tâm, mà còn vì một nỗi đau và một lời hứa mà ông đã giữ suốt bao năm.
+"Cô có thể... gọi tôi một tiếng 'Bố ơi' không?" Lão Yang thì thầm, giọng yếu dần. "Chỉ một lần thôi... để tôi được nghe lại..."
+Đứng trước gương mặt người đàn ông đã tím ngắt, người đã hy sinh tất cả để cứu cô, Sarah cảm nhận thấy được tình cha ấm áp đang ôm lấy cô. Một cảm giác mà cô tưởng đã mất vĩnh viễn khi Chen Wei ngã xuống trong vũng máu đêm định mệnh ấy.
+"Bố," cô thì thầm, nước mắt lăn dài. "Bố ơi."
+Ông lão mỉm cười mãn nguyện, ánh mắt bỗng sáng lên. "Con gái à, con đến đón bố à?"
+Sarah nhìn theo hướng ánh mắt ông, nhưng chỉ thấy mặt biển trống trải. Ông đang nhìn thấy điều gì đó mà cô không thể thấy—có lẽ là con gái ông, đang đến đón ông về nhà cuối cùng.
+Khuôn mặt đã tím ngắt của Lão Yang bỗng rạng rỡ một niềm hạnh phúc không ngờ tới. Đôi mắt ông dần mờ đi, nhìn vào khoảng không vô định. Rồi tay ông buông ra, thân thể dần chìm vào trong đại dương sâu thẳm.
+"KHÔNG!" Sarah hét lên, cố với theo, nhưng đã quá muộn. Lão Yang đã ra đi, về với con gái ông trong vòng tay của đại dương.
+Sarah ngồi trên mảnh vỡ của thuyền, chẳng còn nước mắt nào mà khóc nữa. Quá nhiều người đã ra đi vì cô—cha mẹ, Lão Zhang, Li Wei, và giờ là Lão Yang. Cô nằm áp thân trên mảnh gỗ, cố gắng tự giữ thăng bằng. Mệt mỏi và đau đớn dâng lên như thủy triều, và dần dần, Sarah chìm vào vô thức.
+________________________________________
+Tiếng động cơ trực thăng từ đằng xa đánh thức những giác quan cuối cùng còn lại trong cô. Những câu tiếng Anh đang phát qua loa vọng đến như từ một thế giới khác:
+"Không xác định được vị trí thuyền đắm, vẫn chưa tìm được người gặp nạn, báo cáo hết..."
+Sarah cố vùng dậy từ những cơn đau buốt vì va đập và cái lạnh thấu xương tủy. Chiếc balo của cô, Lão Yang đã buộc chặt vào mảnh thuyền vỡ này, như một món quà cuối cùng. Cô với lấy nó, nước mắt lã chã.
+"Lão Yang," cô thì thầm, "con cảm ơn ông."
+Với những ngón tay gần như không còn cảm giác, Sarah mở balo, lấy ra khẩu súng phát sáng mà Li Wei đã đặt vào đó—thứ cuối cùng ông để lại cho cô. Cô hướng nó lên trời và bóp cò.
+Một luồng sáng đỏ rực bắn lên không trung, chiếu sáng cả một vùng biển.
+"Là pháo sáng! Chúng tôi đã xác định được vị trí, đang tới, báo cáo hết..."
+Tiếng trực thăng ngày càng lại gần, nhưng Sarah đã gần như không thể nghe thêm gì nữa. Ý thức của cô đang trôi dạt, cơ thể cô đã đạt đến giới hạn chịu đựng cuối cùng.
+Trong làn sương mờ của tâm trí, cô nghe thấy tiếng dây thả xuống, tiếng bước chân trên mặt nước, rồi cảm giác được nâng lên.
+"Tôi bắt được cô ấy rồi... kéo lên đi!!"
+Sarah mở mắt lần cuối, thấy một khuôn mặt lạ đang nhìn xuống cô từ bên trong mặt nạ thủy thủ. "Này, này, đừng ngủ, dậy đi."
+Nhưng cô không thể chống lại cơn mệt mỏi nữa. Trong khoảnh khắc cuối cùng trước khi mất ý thức hoàn toàn, Sarah nghĩ về tất cả những người đã hy sinh vì cô—Chen Wei, Liu Mei, Lão Zhang, Li Wei, và giờ là Lão Yang. Tất cả để cô có thể sống.
+"Tôi sẽ không phụ lòng các người," cô thì thầm, rồi chìm vào bóng tối.
+“ Không có Neuralink, cũng không có Longwire, là Disconnected…”
+“ Chậc…Đưa về Oakland “
+
+
