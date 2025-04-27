@@ -4,13 +4,7 @@ import React, { useState } from 'react';
 import PageHeader from '@/components/common/PageHeader';
 import InfoSection from '@/components/common/InfoSection';
 import CallToAction from '@/components/careers/CallToAction';
-import { Metadata } from 'next';
 import ApplicationPopup from '@/components/careers/ApplicationPopup';
-
-export const metadata: Metadata = {
-  title: 'Tuyển dụng | 5MSCI - Đồng hành cùng sự nghiệp của bạn',
-  description: 'Khám phá cơ hội nghề nghiệp hấp dẫn tại 5MSCI và trở thành một phần của đội ngũ tài năng của chúng tôi.',
-};
 
 export default function CareersPage() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
