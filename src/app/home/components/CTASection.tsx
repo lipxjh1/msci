@@ -1,11 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { useInView } from 'react-intersection-observer';
 import { FaDiscord, FaTwitter, FaYoutube, FaInstagram, FaPlay } from "react-icons/fa";
 
 export default function CTASection() {
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: false
+  });
+
   return (
-    <section className="relative py-20 sm:py-32 overflow-hidden cyberpunk-bg transition-all duration-300">
+    <section 
+      ref={ref}
+      className={`relative py-20 sm:py-32 overflow-hidden cyberpunk-bg transition-all duration-500 ${inView ? 'opacity-100' : 'opacity-0'}`}
+    >
       {/* Background và hiệu ứng */}
       <div className="absolute inset-0 bg-[#030b16] z-0">
         {/* Grid pattern */}
@@ -27,10 +37,9 @@ export default function CTASection() {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Nội dung bên trái */}
-          <div className="lg:col-span-7 text-left reveal-left">
+          <div className={`lg:col-span-7 text-left ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'} transition-all duration-700 delay-300`}>
             <div className="relative inline-block mb-6">
               <h2 className="text-5xl md:text-6xl xl:text-7xl font-black text-white mb-2 leading-tight tracking-tighter glitch-text-blue relative z-10 cyberpunk-headline">
-               
                 <span className="text-white">M-SCI</span>
               </h2>
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-600 opacity-30 blur-lg -z-10"></div>
@@ -38,12 +47,12 @@ export default function CTASection() {
             
             <div className="relative">
               <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
-              Gia nhập lực lượng M-SCI trong cuộc chiến khốc liệt năm 2049, chiến đấu chống lại đội quân robot và drone của The Assended để bảo vệ nhân loại.<span className="text-cyan-400 font-semibold">Điều khiển biệt đội 3 anh hùng </span> với khả năng độc đáo trong trận chiến 30 giây kịch tính.
+                Gia nhập lực lượng M-SCI trong cuộc chiến khốc liệt năm 2049, chiến đấu chống lại đội quân robot và drone của The Assended để bảo vệ nhân loại.<span className="text-cyan-400 font-semibold">Điều khiển biệt đội 3 anh hùng </span> với khả năng độc đáo trong trận chiến 30 giây kịch tính.
               </p>
             </div>
             
             {/* Nút kêu gọi hành động */}
-            <div className="flex flex-wrap gap-5 mt-10">
+            <div className={`flex flex-wrap gap-5 mt-10 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} transition-all duration-700 delay-500`}>
               <Link 
                 href="/download"
                 className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg uppercase tracking-wider overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-105 cyberpunk-button"
@@ -66,7 +75,7 @@ export default function CTASection() {
             </div>
             
             {/* Thống kê và thông tin */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-12">
+            <div className={`grid grid-cols-2 sm:grid-cols-3 gap-6 mt-12 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} transition-all duration-700 delay-700`}>
               <div className="cyberpunk-stat">
                 <div className="text-4xl font-black text-cyan-400 mb-1">4+  </div>
                 <div className="text-sm text-gray-400 uppercase tracking-wide">CẤP ĐỘ HERO </div>
@@ -84,7 +93,7 @@ export default function CTASection() {
             </div>
             
             {/* Social media icons */}
-            <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className={`mt-12 flex flex-col sm:flex-row sm:items-center gap-4 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} transition-all duration-700 delay-900`}>
               <div className="text-gray-400 uppercase text-sm tracking-wider">Theo dõi chúng tôi:</div>
               <div className="flex space-x-5">
                 <Link href="#" className="text-cyan-500 hover:text-white transition-colors duration-300" aria-label="Twitter">
@@ -104,19 +113,23 @@ export default function CTASection() {
           </div>
           
           {/* Hình ảnh bên phải */}
-          <div className="lg:col-span-5 relative reveal-right">
+          <div className={`lg:col-span-5 relative ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'} transition-all duration-700 delay-500`}>
             {/* Circle decoration */}
             <div className="absolute inset-0 bg-cyan-600/5 rounded-full blur-3xl animate-pulse-slow"></div>
             
             {/* Hình ảnh Hero */}
             <div className="relative z-10 overflow-visible max-w-md mx-auto" style={{ height: "600px" }}>
-              <img 
-                src="/images/heroes/ui 6.png"
-                alt="Hero Character"
-                className="object-contain w-full h-full relative z-20"
-                loading="eager"
-                style={{ maxHeight: "100%" }}
-              />
+              <div className="relative h-full w-full">
+                <Image 
+                  src="/images/heroes/ui 6.png"
+                  alt="Hero Character"
+                  fill
+                  priority={false}
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  className="object-contain relative z-20"
+                  loading="lazy"
+                />
+              </div>
               
               {/* Hiệu ứng glitch trên ảnh */}
               <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/40 to-transparent z-10"></div>
@@ -135,19 +148,19 @@ export default function CTASection() {
             </div>
             
             {/* Interactive elements around the hero */}
-            <div className="absolute -bottom-6 -left-6 bg-black/80 backdrop-blur-sm border border-cyan-500/30 px-3 py-2 rounded-lg transform rotate-3 animate-float z-20">
+            <div className={`absolute -bottom-6 -left-6 bg-black/80 backdrop-blur-sm border border-cyan-500/30 px-3 py-2 rounded-lg transform rotate-3 animate-float z-20 ${inView ? 'opacity-100' : 'opacity-0'} transition-all duration-700 delay-1000`}>
               <div className="flex items-center">
                 <span className="text-xs font-medium text-cyan-400 mr-2">MIỄN PHÍ</span>
                 <span className="text-xs text-white font-bold">TRÊN MỌI NỀN TẢNG</span>
               </div>
             </div>
             
-            <div className="absolute -top-4 -right-4 bg-gradient-to-r from-cyan-600 to-blue-600 px-3 py-2 rounded-lg transform -rotate-3 animate-float animation-delay-500 z-20">
+            <div className={`absolute -top-4 -right-4 bg-gradient-to-r from-cyan-600 to-blue-600 px-3 py-2 rounded-lg transform -rotate-3 animate-float animation-delay-500 z-20 ${inView ? 'opacity-100' : 'opacity-0'} transition-all duration-700 delay-1100`}>
               <div className="text-white font-bold uppercase text-sm">Mới Ra Mắt</div>
             </div>
             
             {/* Thêm stats xung quanh nhân vật */}
-            <div className="absolute top-1/4 -right-4 bg-black/70 px-2 py-1 rounded transform rotate-3 border-l-2 border-cyan-500">
+            <div className={`absolute top-1/4 -right-4 bg-black/70 px-2 py-1 rounded transform rotate-3 border-l-2 border-cyan-500 ${inView ? 'opacity-100' : 'opacity-0'} transition-all duration-700 delay-1200`}>
               <div className="text-xs text-cyan-400 font-bold">DAMAGE</div>
               <div className="flex items-center gap-1">
                 <div className="w-5 h-1 bg-cyan-500"></div>
@@ -158,7 +171,7 @@ export default function CTASection() {
               </div>
             </div>
             
-            <div className="absolute bottom-1/4 -left-4 bg-black/70 px-2 py-1 rounded transform -rotate-3 border-l-2 border-cyan-500">
+            <div className={`absolute bottom-1/4 -left-4 bg-black/70 px-2 py-1 rounded transform -rotate-3 border-l-2 border-cyan-500 ${inView ? 'opacity-100' : 'opacity-0'} transition-all duration-700 delay-1300`}>
               <div className="text-xs text-cyan-400 font-bold">MOBILITY</div>
               <div className="flex items-center gap-1">
                 <div className="w-5 h-1 bg-cyan-500"></div>

@@ -40,8 +40,21 @@ const nextConfig = {
           pathname: "/**",
         },
       ],
+      formats: ['image/avif', 'image/webp'],
+      minimumCacheTTL: 60,
+      deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+      imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     },
-    webpack: (config) => {
+    compiler: {
+      removeConsole: process.env.NODE_ENV === 'production',
+    },
+    experimental: {
+      optimizeCss: true,
+      scrollRestoration: true,
+      optimisticClientCache: true,
+    },
+    compress: true,
+    webpack: (config, { dev, isServer }) => {
       config.module.rules.push({
         test: /\.(mp4|webm|ogg)$/,
         use: {
@@ -53,6 +66,47 @@ const nextConfig = {
           },
         },
       });
+
+      if (!dev && !isServer) {
+        config.optimization.splitChunks = {
+          chunks: 'all',
+          maxInitialRequests: 25,
+          minSize: 20000,
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            framework: {
+              name: 'framework',
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types)[\\/]/,
+              priority: 40,
+              chunks: 'all',
+            },
+            commons: {
+              name: 'commons',
+              test: /[\\/]node_modules[\\/]/,
+              minChunks: 3,
+              priority: 30,
+              reuseExistingChunk: true,
+            },
+            lib: {
+              test(module) {
+                return (
+                  module.size() > 80000 &&
+                  /node_modules[/\\]/.test(module.identifier())
+                )
+              },
+              name(module) {
+                const match = module.identifier().match(/node_modules[/\\](.+?)(?:[/\\]|$)/);
+                return match ? `npm.${match[1].replace('@', '')}` : null;
+              },
+              priority: 20,
+              minChunks: 1,
+              reuseExistingChunk: true,
+            },
+          },
+        };
+      }
+      
       return config;
     },
     typescript: {
@@ -61,11 +115,9 @@ const nextConfig = {
     eslint: {
       ignoreDuringBuilds: true,
     },
-    // Cấu hình đặc biệt cho Netlify
     async rewrites() {
       return {
         beforeFiles: [
-          // Xử lý các routes API có thể gây lỗi trong quá trình build
           {
             source: '/api/setup-api-keys-table',
             has: [
@@ -80,6 +132,8 @@ const nextConfig = {
         ],
       };
     },
+    reactStrictMode: false,
+    poweredByHeader: false,
   };
   
   module.exports = nextConfig;

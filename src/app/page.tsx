@@ -1,14 +1,49 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import HeroSection from "./home/components/HeroSection";
-import FeatureSection from "./home/components/FeatureSection";
-import HeroesSection from "./home/components/HeroesSection";
-import NewsSection from "./home/components/NewsSection";
-import CTASection from "./home/components/CTASection";
-import Footer from "./home/components/Footer";
-import HomeMobile from "./home_mobile";
-import ChatBox from "./home/ChatBot/ChatBox";
+import { useEffect, useState, Suspense } from "react";
+import dynamic from 'next/dynamic';
+import Loading from "@/components/Loading";
+
+// Dynamic imports với lazy loading
+const HeroSection = dynamic(() => import("./home/components/HeroSection"), {
+  loading: () => <Loading />,
+  ssr: false
+});
+
+const FeatureSection = dynamic(() => import("./home/components/FeatureSection"), {
+  loading: () => <Loading />,
+  ssr: false
+});
+
+const HeroesSection = dynamic(() => import("./home/components/HeroesSection"), {
+  loading: () => <Loading />,
+  ssr: false
+});
+
+const NewsSection = dynamic(() => import("./home/components/NewsSection"), {
+  loading: () => <Loading />,
+  ssr: false
+});
+
+const CTASection = dynamic(() => import("./home/components/CTASection"), {
+  loading: () => <Loading />,
+  ssr: false
+});
+
+const Footer = dynamic(() => import("./home/components/Footer"), {
+  loading: () => <Loading />,
+  ssr: false
+});
+
+const ChatBox = dynamic(() => import("./home/ChatBot/ChatBox"), {
+  loading: () => <div></div>,
+  ssr: false
+});
+
+const HomeMobile = dynamic(() => import("./home_mobile"), {
+  loading: () => <Loading />,
+  ssr: false
+});
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -57,21 +92,39 @@ export default function Home() {
   if (isClient && isMobile) {
     return (
       <>
-        <HomeMobile />
-        <ChatBox />
+        <Suspense fallback={<Loading />}>
+          <HomeMobile />
+        </Suspense>
+        <Suspense fallback={<div></div>}>
+          <ChatBox />
+        </Suspense>
       </>
     );
   }
 
   return (
     <main className="bg-gradient-to-b from-[var(--bg-dark)] to-[var(--bg-darker)]">
-      <HeroSection />
-      <FeatureSection />
-      <HeroesSection />
-      <NewsSection />
-      <CTASection />
-      <Footer />
-      <ChatBox />
+      <Suspense fallback={<Loading />}>
+        <HeroSection />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <FeatureSection />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <HeroesSection />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <NewsSection />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <CTASection />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <Footer />
+      </Suspense>
+      <Suspense fallback={<div></div>}>
+        <ChatBox />
+      </Suspense>
     </main>
   );
 }

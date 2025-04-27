@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-// import Image from "next/image";
-import { FiChevronRight } from "react-icons/fi";
+import { useState, useEffect, useCallback } from "react";
+import { useInView } from 'react-intersection-observer';
 import Link from "next/link";
+import Image from "next/image";
+import { FiChevronRight } from "react-icons/fi";
 
 const roles = ["Tất cả", "Gunner", "Sniper", "Rocket"];
 
@@ -77,16 +78,23 @@ const heroSamples = [
 
 export default function HeroesSection() {
   const [activeRole, setActiveRole] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState<{[key: string]: boolean}>({});
   const [hoveredHero, setHoveredHero] = useState<number | null>(null);
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: false
+  });
 
-  // Filter heroes based on active role
-  const filteredHeroes = activeRole === 0 
-    ? heroSamples 
-    : heroSamples.filter(hero => {
-        const roleFilter = roles[activeRole];
-        return hero.role === roleFilter;
-      });
+  // Filter heroes based on active role - memoized with useCallback
+  const getFilteredHeroes = useCallback(() => {
+    return activeRole === 0 
+      ? heroSamples 
+      : heroSamples.filter(hero => {
+          const roleFilter = roles[activeRole];
+          return hero.role === roleFilter;
+        });
+  }, [activeRole]);
+  
+  const filteredHeroes = getFilteredHeroes();
 
   // Get role color class
   const getRoleColorClass = (role: string) => {
@@ -118,46 +126,18 @@ export default function HeroesSection() {
     }
   };
 
-  // Debug image paths
-  useEffect(() => {
-    console.log("Hero image paths:", heroSamples.map(hero => hero.image));
-  }, []);
-
-  // Hiệu ứng cuộn (scroll reveal)
-  useEffect(() => {
-    const scrollReveal = () => {
-      const reveals = document.querySelectorAll(
-        '.reveal, .reveal-left, .reveal-right, .reveal-scale'
-      );
-      
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add('active');
-        } else {
-          reveals[i].classList.remove('active');
-        }
-      }
-    };
-    
-    window.addEventListener('scroll', scrollReveal);
-    scrollReveal();
-    
-    return () => window.removeEventListener('scroll', scrollReveal);
-  }, []);
-
   return (
-    <section className="heroes-section relative min-h-[100vh] py-12 md:py-24 flex items-center justify-center overflow-hidden">
+    <section 
+      ref={ref}
+      className={`heroes-section relative min-h-[100vh] py-12 md:py-24 flex items-center justify-center overflow-hidden ${inView ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
+    >
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-pattern-dark opacity-10 z-0"></div>
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[var(--bg-dark)] to-transparent z-10"></div>
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[var(--bg-dark)] to-transparent z-10"></div>
       
       <div className="container mx-auto relative z-20 px-4">
-        <div className="text-center mb-12 reveal-scale">
+        <div className={`text-center mb-12 ${inView ? 'scale-100 opacity-100' : 'scale-95 opacity-0'} transition-all duration-700 delay-300`}>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-glow-blue">Anh Hùng</h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
           M-SCI có dàn nhân vật phong phú với 4 bậc độ hiếm: Common (C), Rare (B), Epic (A) và Legendary (S). Mỗi hero thuộc một trong ba class (Gunner, Sniper, Rocket) với vai trò và thế mạnh riêng để đối phó với các loại kẻ địch khác nhau.
@@ -165,7 +145,7 @@ export default function HeroesSection() {
         </div>
         
         {/* Role selector tabs */}
-        <div className="flex justify-center mb-8 overflow-x-auto pb-2 scrollbar-none reveal">
+        <div className={`flex justify-center mb-8 overflow-x-auto pb-2 scrollbar-none ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-700 delay-500`}>
           <div className="flex space-x-2 sm:space-x-4 bg-[var(--bg-darker)] p-1 rounded-lg cyberpunk-border">
             {roles.map((role, index) => (
               <button
@@ -185,86 +165,62 @@ export default function HeroesSection() {
         </div>
         
         {/* Current role display */}
-        <div className="text-center mb-10 reveal">
+        <div className={`text-center mb-10 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-700 delay-700`}>
           <div className={`inline-block px-3 py-1 rounded-full text-white text-sm ${activeRole === 0 ? 'bg-[var(--accent-blue)]' : getRoleColorClass(roles[activeRole])}`}>
             {activeRole === 0 ? 'Tất cả các anh hùng' : `Vai trò: ${roles[activeRole]}`}
           </div>
         </div>
         
-        {/* Hero 3D carousel */}
-        <div className="hero-banner w-full relative h-[350px] md:h-[600px] mb-12 reveal">
-          <div className="hero-slider" style={{ '--quantity': filteredHeroes.length } as React.CSSProperties}>
-            {filteredHeroes.map((hero, index) => (
-              <div 
-                key={hero.id} 
-                className="hero-item" 
-                style={{ '--position': index + 1 } as React.CSSProperties}
+        {/* Hero grid display */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {filteredHeroes.map((hero, index) => (
+            <div 
+              key={hero.id}
+              className={`${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-700`}
+              style={{ transitionDelay: `${700 + index * 100}ms` }}
+              onMouseEnter={() => setHoveredHero(hero.id)}
+              onMouseLeave={() => setHoveredHero(null)}
+            >
+              <Link 
+                href={`/heroes/${hero.id}`}
+                className={`block h-full bg-[var(--bg-accent-dark)] bg-opacity-50 rounded-xl overflow-hidden border-2 ${getRoleBorderClass(hero.role)} hover:shadow-lg transition-all duration-500 group`}
               >
-                <Link href={`/hero/${hero.id}`}>
-                  <div 
-                    className={`relative w-full h-full rounded-lg overflow-hidden group border-2 ${getRoleBorderClass(hero.role)} transition-all duration-300`}
-                    onMouseEnter={() => setHoveredHero(hero.id)}
-                    onMouseLeave={() => setHoveredHero(null)}
-                  >
-                    <div className="w-full h-full relative">
-                      <img 
-                        src={hoveredHero === hero.id ? hero.shootImage : hero.image}
-                        alt={`Anh hùng ${hero.name}`}
-                        className="object-cover w-full h-full transition-all duration-500 group-hover:scale-110"
-                        onError={(e) => {
-                          // Fallback to placeholder if image fails to load
-                          const target = e.target as HTMLImageElement;
-                          target.src = `https://placehold.co/300x400/111827/F5F5F5?text=${encodeURIComponent(hero.name)}`;
-                          console.error(`Failed to load image: ${hoveredHero === hero.id ? hero.shootImage : hero.image}`);
-                          setImagesLoaded(prev => ({ ...prev, [hero.id]: false }));
-                        }}
-                        onLoad={() => {
-                          console.log(`Successfully loaded image: ${hoveredHero === hero.id ? hero.shootImage : hero.image}`);
-                          setImagesLoaded(prev => ({ ...prev, [hero.id]: true }));
-                        }}
-                      />
+                <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-b from-transparent to-black/30">
+                  <Image
+                    src={hoveredHero === hero.id ? hero.shootImage : hero.image}
+                    alt={hero.name}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <div className={`text-xs font-semibold mb-1 inline-block px-2 py-0.5 rounded ${getRoleColorClass(hero.role)}`}>
+                      {hero.role}
                     </div>
-                    {!imagesLoaded[hero.id] && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
-                        <span className="text-white">Đang tải...</span>
-                      </div>
-                    )}
-                    
-                    {/* Hero info overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className={`inline-block px-2 py-0.5 rounded-full text-xs text-white ${getRoleColorClass(hero.role)}`}>
-                          {hero.role}
-                        </span>
-                        <div className={`w-8 h-8 rounded-full ${getRoleColorClass(hero.role)} flex items-center justify-center`}>
-                          <span className="text-white text-xs font-bold">{hero.id}</span>
-                        </div>
-                      </div>
-                      <h3 className={`text-xl font-bold text-white group-hover:${getRoleTextClass(hero.role)} transition-colors`}>{hero.name}</h3>
-                      <p className="text-xs text-gray-300 mt-1 line-clamp-2">{hero.description}</p>
-                      <div className="flex items-center mt-2 text-xs text-[var(--accent-blue)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span>Xem chi tiết</span>
-                        <FiChevronRight className="ml-1 w-3 h-3" />
-                      </div>
-                    </div>
-                    
-                    {/* Cyberpunk border effect */}
-                    <div className="absolute inset-0 cyberpunk-border opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <h3 className="text-xl font-bold">{hero.name}</h3>
                   </div>
-                </Link>
-              </div>
-            ))}
-          </div>
+                </div>
+                <div className="p-4">
+                  <p className="text-gray-300 text-sm line-clamp-2">{hero.description}</p>
+                  <div className="flex justify-between items-center mt-4">
+                    <span className={`text-sm font-semibold ${getRoleTextClass(hero.role)}`}>Chi tiết</span>
+                    <FiChevronRight className="text-white group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
         </div>
         
-        {/* Button to view more heroes */}
-        <div className="text-center mt-8 mb-8 reveal">
+        {/* See all heroes button */}
+        <div className={`text-center mt-8 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-700 delay-1000`}>
           <Link 
             href="/heroes" 
-            className="inline-flex items-center justify-center button-cyber clip-hexagon hexagon-corner-flash text-white px-10 py-3 font-bold text-lg shadow-lg shadow-[var(--accent-blue)]/10 hover:shadow-xl hover:shadow-[var(--accent-blue)]/30 transition-all duration-300 transform hover:translate-y-[-2px]"
+            className="inline-flex items-center justify-center px-8 py-3 bg-[var(--accent-blue)] text-white font-semibold rounded-md hover:bg-[var(--accent-blue-glow)] transition-colors hover:shadow-lg hover:shadow-[var(--accent-blue-glow)]/25 group"
           >
-            XEM THÊM ANH HÙNG
-            <FiChevronRight className="ml-2" />
+            <span>Xem tất cả anh hùng</span>
+            <FiChevronRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>
