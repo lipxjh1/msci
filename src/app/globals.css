@@ -396,6 +396,18 @@ footer, .no-snap {
     background-size: 200% 200%;
     animation: gradient 8s linear infinite;
   }
+  
+  .perspective-500 {
+    perspective: 500px;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
 }
 
 @keyframes gradient {
@@ -2238,4 +2250,17 @@ button {
   --tw-prose-captions: rgb(120 96 71);
   --tw-prose-code: rgb(73 54 36);
   --tw-prose-hr: rgb(214 194 171);
+}
+
+/* Thêm utility cho hiệu ứng 3D card */
+.perspective-500 {
+  perspective: 500px !important;
+}
+
+.backface-hidden {
+  backface-visibility: hidden !important;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg) !important;
 }

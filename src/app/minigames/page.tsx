@@ -39,6 +39,18 @@ export default function MinigamesHome() {
       image: '/images/minigam/3.png',
       link: '/minigames/tic-tac-toe',
     },
+    {
+      title: 'Flappy Bird',
+      description: 'Điều khiển chú chim vượt qua các ống nước. Thử thách phản xạ và kiểm soát tay của bạn trong trò chơi huyền thoại này!',
+      image: '/images/minigam/5.png',
+      link: '/minigames/flappy-bird',
+    },
+    {
+      title: 'Ghép cặp Pikachu',
+      description: 'Tìm và ghép cặp các Pokémon giống nhau trong thời gian giới hạn. Thử thách trí nhớ và khả năng quan sát của bạn!',
+      image: '/images/minigam/2.png',
+      link: '/minigames/pikachu-game',
+    }
     // Sẽ thêm các trò chơi khác sau này
   ];
 
