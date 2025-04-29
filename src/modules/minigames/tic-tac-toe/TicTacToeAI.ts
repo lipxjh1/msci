@@ -32,7 +32,8 @@ class TicTacToeAI {
           : this.makeRandomMove(board);
       case 'hard':
       default:
-        return this.makeSmartMove(board, 5);
+        // Giảm độ sâu từ 5 xuống 3 để tránh bị treo
+        return this.makeSmartMove(board, 3);
     }
   }
 
@@ -69,6 +70,16 @@ class TicTacToeAI {
       if (blockingMove) return blockingMove;
     }
 
+    // Thêm giới hạn thời gian và số lượng nước đi xem xét
+    // Nếu số ô trống quá nhiều, chỉ tìm kiếm một số lượng giới hạn
+    const emptyCount = this.countEmptyCells(board);
+    
+    // Nếu có quá nhiều ô trống, giảm độ phức tạp bằng cách tìm các ô gần các ô đã đánh
+    if (this.difficulty === 'hard' && emptyCount > 40) {
+      const strategicMove = this.findStrategicMove(board);
+      if (strategicMove) return strategicMove;
+    }
+
     // Sử dụng minimax để tìm nước đi tốt nhất
     for (let row = 0; row < board.length; row++) {
       for (let col = 0; col < board[row].length; col++) {
@@ -87,7 +98,61 @@ class TicTacToeAI {
       }
     }
 
+    // Nếu không tìm thấy nước đi tốt, chọn ngẫu nhiên
+    if (bestMove.row === -1 && bestMove.col === -1) {
+      return this.makeRandomMove(board);
+    }
+
     return bestMove;
+  }
+
+  // Thêm phương thức để đếm số ô trống
+  private countEmptyCells(board: Board): number {
+    let count = 0;
+    for (let row = 0; row < board.length; row++) {
+      for (let col = 0; col < board[row].length; col++) {
+        if (board[row][col] === null) {
+          count++;
+        }
+      }
+    }
+    return count;
+  }
+
+  // Tìm nước đi chiến lược dựa vào các ô đã đánh
+  private findStrategicMove(board: Board): AIMove | null {
+    const size = board.length;
+    const potentialMoves: AIMove[] = [];
+    
+    // Tìm các ô kề với ô đã đánh
+    for (let row = 0; row < size; row++) {
+      for (let col = 0; col < size; col++) {
+        if (board[row][col] !== null) {
+          // Kiểm tra 8 ô xung quanh
+          for (let dr = -1; dr <= 1; dr++) {
+            for (let dc = -1; dc <= 1; dc++) {
+              if (dr === 0 && dc === 0) continue;
+              
+              const newRow = row + dr;
+              const newCol = col + dc;
+              
+              if (newRow >= 0 && newRow < size && 
+                  newCol >= 0 && newCol < size && 
+                  board[newRow][newCol] === null) {
+                potentialMoves.push({ row: newRow, col: newCol });
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    if (potentialMoves.length > 0) {
+      const randomIndex = Math.floor(Math.random() * potentialMoves.length);
+      return potentialMoves[randomIndex];
+    }
+    
+    return null;
   }
 
   private findWinningMove(board: Board, player: Player): AIMove | null {
@@ -122,6 +187,13 @@ class TicTacToeAI {
     if (winner === this.aiPlayer) return 10 + depth;
     if (winner === this.humanPlayer) return -10 - depth;
     if (this.isBoardFull(board) || depth === 0) return 0;
+
+    // Thêm giới hạn số lượng nước đi xem xét trong minimax
+    const emptyCells = this.countEmptyCells(board);
+    if (emptyCells > 60) {
+      // Nếu quá nhiều ô trống, trả về đánh giá đơn giản để không bị treo
+      return 0;
+    }
 
     if (isMaximizing) {
       let bestScore = -Infinity;
