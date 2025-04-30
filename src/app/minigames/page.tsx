@@ -50,8 +50,13 @@ export default function MinigamesHome() {
       description: 'Tìm và ghép cặp các Pokémon giống nhau trong thời gian giới hạn. Thử thách trí nhớ và khả năng quan sát của bạn!',
       image: '/images/minigam/2.png',
       link: '/minigames/pikachu-game',
+    },
+    {
+      title: 'Cờ Vua với AI',
+      description: 'Thách thức trí tuệ của bạn với trò chơi cờ vua huyền thoại. Đấu với AI ở nhiều cấp độ khác nhau từ dễ đến chuyên gia.',
+      image: '/images/minigam/chess.png',
+      link: '/minigames/chess-ai',
     }
-    // Sẽ thêm các trò chơi khác sau này
   ];
 
   return (

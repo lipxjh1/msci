@@ -25,7 +25,7 @@ export default function NewsSection() {
             </h2>
           </div>
           <p className="text-white/60 max-w-2xl mx-auto">
-          Cập nhật tin tức mới nhất về M-SCI. Từ sự kiện World Boss, Guild War đến các giftcode và cập nhật nhân vật mới. Theo dõi các thông báo quan trọng về nâng cấp tính năng game.
+          Get the latest updates about M-SCI. From World Boss events, Guild War to giftcodes and new character updates. Follow important announcements about game feature upgrades.
           </p>
         </div>
         
@@ -42,24 +42,24 @@ export default function NewsSection() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                <div className="absolute top-4 left-4 bg-[var(--overwatch-blue)] text-white text-sm font-bold px-3 py-1 rounded">MỚI NHẤT</div>
+                <div className="absolute top-4 left-4 bg-[var(--overwatch-blue)] text-white text-sm font-bold px-3 py-1 rounded">LATEST</div>
               </div>
               
               <div className="p-6 lg:p-10 flex flex-col justify-center">
                 <div className="text-[var(--overwatch-blue)] font-semibold mb-3 flex items-center dot-flicker">
                   <span className="inline-block w-2 h-2 bg-[var(--overwatch-blue)] rounded-full mr-2"></span>
-                  CẬP NHẬT GAME
+                  GAME UPDATE
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Season 15 Midseason: Collab, Crossbow, and Chaos</h3>
                 <p className="text-white/70 mb-6">
-                  Khám phá màn hợp tác đặc biệt, anh hùng mới và nhiều nội dung thú vị trong bản cập nhật giữa mùa của Season 15 với sự xuất hiện của nhiều tính năng được người chơi mong đợi từ lâu.
+                  Explore the special collaboration, new heroes and many exciting contents in the mid-season update of Season 15 with the appearance of many features that players have been looking forward to for a long time.
                 </p>
                 <div className="mt-auto">
                   <Link 
                     href="/tin_tuc"
                     className="inline-flex items-center text-white font-bold transition-all hover:text-[var(--overwatch-blue)] button-cyber"
                   >
-                    ĐỌC THÊM
+                    READ MORE
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 ml-2">
                       <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
                     </svg>
@@ -81,7 +81,7 @@ export default function NewsSection() {
             href="/tin-tuc"
             className="inline-block bg-white/5 hover:bg-white/10 text-white font-bold py-3 px-8 rounded-full border border-white/10 transition-all duration-300 hover:border-[var(--overwatch-blue)]/50 hover:shadow-lg hover:shadow-blue-500/10 button-glow"
           >
-            XEM TẤT CẢ TIN TỨC
+            VIEW ALL NEWS
           </Link>
         </div>
       </div>

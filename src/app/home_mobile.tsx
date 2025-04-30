@@ -3,10 +3,25 @@
 import Image from "next/image";
 import ThanhDieuHuongResponsive from "@/thanh_phan/thanh_dieu_huong_responsive";
 import Button from "@/components/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Footer from "@/app/home/components/Footer";
+
 export default function HomeMobile() {
   const [activeSlide, setActiveSlide] = useState(0);
+  
+  // Thêm trạng thái để quản lý việc chuyển đổi nhân vật
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+  const [vfxActive, setVfxActive] = useState(false);
+  
+  const heroImages = [
+    "/images/heroin/player_0_ui_idle.png",
+    "/images/heroin/ui 4.png",
+    "/images/heroin/ui 5.png",
+    "/images/heroin/ui 10.png",
+    "/images/heroin/ui11.png",
+    "/images/heroin/ui7.png",
+    "/images/heroin/uiux 1.png"
+  ];
 
   // Tự động chuyển slide
   useEffect(() => {
@@ -16,6 +31,18 @@ export default function HomeMobile() {
 
     return () => clearInterval(interval);
   }, []);
+  
+  // Tự động chuyển đổi nhân vật
+  useEffect(() => {
+    const heroInterval = setInterval(() => {
+      setCurrentHeroIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+      // Kích hoạt hiệu ứng VFX khi chuyển đổi
+      setVfxActive(true);
+      setTimeout(() => setVfxActive(false), 500);
+    }, 2000);
+
+    return () => clearInterval(heroInterval);
+  }, []);
 
   // Handle scroll behavior for mobile nav
 
@@ -23,29 +50,29 @@ export default function HomeMobile() {
     {
       id: 1,
       image: "/images/free.jpg",
-      title: "MIỄN PHÍ",
-      badge: "MIỄN PHÍ",
+      title: "FREE TO PLAY",
+      badge: "FREE",
       badgeColor: "var(--accent-blue-bright)",
       description:
-        "Game miễn phí, liên tục phát triển. Tập hợp bạn bè và tham gia trải nghiệm PvP mới.",
+        "Free game, constantly evolving. Gather your friends and join the new PvP experience.",
     },
     {
       id: 2,
       image: "/images/new.jpg",
-      title: "ANH HÙNG MỚI",
-      badge: "MỚI",
+      title: "NEW HEROES",
+      badge: "NEW",
       badgeColor: "var(--vaiTroDamage)",
       description:
-        "Chọn từ đa dạng các anh hùng với nhiều vai trò và phong cách chơi khác nhau.",
+        "Choose from a variety of heroes with different roles and gameplay styles.",
     },
     {
       id: 3,
       image: "/images/like.jpg",
-      title: "HÀNH ĐỘNG ĐỈNH CAO",
+      title: "NEXT-GEN ACTION",
       badge: "ACTION",
       badgeColor: "var(--vaiTroSupport)",
       description:
-        "Trận chiến gay cấn, dàn anh hùng mới, nhiều bản đồ và trải nghiệm 3v3 cực đã.",
+        "Intense battles, new heroes, multiple maps and an exciting 3v3 experience.",
     },
   ];
 
@@ -82,7 +109,7 @@ export default function HomeMobile() {
               Overwatch
             </h1>
             <p className="text-lg text-[var(--accent-blue-bright)] font-semibold mb-8 tracking-wide uppercase animate-fade-in">
-              Hành Động • Chiến Đấu • Tự Do
+              Action • Combat • Freedom
             </p>
             <div className="flex flex-col gap-4 animate-slide-up w-full">
               <Button
@@ -92,7 +119,7 @@ export default function HomeMobile() {
                 animate="none"
                 className="w-full py-4 text-lg tracking-wider text-shadow-sm button-cyber"
               >
-                Chơi Ngay
+                Play Now
               </Button>
               <Button
                 href="/heroes"
@@ -101,7 +128,7 @@ export default function HomeMobile() {
                 animate="none"
                 className="w-full py-4 text-lg tracking-wider text-shadow-sm button-cyber"
               >
-                Xem Anh Hùng
+                View Heroes
               </Button>
             </div>
           </div>
@@ -127,10 +154,7 @@ export default function HomeMobile() {
             </h2>
             <div className="h-1 w-20 bg-[var(--accent-blue-bright)]/70 mx-auto mb-6"></div>
             <p className="text-base text-white/80 leading-relaxed">
-              M-SCI là game hành động chiến thuật khoa học viễn tưởng lấy bối
-              cảnh năm 2049, nơi công nghệ và con người đối đầu trên quy mô toàn
-              cầu. Bạn sẽ gia nhập lực lượng M-SCI để bảo vệ nhân loại trước mối
-              đe dọa từ The Assended và đội quân robot.
+              M-SCI is a sci-fi tactical action game set in 2049, where technology and humanity clash on a global scale. You will join the M-SCI forces to protect humanity against the threat from The Assended and their robot army.
             </p>
           </div>
 
@@ -204,7 +228,7 @@ export default function HomeMobile() {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Vuốt để xem thêm
+            Swipe to see more
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -260,7 +284,7 @@ export default function HomeMobile() {
           <div className="text-center mb-8">
             <h2 className="text-3xl font-extrabold text-white mb-4 relative cyber-halo">
               <span className="text-shadow-blue relative inline-block">
-                ANH HÙNG
+                HEROES
                 <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
               </span>
             </h2>
@@ -269,23 +293,28 @@ export default function HomeMobile() {
 
           {/* Hero Cards Grid for Mobile */}
           <div className="grid grid-cols-2 gap-5">
-            {/* Hero Card 1 */}
+            {/* Hero Card với hiệu ứng chuyển đổi */}
             <div className="rounded-xl overflow-hidden border border-white/10 bg-gradient-to-b from-[#0c2341] to-[#071528] shadow-lg shadow-black/30 relative transform hover:scale-[1.02] transition-all duration-300 active:scale-95">
               <div className="relative h-40">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
+                <div className={`absolute inset-0 ${vfxActive ? 'bg-gradient-to-r from-cyan-500/0 via-cyan-500/30 to-cyan-500/0 animate-flash' : ''}`}></div>
                 <Image
-                  src="/tai_nguyen/anh_hung/asane.png"
-                  alt="Tracer"
+                  src={heroImages[currentHeroIndex]}
+                  alt="Hero Character"
                   fill
-                  className="object-cover"
+                  className={`object-cover transition-all duration-500 ${vfxActive ? 'scale-105 brightness-125' : ''}`}
                 />
+                {/* Indicator cho nhân vật đang hiển thị */}
+                <div className="absolute top-1 right-1 bg-black/70 rounded-full px-2 py-0.5 text-[10px] text-cyan-400 font-bold">
+                  {currentHeroIndex + 1}/{heroImages.length}
+                </div>
               </div>
               <div className="p-3 text-center">
                 <h3 className="text-lg font-bold text-[var(--accent-blue-bright)]">
-                  TRACER
+                  HERO {currentHeroIndex + 1}
                 </h3>
                 <div className="inline-block mt-1 mb-2 px-2 py-0.5 bg-[var(--vaiTroDamage)]/30 text-white text-xs rounded-full">
-                  DAMAGE
+                  {currentHeroIndex % 3 === 0 ? 'DAMAGE' : currentHeroIndex % 3 === 1 ? 'SUPPORT' : 'TANK'}
                 </div>
               </div>
             </div>
@@ -295,7 +324,7 @@ export default function HomeMobile() {
               <div className="relative h-40">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
                 <Image
-                  src="/tai_nguyen/anh_hung/marcus.png"
+                  src="/images/heroin/ui 5.png"
                   alt="Mercy"
                   fill
                   className="object-cover"
@@ -316,7 +345,7 @@ export default function HomeMobile() {
               <div className="relative h-40">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
                 <Image
-                  src="/tai_nguyen/anh_hung/david.png"
+                  src="/images/heroin/ui11.png"
                   alt="Reinhardt"
                   fill
                   className="object-cover"
@@ -337,7 +366,7 @@ export default function HomeMobile() {
               <div className="relative h-40">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
                 <Image
-                  src="/tai_nguyen/anh_hung/marcus.png"
+                  src="/images/heroin/ui7.png"
                   alt="Genji"
                   fill
                   className="object-cover"
@@ -362,7 +391,7 @@ export default function HomeMobile() {
               size="md"
               className="w-full py-3 text-base tracking-wider text-shadow-sm button-cyber bg-gradient-to-r from-[var(--vaiTroTank)]/20 to-[var(--vaiTroTank)]/10 border border-[var(--vaiTroTank)]/30"
             >
-              XEM TẤT CẢ ANH HÙNG
+              VIEW ALL HEROES
             </Button>
           </div>
         </div>
@@ -382,13 +411,12 @@ export default function HomeMobile() {
         <div className="relative z-10 text-center">
           <h2 className="text-3xl  text-white mb-4 cyber-halo">
             <span className="text-shadow-blue relative inline-block">
-              BẮT ĐẦU NGAY
+              GET STARTED
               <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
             </span>
           </h2>
           <p className="text-base text-white/80 mb-8">
-            Sẵn sàng tham gia vào thế giới M-SCI? Tham gia miễn phí ngay hôm
-            nay!
+            Ready to join the world of M-SCI? Join for free today!
           </p>
           <Button
             href="/duong_dan/anh_hung"
