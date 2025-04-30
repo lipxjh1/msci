@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(47, 50, 180, 0.2), transparent 70%),
+              radial-gradient(circle at 70% 60%, rgba(76, 0, 255, 0.1), transparent 70%);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.title {
+  color: #e2e8f0;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #9d9dfb, #5c5cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(92, 92, 255, 0.3);
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, #9d9dfb, #5c5cff);
+  border-radius: 3px;
+}
+
+.gameLayout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.boardSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 600px;
+  transition: all 0.3s ease;
+}
+
+.controlsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 340px;
+  transition: all 0.3s ease;
+}
+
+.footer {
+  margin-top: 2.5rem;
+  text-align: center;
+  color: #9aa2bf;
+  font-style: italic;
+  padding: 1rem;
+  border-top: 1px solid rgba(74, 85, 104, 0.2);
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Responsive layout */
+@media (max-width: 968px) {
+  .gameLayout {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .boardSection, .controlsSection {
+    max-width: 600px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .gameLayout {
+    gap: 1.5rem;
+  }
+} 

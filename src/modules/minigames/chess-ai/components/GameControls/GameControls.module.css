@@ -1,0 +1,208 @@
+.controls {
+  background: rgba(20, 21, 40, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(74, 85, 104, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 
+              0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  transform: translateZ(0);
+  animation: controlsAppear 0.5s ease-out;
+}
+
+@keyframes controlsAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.controlsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.groupTitle {
+  font-size: 0.9rem;
+  color: #9aa2bf;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.groupTitle::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 16px;
+  background: linear-gradient(to bottom, #5c5cff, #9d9dfb);
+  border-radius: 2px;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.button {
+  padding: 0.75rem 1rem;
+  border: none;
+  background: rgba(74, 85, 104, 0.2);
+  color: #e2e8f0;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.button:hover {
+  background: rgba(92, 92, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover::before {
+  opacity: 1;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.select {
+  padding: 0.75rem 1rem;
+  background: rgba(74, 85, 104, 0.2);
+  border: 1px solid rgba(74, 85, 104, 0.3);
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  appearance: none;
+  width: 100%;
+  transition: all 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239aa2bf' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.select:hover {
+  background-color: rgba(92, 92, 255, 0.2);
+  border-color: rgba(92, 92, 255, 0.5);
+}
+
+.select:focus {
+  outline: none;
+  border-color: rgba(92, 92, 255, 0.7);
+  box-shadow: 0 0 0 2px rgba(92, 92, 255, 0.2);
+}
+
+.colorOptions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.colorOption {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(74, 85, 104, 0.2);
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.colorOption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.colorOption:hover {
+  background: rgba(92, 92, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.colorOption:hover::before {
+  opacity: 1;
+}
+
+.colorOption.active {
+  background: rgba(92, 92, 255, 0.5);
+  box-shadow: 0 0 0 1px rgba(92, 92, 255, 0.7) inset, 
+              0 5px 15px rgba(92, 92, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .controls {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+  
+  .controlsGroup {
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .controls {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .button, .colorOption {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .select {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+    padding-right: 2.25rem;
+  }
+} 

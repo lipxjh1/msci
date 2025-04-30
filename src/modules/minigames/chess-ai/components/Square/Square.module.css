@@ -1,0 +1,120 @@
+.square {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.square::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.light {
+  background: linear-gradient(135deg, #f5e5c1 0%, #f0d9b5 100%);
+}
+
+.light::before {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.25), transparent 70%);
+}
+
+.dark {
+  background: linear-gradient(135deg, #ba8f6c 0%, #b58863 100%);
+}
+
+.dark::before {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 70%);
+}
+
+.square:hover::before {
+  opacity: 1;
+}
+
+.selected {
+  background: linear-gradient(135deg, #86c959 0%, #6ab348 100%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(106, 179, 72, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(106, 179, 72, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(106, 179, 72, 0);
+  }
+}
+
+.dark.selected {
+  background: linear-gradient(135deg, #76b349 0%, #569f34 100%);
+}
+
+.validMove {
+  cursor: pointer;
+}
+
+.validMove:hover {
+  box-shadow: inset 0 0 0 3px rgba(106, 179, 72, 0.9);
+  transform: scale(1.03);
+  z-index: 5;
+}
+
+.moveIndicator {
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  background-color: rgba(106, 179, 72, 0.7);
+  box-shadow: 0 0 8px rgba(106, 179, 72, 0.5);
+  animation: indicatorPulse 1.5s infinite;
+}
+
+@keyframes indicatorPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(106, 179, 72, 0.4);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(106, 179, 72, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(106, 179, 72, 0);
+  }
+}
+
+.captureIndicator {
+  position: absolute;
+  inset: 0;
+  border: 3px solid rgba(106, 179, 72, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: captureIndicatorPulse 1.5s infinite;
+}
+
+@keyframes captureIndicatorPulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+} 
