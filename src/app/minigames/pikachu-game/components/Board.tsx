@@ -26,26 +26,57 @@ const Board: React.FC<BoardProps> = ({
   const [cardSize, setCardSize] = useState(0);
   
   // Tìm số hàng và số cột tối đa
-  const maxCol = Math.max(...cards.map(card => card.col)) + 1;
-  const maxRow = Math.max(...cards.map(card => card.row)) + 1;
+  const maxCol = Math.max(...cards.map(card => card.col), 0) + 1;
+  const maxRow = Math.max(...cards.map(card => card.row), 0) + 1;
   
   // Điều chỉnh kích thước bảng và thẻ bài
   const calculateSizes = useCallback(() => {
-    // Lấy kích thước container
-    const containerWidth = window.innerWidth > 1200 ? 800 : window.innerWidth * 0.9;
-    const containerHeight = window.innerHeight * 0.7;
+    // Kiểm tra xem có phải là thiết bị di động không
+    const isMobile = window.innerWidth <= 768;
+    
+    // Đảm bảo kích thước container phù hợp với thiết bị
+    const containerWidth = isMobile 
+      ? window.innerWidth * 0.95 - 24 // Trừ đi padding container
+      : Math.min(window.innerWidth * 0.9, 800);
+    
+    const containerHeight = isMobile 
+      ? window.innerHeight * 0.5 
+      : Math.min(window.innerHeight * 0.65, 600);
     
     // Tính toán kích thước thẻ bài
-    const calculatedCardWidth = Math.floor(containerWidth / maxCol) - 2;
-    const calculatedCardHeight = Math.floor(containerHeight / maxRow) - 2;
-    const calculatedCardSize = Math.min(calculatedCardWidth, calculatedCardHeight);
+    const actualWidth = Math.min(containerWidth, containerHeight * (maxCol / maxRow));
+    const actualHeight = Math.min(containerHeight, containerWidth * (maxRow / maxCol));
     
-    // Cập nhật kích thước
+    // Tính toán kích thước thẻ dựa trên thiết bị
+    let calculatedCardSize;
+    
+    if (isMobile) {
+      // Tính toán kích thước thẻ cho mobile
+      calculatedCardSize = Math.floor(Math.min(
+        actualWidth / maxCol,
+        actualHeight / maxRow
+      )) - (isMobile ? 4 : 8); // Giảm padding trên mobile
+    } else {
+      calculatedCardSize = Math.floor(Math.min(
+        actualWidth / maxCol,
+        actualHeight / maxRow
+      )) - 8;
+    }
+    
+    // Đảm bảo kích thước tối thiểu dựa trên thiết bị
+    const minSize = isMobile ? 40 : 60;
+    const finalCardSize = Math.max(calculatedCardSize, minSize);
+    
+    // Tính toán lại kích thước của bảng
+    const finalWidth = finalCardSize * maxCol + (maxCol - 1) * (isMobile ? 2 : 4);
+    const finalHeight = finalCardSize * maxRow + (maxRow - 1) * (isMobile ? 2 : 4);
+    
     setBoardSize({
-      width: calculatedCardSize * maxCol + (maxCol * 2),
-      height: calculatedCardSize * maxRow + (maxRow * 2),
+      width: finalWidth,
+      height: finalHeight
     });
-    setCardSize(calculatedCardSize);
+    
+    setCardSize(finalCardSize - (isMobile ? 2 : 4));
   }, [maxCol, maxRow]);
 
   // Xử lý resize cửa sổ
@@ -65,17 +96,19 @@ const Board: React.FC<BoardProps> = ({
     return selectedCards.some(selected => selected.id === card.id);
   };
 
+  // Kiểm tra xem có phải là thiết bị di động không
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex items-center justify-center w-full my-2">
       <div 
-        className="bg-gray-100 rounded-lg p-2 shadow-lg overflow-hidden"
+        className="bg-gray-100 rounded-lg p-1 shadow-lg grid"
         style={{ 
-          width: boardSize.width,
-          height: boardSize.height,
-          display: 'grid',
+          width: `${boardSize.width}px`,
+          height: `${boardSize.height}px`,
           gridTemplateColumns: `repeat(${maxCol}, 1fr)`,
           gridTemplateRows: `repeat(${maxRow}, 1fr)`,
-          gap: '2px'
+          gap: isMobile ? '2px' : '4px'
         }}
       >
         {cards.map(card => (
@@ -83,7 +116,12 @@ const Board: React.FC<BoardProps> = ({
             key={card.id}
             style={{ 
               gridColumn: card.col + 1, 
-              gridRow: card.row + 1 
+              gridRow: card.row + 1,
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
             <Card

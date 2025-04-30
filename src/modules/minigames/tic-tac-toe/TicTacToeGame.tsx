@@ -10,7 +10,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 
 const BOARD_SIZE = 9;
 const WIN_LENGTH = 5;
-const CELL_SIZE = 40; // Cố định kích thước ô
+const CELL_SIZE = 50; // Tăng kích thước ô để hiển thị vuông vắn hơn
 
 const TicTacToeGame: React.FC = () => {
   const [board, setBoard] = useState<Board>(initializeBoard());
@@ -354,29 +354,23 @@ const TicTacToeGame: React.FC = () => {
       <div className="flex flex-row gap-6 items-start">
         <div className="w-full lg:w-3/5">
           <div className="relative bg-gradient-to-br from-indigo-900 to-blue-900 rounded-lg p-4 shadow-xl border border-indigo-700">
-            <div className="grid grid-cols-9 gap-1.5">
+            <div className="grid grid-cols-9 gap-2 aspect-square max-w-[600px] mx-auto">
               {board.map((row, rowIndex) => (
                 row.map((cell, colIndex) => {
                   const isWinningCell = winningLine.some(([r, c]) => r === rowIndex && c === colIndex);
                   return (
                     <motion.div
                       key={`${rowIndex}-${colIndex}`}
-                      className={`w-[${CELL_SIZE}px] h-[${CELL_SIZE}px] flex items-center justify-center cursor-pointer rounded-md transition-all ${
+                      className={`aspect-square flex items-center justify-center cursor-pointer rounded-md transition-all ${
                         isWinningCell ? 'bg-green-600 animate-pulse' : 'bg-indigo-800 hover:bg-indigo-700'
                       }`}
-                      style={{ 
-                        width: `${CELL_SIZE}px`, 
-                        height: `${CELL_SIZE}px`,
-                        minWidth: `${CELL_SIZE}px`,
-                        minHeight: `${CELL_SIZE}px` 
-                      }}
                       onClick={() => handleCellClick(rowIndex, colIndex)}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       {cell && (
                         <motion.span 
-                          className={`text-2xl font-bold ${cell === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}
+                          className={`text-2xl md:text-3xl font-bold ${cell === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -497,23 +491,18 @@ const TicTacToeGame: React.FC = () => {
               Akane
             </h2>
             
-            {/* Tin nhắn từ Akane */}
-            <div className="min-h-8 h-8 relative">
+            {/* Hiển thị tin nhắn của Akane */}
+            <div className="text-sm text-gray-300 min-h-6">
               <AnimatePresence>
-                {showMessage ? (
-                  <motion.div 
-                    className="text-purple-100 text-sm"
+                {showMessage && (
+                  <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
                     {akaneMessages[currentMessage]}
-                  </motion.div>
-                ) : (
-                  <div className="text-gray-400 text-sm">
-                    {isAiThinking ? "Đang suy nghĩ..." : "Hãy thách thức tôi!"}
-                  </div>
+                  </motion.p>
                 )}
               </AnimatePresence>
             </div>
@@ -521,43 +510,62 @@ const TicTacToeGame: React.FC = () => {
         </div>
       </div>
       
-      {/* Trạng thái trò chơi */}
-      <div className="bg-[#151530] p-3 rounded-lg border border-indigo-900/50 h-[80px] flex items-center justify-center">
-        {renderGameStatus()}
+      {/* Hiển thị lượt chơi và trạng thái */}
+      <div className="bg-[#151530] p-4 rounded-lg border border-indigo-900/50">
+        <div className="flex justify-between items-center mb-2">
+          <div className="text-sm">
+            <span className="text-gray-400">Lượt của: </span>
+            <span className={`font-bold ${currentPlayer === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}>
+              {currentPlayer === playerMark ? 'BẠN' : 'AKANE'}
+              {' '}
+              <span className="text-xs">({currentPlayer})</span>
+            </span>
+          </div>
+          
+          <div className="text-sm">
+            <span className="text-gray-400">Bạn chơi: </span>
+            <span className={`font-bold ${playerMark === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}>
+              {playerMark}
+            </span>
+          </div>
+        </div>
+        
+        <div className="mb-1 h-10 text-center">
+          {gameState !== 'playing' && renderGameStatus()}
+          {isAiThinking && (
+            <div className="text-blue-400 animate-pulse flex items-center justify-center">
+              <div className="mr-2">Akane đang suy nghĩ</div>
+              <div className="flex space-x-1">
+                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce"></div>
+                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
       
       {/* Bàn cờ */}
-      <div className="relative bg-gradient-to-br from-indigo-900 to-blue-900 rounded-lg p-2 shadow-xl border border-indigo-700 mx-auto">
-        <div className="grid grid-cols-9 gap-1">
+      <div className="bg-gradient-to-br from-indigo-900 to-blue-900 rounded-lg p-3 shadow-xl border border-indigo-700">
+        <div className="grid grid-cols-9 gap-1 aspect-square w-full">
           {board.map((row, rowIndex) => (
             row.map((cell, colIndex) => {
               const isWinningCell = winningLine.some(([r, c]) => r === rowIndex && c === colIndex);
-              const mobileSize = 32; // Kích thước nhỏ hơn cho mobile
-              
               return (
                 <motion.div
                   key={`${rowIndex}-${colIndex}`}
-                  className={`flex items-center justify-center cursor-pointer rounded transition-all ${
+                  className={`aspect-square flex items-center justify-center cursor-pointer rounded-md transition-all ${
                     isWinningCell ? 'bg-green-600 animate-pulse' : 'bg-indigo-800 hover:bg-indigo-700'
                   }`}
-                  style={{ 
-                    width: `${mobileSize}px`, 
-                    height: `${mobileSize}px`,
-                    minWidth: `${mobileSize}px`,
-                    minHeight: `${mobileSize}px` 
-                  }}
                   onClick={() => handleCellClick(rowIndex, colIndex)}
                   whileTap={{ scale: 0.95 }}
                 >
                   {cell && (
-                    <motion.span 
+                    <span 
                       className={`text-lg font-bold ${cell === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                       {cell}
-                    </motion.span>
+                    </span>
                   )}
                 </motion.div>
               );
@@ -566,8 +574,8 @@ const TicTacToeGame: React.FC = () => {
         </div>
       </div>
       
-      {/* Điều khiển và cài đặt */}
-      <div className="grid grid-cols-1 gap-4">
+      {/* Nút chơi lại và cài đặt */}
+      <div className="grid grid-cols-1 gap-3">
         <motion.button
           className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-3 px-4 rounded-lg font-medium transition-colors"
           onClick={resetGame}
@@ -583,10 +591,10 @@ const TicTacToeGame: React.FC = () => {
           <details className="text-sm">
             <summary className="font-medium text-blue-400 cursor-pointer mb-2">Luật chơi & Độ khó</summary>
             <ul className="text-gray-300 list-disc list-inside space-y-1 pl-1 text-xs">
-              <li>Tạo được 5 ô liên tiếp để thắng</li>
+              <li>Tạo được 5 ô liên tiếp theo hàng ngang, dọc hoặc chéo để thắng</li>
               <li><span className="text-green-400">Dễ</span>: Akane đánh ngẫu nhiên</li>
               <li><span className="text-yellow-400">Trung bình</span>: Akane đánh bán thông minh</li>
-              <li><span className="text-red-400">Khó</span>: Akane sử dụng minimax</li>
+              <li><span className="text-red-400">Khó</span>: Akane sử dụng minimax, rất khó để thắng</li>
             </ul>
           </details>
         </div>
@@ -712,7 +720,11 @@ const TicTacToeGame: React.FC = () => {
     );
   };
 
-  return isMobile ? renderMobileUI() : renderDesktopUI();
+  return (
+    <div className="container mx-auto max-w-6xl">
+      {isMobile ? renderMobileUI() : renderDesktopUI()}
+    </div>
+  );
 };
 
 export default TicTacToeGame; 

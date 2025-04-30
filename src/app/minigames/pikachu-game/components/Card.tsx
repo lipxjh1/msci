@@ -44,8 +44,8 @@ const Card: React.FC<CardProps> = ({
   const getImagePath = () => {
     try {
       // Sử dụng hình ảnh từ thư mục public/images/minigam
-      // Chỉ có 12 hình ảnh trong thư mục (1.png đến 12.png)
-      const imageId = ((value % 12) + 1);
+      // Đảm bảo chỉ sử dụng các hình ảnh từ 1.png đến 12.png
+      const imageId = (value % 12) + 1;
       return `/images/minigam/${imageId}.png`;
     } catch (error) {
       console.error("Lỗi khi lấy đường dẫn hình ảnh:", error);
@@ -58,11 +58,14 @@ const Card: React.FC<CardProps> = ({
     console.log(`Không thể tải hình ảnh #${value}`);
     setImageError(true);
   };
+  
+  // Kiểm tra xem có phải là thiết bị di động không
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   if (isMatched) {
     return (
       <div 
-        className="m-0.5"
+        className="m-0"
         style={{ width: size, height: size }}
       />
     );
@@ -70,12 +73,16 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <div 
-      className="m-0.5 perspective-500 cursor-pointer"
-      style={{ width: size, height: size }}
+      className="relative w-full h-full"
+      style={{ 
+        aspectRatio: "1/1",
+        maxWidth: size,
+        maxHeight: size
+      }}
     >
       <motion.div
         className={`w-full h-full rounded-md flex items-center justify-center relative transition-shadow ${
-          isSelected ? 'ring-2 ring-blue-500 shadow-lg' : ''
+          isSelected ? 'ring-1 md:ring-2 ring-blue-500 shadow-lg' : ''
         }`}
         onClick={handleClick}
         animate={{
@@ -88,6 +95,8 @@ const Card: React.FC<CardProps> = ({
         }}
         style={{
           transformStyle: "preserve-3d",
+          width: "95%",
+          height: "95%"
         }}
       >
         {/* Mặt sau */}
@@ -98,7 +107,7 @@ const Card: React.FC<CardProps> = ({
             zIndex: isSelected ? "0" : "1"
           }}
         >
-          <span className="text-white font-bold text-xl">?</span>
+          <span className="text-white font-bold text-base md:text-xl">?</span>
         </div>
         
         {/* Mặt trước */}
@@ -112,7 +121,7 @@ const Card: React.FC<CardProps> = ({
         >
           <div className="relative w-[90%] h-[90%] flex items-center justify-center">
             {imageError ? (
-              <div className="text-lg text-center font-bold text-purple-500">
+              <div className="text-sm md:text-lg text-center font-bold text-purple-500">
                 {value}
               </div>
             ) : (
@@ -121,6 +130,7 @@ const Card: React.FC<CardProps> = ({
                 alt={`Hình ${value}`}
                 onError={handleImageError}
                 className="w-full h-full object-contain"
+                loading="lazy"
               />
             )}
           </div>

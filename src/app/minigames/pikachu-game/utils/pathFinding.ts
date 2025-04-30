@@ -198,43 +198,52 @@ export const checkPathExists = (
 };
 
 // Tìm tất cả các cặp có thể ghép
-export const findAllPossiblePairs = (board: number[][]): [Position, Position][] => {
-  const rows = board.length;
-  const cols = board[0].length;
-  const result: [Position, Position][] = [];
+export const findAllPossiblePairs = (cards: CardType[]): [Point, Point][] => {
+  // Tìm kích thước bảng
+  const rows = Math.max(...cards.map(card => card.row)) + 1;
+  const cols = Math.max(...cards.map(card => card.col)) + 1;
+  
+  const result: [Point, Point][] = [];
   
   // Map để theo dõi các ô đã kiểm tra
   const checked = new Set<string>();
   
-  // Duyệt qua tất cả các ô
-  for (let r1 = 0; r1 < rows; r1++) {
-    for (let c1 = 0; c1 < cols; c1++) {
-      // Bỏ qua ô trống
-      if (board[r1][c1] === 0) continue;
+  // Lọc các thẻ chưa được ghép
+  const unmatched = cards.filter(card => !card.isMatched);
+  
+  // Duyệt qua tất cả các cặp thẻ chưa được ghép
+  for (let i = 0; i < unmatched.length; i++) {
+    const card1 = unmatched[i];
+    
+    for (let j = i + 1; j < unmatched.length; j++) {
+      const card2 = unmatched[j];
       
-      // Duyệt qua các ô còn lại
-      for (let r2 = 0; r2 < rows; r2++) {
-        for (let c2 = 0; c2 < cols; c2++) {
-          // Bỏ qua nếu đây là cùng một ô
-          if (r1 === r2 && c1 === c2) continue;
-          
-          // Tạo ID duy nhất cho cặp (không phân biệt thứ tự)
-          const id1 = `${r1},${c1},${r2},${c2}`;
-          const id2 = `${r2},${c2},${r1},${c1}`;
-          
-          // Bỏ qua nếu đã kiểm tra cặp này
-          if (checked.has(id1) || checked.has(id2)) continue;
-          
-          // Đánh dấu cặp này đã kiểm tra
-          checked.add(id1);
-          checked.add(id2);
-          
-          // Kiểm tra xem có thể kết nối không
-          const path = findPath(board, r1, c1, r2, c2);
-          if (path) {
-            result.push([{ row: r1, col: c1 }, { row: r2, col: c2 }]);
-          }
-        }
+      // Bỏ qua nếu hai thẻ không cùng giá trị
+      if (card1.value !== card2.value) continue;
+      
+      // Tạo ID duy nhất cho cặp
+      const id1 = `${card1.row},${card1.col},${card2.row},${card2.col}`;
+      const id2 = `${card2.row},${card2.col},${card1.row},${card1.col}`;
+      
+      // Bỏ qua nếu đã kiểm tra cặp này
+      if (checked.has(id1) || checked.has(id2)) continue;
+      
+      // Đánh dấu cặp này đã kiểm tra
+      checked.add(id1);
+      checked.add(id2);
+      
+      // Kiểm tra xem có thể kết nối không
+      const path = findPath(
+        cards,
+        { row: card1.row, col: card1.col },
+        { row: card2.row, col: card2.col }
+      );
+      
+      if (path) {
+        result.push([
+          { row: card1.row, col: card1.col },
+          { row: card2.row, col: card2.col }
+        ]);
       }
     }
   }

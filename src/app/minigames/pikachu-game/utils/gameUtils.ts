@@ -8,16 +8,20 @@ export const createShuffledCards = (rows: number, cols: number): CardType[] => {
   }
 
   const totalCards = rows * cols;
-  const totalPairs = totalCards / 2;
+  const pairsCount = totalCards / 2;
   const cards: CardType[] = [];
 
+  // Tạo mảng giá trị cho các cặp thẻ (0-11 lặp lại nếu cần)
+  const cardValues = Array.from({ length: pairsCount }, (_, i) => i % 12);
+
   // Tạo các cặp thẻ bài
-  for (let i = 0; i < totalPairs; i++) {
+  for (let i = 0; i < pairsCount; i++) {
+    const value = cardValues[i];
     // Tạo hai thẻ với cùng giá trị
     for (let j = 0; j < 2; j++) {
       cards.push({
         id: `${i}-${j}`,
-        value: i,
+        value: value,
         row: 0, // Sẽ được cập nhật sau
         col: 0, // Sẽ được cập nhật sau
         isMatched: false,
@@ -50,7 +54,7 @@ export const isValidCard = (card: CardType | null): card is CardType => {
 
 // Kiểm tra xem hai thẻ có khớp nhau không
 export const isMatch = (card1: CardType, card2: CardType): boolean => {
-  return card1.value === card2.value && card1.id !== card2.id;
+  return card1.value === card2.value;
 };
 
 // Tính điểm dựa trên thời gian còn lại và số lượng cặp đã ghép
