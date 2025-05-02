@@ -1,6 +1,6 @@
 "use client";
 
-import ThanhDieuHuongResponsive from "@/thanh_phan/thanh_dieu_huong_responsive";
+import NavBar from "@/components/NavBar";
 import Button from "@/components/Button";
 
 export default function HeroSection() {
@@ -22,7 +22,7 @@ export default function HeroSection() {
       
       {/* Navigation menu floating over video */}
       <div className="relative z-20 transition-all duration-300">
-        <ThanhDieuHuongResponsive />
+        <NavBar />
       </div>
       
       {/* Banner content */}

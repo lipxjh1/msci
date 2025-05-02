@@ -32,7 +32,7 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
   
   if (!showResult || !selectedCard || !isVisible) return null;
 
-  // Tạo hiệu ứng ánh sáng tùy theo độ hiếm
+  // Create light effect based on rarity
   const getRarityColor = (rarity?: string) => {
     switch(rarity) {
       case 'S': return 'rgba(255, 0, 0, 0.7)'; // Red
@@ -53,7 +53,7 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
     }
   };
   
-  // Tạo chuỗi động cho hạt vũ trụ
+  // Create dynamic array for cosmic particles
   const particles = Array.from({ length: 20 }).map((_, i) => {
     const size = Math.random() * 2 + 1;
     const top = Math.random() * 100;
@@ -123,11 +123,11 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
         <div className="text-center mb-8">
           <h2 className="font-orbitron text-3xl md:text-4xl font-bold mb-3 text-shadow-blue animate-title-glow">
             <span className="relative inline-block">
-              CHÚC MỪNG!
+              CONGRATULATIONS!
               <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
             </span>
           </h2>
-          <p className="text-gray-300 text-lg animate-fade-in">Bạn đã nhận được phần thưởng đặc biệt!</p>
+          <p className="text-gray-300 text-lg animate-fade-in">You have received a special reward!</p>
         </div>
         
         {/* Card and Message */}
@@ -186,13 +186,13 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
           
           <div className="flex-1 text-center md:text-left animate-fade-in">
             <h3 className="font-orbitron text-xl text-gray-200 mb-2">
-              Bạn đã nhận được
+              You have received
             </h3>
             <p className="font-orbitron text-3xl md:text-4xl font-bold mb-3 text-shadow-blue animate-title-glow" style={{ color: selectedCard.classColor }}>
               {selectedCard.name}
             </p>
             
-            {/* Class với icon */}
+            {/* Class with icon */}
             <div className="inline-flex items-center px-3 py-1 mb-3 bg-[#05121d]/80 rounded-full">
               <span className="inline-block w-3 h-3 rounded-full mr-2" style={{ backgroundColor: selectedCard.classColor }}></span>
               <span className="text-sm font-semibold" style={{ color: selectedCard.classColor }}>
@@ -200,57 +200,58 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
               </span>
             </div>
             
-            {/* Thêm mô tả kỹ năng nếu có */}
-            {selectedCard.description && (
-              <div className="p-3 mb-4 bg-[#05121d]/80 border-l-2 rounded" style={{ borderColor: selectedCard.classColor }}>
-                <p className="font-rajdhani text-white/90 italic">
-                  "{selectedCard.description}"
-                </p>
-              </div>
-            )}
+            {/* Character description */}
+            <p className="text-gray-300 mb-6">
+              {selectedCard.description}
+            </p>
             
-            {/* Thêm danh sách kỹ năng */}
-            {selectedCard.skills && selectedCard.skills.length > 0 && (
-              <div className="mb-6">
-                <p className="text-sm text-gray-400 mb-2">Kỹ năng:</p>
-                <div className="flex flex-wrap gap-2">
-                  {selectedCard.skills.map((skill, index) => (
-                    <span 
-                      key={index} 
-                      className="inline-block px-3 py-1 bg-[#05121d]/80 rounded-full text-sm border border-[var(--accent-blue-bright)]/30 text-white/80"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+            {/* Character stats */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-6">
+              <div>
+                <p className="text-xs text-gray-400">Attack</p>
+                <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-red-500" style={{ width: `${selectedCard.stats.attack}%` }}></div>
                 </div>
               </div>
-            )}
-            
-            {/* Action buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <a 
-                href="https://t.me/your_telegram_group" 
-                target="_blank" 
-                rel="noreferrer"
-                className="font-rajdhani text-lg font-bold tracking-wider px-8 py-3 bg-gradient-to-r from-[#0088cc] to-[#0070a9] text-white rounded-lg hover:shadow-lg hover:shadow-[#0088cc]/30 transition-all duration-300 flex items-center justify-center"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="mr-2" viewBox="0 0 16 16">
-                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
-                </svg>
-                Chơi Ngay
-              </a>
-              
-              <button
-                onClick={() => {
-                  closePopup();
-                  setTimeout(() => handleSpin(), 300);
-                }}
-                className="font-rajdhani text-lg font-bold tracking-wider px-8 py-3 bg-transparent border border-[var(--accent-blue-bright)] rounded-lg text-white hover:bg-[var(--accent-blue-bright)]/10 transition-all duration-300"
-              >
-                Quay Tiếp
-              </button>
+              <div>
+                <p className="text-xs text-gray-400">Defense</p>
+                <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-blue-500" style={{ width: `${selectedCard.stats.defense}%` }}></div>
+                </div>
+              </div>
+              <div>
+                <p className="text-xs text-gray-400">Health</p>
+                <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-green-500" style={{ width: `${selectedCard.stats.health}%` }}></div>
+                </div>
+              </div>
+              <div>
+                <p className="text-xs text-gray-400">Speed</p>
+                <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-yellow-500" style={{ width: `${selectedCard.stats.speed}%` }}></div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+        
+        {/* Actions */}
+        <div className="pt-8 border-t border-white/10 mt-8 flex flex-col md:flex-row gap-4 items-center justify-center">
+          <button 
+            onClick={closePopup}
+            className="px-5 py-2 border border-[var(--accent-blue-bright)] rounded-md text-[var(--accent-blue-bright)] hover:bg-[var(--accent-blue-bright)]/10 transition-colors duration-300"
+          >
+            Close
+          </button>
+          <button 
+            onClick={() => {
+              closePopup();
+              handleSpin();
+            }}
+            className="px-5 py-2 bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] text-white rounded-md hover:shadow-lg hover:shadow-[var(--accent-blue-bright)]/20 transition-all duration-300"
+          >
+            Spin Again
+          </button>
         </div>
       </div>
     </div>

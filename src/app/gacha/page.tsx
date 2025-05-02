@@ -21,10 +21,10 @@ export default function GachaPage() {
   const cardsContainerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   
-  // Dữ liệu thẻ từ CardInterface
+  // Card data from CardInterface
   const cards = CardsData;
 
-  // Tạo bộ thẻ mở rộng để hiệu ứng di chuyển liên tục
+  // Create extended card set for continuous movement effect
   const extendedCards = [...cards, ...cards, ...cards, ...cards, ...cards, ...cards, ...cards, ...cards, ...cards, ...cards];
 
   // Random card with weighted probability
@@ -36,7 +36,7 @@ export default function GachaPage() {
       'C': 0.55   // 55%
     };
 
-    // Xác định độ hiếm
+    // Determine rarity
     const rand = Math.random();
     let rarity: 'S' | 'A' | 'B' | 'C';
     
@@ -50,15 +50,15 @@ export default function GachaPage() {
       rarity = 'C';
     }
     
-    // Lọc các thẻ theo độ hiếm
+    // Filter cards by rarity
     const cardsOfRarity = cards.filter(card => card.rarity === rarity);
     
-    // Nếu không có thẻ nào phù hợp, trả về một thẻ ngẫu nhiên
+    // If no matching cards, return a random card
     if (cardsOfRarity.length === 0) {
       return cards[Math.floor(Math.random() * cards.length)];
     }
     
-    // Chọn ngẫu nhiên một thẻ từ danh sách đã lọc
+    // Choose a random card from the filtered list
     return cardsOfRarity[Math.floor(Math.random() * cardsOfRarity.length)];
   };
   
@@ -73,7 +73,7 @@ export default function GachaPage() {
       setIsLoaded(true);
     }, 100);
 
-    // Reset container position khi component được mount
+    // Reset container position when component is mounted
     if (cardsContainerRef.current) {
       cardsContainerRef.current.style.transform = 'translateX(0)';
     }
@@ -84,28 +84,28 @@ export default function GachaPage() {
   const animateCardSelection = async () => {
     if (!cardsContainerRef.current) return;
     
-    // Đặt lại vị trí ban đầu
+    // Reset to initial position
     cardsContainerRef.current.style.transition = 'none';
     cardsContainerRef.current.style.transform = 'translateX(0)';
     
-    // Force reflow để reset animation
+    // Force reflow to reset animation
     void cardsContainerRef.current.offsetWidth;
     
-    // Thêm class animation
+    // Add animation class
     cardsContainerRef.current.classList.add('spinning-cards');
     
-    // Đặt thời gian quay là 3 giây
+    // Set spin time to 3 seconds
     setTimeout(() => {
       if (!cardsContainerRef.current) return;
       
-      // Dừng animation
+      // Stop animation
       cardsContainerRef.current.classList.remove('spinning-cards');
       
-      // Chọn card ngẫu nhiên
+      // Select a random card
       const card = getRandomCard();
       setSelectedCard(card);
       
-      // Hiển thị kết quả sau 500ms
+      // Show result after 500ms
       setTimeout(() => {
         setShowResult(true);
         setIsSpinning(false);
@@ -120,13 +120,13 @@ export default function GachaPage() {
     setShowResult(false);
     setSelectedCard(null);
     
-    // Bắt đầu animation di chuyển các thẻ
+    // Start card animation
     animateCardSelection();
   };
 
   return (
     <main className="min-h-screen bg-[#041019] text-white overflow-hidden">
-      {/* Thanh điều hướng */}
+      {/* Navigation Bar */}
       <div className="relative z-30">
       <ThanhDieuHuongResponsive />
       </div>
@@ -145,11 +145,11 @@ export default function GachaPage() {
           <div className="text-center mb-4 md:mb-6">
             <h2 className="font-orbitron text-2xl md:text-3xl font-bold mb-3 text-shadow-blue animate-title-glow">
               <span className="relative inline-block">
-                VÒNG QUAY MAY MẮN
+                LUCKY SPIN SYSTEM
                 <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
               </span>
             </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto text-sm md:text-base">Thử vận may của bạn với hệ thống Gacha độc đáo. Quay để có cơ hội nhận được các nhân vật hiếm với tỷ lệ rơi khác nhau.</p>
+            <p className="text-gray-300 max-w-2xl mx-auto text-sm md:text-base">Test your luck with our unique Gacha system. Spin for a chance to receive rare characters with different drop rates.</p>
           </div>
 
           {/* Cards Container */}
@@ -170,7 +170,7 @@ export default function GachaPage() {
               isSpinning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg hover:shadow-[var(--accent-blue-glow)]/40'
             }`}
           >
-                {isSpinning ? 'ĐANG QUAY...' : 'QUAY GACHA'}
+                {isSpinning ? 'SPINNING...' : 'SPIN GACHA'}
           </button>
             </div>
           </div>

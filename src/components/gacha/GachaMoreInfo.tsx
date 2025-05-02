@@ -49,14 +49,14 @@ const GachaMoreInfo: React.FC = () => {
             <h3 className="font-orbitron text-lg md:text-xl font-bold text-white mb-3 flex items-center">
               <span className="text-yellow-400 mr-2 group-hover:animate-pulse transition-all">⚡</span> 
               <span className="relative inline-block">
-                Những Huyền Thoại Đang Chờ Bạn
+                Legends Waiting For You
                 <div className="absolute -bottom-2 left-0 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent transition-all duration-300"></div>
               </span>
             </h3>
             
             <div className="mb-4">
               <h4 className="font-orbitron text-base md:text-lg font-bold text-white/90 mb-3 text-shadow-sm pb-2 border-b border-white/10">
-                Nhân Vật S Huyền Thoại
+                Legendary S Characters
               </h4>
               
               <div className="relative h-32 md:h-40 mb-4 grid grid-cols-3 gap-3">
@@ -88,29 +88,29 @@ const GachaMoreInfo: React.FC = () => {
                     <span className="text-red-500 mr-2">🔥</span>
                     <span className="font-bold text-red-400">Akane (Gunner)</span>
                   </div>
-                  <p className="ml-6 text-xs md:text-sm">"Shooting Star" - Bắn toàn bộ robot trong 3 giây!</p>
+                  <p className="ml-6 text-xs md:text-sm">"Shooting Star" - Shoots all robots within 3 seconds!</p>
                 </li>
                 <li className="bg-[#051525]/80 p-3 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-blue-500 transform hover:translate-x-2 transition-all duration-300">
                   <div className="flex items-center mb-1">
                     <span className="text-blue-500 mr-2">❄️</span>
                     <span className="font-bold text-blue-400">Alice (Sniper)</span>
                   </div>
-                  <p className="ml-6 text-xs md:text-sm">"Hide on Bush" - Ẩn thân và bất tử 5 giây</p>
+                  <p className="ml-6 text-xs md:text-sm">"Hide on Bush" - Becomes invisible and immortal for 5 seconds</p>
                 </li>
                 <li className="bg-[#051525]/80 p-3 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-orange-500 transform hover:translate-x-2 transition-all duration-300">
                   <div className="flex items-center mb-1">
                     <span className="text-orange-500 mr-2">💥</span>
                     <span className="font-bold text-orange-400">Caitlyn (Rocket)</span>
                   </div>
-                  <p className="ml-6 text-xs md:text-sm">"Big Bang" - Càn quét toàn màn chơi</p>
+                  <p className="ml-6 text-xs md:text-sm">"Big Bang" - Sweeps the entire level</p>
                 </li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-orbitron text-base md:text-lg font-bold text-white/90 mb-2 text-shadow-sm">Tiến Hóa Anh Hùng</h4>
+              <h4 className="font-orbitron text-base md:text-lg font-bold text-white/90 mb-2 text-shadow-sm">Hero Evolution</h4>
               <p className="text-xs md:text-sm text-gray-300 p-3 bg-[#051525]/80 rounded-lg mb-3">
-                Mỗi nhân vật đều có vai trò quan trọng trong chiến lược của bạn. Đừng coi thường những anh hùng cấp thấp - họ có thể tiến hóa lên cấp S!
+                Each character plays an important role in your strategy. Don't underestimate low-tier heroes - they can evolve to S rank!
               </p>
               
               {/* Star evolution visualization */}
@@ -138,7 +138,7 @@ const GachaMoreInfo: React.FC = () => {
             <h3 className="font-orbitron text-lg md:text-xl font-bold text-white mb-3 flex items-center">
               <span className="text-purple-400 mr-2 group-hover:animate-pulse transition-all">💎</span> 
               <span className="relative inline-block">
-                Tỷ Lệ Minh Bạch
+                Transparent Rates
                 <div className="absolute -bottom-2 left-0 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent transition-all duration-300"></div>
               </span>
             </h3>
@@ -174,82 +174,138 @@ C (Common):    55%`}
             </div>
             
             <div>
-              <h4 className="font-orbitron text-base md:text-lg font-bold text-white/90 mb-2 text-shadow-sm">Mẹo Pro Gacha</h4>
+              <h4 className="font-orbitron text-base md:text-lg font-bold text-white/90 mb-2 text-shadow-sm">Pro Gacha Tips</h4>
               
               <ul className="space-y-2 text-gray-300">
                 <li className="flex p-3 hover:bg-[#051525] rounded-lg transition-colors border-l-2 border-cyan-500 transform hover:translate-x-2 transition-all duration-300">
                   <span className="text-cyan-400 mr-3 text-sm md:text-base">01</span>
                   <div>
-                    <p className="font-bold text-white text-sm md:text-base">Kết hợp thông minh</p>
-                    <p className="text-xs md:text-sm">Dùng Character Ticket cho may mắn lớn, Piece Ticket cho tiến độ ổn định</p>
+                    <p className="font-bold text-white text-sm md:text-base">Smart combination</p>
+                    <p className="text-xs md:text-sm">Use Character Tickets for better luck, Piece Tickets for steady progress</p>
                   </div>
                 </li>
                 <li className="flex p-3 hover:bg-[#051525] rounded-lg transition-colors border-l-2 border-cyan-500 transform hover:translate-x-2 transition-all duration-300">
                   <span className="text-cyan-400 mr-3 text-sm md:text-base">02</span>
                   <div>
-                    <p className="font-bold text-white text-sm md:text-base">Săn sự kiện</p>
-                    <p className="text-xs md:text-sm">Rate up cho nhân vật hot trong các event đặc biệt</p>
+                    <p className="font-bold text-white text-sm md:text-base">Hunt for events</p>
+                    <p className="text-xs md:text-sm">Rate ups for hot characters during special events</p>
                   </div>
                 </li>
                 <li className="flex p-3 hover:bg-[#051525] rounded-lg transition-colors border-l-2 border-cyan-500 transform hover:translate-x-2 transition-all duration-300">
                   <span className="text-cyan-400 mr-3 text-sm md:text-base">03</span>
                   <div>
-                    <p className="font-bold text-white text-sm md:text-base">Giữ nhân vật trùng</p>
-                    <p className="text-xs md:text-sm">Dùng để nâng Star hoặc tiến hóa sau này</p>
+                    <p className="font-bold text-white text-sm md:text-base">Keep duplicate characters</p>
+                    <p className="text-xs md:text-sm">Use them to increase Stars or evolve later</p>
                   </div>
                 </li>
               </ul>
             </div>
-            
-            {/* Animated tip banner */}
-            <div className="mt-4 relative p-3 bg-gradient-to-r from-[#051525]/80 to-[#05121d]/80 rounded-lg border border-cyan-500/20 overflow-hidden group/banner">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-cyan-500/0 animate-shine"></div>
-              <h5 className="font-orbitron text-sm md:text-base font-bold text-cyan-400 mb-1 flex items-center">
-                <span className="mr-2">💡</span> Không Chỉ Là Con Số
-              </h5>
-              <p className="text-xs md:text-sm text-gray-300">
-                Tỷ lệ rơi chỉ là một phần của trải nghiệm Gacha. Chiến lược sử dụng nhân vật mới mới là chìa khóa chiến thắng!
-              </p>
-            </div>
           </section>
         </div>
         
-        {/* Extra section for desktop */}
-        <div className="hidden md:block bg-[#041019]/60 p-4 rounded-xl border border-[var(--accent-blue-bright)]/30 animate-fade-in-delayed">
-          <div className="text-center">
-            <h3 className="font-orbitron text-xl font-bold text-white mb-2">
-              <span className="relative inline-block">
-                BÍ QUYẾT GACHA HIỆU QUẢ
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-              </span>
-            </h3>
-            <p className="text-sm text-gray-300 max-w-3xl mx-auto mb-4">
-              Khám phá những chiến thuật nâng cao để tối ưu hóa cơ hội nhận được những anh hùng mạnh nhất trong hệ thống Gacha!
-            </p>
+        {/* FAQ Section */}
+        <div 
+          ref={(el) => { sectionRefs.current[2] = el; }}
+          className="bg-[#041019]/60 p-4 rounded-xl border border-[var(--accent-blue-bright)]/30 hover:border-[var(--accent-blue-bright)]/50 transition-all shadow-lg hover:shadow-[var(--accent-blue-bright)]/5 reveal-bottom">
+          <h3 className="font-orbitron text-lg md:text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">
+            Frequently Asked Questions
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-[#051525]/80 p-3 rounded-lg border-l-2 border-cyan-500">
+              <h4 className="text-white font-bold mb-2">How often are new heroes added?</h4>
+              <p className="text-gray-300 text-sm">We add 2-3 new heroes every month, each with unique abilities and impressive visuals.</p>
+            </div>
             
-            <div className="grid grid-cols-3 gap-4 mt-4">
-              <div className="bg-[#051525]/50 p-3 rounded-lg border border-[var(--accent-blue-bright)]/10 hover:border-[var(--accent-blue-bright)]/30 transition-all">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-full mx-auto flex items-center justify-center mb-2">
-                  <span className="text-blue-400 text-xl">🔄</span>
+            <div className="bg-[#051525]/80 p-3 rounded-lg border-l-2 border-cyan-500">
+              <h4 className="text-white font-bold mb-2">Are there event heroes?</h4>
+              <p className="text-gray-300 text-sm">Yes! We have limited-time heroes available only during special events. Don't miss your chance to get them!</p>
+            </div>
+            
+            <div className="bg-[#051525]/80 p-3 rounded-lg border-l-2 border-cyan-500">
+              <h4 className="text-white font-bold mb-2">How does the pity system work?</h4>
+              <p className="text-gray-300 text-sm">After 50 pulls without an S hero, your chance increases by 0.1% per pull. After 90 pulls, you're guaranteed an S hero.</p>
+            </div>
+            
+            <div className="bg-[#051525]/80 p-3 rounded-lg border-l-2 border-cyan-500">
+              <h4 className="text-white font-bold mb-2">Can I trade heroes with other players?</h4>
+              <p className="text-gray-300 text-sm">Not directly, but you can use the Fragment Exchange system to trade hero fragments with other players.</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Pity System Explanation */}
+        <div 
+          ref={(el) => { sectionRefs.current[3] = el; }}
+          className="bg-[#041019]/60 p-4 rounded-xl border border-[var(--accent-blue-bright)]/30 hover:border-[var(--accent-blue-bright)]/50 transition-all shadow-lg hover:shadow-[var(--accent-blue-bright)]/5 reveal-right"
+        >
+          <h3 className="font-orbitron text-lg md:text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">
+            Pity System & Special Bonuses
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-4">
+              <div className="bg-[#051525]/80 p-3 rounded-lg">
+                <h4 className="text-white font-bold mb-2 flex items-center">
+                  <span className="text-pink-400 mr-2">🎯</span> Pity Counter
+                </h4>
+                <p className="text-gray-300 text-sm mb-2">
+                  Your chance of getting an S hero increases with each unsuccessful pull. After 90 pulls, you're guaranteed an S rank hero!
+                </p>
+                <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 w-[80%] animate-pulse-slow"></div>
                 </div>
-                <h4 className="font-bold text-white text-base">Quay Gộp</h4>
-                <p className="text-xs text-gray-300">Quay 10 lần liên tiếp để nhận thêm ưu đãi đặc biệt</p>
+                <div className="flex justify-between mt-1">
+                  <span className="text-xs text-gray-400">0</span>
+                  <span className="text-xs text-purple-400">72/90</span>
+                  <span className="text-xs text-gray-400">90</span>
+                </div>
               </div>
               
-              <div className="bg-[#051525]/50 p-3 rounded-lg border border-[var(--accent-blue-bright)]/10 hover:border-[var(--accent-blue-bright)]/30 transition-all">
-                <div className="w-10 h-10 bg-purple-500/20 rounded-full mx-auto flex items-center justify-center mb-2">
-                  <span className="text-purple-400 text-xl">🎯</span>
-                </div>
-                <h4 className="font-bold text-white text-base">Gacha Mục Tiêu</h4>
-                <p className="text-xs text-gray-300">Tập trung vào các banner có rate-up cho nhân vật bạn cần</p>
+              <div className="bg-[#051525]/80 p-3 rounded-lg">
+                <h4 className="text-white font-bold mb-2 flex items-center">
+                  <span className="text-yellow-400 mr-2">🎁</span> Special Bonuses
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-center">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-yellow-500 mr-2"></span>
+                    First-time bonus: Double drops on first 10x pull
+                  </li>
+                  <li className="flex items-center">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-yellow-500 mr-2"></span>
+                    Daily free pull: One free pull every day
+                  </li>
+                  <li className="flex items-center">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-yellow-500 mr-2"></span>
+                    VIP system: Increases drop rates the more you play
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="bg-[#051525]/80 p-3 rounded-lg h-full flex flex-col justify-between">
+              <div>
+                <h4 className="text-white font-bold mb-2 flex items-center">
+                  <span className="text-green-400 mr-2">🔄</span> Regular Update Schedule
+                </h4>
+                <p className="text-gray-300 text-sm mb-4">
+                  We regularly update our Gacha system with new heroes and improvements. Stay tuned for exciting additions!
+                </p>
               </div>
               
-              <div className="bg-[#051525]/50 p-3 rounded-lg border border-[var(--accent-blue-bright)]/10 hover:border-[var(--accent-blue-bright)]/30 transition-all">
-                <div className="w-10 h-10 bg-red-500/20 rounded-full mx-auto flex items-center justify-center mb-2">
-                  <span className="text-red-400 text-xl">⏱️</span>
+              <div className="grid grid-cols-3 gap-2 mt-auto">
+                <div className="bg-[#041019] p-2 rounded-lg text-center">
+                  <div className="text-xs text-green-400 mb-1">Daily</div>
+                  <div className="text-white text-xs">Free Pull</div>
                 </div>
-                <h4 className="font-bold text-white text-base">Thời Điểm</h4>
-                <p className="text-xs text-gray-300">Quay Gacha trong các sự kiện đặc biệt để tăng tỷ lệ thành công</p>
+                <div className="bg-[#041019] p-2 rounded-lg text-center">
+                  <div className="text-xs text-blue-400 mb-1">Weekly</div>
+                  <div className="text-white text-xs">New Event</div>
+                </div>
+                <div className="bg-[#041019] p-2 rounded-lg text-center">
+                  <div className="text-xs text-purple-400 mb-1">Monthly</div>
+                  <div className="text-white text-xs">New Heroes</div>
+                </div>
               </div>
             </div>
           </div>

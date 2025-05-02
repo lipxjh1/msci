@@ -7,6 +7,12 @@ export interface Card {
   rarity?: 'S' | 'A' | 'B' | 'C';
   description?: string;
   skills?: string[];
+  stats: {
+    attack: number;
+    defense: number;
+    health: number;
+    speed: number;
+  };
 }
 
 export const CardsData: Card[] = [
@@ -17,8 +23,14 @@ export const CardsData: Card[] = [
     imageUrl: "/images/ga-cha/anh1.png",
     classColor: "#FF5252",
     rarity: "S",
-    description: "Shooting Star - Bắn toàn bộ robot trong 3 giây!",
-    skills: ["Hỏa lực mạnh", "Sát thương diện rộng"]
+    description: "Shooting Star - Eliminates all robots within 3 seconds!",
+    skills: ["Heavy firepower", "Area damage"],
+    stats: {
+      attack: 90,
+      defense: 60,
+      health: 75,
+      speed: 85
+    }
   },
   {
     id: 2,
@@ -27,8 +39,14 @@ export const CardsData: Card[] = [
     imageUrl: "/images/ga-cha/anh2.png",
     classColor: "#2196F3",
     rarity: "S",
-    description: "Hide on Bush - Ẩn thân và bất tử 5 giây",
-    skills: ["Tàng hình", "Sát thương chí mạng"]
+    description: "Hide on Bush - Becomes invisible and immortal for 5 seconds",
+    skills: ["Stealth", "Critical damage"],
+    stats: {
+      attack: 95,
+      defense: 45,
+      health: 65,
+      speed: 80
+    }
   },
   {
     id: 3,
@@ -37,8 +55,14 @@ export const CardsData: Card[] = [
     imageUrl: "/images/ga-cha/anh3.png",
     classColor: "#FF9800",
     rarity: "S",
-    description: "Big Bang - Càn quét toàn màn chơi",
-    skills: ["Nổ diện rộng", "Choáng kẻ địch"]
+    description: "Big Bang - Sweeps the entire gameplay area",
+    skills: ["Wide area explosion", "Stun enemies"],
+    stats: {
+      attack: 85,
+      defense: 70,
+      health: 80,
+      speed: 60
+    }
   },
   {
     id: 4,
@@ -47,8 +71,14 @@ export const CardsData: Card[] = [
     imageUrl: "/images/ga-cha/anh5.png",
     classColor: "#FF5252",
     rarity: "A",
-    description: "Storm Trooper - Bắn nhanh chưa từng thấy",
-    skills: ["Tốc độ đạn cao", "Đạn xuyên giáp"]
+    description: "Storm Trooper - Fires at unprecedented speed",
+    skills: ["High bullet velocity", "Armor-piercing rounds"],
+    stats: {
+      attack: 80,
+      defense: 55,
+      health: 70,
+      speed: 75
+    }
   },
   {
     id: 5,
@@ -57,7 +87,13 @@ export const CardsData: Card[] = [
     imageUrl: "/images/ga-cha/anh6.png",
     classColor: "#2196F3",
     rarity: "A",
-    description: "Eagle Eye - Không gì thoát khỏi tầm ngắm",
-    skills: ["Tầm bắn xa", "Chính xác tuyệt đối"]
+    description: "Eagle Eye - Nothing escapes her sight",
+    skills: ["Long range", "Perfect accuracy"],
+    stats: {
+      attack: 85,
+      defense: 40,
+      health: 60,
+      speed: 70
+    }
   }
 ]; 

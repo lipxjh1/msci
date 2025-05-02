@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Tải Game - M-SCI - Cuộc Chiến Vì Nhân Loại",
-  description: "Tải game M-SCI - Game khoa học viễn tưởng 2049, nơi bạn chiến đấu bên cạnh Elon Musk để bảo vệ nhân loại",
+  title: "Download Game - M-SCI - The Battle For Humanity",
+  description: "Download M-SCI game - Sci-fi game 2049, where you fight alongside Elon Musk to protect humanity",
 };
 
 export default function DownloadPage() {
@@ -19,7 +19,7 @@ export default function DownloadPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/overwatch_bg_2.jpg"
-            alt="Tải Game"
+            alt="Download Game"
             fill
             priority
             sizes="100vw"
@@ -46,12 +46,12 @@ export default function DownloadPage() {
             <div className="max-w-3xl mx-auto text-center mt-10">
               <h1 className="font-orbitron text-5xl md:text-7xl font-extrabold text-white tracking-tighter mb-6 uppercase text-shadow-blue animate-title-glow cyber-halo">
                 <span className="relative inline-block">
-                  TẢI GAME
+                  DOWNLOAD GAME
                   <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
                 </span>
               </h1>
               <p className="font-roboto text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in">
-                THAM GIA CUỘC CHIẾN VÌ NHÂN LOẠI CÙNG ELON MUSK
+                JOIN THE BATTLE FOR HUMANITY WITH ELON MUSK
               </p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function DownloadPage() {
             {/* Download options */}
             <div className="bg-[#1a2634]/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 shadow-xl">
               <h2 className="font-orbitron text-2xl font-bold text-white mb-6 relative inline-block">
-                Tải Game M-SCI
+                Download M-SCI Game
                 <div className="absolute -bottom-2 left-0 h-1 w-12 bg-gradient-to-r from-[#F44336] to-transparent"></div>
               </h2>
 
@@ -85,17 +85,17 @@ export default function DownloadPage() {
                     <div>
                       <h3 className="font-medium text-white">Telegram Mini App</h3>
                       <p className="text-white/70 text-sm">
-                        Chơi ngay không cần tải về
+                        Play now without downloading
                       </p>
                     </div>
                   </div>
                   <a 
-                    href="https://t.me/musksci_bot/game"
+                    href="https://t.me/MSCIChannel"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center px-6 py-3 bg-[#0D1923] border border-[#F44336]/30 rounded-lg text-white font-medium hover:bg-[#F44336]/10 transition-colors duration-300"
                   >
-                    <span className="mr-2">Chơi ngay</span>
+                    <span className="mr-2">Play Now</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
@@ -111,7 +111,7 @@ export default function DownloadPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-medium text-white">Mobile (Sắp ra mắt)</h3>
+                      <h3 className="font-medium text-white">Mobile (Coming Soon)</h3>
                       <p className="text-white/70 text-sm">
                         Android & iOS - Q3 2025
                       </p>
@@ -121,7 +121,7 @@ export default function DownloadPage() {
                     disabled
                     className="w-full flex items-center justify-center px-6 py-3 bg-[#0D1923] border border-blue-500/30 rounded-lg text-white/50 font-medium cursor-not-allowed"
                   >
-                    <span className="mr-2">Sắp ra mắt</span>
+                    <span className="mr-2">Coming Soon</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -137,7 +137,7 @@ export default function DownloadPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-medium text-white">PC (Sắp ra mắt)</h3>
+                      <h3 className="font-medium text-white">PC (Coming Soon)</h3>
                       <p className="text-white/70 text-sm">
                         Windows & Mac - Q4 2025
                       </p>
@@ -147,7 +147,7 @@ export default function DownloadPage() {
                     disabled
                     className="w-full flex items-center justify-center px-6 py-3 bg-[#0D1923] border border-green-500/30 rounded-lg text-white/50 font-medium cursor-not-allowed"
                   >
-                    <span className="mr-2">Sắp ra mắt</span>
+                    <span className="mr-2">Coming Soon</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -175,7 +175,7 @@ export default function DownloadPage() {
 
               {/* Game details */}
               <div className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl p-6 shadow-lg">
-                <h3 className="font-medium text-white text-xl mb-4 font-orbitron">Thông tin Game</h3>
+                <h3 className="font-medium text-white text-xl mb-4 font-orbitron">Game Information</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-start">
@@ -185,8 +185,8 @@ export default function DownloadPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-medium text-white">Thời gian ra mắt</h4>
-                      <p className="text-white/70">Đã ra mắt trên Telegram Mini App</p>
+                      <h4 className="font-medium text-white">Release Date</h4>
+                      <p className="text-white/70">Already available on Telegram Mini App</p>
                     </div>
                   </div>
                   
@@ -197,8 +197,8 @@ export default function DownloadPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-medium text-white">Số người chơi</h4>
-                      <p className="text-white/70">10,000+ người chơi đã tham gia</p>
+                      <h4 className="font-medium text-white">Player Count</h4>
+                      <p className="text-white/70">10,000+ players have joined</p>
                     </div>
                   </div>
                   
@@ -209,8 +209,8 @@ export default function DownloadPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-medium text-white">Cập nhật mới nhất</h4>
-                      <p className="text-white/70">v1.5.2 - Thêm nhân vật mới và sự kiện</p>
+                      <h4 className="font-medium text-white">Latest Update</h4>
+                      <p className="text-white/70">v1.5.2 - New character and events added</p>
                     </div>
                   </div>
                 </div>
@@ -219,12 +219,12 @@ export default function DownloadPage() {
               {/* CTA */}
               <div className="text-center">
                 <a 
-                  href="https://t.me/musksci_bot/game" 
+                  href="https://t.me/MSCIChannel" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-block px-10 py-4 font-rajdhani font-bold tracking-wider text-shadow-sm button-cyber clip-hexagon hexagon-border text-white"
                 >
-                  CHƠI NGAY HÔM NAY
+                  PLAY NOW TODAY
                 </a>
               </div>
             </div>
@@ -237,29 +237,28 @@ export default function DownloadPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-orbitron text-3xl font-bold text-white mb-4">
-              Đăng ký nhận thông tin
+              Subscribe for Updates
             </h2>
             <p className="text-white/70 mb-8 font-inter">
-            Nhận thông báo về sự kiện, nhân vật mới, giftcode và tin tức M-SCI mới nhất
+              Receive notifications about events, new characters, gift codes and the latest M-SCI news
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
               <input
                 type="email"
-                placeholder="Nhập địa chỉ email của bạn"
+                placeholder="Enter your email address"
                 className="flex-grow px-4 py-3 bg-[#0f1923] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F44336]/50 focus:border-transparent text-white"
               />
               <button className="px-6 py-3 font-rajdhani font-bold tracking-wider text-shadow-sm button-cyber clip-hexagon hexagon-border text-white">
-                Đăng ký
+                Subscribe
               </button>
             </div>
 
             <p className="text-white/50 text-sm mt-4 font-roboto">
-              Chúng tôi tôn trọng quyền riêng tư của bạn. Xem{" "}
+              We respect your privacy. See our{" "}
               <Link href="#" className="text-[#F44336] hover:underline">
-                Chính sách bảo mật
-              </Link>{" "}
-              của chúng tôi.
+                Privacy Policy
+              </Link>.
             </p>
           </div>
         </div>

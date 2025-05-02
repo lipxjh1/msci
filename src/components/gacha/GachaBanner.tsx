@@ -10,7 +10,7 @@ const GachaBanner: React.FC = () => {
   const handleScroll = () => {
     if (bannerRef.current) {
       const { top } = bannerRef.current.getBoundingClientRect();
-      setOffsetY(-top * 0.5); // Hiệu ứng parallax
+      setOffsetY(-top * 0.5); // Parallax effect
     }
   };
 
@@ -80,15 +80,15 @@ const GachaBanner: React.FC = () => {
         </div>
         
         <p className="max-w-2xl text-lg md:text-xl text-gray-200 animate-fade-in mb-8">
-          THỬ VẬN MAY CỦA BẠN VỚI HỆ THỐNG GACHA ĐỘC ĐÁO
+          TEST YOUR LUCK WITH OUR UNIQUE GACHA SYSTEM
         </p>
         
         <div className="flex gap-4 animate-fade-in-up">
           <a href="#gacha-content" className="px-6 py-3 bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] text-white font-bold rounded-lg hover:shadow-lg hover:shadow-[var(--accent-blue-bright)]/30 transition-all duration-300">
-            Bắt Đầu Quay
+            Start Spinning
           </a>
           <a href="/about-us" className="px-6 py-3 bg-transparent border border-[var(--accent-blue-bright)] text-white font-bold rounded-lg hover:bg-[var(--accent-blue-bright)]/10 transition-all duration-300">
-            Tìm Hiểu Thêm
+            Learn More
           </a>
         </div>
       </div>
