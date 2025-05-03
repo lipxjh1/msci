@@ -6,6 +6,7 @@ import { useSupabase } from '@/context/SupabaseContext';
 import { AnhHung } from '@/loai';
 import dynamic from 'next/dynamic';
 import { Card } from '@/components/gacha/CardInterface';
+import Footer from "@/app/home/components/Footer";
 
 // Import components
 const GachaBanner = dynamic(() => import('@/components/gacha/GachaBanner'), { ssr: false });
@@ -90,25 +91,41 @@ export default function GachaPage() {
       // Set class color based on vai_tro
       let classType: 'Gunner' | 'Sniper' | 'Rocket' = 'Gunner';
       let classColor = '#FF5252';
+      let classImage = '/images/dan.png'; // Default Gunner image
       
       if (hero.vai_tro) {
         if (hero.vai_tro.id === 1) {
           classType = 'Gunner';
           classColor = '#FF5252';
+          classImage = '/images/dan.png'; // Gunner image
         } else if (hero.vai_tro.id === 2) {
           classType = 'Sniper';
           classColor = '#2196F3';
+          classImage = '/images/ngam.png'; // Sniper image
         } else if (hero.vai_tro.id === 3) {
           classType = 'Rocket';
           classColor = '#FF9800';
+          classImage = '/images/phao.png'; // Rocket image
         }
       }
+      
+      // Trường hợp đặc biệt cho Caitlyn
+      const isCaitlyn = hero.ten.toLowerCase().includes('caitlyn');
+      // Trường hợp đặc biệt cho Alice
+      const isAlice = hero.ten.toLowerCase().includes('alice');
+
+      // Use character's image if available, otherwise use class image
+      // Nếu là Caitlyn hoặc Alice, ưu tiên sử dụng hình ảnh từ Supabase
+      const characterImage = (isCaitlyn || isAlice) && hero.anh_dai_dien 
+        ? hero.anh_dai_dien 
+        : hero.anh_dai_dien || classImage;
       
       return {
         id: parseInt(hero.id),
         name: hero.ten,
         class: classType,
-        imageUrl: hero.anh_dai_dien || '/images/ga-cha/anh1.png', // Fallback image if none provided
+        imageUrl: characterImage, // Use character's image or class image
+        classImage: classImage, // Add class image separately
         classColor: classColor,
         rarity: rarity || 'C',
         description: hero.dac_diem || 'No description available',
@@ -365,6 +382,9 @@ export default function GachaPage() {
           }
         }
       `}</style>
+
+      {/* Add Footer component */}
+      <Footer />
     </main>
   );
 } 

@@ -328,9 +328,9 @@ export default function HeroesPage() {
       <ResponsiveNavigation />
 
       {/* Hero Banner */}
-      <div className="relative h-[100vh] overflow-hidden">
+      <div className="relative h-[50vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#041019]/30 to-[#041019] z-10"></div>
-        <div className="absolute inset-0 bg-[url('/images/overwatch_bg_2.jpg')] bg-cover bg-center bg-no-repeat">
+        <div className="absolute inset-0 bg-[url('/images/banner/trangchu.jpg')] bg-cover bg-center bg-no-repeat">
           {/* Animated particles */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse"></div>
@@ -596,7 +596,7 @@ export default function HeroesPage() {
         {/* Battlefield Image Background */}
         <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden">
           <Image 
-            src="/images/overwatch_bg_2.jpg" 
+            src="/images/banner/chantran1.jpg" 
             alt="Heroes battlefield" 
             fill
             sizes="100vw"

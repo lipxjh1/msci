@@ -3,44 +3,45 @@ import { BaiViet } from '@/types/bai_viet';
 import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import Image from 'next/image';
 import Link from 'next/link';
+import Footer from "@/app/home/components/Footer";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-async function getBaiViet() {
+async function getArticles() {
   const { data, error } = await supabase
     .from('bai_viet')
     .select('*')
     .order('ngay_dang', { ascending: false });
 
   if (error) {
-    console.error('Error fetching bai viet:', error);
+    console.error('Error fetching articles:', error);
     return [];
   }
 
   return data as BaiViet[];
 }
 
-export default async function TinTucPage() {
-  const baiViets = await getBaiViet();
+export default async function NewsPage() {
+  const articles = await getArticles();
   
-  // Lấy tất cả bài viết không cần lọc
-  const allArticles = baiViets;
+  // Get all articles from Supabase only
+  const allArticles = articles;
 
-  // Tách 4 bài viết nổi bật đầu tiên cho phần NEWS
+  // Split the first 4 featured articles for the NEWS section
   const featuredArticles = allArticles.slice(0, 4);
   
-  // Tất cả bài viết cho phần hiển thị dưới cùng
+  // All articles for the display at the bottom
   const regularArticles = allArticles;
 
-  // Format ngày tháng
+  // Format date
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('vi-VN', {
-      day: '2-digit',
-      month: '2-digit',
+    return new Intl.DateTimeFormat('en-US', {
+      day: 'numeric',
+      month: 'short',
       year: 'numeric'
     }).format(date);
   };
@@ -52,7 +53,7 @@ export default async function TinTucPage() {
       {/* Hero Banner */}
       <div className="relative w-full h-[30vh] md:h-[40vh] overflow-hidden">
         <Image 
-          src="/images/overwatch_bg_2.jpg" 
+          src="/images/banner/trangchu.jpg" 
           alt="News Hero Banner" 
           fill 
           priority
@@ -78,7 +79,7 @@ export default async function TinTucPage() {
             {featuredArticles.map((article) => (
               <Link 
                 key={article.id}
-                href={`/tin-tuc/${article.id}`}
+                href={`/new/${article.id}`}
                 className="group"
               >
                 <div className="bg-[#1F2326] rounded-md overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#00A4EA]/10 h-full flex flex-col">
@@ -115,7 +116,7 @@ export default async function TinTucPage() {
                         {formatDate(article.ngay_dang)}
                       </span>
                       <span className="text-xs text-[#00A4EA] group-hover:text-[#FF7D00] transition-colors flex items-center">
-                        Xem chi tiết
+                        View details
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1 transition-transform transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -131,13 +132,13 @@ export default async function TinTucPage() {
         {/* Patch Notes Button */}
         <div className="flex justify-center mb-16">
           <Link 
-            href="/ban-cap-nhat"
+            href="/patch-notes"
             className="bg-[#FF7D00] hover:bg-[#FF9D40] text-white font-medium px-8 py-3 rounded-md transition-all duration-300 hover:shadow-lg hover:shadow-[#FF7D00]/30 uppercase tracking-wide flex items-center"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-            Bản Cập Nhật
+            Patch Notes
           </Link>
         </div>
 
@@ -147,7 +148,7 @@ export default async function TinTucPage() {
             <div className="w-full border-t border-gray-700"></div>
           </div>
           <div className="relative flex justify-center">
-            <span className="bg-[#16181D] px-4 text-sm text-gray-400 uppercase tracking-widest">Tất cả bài viết</span>
+            <span className="bg-[#16181D] px-4 text-sm text-gray-400 uppercase tracking-widest">All Articles</span>
           </div>
         </div>
 
@@ -157,7 +158,7 @@ export default async function TinTucPage() {
             regularArticles.map((article) => (
               <Link 
                 key={article.id}
-                href={`/tin-tuc/${article.id}`}
+                href={`/new/${article.id}`}
                 className="block group"
               >
                 <div className="flex flex-col md:flex-row bg-[#1F2326] rounded-md overflow-hidden transition-all duration-300 hover:bg-[#24282C] hover:shadow-lg">
@@ -194,7 +195,7 @@ export default async function TinTucPage() {
                         {formatDate(article.ngay_dang)}
                       </span>
                       <span className="text-sm text-[#00A4EA] group-hover:text-[#FF7D00] transition-colors flex items-center">
-                        Xem chi tiết
+                        View details
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transition-transform transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -211,12 +212,15 @@ export default async function TinTucPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Không có bài viết nào</h3>
-              <p className="text-gray-400 max-w-lg mx-auto">Hiện tại chưa có bài viết nào. Vui lòng quay lại sau.</p>
+              <h3 className="text-xl font-bold text-white mb-2">No articles found</h3>
+              <p className="text-gray-400 max-w-lg mx-auto">There are currently no articles available. Please check back later.</p>
             </div>
           )}
         </div>
       </div>
+      
+      {/* Add Footer component */}
+      <Footer />
     </div>
   );
 } 

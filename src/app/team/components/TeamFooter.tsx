@@ -9,7 +9,7 @@ const TeamFooter = () => {
       {/* Battlefield Image Background */}
       <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
         <Image 
-          src="/images/overwatch_bg_2.jpg" 
+          src="/images/banner/trangchu.jpg" 
           alt="Team battlefield" 
           fill
           sizes="100vw"

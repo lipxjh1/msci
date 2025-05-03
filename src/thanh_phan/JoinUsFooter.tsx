@@ -10,7 +10,7 @@ export default function JoinUsFooter() {
       {/* Battlefield Image Background */}
       <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden">
         <Image 
-          src="/images/overwatch_bg_2.jpg" 
+          src="/images/banner/chantran1.jpg" 
           alt="Heroes battlefield" 
           fill
           sizes="100vw"

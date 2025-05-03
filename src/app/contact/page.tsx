@@ -176,7 +176,7 @@ export default function ContactPage() {
         {/* Background image with parallax effect */}
         <div className="absolute inset-0">
           <Image
-            src="/images/overwatch_bg_2.jpg"
+            src="/images/banner/trangchu.jpg"
             alt="Contact"
             fill
             priority
@@ -319,7 +319,7 @@ export default function ContactPage() {
               {/* Map or image */}
               <div className="relative h-64 rounded-2xl overflow-hidden border border-white/5">
                 <Image
-                  src="/images/overwatch_bg_2.jpg"
+                  src="/images/banner/trangchu.jpg"
                   alt="Map"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"

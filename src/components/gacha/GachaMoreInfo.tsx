@@ -1,10 +1,78 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { useSupabase } from '@/context/SupabaseContext';
+import { AnhHung } from '@/loai';
 
 const GachaMoreInfo: React.FC = () => {
+  const supabase = useSupabase();
+  const [legendaryHeroes, setLegendaryHeroes] = useState<AnhHung[]>([]);
+  const [loading, setLoading] = useState(true);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+  
+  // Fetch legendary heroes from Supabase
+  useEffect(() => {
+    const fetchLegendaryHeroes = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('anh_hung')
+          .select(`
+            *,
+            vai_tro(id, ten, mo_ta),
+            do_hi_em(id, ma, ten, mau_sac)
+          `)
+          .eq('do_hi_em.ma', 'S')
+          .order('ten');
+          
+        if (error) {
+          console.error('Error fetching legendary heroes:', error);
+          return;
+        }
+        
+        if (data) {
+          // Sắp xếp để hiển thị Alice ở vị trí nổi bật
+          const sortedHeroes = [...data as AnhHung[]];
+          
+          // Tìm Alice để đưa lên vị trí thứ 2
+          const aliceIndex = sortedHeroes.findIndex(hero => hero.ten.toLowerCase().includes('alice'));
+          if (aliceIndex >= 0 && aliceIndex !== 1 && sortedHeroes.length > 1) {
+            // Nếu tìm thấy Alice và không ở vị trí thứ 2
+            const alice = sortedHeroes.splice(aliceIndex, 1)[0];
+            if (sortedHeroes.length >= 1) {
+              // Đảm bảo có đủ phần tử trước khi chèn
+              sortedHeroes.splice(1, 0, alice);
+            } else {
+              // Nếu không có đủ 1 phần tử, thêm vào cuối
+              sortedHeroes.push(alice);
+            }
+          }
+          
+          // Tìm Caitlyn để đưa lên vị trí thứ 3
+          const caitlynIndex = sortedHeroes.findIndex(hero => hero.ten.toLowerCase().includes('caitlyn'));
+          if (caitlynIndex >= 0 && caitlynIndex !== 2 && sortedHeroes.length > 2) {
+            // Nếu tìm thấy Caitlyn và không ở vị trí thứ 3
+            const caitlyn = sortedHeroes.splice(caitlynIndex, 1)[0];
+            if (sortedHeroes.length >= 2) {
+              // Đảm bảo có đủ phần tử trước khi chèn
+              sortedHeroes.splice(2, 0, caitlyn);
+            } else {
+              // Nếu không có đủ 2 phần tử, thêm vào cuối
+              sortedHeroes.push(caitlyn);
+            }
+          }
+          
+          setLegendaryHeroes(sortedHeroes);
+        }
+      } catch (err) {
+        console.error('Error:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchLegendaryHeroes();
+  }, [supabase]);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,6 +96,14 @@ const GachaMoreInfo: React.FC = () => {
       });
     };
   }, []);
+
+  // Helper function to determine class color
+  const getClassColor = (vaiTroId: number | null) => {
+    if (vaiTroId === 1) return 'red-500'; // Gunner
+    if (vaiTroId === 2) return 'blue-500'; // Sniper
+    if (vaiTroId === 3) return 'orange-500'; // Rocket
+    return 'yellow-500'; // Default
+  };
 
   return (
     <section 
@@ -60,50 +136,66 @@ const GachaMoreInfo: React.FC = () => {
               </h4>
               
               <div className="relative h-32 md:h-40 mb-4 grid grid-cols-3 gap-3">
-                {[1, 2, 3].map((num, idx) => (
-                  <div key={idx} className="relative overflow-hidden rounded-lg shadow-lg group/card">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-red-500/20 rounded-lg blur opacity-60 group-hover/card:opacity-90 transition duration-500"></div>
-                    <div className="relative h-full overflow-hidden rounded-lg">
-                      <Image 
-                        src={`/images/ga-cha/anh${num}.png`} 
-                        alt={`Legendary ${idx+1}`} 
-                        fill 
-                        className="object-cover transition-transform duration-500 group-hover/card:scale-110" 
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                      <div className="absolute bottom-2 left-2">
-                        <div className="inline-flex items-center px-2 py-1 bg-black/60 rounded-full backdrop-blur-sm">
-                          <span className="w-2 h-2 rounded-full bg-red-500 mr-1"></span>
-                          <span className="text-xs text-white font-bold">S</span>
+                {loading ? (
+                  <div className="col-span-3 flex items-center justify-center">
+                    <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                ) : (
+                  legendaryHeroes.slice(0, 3).map((hero, index) => (
+                    <div key={hero.id} className="relative overflow-hidden rounded-lg shadow-lg group/card">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-red-500/20 rounded-lg blur opacity-60 group-hover/card:opacity-90 transition duration-500"></div>
+                      <div className="relative h-full overflow-hidden rounded-lg">
+                        <Image 
+                          src={hero.anh_dai_dien || `/images/${hero.vai_tro_id === 1 ? 'dan' : hero.vai_tro_id === 2 ? 'ngam' : 'phao'}.png`}
+                          alt={hero.ten}
+                          fill 
+                          className="object-cover transition-transform duration-500 group-hover/card:scale-110" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div className="absolute bottom-2 left-2">
+                          <div className="inline-flex items-center px-2 py-1 bg-black/60 rounded-full backdrop-blur-sm">
+                            <span className={`w-2 h-2 rounded-full bg-${getClassColor(hero.vai_tro_id)} mr-1`}></span>
+                            <span className="text-xs text-white font-bold">S</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))
+                )}
               </div>
               
               <ul className="space-y-2 text-gray-300">
-                <li className="bg-[#051525]/80 p-3 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-red-500 transform hover:translate-x-2 transition-all duration-300">
-                  <div className="flex items-center mb-1">
-                    <span className="text-red-500 mr-2">🔥</span>
-                    <span className="font-bold text-red-400">Akane (Gunner)</span>
-                  </div>
-                  <p className="ml-6 text-xs md:text-sm">"Shooting Star" - Shoots all robots within 3 seconds!</p>
-                </li>
-                <li className="bg-[#051525]/80 p-3 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-blue-500 transform hover:translate-x-2 transition-all duration-300">
-                  <div className="flex items-center mb-1">
-                    <span className="text-blue-500 mr-2">❄️</span>
-                    <span className="font-bold text-blue-400">Alice (Sniper)</span>
-                  </div>
-                  <p className="ml-6 text-xs md:text-sm">"Hide on Bush" - Becomes invisible and immortal for 5 seconds</p>
-                </li>
-                <li className="bg-[#051525]/80 p-3 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-orange-500 transform hover:translate-x-2 transition-all duration-300">
-                  <div className="flex items-center mb-1">
-                    <span className="text-orange-500 mr-2">💥</span>
-                    <span className="font-bold text-orange-400">Caitlyn (Rocket)</span>
-                  </div>
-                  <p className="ml-6 text-xs md:text-sm">"Big Bang" - Sweeps the entire level</p>
-                </li>
+                {loading ? (
+                  Array(3).fill(0).map((_, i) => (
+                    <li key={i} className="bg-[#051525]/80 p-3 rounded-lg animate-pulse h-20"></li>
+                  ))
+                ) : (
+                  legendaryHeroes.slice(0, 3).map((hero) => {
+                    // Determine class/role based on vai_tro_id
+                    const classType = hero.vai_tro_id === 1 ? "Gunner" : 
+                                    hero.vai_tro_id === 2 ? "Sniper" : 
+                                    hero.vai_tro_id === 3 ? "Rocket" : "Unknown";
+                    
+                    // Determine color and icon based on class
+                    const colorClass = hero.vai_tro_id === 1 ? "red-500" : 
+                                      hero.vai_tro_id === 2 ? "blue-500" : 
+                                      hero.vai_tro_id === 3 ? "orange-500" : "gray-500";
+                    
+                    const icon = hero.vai_tro_id === 1 ? "🔥" : 
+                                hero.vai_tro_id === 2 ? "❄️" : 
+                                hero.vai_tro_id === 3 ? "💥" : "⚡";
+                    
+                    return (
+                      <li key={hero.id} className={`bg-[#051525]/80 p-3 rounded-lg hover:bg-[#051525] transition-colors border-l-2 border-${colorClass} transform hover:translate-x-2 transition-all duration-300`}>
+                        <div className="flex items-center mb-1">
+                          <span className={`text-${colorClass} mr-2`}>{icon}</span>
+                          <span className={`font-bold text-${colorClass}`}>{hero.ten} ({classType})</span>
+                        </div>
+                        <p className="ml-6 text-xs md:text-sm">{hero.dac_diem || "No description available"}</p>
+                      </li>
+                    );
+                  })
+                )}
               </ul>
             </div>
             

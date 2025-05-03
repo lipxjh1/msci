@@ -1,5 +1,6 @@
 import ResponsiveNavigation from "@/components/ResponsiveNavigation";
 import Image from "next/image";
+import Footer from "@/app/home/components/Footer";
 
 export const metadata = {
   title: "Game Mechanics | Overwatch Clone",
@@ -12,11 +13,11 @@ export default function MechanicsPage() {
       <ResponsiveNavigation />
 
       {/* Hero section */}
-      <div className="relative w-full h-[60vh] overflow-hidden">
+      <div className="relative w-full h-[50vh] overflow-hidden">
         {/* Background image with parallax effect */}
         <div className="absolute inset-0">
           <Image
-            src="/images/overwatch_bg_2.jpg"
+            src="/images/banner/trangchu.jpg"
             alt="Game Mechanics"
             fill
             priority
@@ -48,9 +49,6 @@ export default function MechanicsPage() {
                   <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
                 </span>
               </h1>
-              <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in">
-                DISCOVER THE MECHANICS, GAME MODES AND RULES OF M-SCI
-              </p>
             </div>
           </div>
         </div>
@@ -506,6 +504,9 @@ export default function MechanicsPage() {
           </div>
         </div>
       </div>
+      
+      {/* Add Footer component */}
+      <Footer />
     </div>
   );
 } 

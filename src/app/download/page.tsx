@@ -18,7 +18,7 @@ export default function DownloadPage() {
         {/* Background image with parallax effect */}
         <div className="absolute inset-0">
           <Image
-            src="/images/overwatch_bg_2.jpg"
+            src="/images/banner/trangchu.jpg"
             alt="Download Game"
             fill
             priority

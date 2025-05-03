@@ -17,6 +17,7 @@ import {
   FiPlay
 } from 'react-icons/fi';
 import { RiSparklingFill } from 'react-icons/ri';
+import { useSearch } from '@/context/SearchContext';
 
 // Định nghĩa các loại menu
 type SubMenuItem = {
@@ -46,7 +47,7 @@ const menuItems: MenuItem[] = [
       { href: '/', label: 'Home' },
       { href: '/heroes', label: 'Heroes' },
       { href: '/story', label: 'Story' },
-      { href: '/co-che', label: 'Gameplay' },
+      { href: '/mechanics', label: 'Gameplay' },
       { href: '/gacha', label: 'Gacha (Summon)' },
       { href: '/minigames', label: 'Mini Games', badge: 'NEW', badgeColor: 'bg-blue-500', isNew: true },
       { href: '/download', label: 'Download Game', badge: 'HOT', badgeColor: 'bg-orange-500', isNew: true }
@@ -63,11 +64,11 @@ const menuItems: MenuItem[] = [
     label: 'COMMUNITY', 
     hasDropdown: true,
     submenu: [
-      { href: '/tin-tuc', label: 'News' },
+      { href: '/new', label: 'News' },
       { href: '/forum-coming-soon', label: 'Forum', comingSoon: true },
       { href: '/social-hub-coming-soon', label: 'Social Hub', comingSoon: true },
       { href: '/tournaments-coming-soon', label: 'Tournaments', comingSoon: true },
-      { href: '/creators', label: 'Content Creator' },
+      { href: '/creators-coming-soon', label: 'Content Creator', comingSoon: true },
       { href: '/hall-of-fame-coming-soon', label: 'Hall of Fame', comingSoon: true }
     ]
   },
@@ -80,7 +81,7 @@ const menuItems: MenuItem[] = [
       { href: '/tokenomics-coming-soon', label: 'Tokenomics', comingSoon: true },
       { href: '/donate-coming-soon', label: 'Donation Packages', badge: 'VIP', badgeColor: 'bg-purple-600', comingSoon: true },
       { href: '/roadmap', label: 'Roadmap' },
-      { href: '/referral', label: 'Referral Program' },
+      { href: '/referral-coming-soon', label: 'Referral Program', comingSoon: true },
       { href: '/staking-coming-soon', label: 'Staking & Rewards', comingSoon: true },
       { href: '/partners', label: 'Partners & Backers' }
     ]
@@ -93,14 +94,10 @@ const menuItems: MenuItem[] = [
       { href: '/about-us', label: 'About Us' },
       { href: '/team', label: 'Team' },
       { href: '/careers', label: 'Careers' },
-      { href: '/press', label: 'Press Kit' },
-      { href: '/contact', label: 'Contact' }
+      { href: '/press', label: 'Press Kit', comingSoon: true },
+      { href: '/contact', label: 'Contact' },
+      { href: '/support', label: 'Support' }
     ]
-  },
-  { 
-    href: '/support', 
-    label: 'SUPPORT', 
-    hasDropdown: false
   }
 ];
 
@@ -114,6 +111,8 @@ export default function NavBar() {
   
   const lastScrollY = useRef(0);
   const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  
+  const { openSearch } = useSearch();
   
   // Phát hiện thiết bị di động
   useEffect(() => {
@@ -553,6 +552,7 @@ export default function NavBar() {
                 className="p-2 text-gray-300 hover:text-white mr-1"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                onClick={openSearch}
               >
                 <FiSearch className="w-5 h-5" />
               </motion.button>

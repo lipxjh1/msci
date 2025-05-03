@@ -82,7 +82,7 @@ export default function RoadmapPage() {
   const tabs = [
     {
       id: 'timeline',
-      label: 'Lộ Trình Phát Triển',
+      label: 'Road Map',
       icon: '/images/badge-1.svg',
       gradient: 'from-blue-500 to-blue-600'
     },

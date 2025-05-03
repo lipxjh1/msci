@@ -181,6 +181,17 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
             
             {/* Class indicator */}
             <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full z-30 backdrop-blur-sm flex items-center gap-2">
+              {selectedCard.classImage && (
+                <div className="relative w-5 h-5 mr-1">
+                  <Image
+                    src={selectedCard.classImage}
+                    alt={selectedCard.class}
+                    width={20}
+                    height={20}
+                    className="object-contain"
+                  />
+                </div>
+              )}
               <span className="inline-block w-2 h-2 rounded-full" style={{ backgroundColor: selectedCard.classColor }}></span>
               <span className="text-sm font-bold" style={{ color: selectedCard.classColor }}>{selectedCard.class}</span>
             </div>
@@ -204,6 +215,17 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
             
             {/* Class with icon */}
             <div className="inline-flex items-center px-3 py-1 mb-3 bg-[#05121d]/80 rounded-full">
+              {selectedCard.classImage && (
+                <div className="relative w-6 h-6 mr-2">
+                  <Image
+                    src={selectedCard.classImage}
+                    alt={selectedCard.class}
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </div>
+              )}
               <span className="inline-block w-3 h-3 rounded-full mr-2" style={{ backgroundColor: selectedCard.classColor }}></span>
               <span className="text-sm font-semibold" style={{ color: selectedCard.classColor }}>
                 {selectedCard.class}

@@ -20,11 +20,11 @@ export default function HeroBanner() {
   }, []);
 
   return (
-    <div ref={bannerRef} className="relative h-[60vh] lg:h-[80vh] w-full overflow-hidden">
+    <div ref={bannerRef} className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] w-full overflow-hidden">
       {/* Background image with parallax effect */}
       <div className="absolute inset-0 h-[120%] w-full" style={{ transform: `translateY(${offsetY}px)` }}>
         <Image 
-          src="/images/overwatch_bg_2.jpg" 
+          src="/images/banner/trangchu.jpg" 
           alt="About Us Hero" 
           fill
           priority

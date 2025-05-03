@@ -3,6 +3,7 @@ export interface Card {
   name: string;
   class: 'Gunner' | 'Sniper' | 'Rocket';
   imageUrl: string;
+  classImage?: string; // Icon image for the character's class
   classColor: string;
   rarity?: 'S' | 'A' | 'B' | 'C';
   description?: string;

@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 
 export default function PartnersHero() {
   return (
-    <div className="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+    <div className="relative h-[250px] md:h-[300px] lg:h-[400px] overflow-hidden">
       {/* Background Image với scale effect */}
       <Image 
-        src="/images/overwatch_bg_2.jpg" 
+        src="/images/banner/trangchu.jpg" 
         alt="Partners Banner" 
         fill
         priority

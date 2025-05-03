@@ -138,7 +138,7 @@ export default function CreatorBanner() {
     <section className="relative w-full py-20 bg-gradient-to-b from-[#041019] to-[#05080F] overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <Image
-          src="/images/particle_overlay.png"
+          src="/images/banner/trangchu.jpg"
           alt=""
           fill
           sizes="100vw"

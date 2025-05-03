@@ -11,9 +11,9 @@ export default function PartnersHeroBanner() {
   }, []);
 
   return (
-    <div className="relative h-[100vh] overflow-hidden">
+    <div className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#041019]/30 to-[#041019] z-10"></div>
-      <div className="absolute inset-0 bg-[url('/images/overwatch_bg_2.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className="absolute inset-0 bg-[url('/images/banner/trangchu.jpg')] bg-cover bg-center bg-no-repeat">
         {/* Animated particles */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50 animate-pulse"></div>

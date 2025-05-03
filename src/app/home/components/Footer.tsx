@@ -24,7 +24,7 @@ export default function Footer() {
       links: [
         { name: "Heroes", href: "/heroes" },
         { name: "Story", href: "/story" },
-        { name: "Gameplay", href: "/co-che" },
+        { name: "Gameplay", href: "/mechanics" },
         { name: "Download", href: "/download" },
       ]
     },
@@ -92,10 +92,10 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0a141e] text-white overflow-hidden">
-      {/* In chìm hình ngam.png */}
+      {/* In chìm hình chantran1.jpg */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <Image
-          src="/images/ngam.png"
+          src="/images/banner/chantran1.jpg"
           alt="Background"
           fill
           className="object-contain object-center"

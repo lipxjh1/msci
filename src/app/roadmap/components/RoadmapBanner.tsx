@@ -12,11 +12,11 @@ export default function RoadmapBanner() {
   }, []);
 
   return (
-    <div className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
+    <div className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] overflow-hidden">
       {/* Nền banner với hiệu ứng parallax */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/staking_bg.jpg" 
+          src="/images/banner/trangchu.jpg" 
           alt="M-SCI Roadmap Banner" 
           fill 
           priority
@@ -110,7 +110,7 @@ export default function RoadmapBanner() {
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4 text-center"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00A4EA] to-[#00D7FF]">
-            LỘ TRÌNH PHÁT TRIỂN
+            ROAD MAP
           </span>
         </motion.h1>
 
@@ -127,7 +127,6 @@ export default function RoadmapBanner() {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="text-base md:text-lg text-gray-300 max-w-2xl text-center mb-8"
         >
-          Khám phá hành trình M-SCI tiến từ ý tưởng ban đầu tới vị thế dẫn đầu toàn cầu, với những cột mốc và thành tựu đầy tham vọng trên con đường phát triển.
         </motion.p>
 
         {/* Call to action button */}

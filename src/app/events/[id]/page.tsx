@@ -449,7 +449,7 @@ export default function EventPage({ params }: { params: EventParams }) {
               <Link href="/heroes" className="text-gray-300 hover:text-white transition-colors">Anh Hùng</Link>
               <Link href="/events" className="text-gray-300 hover:text-white transition-colors">Sự Kiện</Link>
               <Link href="/tin-tuc" className="text-gray-300 hover:text-white transition-colors">Tin Tức</Link>
-              <Link href="/co-che" className="text-gray-300 hover:text-white transition-colors">Cơ Chế</Link>
+              <Link href="/mechanics" className="text-gray-300 hover:text-white transition-colors">Cơ Chế</Link>
               <Link href="/lien-he" className="text-gray-300 hover:text-white transition-colors">Liên Hệ</Link>
             </div>
           </div>

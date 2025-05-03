@@ -96,37 +96,39 @@ const GachaInfo: React.FC = () => {
               <h4 className="text-xl font-bold text-white/80 mb-4">Rarity System</h4>
               
               <div className="space-y-4">
-                <div className="p-4 bg-gradient-to-r from-red-500/10 to-transparent rounded-lg border border-red-500/10 hover:border-red-500/30 transition-all duration-300 transform hover:translate-x-2 hover:shadow-glow-red">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-red-900/50 flex items-center justify-center text-red-500 font-bold animate-pulse-slow">S</div>
-                    <span className="font-bold text-red-400 text-lg">Legendary</span>
+                <ul className="space-y-4">
+                  <div className="p-4 bg-gradient-to-r from-red-500/10 to-transparent rounded-lg border border-red-500/10 hover:border-red-500/30 transition-all duration-300 transform hover:translate-x-2 hover:shadow-glow-red">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-full bg-red-900/50 flex items-center justify-center text-red-500 font-bold animate-pulse-slow">S</div>
+                      <span className="font-bold text-red-400 text-lg">Legendary</span>
+                    </div>
+                    <p className="text-gray-400 ml-11">Akane, Alice, Caitlyn</p>
                   </div>
-                  <p className="text-gray-400 ml-11">Akane, Alice, Caitlyn</p>
-                </div>
-                
-                <div className="p-4 bg-gradient-to-r from-purple-500/10 to-transparent rounded-lg border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300 transform hover:translate-x-2 hover:shadow-glow-purple">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-purple-900/50 flex items-center justify-center text-purple-500 font-bold animate-pulse-slow">A</div>
-                    <span className="font-bold text-purple-400 text-lg">Epic</span>
+                  
+                  <div className="p-4 bg-gradient-to-r from-purple-500/10 to-transparent rounded-lg border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300 transform hover:translate-x-2 hover:shadow-glow-purple">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-full bg-purple-900/50 flex items-center justify-center text-purple-500 font-bold animate-pulse-slow">A</div>
+                      <span className="font-bold text-purple-400 text-lg">Epic</span>
+                    </div>
+                    <p className="text-gray-400 ml-11">Victoria, Elizabeth, Alexandra</p>
                   </div>
-                  <p className="text-gray-400 ml-11">Victoria, Elizabeth, Alexandra</p>
-                </div>
-                
-                <div className="p-4 bg-gradient-to-r from-blue-500/10 to-transparent rounded-lg border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 transform hover:translate-x-2 hover:shadow-glow-blue">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-500 font-bold animate-pulse-slow">B</div>
-                    <span className="font-bold text-blue-400 text-lg">Rare</span>
+                  
+                  <div className="p-4 bg-gradient-to-r from-blue-500/10 to-transparent rounded-lg border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 transform hover:translate-x-2 hover:shadow-glow-blue">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-500 font-bold animate-pulse-slow">B</div>
+                      <span className="font-bold text-blue-400 text-lg">Rare</span>
+                    </div>
+                    <p className="text-gray-400 ml-11">Anna, Julia, Fiona</p>
                   </div>
-                  <p className="text-gray-400 ml-11">Anna, Julia, Fiona</p>
-                </div>
-                
-                <div className="p-4 bg-gradient-to-r from-green-500/10 to-transparent rounded-lg border border-green-500/10 hover:border-green-500/30 transition-all duration-300 transform hover:translate-x-2 hover:shadow-glow-green">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-500 font-bold animate-pulse-slow">C</div>
-                    <span className="font-bold text-green-400 text-lg">Common</span>
+                  
+                  <div className="p-4 bg-gradient-to-r from-green-500/10 to-transparent rounded-lg border border-green-500/10 hover:border-green-500/30 transition-all duration-300 transform hover:translate-x-2 hover:shadow-glow-green">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center text-green-500 font-bold animate-pulse-slow">C</div>
+                      <span className="font-bold text-green-400 text-lg">Common</span>
+                    </div>
+                    <p className="text-gray-400 ml-11">Marcus, David, Henry</p>
                   </div>
-                  <p className="text-gray-400 ml-11">Marcus, David, Henry</p>
-                </div>
+                </ul>
               </div>
             </div>
           </div>
@@ -143,7 +145,7 @@ const GachaInfo: React.FC = () => {
                 <div className="flex p-5 items-center gap-5">
                   <div className="w-16 h-16 relative rounded-full overflow-hidden">
                     <Image 
-                      src="/images/ga-cha/anh1.png" 
+                      src="/images/dan.png" 
                       alt="Gunner" 
                       fill 
                       className="object-cover group-hover:scale-110 transition-all duration-500"
@@ -164,7 +166,7 @@ const GachaInfo: React.FC = () => {
                 <div className="flex p-5 items-center gap-5">
                   <div className="w-16 h-16 relative rounded-full overflow-hidden">
                     <Image 
-                      src="/images/ga-cha/anh2.png" 
+                      src="/images/ngam.png" 
                       alt="Sniper" 
                       fill 
                       className="object-cover group-hover:scale-110 transition-all duration-500"
@@ -173,7 +175,7 @@ const GachaInfo: React.FC = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-xl font-bold text-blue-400 mb-2 group-hover:text-blue-300 transition-colors duration-300">Sniper</h4>
-                    <p className="text-gray-300 mb-3">Precise shots (1s/1 shot)</p>
+                    <p className="text-gray-300 mb-3">Precise shots (1s/1 shot) <span className="text-blue-400 ml-1 font-semibold">Alice (S)</span></p>
                     <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
                       <div className="h-full bg-gradient-to-r from-blue-600 to-blue-400 w-[95%] animate-pulse-width"></div>
                     </div>
@@ -185,7 +187,7 @@ const GachaInfo: React.FC = () => {
                 <div className="flex p-5 items-center gap-5">
                   <div className="w-16 h-16 relative rounded-full overflow-hidden">
                     <Image 
-                      src="/images/ga-cha/anh3.png" 
+                      src="/images/phao.png" 
                       alt="Rocket" 
                       fill 
                       className="object-cover group-hover:scale-110 transition-all duration-500"
@@ -194,7 +196,7 @@ const GachaInfo: React.FC = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-xl font-bold text-orange-400 mb-2 group-hover:text-orange-300 transition-colors duration-300">Rocket</h4>
-                    <p className="text-gray-300 mb-3">Area damage (3s/1 shot)</p>
+                    <p className="text-gray-300 mb-3">Area damage (3s/1 shot) <span className="text-orange-400 ml-1 font-semibold">Caitlyn (S)</span></p>
                     <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
                       <div className="h-full bg-gradient-to-r from-orange-600 to-orange-400 w-[60%] animate-pulse-width"></div>
                     </div>

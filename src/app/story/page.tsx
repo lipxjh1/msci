@@ -288,9 +288,9 @@ const StoryPage = () => {
       transition: 'background-color 0.3s, color 0.3s' 
     }}>
       {/* Hero section with background image */}
-      <div className="relative h-60 md:h-72 bg-gradient-to-r from-blue-900 to-purple-900 mb-8">
+      <div className="relative h-[50vh] bg-gradient-to-r from-blue-900 to-purple-900 mb-8">
         <Image 
-          src="/images/overwatch_bg_2.jpg" 
+          src="/images/banner/trangchu.jpg" 
           alt="Story background" 
           fill
           className="object-cover opacity-40"

@@ -108,10 +108,21 @@ const CardSpinner: React.FC<CardSpinnerProps> = ({
                     </div>
                     
                     <h3 className="text-white font-orbitron text-lg font-bold group-hover:text-shadow-blue transition-all duration-300">{card.name}</h3>
-                    <p className="flex items-center justify-center gap-1 mt-1">
+                    <div className="flex items-center justify-center gap-1 mt-1">
+                      {card.classImage && (
+                        <div className="relative w-5 h-5 mr-1">
+                          <Image
+                            src={card.classImage}
+                            alt={card.class}
+                            width={20}
+                            height={20}
+                            className="object-contain"
+                          />
+                        </div>
+                      )}
                       <span className="inline-block w-2 h-2 rounded-full" style={{ backgroundColor: card.classColor }}></span>
                       <span style={{ color: card.classColor }}>{card.class}</span>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
