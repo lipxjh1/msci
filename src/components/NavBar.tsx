@@ -13,7 +13,8 @@ import {
   FiMenu, 
   FiX,
   FiBell,
-  FiShoppingCart
+  FiShoppingCart,
+  FiPlay
 } from 'react-icons/fi';
 import { RiSparklingFill } from 'react-icons/ri';
 
@@ -449,13 +450,13 @@ export default function NavBar() {
               </motion.button>
               
               {/* User */}
-              <Link href="/auth" className="hidden md:flex items-center ml-2">
+              <Link href="https://t.me/MSCIChannel" className="hidden md:flex items-center ml-2" target="_blank" rel="noopener noreferrer">
                 <motion.button 
                   className="flex items-center px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-sm font-medium shadow-xl shadow-blue-900/20"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <FiUser className="w-4 h-4 mr-1.5" />
+                  <FiPlay className="w-4 h-4 mr-1.5" />
                   <span>Play Now</span>
                 </motion.button>
               </Link>
@@ -491,13 +492,13 @@ export default function NavBar() {
           >
             <div className="px-6 py-6">
               <div className="mt-6 mb-8 flex justify-center">
-                <Link href="/auth">
+                <Link href="https://t.me/MSCIChannel" target="_blank" rel="noopener noreferrer">
                   <motion.button 
                     className="flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-medium shadow-lg shadow-blue-900/20"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <FiUser className="w-5 h-5 mr-2" />
+                    <FiPlay className="w-5 h-5 mr-2" />
                     <span>Play Now</span>
                   </motion.button>
                 </Link>

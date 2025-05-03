@@ -216,7 +216,7 @@ export default function TokenComingSoonPage() {
               </motion.div>
               <div className="text-left">
                 <p className="text-sm text-purple-300">Estimated Launch</p>
-                <p className="text-lg font-semibold">Q4 2024</p>
+                <p className="text-lg font-semibold">Q3 2025</p>
               </div>
             </motion.div>
           </motion.div>

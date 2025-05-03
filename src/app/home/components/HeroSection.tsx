@@ -2,8 +2,33 @@
 
 import NavBar from "@/components/NavBar";
 import Button from "@/components/Button";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function HeroSection() {
+  const [playerCount, setPlayerCount] = useState(1850);
+  
+  useEffect(() => {
+    // Thay đổi số người chơi mỗi 3 giây, với mức thay đổi nhỏ từ 30-50 người
+    const interval = setInterval(() => {
+      // Tạo mức thay đổi ngẫu nhiên từ 30-50
+      const change = Math.floor(Math.random() * (50 - 30 + 1)) + 30;
+      
+      // Xác định hướng thay đổi (tăng hoặc giảm)
+      const direction = Math.random() > 0.5 ? 1 : -1;
+      
+      // Cập nhật số người chơi, đảm bảo nằm trong khoảng 1200-2200
+      setPlayerCount(prevCount => {
+        const newCount = prevCount + (change * direction);
+        if (newCount < 1200) return 1200 + Math.floor(Math.random() * 50);
+        if (newCount > 2200) return 2200 - Math.floor(Math.random() * 50);
+        return newCount;
+      });
+    }, 3000); // Thay đổi sau mỗi 3 giây
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="hero-section relative overflow-hidden min-h-screen h-auto transition-all duration-300 ease-in-out">
       <div className="absolute inset-0 z-0 transition-all duration-300">
@@ -37,15 +62,14 @@ export default function HeroSection() {
             ACTION • COMBAT • FREEDOM
           </p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-8 animate-slide-up transition-all duration-300">
-            <Button 
-              href="/duong_dan/anh_hung" 
-              variant="transparent"
-              size="lg"
-              animate="none"
-              className="tracking-wider text-shadow-sm px-6 sm:px-10 py-3 button-cyber clip-hexagon hexagon-corner-flash transition-all duration-300"
+            <Link 
+              href="https://t.me/MSCIChannel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tracking-wider text-shadow-sm px-6 sm:px-10 py-3 button-cyber clip-hexagon hexagon-corner-flash transition-all duration-300 text-white"
             >
               PLAY NOW
-            </Button>
+            </Link>
             <Button 
               href="/heroes" 
               variant="transparent"
@@ -59,11 +83,11 @@ export default function HeroSection() {
           <div className="mt-12 text-sm text-white/60 flex justify-center items-center gap-4">
             <div className="flex items-center gap-2">
               <span className="inline-block w-3 h-3 bg-green-500 rounded-full pulse-animation"></span>
-              <span>Online Players: 2,457</span>
+              <span>Online Players: {playerCount}</span>
             </div>
             <div className="hidden md:flex items-center gap-2">
               <span className="inline-block w-3 h-3 bg-blue-500 rounded-full pulse-animation"></span>
-              <span>Release: Q4 2024</span>
+              <span>Release: Q1 2025</span>
             </div>
           </div>
         </div>

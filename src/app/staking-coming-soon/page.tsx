@@ -216,7 +216,7 @@ export default function StakingComingSoonPage() {
               </motion.div>
               <div className="text-left">
                 <p className="text-sm text-purple-300">Estimated Launch</p>
-                <p className="text-lg font-semibold">Q1 2025</p>
+                <p className="text-lg font-semibold">Q3 2025</p>
               </div>
             </motion.div>
           </motion.div>
