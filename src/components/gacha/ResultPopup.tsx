@@ -133,7 +133,7 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
         {/* Card and Message */}
         <div className="flex flex-col md:flex-row items-center gap-8">
           {/* Card Container with Animation */}
-          <div className="relative w-56 h-64 md:w-64 md:h-72 overflow-hidden rounded-lg group animate-float">
+          <div className="relative w-56 h-80 md:w-64 md:h-96 overflow-hidden rounded-lg group animate-float">
             {/* Hexagon corners for cyberpunk feel */}
             <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[var(--accent-blue-bright)]"></div>
             <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[var(--accent-blue-bright)]"></div>
@@ -153,13 +153,18 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
             <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
             
             {/* Card image */}
-            <Image
-              src={selectedCard.imageUrl}
-              alt={selectedCard.name}
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-700"
-              sizes="(max-width: 768px) 224px, 256px"
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={selectedCard.imageUrl}
+                alt={selectedCard.name}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                sizes="(max-width: 768px) 224px, 256px"
+              />
+              
+              {/* Dark overlay for better text visibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+            </div>
             
             {/* Rarity indicator */}
             {selectedCard.rarity && (
@@ -178,6 +183,11 @@ const ResultPopup: React.FC<ResultPopupProps> = ({
             <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full z-30 backdrop-blur-sm flex items-center gap-2">
               <span className="inline-block w-2 h-2 rounded-full" style={{ backgroundColor: selectedCard.classColor }}></span>
               <span className="text-sm font-bold" style={{ color: selectedCard.classColor }}>{selectedCard.class}</span>
+            </div>
+            
+            {/* Character name at bottom */}
+            <div className="absolute bottom-10 inset-x-0 text-center z-30">
+              <h3 className="font-orbitron text-xl font-bold text-white text-shadow-sm">{selectedCard.name}</h3>
             </div>
             
             {/* Subtle scanlines effect */}

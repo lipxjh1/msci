@@ -48,7 +48,7 @@ const CardSpinner: React.FC<CardSpinnerProps> = ({
       </div>
       
       {/* Masking container */}
-      <div className="relative h-80 overflow-hidden rounded-xl">
+      <div className="relative h-96 overflow-hidden rounded-xl">
         <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#041019] to-transparent z-20"></div>
         <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#041019] to-transparent z-20"></div>
         
@@ -64,7 +64,7 @@ const CardSpinner: React.FC<CardSpinnerProps> = ({
               ref={(el) => { cardRefs.current[index] = el; }}
               className="flex-shrink-0 w-56 mx-4 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2"
             >
-              <div className={`relative w-full h-64 rounded-lg overflow-hidden group`}>
+              <div className={`relative w-full h-80 rounded-lg overflow-hidden group`}>
                 {/* Card background glow based on rarity */}
                 <div 
                   className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -86,6 +86,7 @@ const CardSpinner: React.FC<CardSpinnerProps> = ({
                     alt={card.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 224px, 256px"
                   />
                   
                   {/* Card overlay */}
