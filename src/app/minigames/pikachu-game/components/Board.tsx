@@ -25,37 +25,37 @@ const Board: React.FC<BoardProps> = ({
   const [boardSize, setBoardSize] = useState({ width: 0, height: 0 });
   const [cardSize, setCardSize] = useState(0);
   
-  // Tìm số hàng và số cột tối đa
+  // Find maximum rows and columns
   const maxCol = Math.max(...cards.map(card => card.col), 0) + 1;
   const maxRow = Math.max(...cards.map(card => card.row), 0) + 1;
   
-  // Điều chỉnh kích thước bảng và thẻ bài
+  // Adjust board and card sizes
   const calculateSizes = useCallback(() => {
-    // Kiểm tra xem có phải là thiết bị di động không
+    // Check if it's a mobile device
     const isMobile = window.innerWidth <= 768;
     
-    // Đảm bảo kích thước container phù hợp với thiết bị
+    // Ensure container size is appropriate for the device
     const containerWidth = isMobile 
-      ? window.innerWidth * 0.95 - 24 // Trừ đi padding container
+      ? window.innerWidth * 0.95 - 24 // Subtract container padding
       : Math.min(window.innerWidth * 0.9, 800);
     
     const containerHeight = isMobile 
       ? window.innerHeight * 0.5 
       : Math.min(window.innerHeight * 0.65, 600);
     
-    // Tính toán kích thước thẻ bài
+    // Calculate card size
     const actualWidth = Math.min(containerWidth, containerHeight * (maxCol / maxRow));
     const actualHeight = Math.min(containerHeight, containerWidth * (maxRow / maxCol));
     
-    // Tính toán kích thước thẻ dựa trên thiết bị
+    // Calculate card size based on device
     let calculatedCardSize;
     
     if (isMobile) {
-      // Tính toán kích thước thẻ cho mobile
+      // Calculate card size for mobile
       calculatedCardSize = Math.floor(Math.min(
         actualWidth / maxCol,
         actualHeight / maxRow
-      )) - (isMobile ? 4 : 8); // Giảm padding trên mobile
+      )) - (isMobile ? 4 : 8); // Reduce padding on mobile
     } else {
       calculatedCardSize = Math.floor(Math.min(
         actualWidth / maxCol,
@@ -63,11 +63,11 @@ const Board: React.FC<BoardProps> = ({
       )) - 8;
     }
     
-    // Đảm bảo kích thước tối thiểu dựa trên thiết bị
+    // Ensure minimum size based on device
     const minSize = isMobile ? 40 : 60;
     const finalCardSize = Math.max(calculatedCardSize, minSize);
     
-    // Tính toán lại kích thước của bảng
+    // Recalculate board size
     const finalWidth = finalCardSize * maxCol + (maxCol - 1) * (isMobile ? 2 : 4);
     const finalHeight = finalCardSize * maxRow + (maxRow - 1) * (isMobile ? 2 : 4);
     
@@ -79,7 +79,7 @@ const Board: React.FC<BoardProps> = ({
     setCardSize(finalCardSize - (isMobile ? 2 : 4));
   }, [maxCol, maxRow]);
 
-  // Xử lý resize cửa sổ
+  // Handle window resize
   useEffect(() => {
     calculateSizes();
     
@@ -91,12 +91,12 @@ const Board: React.FC<BoardProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [calculateSizes]);
 
-  // Kiểm tra một thẻ có đang được chọn không
+  // Check if a card is selected
   const isCardSelected = (card: CardType) => {
     return selectedCards.some(selected => selected.id === card.id);
   };
 
-  // Kiểm tra xem có phải là thiết bị di động không
+  // Check if it's a mobile device
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   return (

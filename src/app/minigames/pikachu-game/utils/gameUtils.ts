@@ -1,39 +1,39 @@
 import { CardType } from '../components/Card';
 
-// Tạo mảng bài đã được trộn ngẫu nhiên
+// Create array of randomly shuffled cards
 export const createShuffledCards = (rows: number, cols: number): CardType[] => {
-  // Đảm bảo số ô phải là số chẵn
+  // Ensure the number of cells is even
   if ((rows * cols) % 2 !== 0) {
-    throw new Error('Số lượng ô phải là số chẵn');
+    throw new Error('The number of cells must be even');
   }
 
   const totalCards = rows * cols;
   const pairsCount = totalCards / 2;
   const cards: CardType[] = [];
 
-  // Tạo mảng giá trị cho các cặp thẻ (0-11 lặp lại nếu cần)
+  // Create array of values for card pairs (0-11 repeating if needed)
   const cardValues = Array.from({ length: pairsCount }, (_, i) => i % 12);
 
-  // Tạo các cặp thẻ bài
+  // Create pairs of cards
   for (let i = 0; i < pairsCount; i++) {
     const value = cardValues[i];
-    // Tạo hai thẻ với cùng giá trị
+    // Create two cards with the same value
     for (let j = 0; j < 2; j++) {
       cards.push({
         id: `${i}-${j}`,
         value: value,
-        row: 0, // Sẽ được cập nhật sau
-        col: 0, // Sẽ được cập nhật sau
+        row: 0, // Will be updated later
+        col: 0, // Will be updated later
         isMatched: false,
         isRevealed: false,
       });
     }
   }
 
-  // Trộn ngẫu nhiên mảng
+  // Shuffle the array randomly
   const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
 
-  // Gán vị trí hàng và cột cho mỗi thẻ
+  // Assign row and column positions for each card
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
       const index = row * cols + col;
@@ -47,17 +47,17 @@ export const createShuffledCards = (rows: number, cols: number): CardType[] => {
   return shuffledCards;
 };
 
-// Kiểm tra xem thẻ có hợp lệ không
+// Check if card is valid
 export const isValidCard = (card: CardType | null): card is CardType => {
   return card !== null && !card.isMatched;
 };
 
-// Kiểm tra xem hai thẻ có khớp nhau không
+// Check if two cards match each other
 export const isMatch = (card1: CardType, card2: CardType): boolean => {
   return card1.value === card2.value;
 };
 
-// Tính điểm dựa trên thời gian còn lại và số lượng cặp đã ghép
+// Calculate score based on remaining time and number of matched pairs
 export const calculateScore = (
   timeRemaining: number,
   initialTime: number,

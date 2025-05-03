@@ -59,21 +59,10 @@ export default function MinigamesHome() {
         color: 'F44336'
       }
     },
+
     {
-      title: 'Flappy Bird',
-      description: 'Control the bird through pipes in this classic game that tests your reflexes and control. How far can you go in this addictive arcade game?',
-      image: '/images/minigam/5.png',
-      link: '/minigames/flappy-bird',
-      category: ['Arcade', 'Casual'],
-      rating: 4.7,
-      badge: {
-        text: 'Challenging',
-        color: 'FFD700'
-      }
-    },
-    {
-      title: 'Pikachu Match',
-      description: 'Find and match identical Pokémon within the time limit. Test your memory and observation skills in this exciting matching puzzle game!',
+      title: 'M-SCI Card Match',
+      description: 'Match identical cards featuring heroes from the M-SCI universe in this memory challenge. Test your memory skills while discovering characters like Victoria, Akane and other heroes!',
       image: '/images/minigam/2.png',
       link: '/minigames/pikachu-game',
       category: ['Puzzle', 'Casual'],
@@ -248,9 +237,9 @@ export default function MinigamesHome() {
                           Chess
                         </span>
                       </div>
-                      <div className="p-2 px-3 bg-[#4CAF50]/20 backdrop-blur-sm rounded-md border border-[#4CAF50]/30">
-                        <span className="text-[#4CAF50] font-medium text-sm">
-                          Flappy Bird
+                      <div className="p-2 px-3 bg-[#9C27B0]/20 backdrop-blur-sm rounded-md border border-[#9C27B0]/30">
+                        <span className="text-[#9C27B0] font-medium text-sm">
+                          M-SCI Card Match
                         </span>
                       </div>
                     </div>

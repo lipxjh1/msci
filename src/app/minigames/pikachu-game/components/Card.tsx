@@ -40,26 +40,26 @@ const Card: React.FC<CardProps> = ({
     onClick(card);
   };
 
-  // Tạo đường dẫn cho hình ảnh minigam
+  // Create path for minigame image
   const getImagePath = () => {
     try {
-      // Sử dụng hình ảnh từ thư mục public/images/minigam
-      // Đảm bảo chỉ sử dụng các hình ảnh từ 1.png đến 12.png
+      // Use images from public/images/minigam directory
+      // Ensure only using images from 1.png to 12.png
       const imageId = (value % 12) + 1;
       return `/images/minigam/${imageId}.png`;
     } catch (error) {
-      console.error("Lỗi khi lấy đường dẫn hình ảnh:", error);
+      console.error("Error getting image path:", error);
       return `/images/minigam/1.png`;
     }
   };
 
-  // Xử lý khi không tải được hình ảnh
+  // Handle when image fails to load
   const handleImageError = () => {
-    console.log(`Không thể tải hình ảnh #${value}`);
+    console.log(`Could not load image #${value}`);
     setImageError(true);
   };
   
-  // Kiểm tra xem có phải là thiết bị di động không
+  // Check if it's a mobile device
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   if (isMatched) {
@@ -99,7 +99,7 @@ const Card: React.FC<CardProps> = ({
           height: "95%"
         }}
       >
-        {/* Mặt sau */}
+        {/* Back side */}
         <div 
           className="absolute w-full h-full rounded-md bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center"
           style={{ 
@@ -110,7 +110,7 @@ const Card: React.FC<CardProps> = ({
           <span className="text-white font-bold text-base md:text-xl">?</span>
         </div>
         
-        {/* Mặt trước */}
+        {/* Front side */}
         <div 
           className="absolute w-full h-full rounded-md bg-white flex items-center justify-center"
           style={{ 
@@ -127,7 +127,7 @@ const Card: React.FC<CardProps> = ({
             ) : (
               <img
                 src={getImagePath()}
-                alt={`Hình ${value}`}
+                alt={`Image ${value}`}
                 onError={handleImageError}
                 className="w-full h-full object-contain"
                 loading="lazy"

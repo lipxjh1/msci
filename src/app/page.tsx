@@ -3,6 +3,7 @@
 import { useEffect, useState, Suspense } from "react";
 import dynamic from 'next/dynamic';
 import Loading from "@/components/Loading";
+import ThanhDieuHuongResponsive from "@/thanh_phan/thanh_dieu_huong_responsive";
 
 // Dynamic imports với lazy loading
 const HeroSection = dynamic(() => import("./home/components/HeroSection"), {
@@ -92,6 +93,7 @@ export default function Home() {
   if (isClient && isMobile) {
     return (
       <>
+        <ThanhDieuHuongResponsive />
         <Suspense fallback={<Loading />}>
           <HomeMobile />
         </Suspense>
@@ -104,6 +106,7 @@ export default function Home() {
 
   return (
     <main className="bg-gradient-to-b from-[var(--bg-dark)] to-[var(--bg-darker)]">
+      <ThanhDieuHuongResponsive />
       <Suspense fallback={<Loading />}>
         <HeroSection />
       </Suspense>
