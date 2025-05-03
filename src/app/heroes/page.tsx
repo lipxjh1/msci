@@ -5,12 +5,12 @@ import { useSupabase } from '@/context/SupabaseContext';
 import { AnhHung, VaiTro } from '@/loai';
 import Link from 'next/link';
 import Image from 'next/image';
-import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
+import ResponsiveNavigation from '@/thanh_phan/responsive_navigation';
 import { FaFacebookF, FaTwitter, FaYoutube, FaDiscord, FaTelegram } from 'react-icons/fa';
 import { useDeepSeekChat } from '@/modules/box-akane';
 import { Message } from '@/modules/box-akane/types';
 
-// Tạo component CustomChatInterface để tùy chỉnh giao diện chat
+// Create CustomChatInterface component to customize the chat interface
 function CustomChatInterface({ 
   systemPrompt, 
   modelName = 'deepseek-chat', 
@@ -27,7 +27,7 @@ function CustomChatInterface({
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   
-  // Sử dụng custom hook từ module box-akane
+  // Use custom hook from box-akane module
   const {
     messages,
     isLoading,
@@ -41,21 +41,21 @@ function CustomChatInterface({
     streaming: enableStreaming
   });
 
-  // Tự động cuộn xuống khi có tin nhắn mới
+  // Automatically scroll down when there are new messages
   useEffect(() => {
     if (messagesEndRef.current && isOpen) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages, isOpen]);
 
-  // Focus vào input khi mở chat
+  // Focus on input when chat is opened
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
     }
   }, [isOpen]);
 
-  // Xử lý khi nhấn Enter để gửi tin nhắn
+  // Handle Enter key press to send message
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -63,7 +63,7 @@ function CustomChatInterface({
     }
   };
 
-  // Gửi tin nhắn
+  // Send message
   const handleSendMessage = async () => {
     if (inputValue.trim() && !isLoading) {
       const messageToSend = inputValue;
@@ -72,15 +72,15 @@ function CustomChatInterface({
     }
   };
 
-  // Định dạng tin nhắn
+  // Format message
   const formatMessage = (content: string) => {
-    // Thay thế URL bằng link có thể click
+    // Replace URLs with clickable links
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     const withLinks = content.replace(urlRegex, (url) => {
       return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">${url}</a>`;
     });
     
-    // Thay thế xuống dòng bằng <br>
+    // Replace line breaks with <br>
     return withLinks.replace(/\n/g, '<br>');
   };
 
@@ -94,16 +94,16 @@ function CustomChatInterface({
     resetChat();
   };
 
-  // Lọc tin nhắn - không hiển thị system prompt
+  // Filter messages - don't display system prompt
   const displayMessages = messages.filter(msg => msg.role !== 'system');
   
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      {/* Chat button với ảnh tùy chỉnh */}
+      {/* Chat button with custom image */}
       <button
         onClick={toggleChat}
         className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-cyan-500/30 transition-all overflow-hidden border-2 border-blue-400"
-        aria-label={isOpen ? 'Đóng chat' : 'Mở chat'}
+        aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
         {isOpen ? (
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white absolute" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -132,7 +132,7 @@ function CustomChatInterface({
               <button
                 onClick={handleResetChat}
                 className="p-1 hover:bg-blue-700 rounded"
-                title="Đặt lại cuộc trò chuyện"
+                title="Reset conversation"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -141,7 +141,7 @@ function CustomChatInterface({
               <button
                 onClick={toggleChat}
                 className="p-1 hover:bg-blue-700 rounded"
-                title="Đóng chat"
+                title="Close chat"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -154,7 +154,7 @@ function CustomChatInterface({
           <div className="flex-1 p-3 overflow-y-auto max-h-96 bg-gray-50">
             {displayMessages.length === 0 ? (
               <div className="text-center text-gray-500 py-8">
-                <p>Hãy bắt đầu cuộc trò chuyện với {botName}!</p>
+                <p>Start a conversation with {botName}!</p>
               </div>
             ) : (
               displayMessages.map((msg, index) => (
@@ -192,7 +192,7 @@ function CustomChatInterface({
             {error && (
               <div className="text-center p-2 mb-3">
                 <div className="bg-red-100 text-red-800 p-2 rounded-lg text-sm">
-                  Lỗi: {error}
+                  Error: {error}
                 </div>
               </div>
             )}
@@ -205,7 +205,7 @@ function CustomChatInterface({
               <textarea
                 ref={inputRef}
                 className="flex-1 rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                placeholder="Nhập tin nhắn của bạn..."
+                placeholder="Type your message..."
                 rows={1}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
@@ -246,7 +246,7 @@ export default function HeroesPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Lấy danh sách vai trò
+  // Get role list
   useEffect(() => {
     async function fetchRoles() {
       try {
@@ -258,30 +258,30 @@ export default function HeroesPage() {
         if (error) throw error;
         setRoles(data as VaiTro[]);
       } catch (err) {
-        console.error('Lỗi khi lấy danh sách vai trò:', err);
-        setError('Không thể lấy danh sách vai trò');
+        console.error('Error fetching roles:', err);
+        setError('Unable to fetch role list');
       }
     }
 
     fetchRoles();
   }, [supabase]);
 
-  // Lấy danh sách anh hùng
+  // Get heroes list
   useEffect(() => {
     async function fetchHeroes() {
       setLoading(true);
       setError(null);
       
       try {
-        // Thay đổi kiểm tra kết nối Supabase sử dụng bảng vai_tro thay vì rls_test
+        // Change Supabase connection test using vai_tro table instead of rls_test
         const { data: testConnection, error: connectionError } = await supabase
           .from('vai_tro')
           .select('*')
           .limit(1);
         
         if (connectionError) {
-          console.error('Lỗi kết nối Supabase:', connectionError);
-          throw new Error(`Không thể kết nối đến Supabase. Chi tiết: ${connectionError.message}`);
+          console.error('Supabase connection error:', connectionError);
+          throw new Error(`Unable to connect to Supabase. Details: ${connectionError.message}`);
         }
         
         let query = supabase
@@ -299,21 +299,21 @@ export default function HeroesPage() {
         const { data, error } = await query.order('ten');
         
         if (error) {
-          console.error('Lỗi truy vấn dữ liệu:', error);
-          throw new Error(`Lỗi truy vấn dữ liệu: ${error.message}`);
+          console.error('Data query error:', error);
+          throw new Error(`Data query error: ${error.message}`);
         }
         
-        console.log("Heroes data:", data); // In ra dữ liệu để kiểm tra
+        console.log("Heroes data:", data); // Print data for verification
         
         if (!data || data.length === 0) {
-          console.warn('Không tìm thấy dữ liệu anh hùng');
+          console.warn('No hero data found');
           setHeroes([]);
         } else {
           setHeroes(data as AnhHung[]);
         }
       } catch (err: any) {
-        console.error('Lỗi khi lấy danh sách anh hùng:', err);
-        setError(`Không thể lấy danh sách anh hùng. ${err.message || 'Vui lòng kiểm tra console để biết chi tiết.'}`);
+        console.error('Error fetching heroes list:', err);
+        setError(`Unable to fetch heroes list. ${err.message || 'Please check the console for details.'}`);
       } finally {
         setLoading(false);
       }
@@ -324,8 +324,8 @@ export default function HeroesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--overwatch-dark-blue)] to-[var(--overwatch-black)]">
-      {/* Menu điều hướng */}
-      <ThanhDieuHuongResponsive />
+      {/* Navigation Menu */}
+      <ResponsiveNavigation />
 
       {/* Hero Banner */}
       <div className="relative h-[100vh] overflow-hidden">
@@ -347,16 +347,16 @@ export default function HeroesPage() {
             </span>
           </h1>
           <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in">
-          ĐIỀU KHIỂN ĐỘI HÌNH 3 CLASS (GUNNER, SNIPER, ROCKET) CHIẾN ĐẤU CHỐNG LẠI ROBOT VÀ DRONE
+          CONTROL A TEAM OF 3 CLASSES (GUNNER, SNIPER, ROCKET) FIGHTING AGAINST ROBOTS AND DRONES
           </p>
           
-          {/* Nút cuộn xuống - thêm mới */}
+          {/* Scroll down button - newly added */}
           <div className="animate-slide-up">
             <button 
               onClick={() => document.getElementById('hero-content')?.scrollIntoView({behavior: 'smooth'})}
               className="font-rajdhani font-bold tracking-wider text-shadow-sm px-10 py-3 button-cyber clip-hexagon hexagon-border text-white"
             >
-              Khám phá nhân vật
+              Explore Characters
             </button>
           </div>
         </div>
@@ -371,7 +371,7 @@ export default function HeroesPage() {
           <div className="flex justify-center mb-6">
             <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
               <span className="text-shadow-blue relative inline-block">
-                 VAI TRÒ
+                 ROLES
                 <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
               </span>
             </h2>
@@ -385,17 +385,17 @@ export default function HeroesPage() {
                 : 'bg-white/5 text-white/90 hover:bg-[var(--accent-blue-bright)]/10 hover:text-white hover:shadow-lg hover:shadow-[var(--accent-blue-glow)]/20 border border-white/20 hover:border-[var(--accent-blue-bright)]/70 button-cyber clip-hexagon'
               }`}
             >
-              Tất Cả
+              All
             </button>
             
             {roles.map((role) => {
-              // Xác định màu sắc dựa trên vai trò
+              // Define color based on role
               const roleColor = role.id === 1 
-                ? 'var(--vaiTroTank)' // Tank - vàng cam
+                ? 'var(--vaiTroTank)' // Tank - yellow-orange
                 : role.id === 2 
-                  ? 'var(--vaiTroDamage)' // Damage - đỏ
+                  ? 'var(--vaiTroDamage)' // Damage - red
                   : role.id === 3
-                    ? 'var(--vaiTroSupport)' // Support - xanh lá
+                    ? 'var(--vaiTroSupport)' // Support - green
                     : 'var(--accent-blue-bright)'; // Default
               
               return (
@@ -441,13 +441,13 @@ export default function HeroesPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
             </div>
-            <h3 className="font-orbitron text-xl font-bold text-red-400 mb-2 text-shadow-sm">Đã xảy ra lỗi</h3>
+            <h3 className="font-orbitron text-xl font-bold text-red-400 mb-2 text-shadow-sm">An error occurred</h3>
             <p className="font-rajdhani text-white/80">{error}</p>
             <button 
               onClick={() => window.location.reload()} 
               className="font-rajdhani mt-6 px-6 py-2 tracking-wider text-shadow-sm button-cyber clip-hexagon hexagon-border"
             >
-              Thử lại
+              Try Again
             </button>
           </div>
         )}
@@ -479,7 +479,7 @@ export default function HeroesPage() {
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
-                        <span className="text-white/30">Không có ảnh</span>
+                        <span className="text-white/30">No image</span>
                       </div>
                     )}
                     
@@ -487,18 +487,18 @@ export default function HeroesPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                   </div>
                   
-                  {/* Vai trò badge - top right corner */}
+                  {/* Role badge - top right corner */}
                   <div className="absolute top-3 right-3 z-30">
                     <div 
                       className="px-3 py-1 rounded-full text-sm font-medium font-rajdhani flex items-center gap-1.5 backdrop-blur-sm button-cyber"
                       style={{ 
                         backgroundColor: hero.vai_tro?.id === 1 
-                          ? 'rgba(245, 176, 65, 0.3)' // Tank - vàng cam
+                          ? 'rgba(245, 176, 65, 0.3)' // Tank - yellow-orange
                           : hero.vai_tro?.id === 2 
-                            ? 'rgba(231, 76, 60, 0.3)' // Damage - đỏ
+                            ? 'rgba(231, 76, 60, 0.3)' // Damage - red
                             : hero.vai_tro?.id === 3
-                              ? 'rgba(88, 214, 141, 0.3)' // Support - xanh lá
-                              : 'rgba(59, 130, 246, 0.3)', // Default - xanh dương
+                              ? 'rgba(88, 214, 141, 0.3)' // Support - green
+                              : 'rgba(59, 130, 246, 0.3)', // Default - blue
                         borderRight: hero.vai_tro?.id === 1
                           ? '3px solid var(--vaiTroTank)'
                           : hero.vai_tro?.id === 2
@@ -520,7 +520,7 @@ export default function HeroesPage() {
                                 : 'rgb(59, 130, 246)'
                         }}
                       ></span>
-                      <span className="text-white">{hero.vai_tro?.ten || 'Không xác định'}</span>
+                      <span className="text-white">{hero.vai_tro?.ten || 'Undefined'}</span>
                     </div>
                   </div>
                   
@@ -579,13 +579,13 @@ export default function HeroesPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
             </div>
-            <h3 className="font-orbitron text-2xl font-bold text-white mb-3 text-shadow-blue">Không tìm thấy anh hùng</h3>
-            <p className="font-rajdhani text-white/60 max-w-lg mx-auto">Không có anh hùng nào phù hợp với điều kiện tìm kiếm. Vui lòng thử lại với bộ lọc khác hoặc kiểm tra lại kết nối với Supabase.</p>
+            <h3 className="font-orbitron text-2xl font-bold text-white mb-3 text-shadow-blue">No heroes found</h3>
+            <p className="font-rajdhani text-white/60 max-w-lg mx-auto">No heroes match your search criteria. Please try again with a different filter or check your Supabase connection.</p>
             <button 
               onClick={() => setSelectedRole(null)} 
               className="font-rajdhani mt-6 px-6 py-3 tracking-wider text-shadow-sm button-cyber clip-hexagon hexagon-border"
             >
-              Xem tất cả anh hùng
+              View all heroes
             </button>
           </div>
         )}
@@ -608,18 +608,18 @@ export default function HeroesPage() {
           <div className="absolute inset-0 z-10">
             <div className="container mx-auto h-full flex flex-col items-center justify-center text-center py-10 px-4">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-wide">
-                CHIẾN ĐẤU VÌ TƯƠNG LAI NHÂN LOẠI. GIA NHẬP M-SCI!
+                FIGHT FOR HUMANITY'S FUTURE. JOIN M-SCI!
               </h2>
               
               <Link 
                 href="/play"
                 className="mt-4 mb-8 px-8 py-3 bg-[#FF7D00] hover:bg-[#FF9D40] text-white font-medium rounded transition-colors duration-300 uppercase tracking-wider text-lg shadow-lg hover:shadow-[#FF7D00]/50"
               >
-                CHƠI NGAY
+                PLAY NOW
               </Link>
               
               <div className="mt-8">
-                <h3 className="text-gray-300 uppercase text-sm tracking-widest mb-4">THEO DÕI CHÚNG TÔI</h3>
+                <h3 className="text-gray-300 uppercase text-sm tracking-widest mb-4">FOLLOW US</h3>
                 <div className="flex justify-center space-x-6">
                   <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
                     <FaFacebookF className="h-6 w-6" />
@@ -643,9 +643,9 @@ export default function HeroesPage() {
         </div>
       </div>
       
-      {/* Thêm ChatInterface với ảnh tùy chỉnh */}
+      {/* Add ChatInterface with custom image */}
       <CustomChatInterface
-        systemPrompt="Bạn là Akane, một trợ lý AI thông minh và thân thiện. Hãy giúp đỡ người dùng một cách nhiệt tình và chính xác bằng tiếng Việt."
+        systemPrompt="You are Akane, a smart and friendly AI assistant. Help users enthusiastically and accurately in English."
         modelName="deepseek-chat"
         enableStreaming={true}
         botName="Akane AI"

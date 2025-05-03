@@ -33,6 +33,7 @@ type MenuItem = {
   label: string;
   hasDropdown: boolean;
   submenu?: SubMenuItem[];
+  comingSoon?: boolean;
 };
 
 // Danh sách các menu
@@ -54,7 +55,8 @@ const menuItems: MenuItem[] = [
   { 
     href: '/coming-soon', 
     label: 'MARKETPLACE', 
-    hasDropdown: false
+    hasDropdown: false,
+    comingSoon: true
   },
   { 
     href: '/community', 
@@ -62,11 +64,11 @@ const menuItems: MenuItem[] = [
     hasDropdown: true,
     submenu: [
       { href: '/tin-tuc', label: 'News' },
-      { href: '/forum-coming-soon', label: 'Forum' },
-      { href: '/social-hub-coming-soon', label: 'Social Hub' },
-      { href: '/tournaments-coming-soon', label: 'Tournaments' },
+      { href: '/forum-coming-soon', label: 'Forum', comingSoon: true },
+      { href: '/social-hub-coming-soon', label: 'Social Hub', comingSoon: true },
+      { href: '/tournaments-coming-soon', label: 'Tournaments', comingSoon: true },
       { href: '/creators', label: 'Content Creator' },
-      { href: '/hall-of-fame-coming-soon', label: 'Hall of Fame' }
+      { href: '/hall-of-fame-coming-soon', label: 'Hall of Fame', comingSoon: true }
     ]
   },
   { 
@@ -74,12 +76,12 @@ const menuItems: MenuItem[] = [
     label: 'INVEST & DONATE', 
     hasDropdown: true,
     submenu: [
-      { href: '/token-coming-soon', label: '$MSCI Token' },
-      { href: '/tokenomics-coming-soon', label: 'Tokenomics' },
-      { href: '/donate-coming-soon', label: 'Donation Packages', badge: 'VIP', badgeColor: 'bg-purple-600' },
+      { href: '/token-coming-soon', label: '$MSCI Token', comingSoon: true },
+      { href: '/tokenomics-coming-soon', label: 'Tokenomics', comingSoon: true },
+      { href: '/donate-coming-soon', label: 'Donation Packages', badge: 'VIP', badgeColor: 'bg-purple-600', comingSoon: true },
       { href: '/roadmap', label: 'Roadmap' },
       { href: '/referral', label: 'Referral Program' },
-      { href: '/staking-coming-soon', label: 'Staking & Rewards' },
+      { href: '/staking-coming-soon', label: 'Staking & Rewards', comingSoon: true },
       { href: '/partners', label: 'Partners & Backers' }
     ]
   },
@@ -279,6 +281,62 @@ export default function NavBar() {
     }
   };
   
+  // Sửa lại animation cho Coming Soon badge, thêm hiệu ứng chạy và visual effects
+  const comingSoonBadgeVariants = {
+    initial: { opacity: 0, scale: 0.8, x: 15 },
+    animate: { 
+      opacity: 1, 
+      scale: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+  
+  // Thêm hiệu ứng shimmer effect (ánh sáng chạy từ phải sang trái)
+  const shimmerVariants = {
+    initial: { x: "100%", opacity: 0 },
+    animate: { 
+      x: "-100%", 
+      opacity: [0, 1, 1, 0],
+      transition: {
+        repeat: Infinity,
+        repeatDelay: 2,
+        duration: 1.5,
+        ease: "easeInOut"
+      }
+    }
+  };
+  
+  // Thêm hiệu ứng pulse cho dot
+  const dotPulseVariants = {
+    initial: { opacity: 0.6, scale: 0.8 },
+    animate: { 
+      opacity: [0.6, 1, 0.6],
+      scale: [0.8, 1, 0.8],
+      transition: {
+        repeat: Infinity,
+        duration: 1.5,
+        ease: "easeInOut"
+      }
+    }
+  };
+  
+  // Thêm hiệu ứng sáng cho text
+  const textGlowVariants = {
+    initial: { textShadow: "0 0 0px rgba(59, 130, 246, 0)" },
+    animate: { 
+      textShadow: ["0 0 0px rgba(59, 130, 246, 0)", "0 0 8px rgba(59, 130, 246, 0.8)", "0 0 0px rgba(59, 130, 246, 0)"],
+      transition: {
+        repeat: Infinity,
+        duration: 2,
+        ease: "easeInOut"
+      }
+    }
+  };
+  
   return (
     <>
       {/* Desktop & Tablet Nav */}
@@ -390,9 +448,36 @@ export default function NavBar() {
                                       )}
                                       
                                       {subitem.comingSoon && (
-                                        <span className="ml-2 px-1.5 py-0.5 text-[10px] font-medium text-white rounded bg-gray-700">
-                                          Sắp Ra Mắt
-                                        </span>
+                                        <motion.span 
+                                          className="ml-2 px-1.5 py-0.5 text-[10px] font-medium text-white rounded bg-blue-600 flex items-center relative overflow-hidden"
+                                          variants={comingSoonBadgeVariants}
+                                          initial="initial"
+                                          animate="animate"
+                                        >
+                                          {/* Hiệu ứng shimmer */}
+                                          <motion.div 
+                                            className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                                            variants={shimmerVariants}
+                                            initial="initial"
+                                            animate="animate"
+                                          />
+                                          
+                                          <span className="flex items-center relative z-10">
+                                            <motion.span 
+                                              className="mr-1 inline-block w-1.5 h-1.5 rounded-full bg-white"
+                                              variants={dotPulseVariants}
+                                              initial="initial"
+                                              animate="animate"
+                                            />
+                                            <motion.span
+                                              variants={textGlowVariants}
+                                              initial="initial"
+                                              animate="animate"
+                                            >
+                                              Coming Soon
+                                            </motion.span>
+                                          </span>
+                                        </motion.span>
                                       )}
                                     </Link>
                                   </motion.div>
@@ -421,6 +506,38 @@ export default function NavBar() {
                               isActiveMenu(item.href) ? 'w-full' : 'w-0'
                             }`}></span>
                           </span>
+                          {item.comingSoon && (
+                            <motion.span 
+                              className="ml-2 px-1.5 py-0.5 text-[10px] font-medium text-white rounded bg-blue-600 flex items-center relative overflow-hidden"
+                              variants={comingSoonBadgeVariants}
+                              initial="initial"
+                              animate="animate"
+                            >
+                              {/* Hiệu ứng shimmer */}
+                              <motion.div 
+                                className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                                variants={shimmerVariants}
+                                initial="initial"
+                                animate="animate"
+                              />
+                              
+                              <span className="flex items-center relative z-10">
+                                <motion.span 
+                                  className="mr-1 inline-block w-1.5 h-1.5 rounded-full bg-white"
+                                  variants={dotPulseVariants}
+                                  initial="initial"
+                                  animate="animate"
+                                />
+                                <motion.span
+                                  variants={textGlowVariants}
+                                  initial="initial"
+                                  animate="animate"
+                                >
+                                  Coming Soon
+                                </motion.span>
+                              </span>
+                            </motion.span>
+                          )}
                         </Link>
                       </motion.div>
                     )}
@@ -568,9 +685,36 @@ export default function NavBar() {
                                         )}
                                         
                                         {subitem.comingSoon && (
-                                          <span className="ml-2 px-1.5 py-0.5 text-xs font-medium text-white rounded bg-gray-700">
-                                            Sắp Ra Mắt
-                                          </span>
+                                          <motion.span 
+                                            className="ml-2 px-1.5 py-0.5 text-xs font-medium text-white rounded bg-blue-600 flex items-center relative overflow-hidden"
+                                            variants={comingSoonBadgeVariants}
+                                            initial="initial"
+                                            animate="animate"
+                                          >
+                                            {/* Hiệu ứng shimmer */}
+                                            <motion.div 
+                                              className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                                              variants={shimmerVariants}
+                                              initial="initial"
+                                              animate="animate"
+                                            />
+                                            
+                                            <span className="flex items-center relative z-10">
+                                              <motion.span 
+                                                className="mr-1 inline-block w-1.5 h-1.5 rounded-full bg-white"
+                                                variants={dotPulseVariants}
+                                                initial="initial"
+                                                animate="animate"
+                                              />
+                                              <motion.span
+                                                variants={textGlowVariants}
+                                                initial="initial"
+                                                animate="animate"
+                                              >
+                                                Coming Soon
+                                              </motion.span>
+                                            </span>
+                                          </motion.span>
                                         )}
                                       </div>
                                     </Link>
@@ -592,6 +736,38 @@ export default function NavBar() {
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         <span className="text-base font-medium">{item.label}</span>
+                        {item.comingSoon && (
+                          <motion.span 
+                            className="ml-2 px-1.5 py-0.5 text-xs font-medium text-white rounded bg-blue-600 flex items-center relative overflow-hidden"
+                            variants={comingSoonBadgeVariants}
+                            initial="initial"
+                            animate="animate"
+                          >
+                            {/* Hiệu ứng shimmer */}
+                            <motion.div 
+                              className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                              variants={shimmerVariants}
+                              initial="initial"
+                              animate="animate"
+                            />
+                            
+                            <span className="flex items-center relative z-10">
+                              <motion.span 
+                                className="mr-1 inline-block w-1.5 h-1.5 rounded-full bg-white"
+                                variants={dotPulseVariants}
+                                initial="initial"
+                                animate="animate"
+                              />
+                              <motion.span
+                                variants={textGlowVariants}
+                                initial="initial"
+                                animate="animate"
+                              >
+                                Coming Soon
+                              </motion.span>
+                            </span>
+                          </motion.span>
+                        )}
                       </Link>
                     )}
                   </motion.div>
