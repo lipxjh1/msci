@@ -137,12 +137,12 @@ export default function RoadmapPage() {
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-2xl font-bold text-white mb-4">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00A4EA] to-[#00D7FF] relative inline-block">
-                    TẦM NHÌN 2024-2030
+                    TẦM NHÌN
                   </span>
                 </h2>
                 <div className="w-20 h-1 bg-[#FF7D00] mx-auto md:mx-0 mb-3"></div>
                 <p className="text-gray-300">
-                  M-SCI không chỉ là một tựa game - đó là khởi đầu cho hành trình đưa ngành công nghiệp game Việt Nam vươn tầm thế giới. Lộ trình dưới đây phác thảo kế hoạch phát triển chi tiết từ 2024 đến 2030.
+                  M-SCI không chỉ là một tựa game - đó là khởi đầu cho hành trình đưa ngành công nghiệp game Việt Nam vươn tầm thế giới. Lộ trình dưới đây phác thảo kế hoạch phát triển chi tiết.
                 </p>
               </div>
               <div className="flex-shrink-0 flex justify-center">

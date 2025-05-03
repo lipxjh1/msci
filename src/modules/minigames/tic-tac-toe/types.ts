@@ -2,7 +2,7 @@
 
 export type Player = 'X' | 'O' | null;
 export type Board = Player[][];
-export type GameState = 'playing' | 'draw' | 'X_won' | 'O_won';
+export type GameState = 'playing' | 'draw' | 'X_won' | 'O_won' | 'won' | 'lost';
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 

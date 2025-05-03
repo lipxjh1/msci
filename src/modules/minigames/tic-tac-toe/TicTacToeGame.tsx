@@ -6,22 +6,22 @@ import TicTacToeAI from './TicTacToeAI';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { FiArrowLeft } from 'react-icons/fi';
+import { FiArrowLeft, FiSettings, FiRefreshCw, FiAward, FiInfo } from 'react-icons/fi';
 
 const BOARD_SIZE = 9;
 const WIN_LENGTH = 5;
-const CELL_SIZE = 50; // Tăng kích thước ô để hiển thị vuông vắn hơn
+const CELL_SIZE = 50; // Kích thước ô để hiển thị vuông vắn
 
 const TicTacToeGame: React.FC = () => {
   const [board, setBoard] = useState<Board>(initializeBoard());
   const [currentPlayer, setCurrentPlayer] = useState<Player>('X');
   const [gameState, setGameState] = useState<GameState>('playing');
-  const [difficulty, setDifficulty] = useState<Difficulty>('medium');
+  const [difficulty, setDifficulty] = useState<Difficulty>('hard');
   const [playerMark, setPlayerMark] = useState<Player>('X');
   const [aiMark, setAiMark] = useState<Player>('O');
   const [winningLine, setWinningLine] = useState<number[][]>([]);
   const [isAiThinking, setIsAiThinking] = useState(false);
-  const [ai] = useState(new TicTacToeAI('medium', 'O'));
+  const [ai] = useState(new TicTacToeAI('hard', 'O'));
   const [currentMessage, setCurrentMessage] = useState<number>(0);
   const [showMessage, setShowMessage] = useState<boolean>(false);
   const [totalMoves, setTotalMoves] = useState<number>(0);
@@ -29,7 +29,17 @@ const TicTacToeGame: React.FC = () => {
   const gameStateRef = useRef<GameState>('playing');
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   
-  // Phát hiện thiết bị di động
+  // Thêm mảng các emoji vui nhộn khi AI chặn được người chơi
+  const BLOCKING_EMOJIS = [
+    '😎', '🤓', '🧠', '🚫', '🛑', '🔥', '💪', '👊', '🤖', '👾',
+    '😏', '😈', '🙅‍♂️', '🧐', '🤔', '💭', '��', '✨', '⚡️', '🎯'
+  ];
+
+  // Thêm biến state để lưu trữ trạng thái chặn
+  const [blockingMove, setBlockingMove] = useState<{row: number, col: number} | null>(null);
+  const [blockingEmoji, setBlockingEmoji] = useState<string>('');
+  
+  // Mobile detection
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -44,59 +54,59 @@ const TicTacToeGame: React.FC = () => {
     
     return () => {
       window.removeEventListener('resize', handleResize);
-      // Dọn dẹp các timeout khi component unmount
+      // Clean up timeouts when component unmounts
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
     };
   }, []);
 
-  // Cập nhật ref khi state thay đổi để tránh closure issues
+  // Update ref when state changes to avoid closure issues
   useEffect(() => {
     gameStateRef.current = gameState;
   }, [gameState]);
 
-  // Danh sách tin nhắn của Akane
-  const akaneMessages = useMemo(() => [
-    "Lượt của tôi! Xem tôi đánh thế nào nào!",
-    "Bạn đánh khá đấy, nhưng tôi vẫn giỏi hơn!",
-    "Hmm, nước đi thú vị đấy!",
-    "Bạn đang sắp thắng rồi, nhưng đừng ảo tưởng!",
-    "Oops, tôi không thấy nước đi đó!",
-    "Bạn chơi rất giỏi! Nhưng tôi cũng không vừa đâu!",
-    "Ố ồ! Nước đi thông minh đấy!",
-    "Thử sức với độ khó cao hơn đi, dễ quá!",
-    "Tôi đang để bạn thắng đấy nhé! Hihi!",
-    "Ái chà, đánh vậy sao thắng được tôi?",
-    "Đừng lo! Ai cũng thua tôi vài lần đầu tiên mà!",
-    "Bạn đang chơi rất tốt! Tôi thích điều đó!",
-    "Đây là nước đi bí mật của tôi nè!",
-    "Bạn có chắc đó là nước đi đúng không?",
-    "Tôi đang tính kế hoạch chiến thắng rồi!",
-    "Chà, bạn thật sự muốn thách thức tôi!",
-    "Haha! Dễ quá! À không, tôi đùa thôi!",
-    "Làm tốt lắm! Tôi sẽ còn khó hơn nữa đấy!",
-    "Chúc may mắn lần sau nhé!",
-    "Quả là đối thủ xứng tầm!",
-    "Đừng buồn khi thua tôi nhé, tôi được lập trình mà!",
-    "Có vẻ như hôm nay bạn rất may mắn!",
-    "Tôi đang để bạn đi trước đấy!",
-    "Chà! Tôi không nghĩ đến nước đi đó!",
-    "Game này vui thật đấy! Bạn thấy sao?",
-    "Akane luôn sẵn sàng cho một thách thức!",
-    "Bạn biết không, tôi rất thích chơi cờ caro!",
-    "Hãy cẩn thận với nước đi tiếp theo của tôi!",
-    "Ui! Tôi không thấy điều đó đến!",
-    "Hmm, chiến thuật của bạn khá lạ đấy!"
+  // AI character messages
+  const aiMessages = useMemo(() => [
+    "My turn! Watch my move!",
+    "Good play, but I'm still better!",
+    "Hmm, interesting move!",
+    "You're getting close, but don't get too confident!",
+    "Oops, I didn't see that coming!",
+    "You play well! But I won't go easy on you!",
+    "Oh! That was a smart move!",
+    "Try a higher difficulty, this is too easy!",
+    "I'm letting you win this time! Haha!",
+    "Is that the best you can do?",
+    "Don't worry! Everyone loses to me the first few times!",
+    "You're playing very well! I like that!",
+    "Here's my secret move!",
+    "Are you sure that's the right move?",
+    "I'm planning my victory already!",
+    "You're really challenging me!",
+    "Haha! Too easy! Just kidding!",
+    "Well done! I'll be tougher next time!",
+    "Better luck next time!",
+    "A worthy opponent indeed!",
+    "Don't feel bad losing to me, I'm programmed to win!",
+    "Seems like you're having a lucky day!",
+    "I'm letting you go first!",
+    "Wow! I didn't think of that move!",
+    "This game is fun! What do you think?",
+    "Always ready for a challenge!",
+    "You know, I really enjoy tic-tac-toe!",
+    "Be careful with your next move!",
+    "Ouch! I didn't see that coming!",
+    "Your strategy is quite unusual!"
   ], []);
   
-  // Hàm chọn tin nhắn ngẫu nhiên
+  // Random message selection function
   const getRandomMessage = useCallback(() => {
-    const randomIndex = Math.floor(Math.random() * akaneMessages.length);
+    const randomIndex = Math.floor(Math.random() * aiMessages.length);
     setCurrentMessage(randomIndex);
     setShowMessage(true);
     
-    // Ẩn tin nhắn sau 3 giây
+    // Hide message after 3 seconds
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
@@ -105,9 +115,9 @@ const TicTacToeGame: React.FC = () => {
       setShowMessage(false);
       timerRef.current = null;
     }, 3000);
-  }, [akaneMessages]);
+  }, [aiMessages]);
 
-  // Khởi tạo bàn cờ
+  // Initialize the board
   function initializeBoard(): Board {
     const newBoard: Board = [];
     for (let i = 0; i < BOARD_SIZE; i++) {
@@ -116,7 +126,7 @@ const TicTacToeGame: React.FC = () => {
     return newBoard;
   }
 
-  // Đặt lại trò chơi
+  // Reset game
   const resetGame = useCallback(() => {
     setBoard(initializeBoard());
     setCurrentPlayer(playerMark);
@@ -128,14 +138,14 @@ const TicTacToeGame: React.FC = () => {
     ai.setDifficulty(difficulty);
     ai.setAiMark(aiMark);
     
-    // Huỷ mọi timeout đang chạy
+    // Cancel any running timeouts
     if (timerRef.current) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
     }
   }, [playerMark, difficulty, aiMark, ai]);
 
-  // Xử lý thay đổi cài đặt
+  // Handle settings changes
   const handleSettingsChange = useCallback((newDifficulty: Difficulty, newPlayerMark: Player) => {
     const newAiMark = newPlayerMark === 'X' ? 'O' : 'X';
     setDifficulty(newDifficulty);
@@ -144,7 +154,7 @@ const TicTacToeGame: React.FC = () => {
     ai.setDifficulty(newDifficulty);
     ai.setAiMark(newAiMark);
     
-    // Đặt lại trò chơi với cài đặt mới
+    // Reset game with new settings
     setBoard(initializeBoard());
     setCurrentPlayer(newPlayerMark);
     setGameState('playing');
@@ -153,13 +163,13 @@ const TicTacToeGame: React.FC = () => {
     setTotalMoves(0);
     setIsAiThinking(false);
 
-    // Huỷ mọi timeout đang chạy
+    // Cancel any running timeouts
     if (timerRef.current) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
     }
     
-    // Nếu AI đi trước
+    // If AI goes first
     if (newPlayerMark === 'O') {
       timerRef.current = setTimeout(() => {
         makeAiMove(initializeBoard());
@@ -168,25 +178,25 @@ const TicTacToeGame: React.FC = () => {
     }
   }, [ai]);
 
-  // Kiểm tra người thắng
+  // Check for winner
   const checkWinner = useCallback((board: Board, row: number, col: number): MoveResult => {
     const size = board.length;
     const player = board[row][col];
     if (!player) return { winner: null, gameOver: false };
     
-    // Các hướng kiểm tra: ngang, dọc, chéo chính, chéo phụ
+    // Directions to check: horizontal, vertical, main diagonal, anti-diagonal
     const directions = [
-      { dr: 0, dc: 1 },  // ngang
-      { dr: 1, dc: 0 },  // dọc
-      { dr: 1, dc: 1 },  // chéo chính
-      { dr: 1, dc: -1 }, // chéo phụ
+      { dr: 0, dc: 1 },  // horizontal
+      { dr: 1, dc: 0 },  // vertical
+      { dr: 1, dc: 1 },  // main diagonal
+      { dr: 1, dc: -1 }, // anti-diagonal
     ];
     
     for (const dir of directions) {
       let count = 1;
       const lineCoords = [[row, col]];
       
-      // Kiểm tra theo hướng thuận
+      // Check in forward direction
       for (let i = 1; i < WIN_LENGTH; i++) {
         const r = row + dir.dr * i;
         const c = col + dir.dc * i;
@@ -198,7 +208,7 @@ const TicTacToeGame: React.FC = () => {
         }
       }
       
-      // Kiểm tra theo hướng ngược
+      // Check in backward direction
       for (let i = 1; i < WIN_LENGTH; i++) {
         const r = row - dir.dr * i;
         const c = col - dir.dc * i;
@@ -210,518 +220,482 @@ const TicTacToeGame: React.FC = () => {
         }
       }
       
-      // Nếu đủ WIN_LENGTH ô liên tiếp
+      // Check if we have a winner
       if (count >= WIN_LENGTH) {
-        return { winner: player, gameOver: true, winningLine: lineCoords };
+        return { 
+          winner: player, 
+          gameOver: true,
+          winningLine: lineCoords 
+        };
       }
     }
     
-    // Kiểm tra hòa
-    let isDraw = true;
+    // Check for draw (all cells filled)
+    let filledCells = 0;
     for (let r = 0; r < size; r++) {
       for (let c = 0; c < size; c++) {
-        if (board[r][c] === null) {
-          isDraw = false;
-          break;
+        if (board[r][c] !== null) {
+          filledCells++;
         }
       }
-      if (!isDraw) break;
     }
     
-    return { winner: null, gameOver: isDraw };
+    return {
+      winner: null,
+      gameOver: filledCells === size * size,
+    };
   }, []);
 
-  // Xử lý nước đi của người chơi
+  // Handle player move
   const handleCellClick = useCallback((row: number, col: number) => {
-    // Không cho phép đánh nếu ô đã có giá trị hoặc game đã kết thúc hoặc AI đang nghĩ
-    if (board[row][col] !== null || gameStateRef.current !== 'playing' || currentPlayer !== playerMark || isAiThinking) {
+    // Ignore if game is over or cell is already filled or if it's AI's turn
+    if (gameStateRef.current !== 'playing' || board[row][col] !== null || 
+        (currentPlayer !== playerMark) || isAiThinking) {
       return;
     }
-
-    // Tạo bàn cờ mới với nước đi của người chơi
-    const newBoard = board.map(row => [...row]);
-    newBoard[row][col] = playerMark;
+    
+    // Make player move
+    const newBoard = [...board.map(row => [...row])];
+    newBoard[row][col] = currentPlayer;
     setBoard(newBoard);
     setTotalMoves(prev => prev + 1);
-
-    // Kiểm tra trạng thái trò chơi
+    
+    // Check for winner
     const result = checkWinner(newBoard, row, col);
-    if (result.gameOver) {
-      if (result.winner) {
-        setGameState(`${result.winner}_won` as GameState);
-        gameStateRef.current = `${result.winner}_won` as GameState;
-        if (result.winningLine) setWinningLine(result.winningLine);
-      } else {
-        setGameState('draw');
-        gameStateRef.current = 'draw';
+    if (result.winner) {
+      setGameState('won');
+      gameStateRef.current = 'won';
+      if (result.winningLine) {
+        setWinningLine(result.winningLine);
       }
-    } else {
-      // Chuyển lượt cho AI
-      setCurrentPlayer(aiMark);
-      // AI đánh sau 500ms để tạo hiệu ứng suy nghĩ
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-      
-      timerRef.current = setTimeout(() => {
-        makeAiMove(newBoard);
-        timerRef.current = null;
-      }, 500);
-    }
-  }, [board, currentPlayer, playerMark, isAiThinking, aiMark, checkWinner]);
-
-  // Xử lý nước đi của AI
-  const makeAiMove = useCallback((currentBoard: Board) => {
-    if (gameStateRef.current !== 'playing') return;
-
-    setIsAiThinking(true);
-    getRandomMessage(); // Hiển thị tin nhắn ngẫu nhiên
-    
-    // Sử dụng setTimeout để tạo hiệu ứng AI đang suy nghĩ
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
+      return;
+    } else if (result.gameOver) {
+      setGameState('draw');
+      gameStateRef.current = 'draw';
+      return;
     }
     
+    // Switch player
+    setCurrentPlayer(aiMark);
+    
+    // AI's turn
     timerRef.current = setTimeout(() => {
-      try {
-        // Kiểm tra lại trạng thái game trước khi AI đi
-        if (gameStateRef.current !== 'playing') {
-          setIsAiThinking(false);
-          return;
-        }
-        
-        const move = ai.makeMove(currentBoard);
-        
-        // Tạo bàn cờ mới với nước đi của AI
-        const newBoard = currentBoard.map(row => [...row]);
-        newBoard[move.row][move.col] = aiMark;
+      makeAiMove(newBoard);
+      timerRef.current = null;
+    }, 500);
+  }, [board, currentPlayer, gameState, playerMark, aiMark, isAiThinking, checkWinner]);
+  
+  // AI move
+  const makeAiMove = useCallback((currentBoard: Board) => {
+    if (gameStateRef.current !== 'playing') {
+      return;
+    }
+    
+    setIsAiThinking(true);
+    getRandomMessage();
+    
+    // Small delay for "thinking" effect
+    setTimeout(() => {
+      const aiMove = ai.makeMove(currentBoard);
+      
+      if (aiMove && aiMove.row !== -1 && aiMove.col !== -1) {
+        const newBoard = [...currentBoard.map(row => [...row])];
+        newBoard[aiMove.row][aiMove.col] = aiMark;
         setBoard(newBoard);
         setTotalMoves(prev => prev + 1);
         
-        // Kiểm tra trạng thái trò chơi
-        const result = checkWinner(newBoard, move.row, move.col);
-        if (result.gameOver) {
-          if (result.winner) {
-            setGameState(`${result.winner}_won` as GameState);
-            gameStateRef.current = `${result.winner}_won` as GameState;
-            if (result.winningLine) setWinningLine(result.winningLine);
-          } else {
-            setGameState('draw');
-            gameStateRef.current = 'draw';
+        // Kiểm tra xem có phải nước chặn hay không
+        const isBlockingMove = checkIfBlockingMove(currentBoard, aiMove.row, aiMove.col);
+        if (isBlockingMove) {
+          // Hiển thị emoji chặn
+          setBlockingEmoji(BLOCKING_EMOJIS[Math.floor(Math.random() * BLOCKING_EMOJIS.length)]);
+          setBlockingMove({row: aiMove.row, col: aiMove.col});
+          // Tự động xóa emoji sau 2 giây
+          setTimeout(() => {
+            setBlockingMove(null);
+          }, 2000);
+        }
+        
+        // Check for winner
+        const result = checkWinner(newBoard, aiMove.row, aiMove.col);
+        if (result.winner) {
+          setGameState('lost');
+          gameStateRef.current = 'lost';
+          if (result.winningLine) {
+            setWinningLine(result.winningLine);
           }
+        } else if (result.gameOver) {
+          setGameState('draw');
+          gameStateRef.current = 'draw';
         } else {
-          // Chuyển lượt cho người chơi
           setCurrentPlayer(playerMark);
         }
-      } catch (error) {
-        console.error('AI error:', error);
-      } finally {
-        setIsAiThinking(false);
-        timerRef.current = null;
+      } else {
+        console.error("AI couldn't find a valid move");
+        setCurrentPlayer(playerMark);
       }
-    }, 1000);
+      
+      setIsAiThinking(false);
+    }, 800);
   }, [ai, aiMark, playerMark, checkWinner, getRandomMessage]);
 
-  // Tự động kích hoạt AI nếu đến lượt AI
+  // Thêm hàm kiểm tra nước đi có phải là nước chặn không
+  const checkIfBlockingMove = (board: Board, row: number, col: number): boolean => {
+    const size = board.length;
+    const threatThreshold = 3; // Số quân liên tiếp coi là nguy hiểm
+    
+    // Các hướng để kiểm tra: ngang, dọc, chéo chính, chéo phụ
+    const directions = [
+      { dr: 0, dc: 1 },  // ngang
+      { dr: 1, dc: 0 },  // dọc
+      { dr: 1, dc: 1 },  // chéo chính
+      { dr: 1, dc: -1 }, // chéo phụ
+    ];
+    
+    // Đặt quân cờ AI để kiểm tra
+    board[row][col] = aiMark;
+    
+    for (const dir of directions) {
+      // Kiểm tra hai hướng ngược nhau
+      let threatCount = 0;
+      
+      // Kiểm tra theo hướng thuận
+      for (let i = 1; i < WIN_LENGTH; i++) {
+        const r = row + dir.dr * i;
+        const c = col + dir.dc * i;
+        if (r >= 0 && r < size && c >= 0 && c < size) {
+          if (board[r][c] === playerMark) {
+            threatCount++;
+          } else {
+            break;
+          }
+        }
+      }
+      
+      // Kiểm tra theo hướng ngược
+      for (let i = 1; i < WIN_LENGTH; i++) {
+        const r = row - dir.dr * i;
+        const c = col - dir.dc * i;
+        if (r >= 0 && r < size && c >= 0 && c < size) {
+          if (board[r][c] === playerMark) {
+            threatCount++;
+          } else {
+            break;
+          }
+        }
+      }
+      
+      // Hoàn tác nước đi
+      board[row][col] = null;
+      
+      // Nếu có đủ quân liên tiếp theo bất kỳ hướng nào, đây là nước chặn
+      if (threatCount >= threatThreshold) {
+        return true;
+      }
+    }
+    
+    // Hoàn tác nước đi (trong trường hợp chưa hoàn tác ở vòng lặp)
+    board[row][col] = null;
+    return false;
+  };
+
+  // Initialize game when component mounts
   useEffect(() => {
-    // Chỉ chạy một lần khi component mount
-    if (gameState === 'playing' && currentPlayer === aiMark) {
+    ai.setDifficulty(difficulty);
+    ai.setAiMark(aiMark);
+    
+    // If AI goes first
+    if (playerMark === 'O') {
       makeAiMove(board);
     }
     
-    // Cleanup khi unmount
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Nút quay lại
+  // Back button component
   const BackButton = () => (
-    <Link href="/minigames" 
-      className="inline-flex items-center mb-4 text-blue-400 hover:text-blue-300 transition-colors">
+    <Link href="/minigames" className="inline-flex items-center text-blue-300 hover:text-blue-200 font-medium transition-colors">
       <FiArrowLeft className="mr-2" />
-      <span>Quay lại danh sách game</span>
+      <span>Back to Mini Games</span>
     </Link>
   );
 
-  // Render giao diện cho desktop
-  const renderDesktopUI = () => (
-    <div className="space-y-4">
-      <BackButton />
-      
-      <div className="flex flex-row gap-6 items-start">
-        <div className="w-full lg:w-3/5">
-          <div className="relative bg-gradient-to-br from-indigo-900 to-blue-900 rounded-lg p-4 shadow-xl border border-indigo-700">
-            <div className="grid grid-cols-9 gap-2 aspect-square max-w-[600px] mx-auto">
-              {board.map((row, rowIndex) => (
-                row.map((cell, colIndex) => {
-                  const isWinningCell = winningLine.some(([r, c]) => r === rowIndex && c === colIndex);
-                  return (
-                    <motion.div
-                      key={`${rowIndex}-${colIndex}`}
-                      className={`aspect-square flex items-center justify-center cursor-pointer rounded-md transition-all ${
-                        isWinningCell ? 'bg-green-600 animate-pulse' : 'bg-indigo-800 hover:bg-indigo-700'
-                      }`}
-                      onClick={() => handleCellClick(rowIndex, colIndex)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {cell && (
-                        <motion.span 
-                          className={`text-2xl md:text-3xl font-bold ${cell === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        >
-                          {cell}
-                        </motion.span>
-                      )}
-                    </motion.div>
-                  );
-                })
-              ))}
-            </div>
-          </div>
-          
-          <div className="mt-6 grid grid-cols-2 gap-4">
-            {renderSettings()}
-            
-            {/* Trạng thái và nút chơi lại */}
-            <div className="bg-[#151530] p-4 rounded-lg border border-indigo-900/50">
-              <div className="mb-4 h-16 flex items-center justify-center">{renderGameStatus()}</div>
-              <motion.button
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-3 px-4 rounded-lg font-medium transition-colors"
-                onClick={resetGame}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+  // Cập nhật render cell để hiển thị emoji khi AI chặn
+  const renderCell = (rowIndex: number, colIndex: number, cell: Player) => {
+    const isBlockingCell = blockingMove && blockingMove.row === rowIndex && blockingMove.col === colIndex;
+    const isWinningCell = winningLine.some(([r, c]) => r === rowIndex && c === colIndex);
+    
+    return (
+      <div 
+        key={`${rowIndex}-${colIndex}`}
+        className={`flex items-center justify-center cursor-pointer transition-all duration-200 ${
+          isWinningCell
+            ? 'bg-green-900 bg-opacity-75' 
+            : 'bg-[#1a2234] hover:bg-[#2a3344]'
+        }`}
+        style={{ width: isMobile ? '100%' : CELL_SIZE, height: isMobile ? '100%' : CELL_SIZE }}
+        onClick={() => handleCellClick(rowIndex, colIndex)}
+      >
+        {cell === 'X' && (
+          <div className="text-red-400 text-3xl font-bold drop-shadow-[0_0_3px_rgba(248,113,113,0.6)]">X</div>
+        )}
+        {cell === 'O' && (
+          <div className="relative">
+            <div className="text-blue-400 text-3xl font-bold drop-shadow-[0_0_3px_rgba(96,165,250,0.6)]">O</div>
+            {isBlockingCell && (
+              <motion.div 
+                initial={{ scale: 0, y: 10 }}
+                animate={{ scale: 1, y: -25 }}
+                exit={{ scale: 0 }}
+                className="absolute top-0 left-1/2 transform -translate-x-1/2 text-2xl"
               >
-                Chơi lại
-              </motion.button>
-            </div>
+                {blockingEmoji}
+              </motion.div>
+            )}
           </div>
-        </div>
-        
-        <div className="hidden lg:block w-2/5">
-          <div className="relative bg-[#151530] p-5 rounded-lg border border-indigo-900/50">
-            <div className="flex flex-col items-center">
-              <div className="relative w-64 h-64 mb-4">
-                <Image 
-                  src="/images/minigam/3.png"
-                  alt="Akane"
-                  fill
-                  sizes="256px"
-                  className="object-cover rounded-lg"
-                  priority
-                />
-              </div>
-              
-              <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 mb-2">
-                Akane
-              </h2>
-              
-              <div className="text-gray-300 text-center mb-4">
-                Xin chào! Tôi là Akane, đối thủ cờ caro của bạn hôm nay. Hãy thách thức tôi nào!
-              </div>
-              
-              {/* Tin nhắn từ Akane */}
-              <div className="min-h-24 w-full relative h-24 mb-4">
-                <AnimatePresence>
-                  {showMessage && (
-                    <motion.div 
-                      className="bg-purple-900/50 border border-purple-700 p-4 rounded-lg"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="relative">
-                        <div className="absolute -top-8 -left-4 w-8 h-8 transform rotate-45 text-2xl">💭</div>
-                      </div>
-                      <p className="text-purple-100 italic">{akaneMessages[currentMessage]}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-              
-              <div className="mt-6 w-full">
-                <h3 className="text-lg font-semibold mb-3 text-blue-400">Luật chơi</h3>
-                <ul className="text-gray-300 list-disc list-inside space-y-2">
-                  <li>Mục tiêu: Tạo được 5 ô liên tiếp theo hàng ngang, dọc hoặc chéo</li>
-                  <li>Người đầu tiên tạo được 5 ô liên tiếp sẽ thắng</li>
-                  <li>Nếu bàn cờ đầy mà không có người thắng, kết quả sẽ là hòa</li>
-                </ul>
-                
-                <h3 className="text-lg font-semibold mt-6 mb-3 text-blue-400">Độ khó</h3>
-                <ul className="text-gray-300 list-disc list-inside space-y-2">
-                  <li><span className="text-green-400">Dễ</span>: Akane đánh ngẫu nhiên</li>
-                  <li><span className="text-yellow-400">Trung bình</span>: Akane kết hợp giữa đánh ngẫu nhiên và thông minh</li>
-                  <li><span className="text-red-400">Khó</span>: Akane sử dụng thuật toán minimax, rất khó để đánh bại</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
-    </div>
-  );
-
-  // Render giao diện cho mobile
-  const renderMobileUI = () => (
-    <div className="flex flex-col gap-4">
-      <BackButton />
-      
-      {/* Phần Akane và thông báo */}
-      <div className="bg-[#151530] p-4 rounded-lg border border-indigo-900/50">
-        <div className="flex items-center gap-3">
-          <div className="relative w-16 h-16 flex-shrink-0">
-            <Image 
-              src="/images/minigam/3.png"
-              alt="Akane"
-              fill
-              sizes="64px"
-              className="object-cover rounded-full border-2 border-purple-600"
-              priority
-            />
-          </div>
-          
-          <div className="flex-1">
-            <h2 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
-              Akane
-            </h2>
-            
-            {/* Hiển thị tin nhắn của Akane */}
-            <div className="text-sm text-gray-300 min-h-6">
-              <AnimatePresence>
-                {showMessage && (
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {akaneMessages[currentMessage]}
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Hiển thị lượt chơi và trạng thái */}
-      <div className="bg-[#151530] p-4 rounded-lg border border-indigo-900/50">
-        <div className="flex justify-between items-center mb-2">
-          <div className="text-sm">
-            <span className="text-gray-400">Lượt của: </span>
-            <span className={`font-bold ${currentPlayer === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}>
-              {currentPlayer === playerMark ? 'BẠN' : 'AKANE'}
-              {' '}
-              <span className="text-xs">({currentPlayer})</span>
-            </span>
-          </div>
-          
-          <div className="text-sm">
-            <span className="text-gray-400">Bạn chơi: </span>
-            <span className={`font-bold ${playerMark === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}>
-              {playerMark}
-            </span>
-          </div>
-        </div>
-        
-        <div className="mb-1 h-10 text-center">
-          {gameState !== 'playing' && renderGameStatus()}
-          {isAiThinking && (
-            <div className="text-blue-400 animate-pulse flex items-center justify-center">
-              <div className="mr-2">Akane đang suy nghĩ</div>
-              <div className="flex space-x-1">
-                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce"></div>
-                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-      
-      {/* Bàn cờ */}
-      <div className="bg-gradient-to-br from-indigo-900 to-blue-900 rounded-lg p-3 shadow-xl border border-indigo-700">
-        <div className="grid grid-cols-9 gap-1 aspect-square w-full">
-          {board.map((row, rowIndex) => (
-            row.map((cell, colIndex) => {
-              const isWinningCell = winningLine.some(([r, c]) => r === rowIndex && c === colIndex);
-              return (
-                <motion.div
-                  key={`${rowIndex}-${colIndex}`}
-                  className={`aspect-square flex items-center justify-center cursor-pointer rounded-md transition-all ${
-                    isWinningCell ? 'bg-green-600 animate-pulse' : 'bg-indigo-800 hover:bg-indigo-700'
-                  }`}
-                  onClick={() => handleCellClick(rowIndex, colIndex)}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {cell && (
-                    <span 
-                      className={`text-lg font-bold ${cell === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}
-                    >
-                      {cell}
-                    </span>
-                  )}
-                </motion.div>
-              );
-            })
-          ))}
-        </div>
-      </div>
-      
-      {/* Nút chơi lại và cài đặt */}
-      <div className="grid grid-cols-1 gap-3">
-        <motion.button
-          className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-3 px-4 rounded-lg font-medium transition-colors"
-          onClick={resetGame}
-          whileTap={{ scale: 0.95 }}
-        >
-          Chơi lại
-        </motion.button>
-        
-        {renderSettings()}
-        
-        {/* Luật chơi ngắn gọn cho mobile */}
-        <div className="bg-[#151530] p-4 rounded-lg border border-indigo-900/50">
-          <details className="text-sm">
-            <summary className="font-medium text-blue-400 cursor-pointer mb-2">Luật chơi & Độ khó</summary>
-            <ul className="text-gray-300 list-disc list-inside space-y-1 pl-1 text-xs">
-              <li>Tạo được 5 ô liên tiếp theo hàng ngang, dọc hoặc chéo để thắng</li>
-              <li><span className="text-green-400">Dễ</span>: Akane đánh ngẫu nhiên</li>
-              <li><span className="text-yellow-400">Trung bình</span>: Akane đánh bán thông minh</li>
-              <li><span className="text-red-400">Khó</span>: Akane sử dụng minimax, rất khó để thắng</li>
-            </ul>
-          </details>
-        </div>
-      </div>
-    </div>
-  );
-
-  // Hiển thị trạng thái game
-  const renderGameStatus = () => {
-    if (gameState === 'playing') {
-      return (
-        <div className="text-center">
-          {isAiThinking ? (
-            <div className="flex items-center justify-center space-x-2">
-              <div className="w-5 h-5 relative">
-                <div className="animate-ping absolute w-full h-full rounded-full bg-purple-500 opacity-30"></div>
-                <div className="relative w-5 h-5 rounded-full bg-purple-500"></div>
-              </div>
-              <span className="text-purple-300">Akane đang suy nghĩ...</span>
-            </div>
-          ) : (
-            <div className="flex flex-col items-center">
-              <span className="text-gray-300 mb-1">Lượt của</span>
-              <div className={`inline-flex items-center justify-center ${currentPlayer === 'X' ? 'text-pink-500' : 'text-cyan-400'} text-xl font-bold`}>
-                {currentPlayer === playerMark ? 'BẠN' : 'AKANE'}
-                <span className="ml-2 text-xl">{currentPlayer}</span>
-              </div>
-            </div>
-          )}
-        </div>
-      );
-    } else if (gameState === 'draw') {
-      return (
-        <div className="text-center">
-          <div className="inline-block px-4 py-2 bg-yellow-500/20 rounded-lg text-yellow-300 font-medium">
-            HÒA!
-          </div>
-          <div className="mt-1 text-gray-400 text-sm">
-            Trận đấu kết thúc với tỷ số hòa
-          </div>
-        </div>
-      );
-    } else {
-      const winner = gameState.split('_')[0] as Player;
-      const isPlayerWin = winner === playerMark;
-      
-      return (
-        <div className="text-center">
-          <div className={`inline-block px-4 py-2 ${isPlayerWin ? 'bg-green-500/20 text-green-300' : 'bg-red-500/20 text-red-300'} rounded-lg font-medium`}>
-            {isPlayerWin ? 'BẠN THẮNG!' : 'AKANE THẮNG!'}
-          </div>
-          <div className="mt-1 text-gray-400 text-sm">
-            {isPlayerWin ? 'Chúc mừng! Bạn đã đánh bại Akane!' : 'Đừng buồn! Hãy thử lại lần sau nhé!'}
-          </div>
-        </div>
-      );
-    }
+    );
   };
 
-  // Hiển thị cài đặt
+  // Desktop UI render
+  const renderDesktopUI = () => (
+    <div className="flex flex-col md:flex-row gap-8 w-full">
+      {/* Game board section */}
+      <div className="flex-1 flex flex-col items-center">
+        <div 
+          className="grid bg-[#1a2234] rounded-lg relative overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+          style={{ 
+            gridTemplateColumns: `repeat(${BOARD_SIZE}, ${CELL_SIZE}px)`,
+            gridTemplateRows: `repeat(${BOARD_SIZE}, ${CELL_SIZE}px)`,
+            gap: '1px',
+            backgroundColor: '#374151',
+          }}
+        >
+          {board.map((row, rowIndex) => 
+            row.map((cell, colIndex) => renderCell(rowIndex, colIndex, cell))
+          )}
+        </div>
+        
+        <div className="mt-6 flex space-x-3">
+          <button 
+            className="bg-indigo-600 hover:bg-indigo-500 px-5 py-2.5 rounded-lg text-white font-medium flex items-center shadow-lg hover:shadow-xl transition-all"
+            onClick={resetGame}
+          >
+            <FiRefreshCw className="mr-2" /> New Game
+          </button>
+        </div>
+      </div>
+      
+      {/* Game status and settings section */}
+      <div className="w-full md:w-80">
+        {renderGameStatus()}
+        {renderSettings()}
+      </div>
+    </div>
+  );
+
+  // Mobile UI render
+  const renderMobileUI = () => (
+    <div className="flex flex-col w-full">
+      {/* Game status and AI character */}
+      {renderGameStatus()}
+      
+      {/* Game board with correct width for mobile */}
+      <div className="flex justify-center my-4">
+        <div 
+          className="grid bg-[#1a2234] rounded-lg relative shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+          style={{ 
+            gridTemplateColumns: `repeat(${BOARD_SIZE}, minmax(30px, 36px))`,
+            gridTemplateRows: `repeat(${BOARD_SIZE}, minmax(30px, 36px))`,
+            gap: '1px',
+            backgroundColor: '#374151',
+          }}
+        >
+          {board.map((row, rowIndex) => 
+            row.map((cell, colIndex) => renderCell(rowIndex, colIndex, cell))
+          )}
+        </div>
+      </div>
+      
+      {/* Mobile controls */}
+      <div className="flex justify-center space-x-4 mb-4">
+        <button 
+          className="bg-indigo-600 hover:bg-indigo-500 px-5 py-2.5 rounded-lg text-white font-medium flex items-center shadow-lg hover:shadow-xl transition-all"
+          onClick={resetGame}
+        >
+          <FiRefreshCw className="mr-2" /> New Game
+        </button>
+      </div>
+      
+      {/* Settings section */}
+      {renderSettings()}
+    </div>
+  );
+
+  // Game status rendering
+  const renderGameStatus = () => {
+    return (
+      <div className="bg-[#1a2234] rounded-lg p-5 mb-5 relative shadow-lg border border-[#2e3a54]">
+        <h2 className="text-xl font-bold mb-3 flex items-center text-white">
+          <FiInfo className="mr-2 text-blue-400" /> Game Status
+        </h2>
+        
+        <div className="flex items-center mb-3">
+          <div className="w-full bg-[#111827] rounded-full h-5">
+            <motion.div 
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 h-5 rounded-full flex items-center justify-end pr-2 text-xs font-medium"
+              initial={{ width: '0%' }}
+              animate={{ width: `${(totalMoves / (BOARD_SIZE * BOARD_SIZE)) * 100}%` }}
+              transition={{ duration: 0.5 }}
+            >
+            </motion.div>
+          </div>
+          <span className="ml-3 font-medium text-white">Moves: {totalMoves}</span>
+        </div>
+        
+        {/* AI Message Bubble */}
+        <div className="relative">
+          <div className="flex items-end mb-4">
+            <div className="w-16 h-16 mr-3 relative">
+              <Image 
+                src="/images/minigam/7.png" 
+                alt="AI Assistant" 
+                fill
+                sizes="(max-width: 768px) 64px, 64px"
+                className="object-cover rounded-full border-2 border-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+                priority
+              />
+            </div>
+            <AnimatePresence>
+              {showMessage && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="bg-gradient-to-r from-indigo-600 to-blue-600 p-3 rounded-lg rounded-bl-none max-w-[250px] shadow-lg"
+                >
+                  <p className="text-sm text-white font-medium">{aiMessages[currentMessage]}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+        
+        <div className="text-center font-bold text-lg">
+          {isAiThinking ? (
+            <span className="text-indigo-300">AI is thinking...</span>
+          ) : gameState === 'playing' ? (
+            <span className={currentPlayer === playerMark ? 'text-green-300' : 'text-indigo-300'}>
+              {currentPlayer === playerMark ? 'Your turn' : 'AI turn'}
+            </span>
+          ) : gameState === 'won' ? (
+            <span className="text-green-300">You won! Congratulations!</span>
+          ) : gameState === 'lost' ? (
+            <span className="text-red-300">AI won. Better luck next time!</span>
+          ) : (
+            <span className="text-yellow-300">It's a draw!</span>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  // Settings rendering
   const renderSettings = () => {
     return (
-      <div className={`bg-[#151530] p-4 rounded-lg border border-indigo-900/50 ${isMobile ? '' : 'h-full'}`}>
-        <h3 className="text-center font-semibold mb-4 text-blue-400">Cài đặt trò chơi</h3>
+      <div className="bg-[#1a2234] rounded-lg p-5 shadow-lg border border-[#2e3a54]">
+        <h2 className="text-xl font-bold mb-4 flex items-center text-white">
+          <FiSettings className="mr-2 text-indigo-400" /> Game Settings
+        </h2>
         
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <p className="text-gray-300 text-sm text-center mb-2">Độ khó:</p>
-            <div className="grid grid-cols-3 gap-2">
-              {(['easy', 'medium', 'hard'] as Difficulty[]).map((level) => (
-                <motion.button
-                  key={level}
-                  className={`py-2 px-3 rounded-md text-center text-sm ${
-                    difficulty === level
-                      ? level === 'easy' 
-                        ? 'bg-green-600 text-white' 
-                        : level === 'medium'
-                          ? 'bg-yellow-600 text-white'
-                          : 'bg-red-600 text-white'
-                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                  }`}
-                  onClick={() => handleSettingsChange(level, playerMark)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {level === 'easy' ? 'Dễ' : level === 'medium' ? 'Trung bình' : 'Khó'}
-                </motion.button>
-              ))}
-            </div>
+        <div className="mb-5">
+          <h3 className="text-sm font-medium mb-2 text-gray-200">Choose your mark:</h3>
+          <div className="flex space-x-3">
+            <button 
+              className={`flex-1 py-2.5 rounded-md font-medium transition-all ${
+                playerMark === 'X' 
+                  ? 'bg-gradient-to-r from-red-500 to-red-700 text-white shadow-lg' 
+                  : 'bg-[#111827] text-gray-300 hover:bg-[#1d2536]'
+              }`}
+              onClick={() => gameState !== 'playing' && handleSettingsChange(difficulty, 'X')}
+              disabled={gameState === 'playing' && playerMark !== 'X'}
+            >
+              X
+            </button>
+            <button 
+              className={`flex-1 py-2.5 rounded-md font-medium transition-all ${
+                playerMark === 'O' 
+                  ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg' 
+                  : 'bg-[#111827] text-gray-300 hover:bg-[#1d2536]'
+              }`}
+              onClick={() => gameState !== 'playing' && handleSettingsChange(difficulty, 'O')}
+              disabled={gameState === 'playing' && playerMark !== 'O'}
+            >
+              O
+            </button>
           </div>
-          
-          <div className="space-y-2">
-            <p className="text-gray-300 text-sm text-center mb-2">Chọn quân cờ:</p>
-            <div className="grid grid-cols-2 gap-4">
-              {(['X', 'O'] as Player[]).map((mark) => (
-                mark && (
-                  <motion.button
-                    key={mark}
-                    className={`py-2 px-3 rounded-md flex items-center justify-center ${
-                      playerMark === mark
-                        ? mark === 'X' 
-                          ? 'bg-pink-600 text-white border-2 border-pink-400' 
-                          : 'bg-cyan-600 text-white border-2 border-cyan-400'
-                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700 border-2 border-transparent'
-                    }`}
-                    onClick={() => handleSettingsChange(difficulty, mark)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className={`text-2xl font-bold ${playerMark === mark ? 'text-white' : mark === 'X' ? 'text-pink-500' : 'text-cyan-400'}`}>
-                      {mark}
-                    </span>
-                    <span className="ml-2 text-sm">
-                      {mark === playerMark ? '(Bạn)' : '(Akane)'}
-                    </span>
-                  </motion.button>
-                )
-              ))}
-            </div>
+          <p className="text-xs text-blue-300 mt-2">
+            You can change your mark before starting a new game
+          </p>
+        </div>
+        
+        <div>
+          <h3 className="text-sm font-medium mb-2 text-gray-200">Difficulty level:</h3>
+          <div className="flex flex-col space-y-2">
+            <button 
+              className={`py-2.5 rounded-md font-medium transition-all ${
+                difficulty === 'easy' 
+                  ? 'bg-gradient-to-r from-green-500 to-green-700 text-white shadow-lg' 
+                  : 'bg-[#111827] text-gray-300 hover:bg-[#1d2536]'
+              }`}
+              onClick={() => gameState !== 'playing' && handleSettingsChange('easy', playerMark)}
+              disabled={gameState === 'playing' && difficulty !== 'easy'}
+            >
+              Easy
+            </button>
+            <button 
+              className={`py-2.5 rounded-md font-medium transition-all ${
+                difficulty === 'medium' 
+                  ? 'bg-gradient-to-r from-yellow-500 to-yellow-700 text-white shadow-lg' 
+                  : 'bg-[#111827] text-gray-300 hover:bg-[#1d2536]'
+              }`}
+              onClick={() => gameState !== 'playing' && handleSettingsChange('medium', playerMark)}
+              disabled={gameState === 'playing' && difficulty !== 'medium'}
+            >
+              Medium
+            </button>
+            <button 
+              className={`py-2.5 rounded-md font-medium transition-all ${
+                difficulty === 'hard' 
+                  ? 'bg-gradient-to-r from-red-500 to-red-700 text-white shadow-lg' 
+                  : 'bg-[#111827] text-gray-300 hover:bg-[#1d2536]'
+              }`}
+              onClick={() => gameState !== 'playing' && handleSettingsChange('hard', playerMark)}
+              disabled={gameState === 'playing' && difficulty !== 'hard'}
+            >
+              Hard
+            </button>
           </div>
+          <p className="text-xs text-blue-300 mt-2">
+            You can change difficulty before starting a new game
+          </p>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="container mx-auto max-w-6xl">
+    <div className="w-full">
+      <div className="mb-6">
+        <BackButton />
+      </div>
+      
       {isMobile ? renderMobileUI() : renderDesktopUI()}
     </div>
   );

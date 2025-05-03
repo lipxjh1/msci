@@ -51,7 +51,6 @@ export default function DownloadPage() {
                 </span>
               </h1>
               <p className="font-roboto text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in">
-                JOIN THE BATTLE FOR HUMANITY WITH ELON MUSK
               </p>
             </div>
           </div>

@@ -69,26 +69,7 @@ export default function RoadmapBanner() {
         ))}
       </div>
 
-      {/* Decoration Robots */}
-      <div className="absolute top-1/4 right-10 w-40 h-40 z-20 opacity-20">
-        <Image 
-          src="/images/heroes/robot_3.png" 
-          alt="Robot" 
-          width={160} 
-          height={160}
-          className="object-contain"
-        />
-      </div>
-      
-      <div className="absolute bottom-1/4 left-10 w-40 h-40 z-20 opacity-20">
-        <Image 
-          src="/images/heroes/drone 1.png" 
-          alt="Drone" 
-          width={160} 
-          height={160}
-          className="object-contain"
-        />
-      </div>
+      {/* Removed decoration robots */}
 
       {/* Nội dung chính */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-30">
@@ -99,7 +80,6 @@ export default function RoadmapBanner() {
           className="mb-2"
         >
           <span className="bg-[#FF7D00] text-white text-xs md:text-sm uppercase font-bold px-3 py-1 rounded-full tracking-wider">
-            2024-2030
           </span>
         </motion.div>
 
@@ -129,22 +109,7 @@ export default function RoadmapBanner() {
         >
         </motion.p>
 
-        {/* Call to action button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-        >
-          <button 
-            onClick={() => document.getElementById('roadmap-content')?.scrollIntoView({behavior: 'smooth'})}
-            className="bg-[#00A4EA] hover:bg-[#00B5FF] text-white font-medium px-6 py-2.5 rounded-md transition-all duration-300 hover:shadow-lg hover:shadow-[#00A4EA]/30 flex items-center"
-          >
-            <span className="mr-2">Xem Chi Tiết</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </motion.div>
+        {/* Removed call to action button */}
       </div>
 
       {/* Hiệu ứng đường kẻ sọc dọc - chỉ hiển thị trên màn hình lớn */}

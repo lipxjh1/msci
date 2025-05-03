@@ -27,7 +27,7 @@ const MilestoneTask = memo(({ task, textColor, delay }: { task: string; textColo
     initial={{ opacity: 0, x: -10 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.2, delay: 0.3 + delay }}
-    className="text-gray-300 flex items-start font-rajdhani"
+    className="text-gray-300 flex items-start font-rajdhani text-sm md:text-base leading-relaxed"
   >
     <span className={`text-${textColor} mr-2 text-lg`}>•</span>
     <span>{task}</span>
@@ -47,10 +47,10 @@ const MilestoneItem = memo(({ item, index, bgColor, borderColor, textColor }: {
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.3, delay: index * 0.1 }}
-    className={`bg-${bgColor}/10 backdrop-blur-sm rounded-lg p-4 border border-${borderColor}/30`}
+    className={`bg-${bgColor}/10 backdrop-blur-sm rounded-lg p-5 md:p-6 border border-${borderColor}/20 shadow-md`}
   >
-    <h4 className="font-rajdhani text-lg font-bold text-white mb-2">{item.title}</h4>
-    <ul className="space-y-2">
+    <h4 className="font-rajdhani text-xl font-bold text-white mb-3">{item.title}</h4>
+    <ul className="space-y-3">
       {item.tasks.map((task, taskIndex) => (
         <MilestoneTask 
           key={taskIndex} 
@@ -95,7 +95,7 @@ const Milestone = memo(({
         className={`
           relative rounded-xl overflow-hidden transition-all duration-500
           ${isActive 
-            ? `border-2 border-${borderColor} shadow-xl shadow-${bgColor}/30 mb-6` 
+            ? `border border-${borderColor} shadow-xl shadow-${bgColor}/20 mb-6` 
             : 'border border-white/10 hover:border-white/20'}
         `}
       >
@@ -140,7 +140,7 @@ const Milestone = memo(({
         </div>
         
         {/* Content */}
-        <div className="p-6 pt-8 relative z-10">
+        <div className="p-6 md:p-8 pt-8 relative z-10">
           <div className="flex items-center gap-3 mb-3">
             {/* Icon */}
             <div className={`w-8 h-8 flex items-center justify-center rounded-full bg-${bgColor}/20 p-1.5`}>
@@ -153,7 +153,7 @@ const Milestone = memo(({
                 loading="eager"
               />
             </div>
-            <h3 className="font-orbitron text-xl font-bold text-white">{title}</h3>
+            <h3 className="font-orbitron text-xl md:text-2xl font-bold text-white break-words">{title}</h3>
           </div>
           
           {/* Progress bar - always visible */}
@@ -517,7 +517,7 @@ export default function TimelineSection() {
       </div>
 
       {/* Display only the selected milestone instead of all */}
-      <div className="max-w-3xl mx-auto px-4">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 bg-white/5 rounded-xl border border-white/10 p-6 md:p-8 shadow-xl backdrop-blur-sm">
         {activeMilestone && (
           <Milestone
             key={activeYear}
@@ -536,16 +536,7 @@ export default function TimelineSection() {
         )}
       </div>
 
-      {/* Hero image */}
-      <div className="absolute bottom-0 right-0 w-48 h-48 md:w-64 md:h-64 opacity-10 pointer-events-none -z-10">
-        <Image
-          src="/images/heroes/elon_musk.png"
-          alt="Tech Visionary"
-          width={250}
-          height={250}
-          className="object-contain"
-        />
-      </div>
+      {/* Removed hero image */}
 
       {/* Decorative elements */}
       <div className="absolute top-20 left-0 w-1/3 h-1/3 bg-blue-500/20 rounded-full filter blur-[150px] -z-10"></div>

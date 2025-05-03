@@ -38,7 +38,6 @@ export default function PartnersHeroBanner() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          CÙNG NHAU ĐỊNH HÌNH TƯƠNG LAI NGÀNH GAME
         </p>
         
         {/* Nút cuộn xuống */}
@@ -49,7 +48,6 @@ export default function PartnersHeroBanner() {
             onClick={() => document.getElementById('partners-content')?.scrollIntoView({behavior: 'smooth'})}
             className="font-rajdhani font-bold tracking-wider text-shadow-sm px-10 py-3 button-cyber clip-hexagon hexagon-border text-white"
           >
-            Khám phá đối tác
           </button>
         </div>
       </div>

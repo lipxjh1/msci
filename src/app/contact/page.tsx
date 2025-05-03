@@ -176,7 +176,7 @@ export default function ContactPage() {
         {/* Background image with parallax effect */}
         <div className="absolute inset-0">
           <Image
-            src="/images/banner/trangchu.jpg"
+            src="/images/banner/contrac.jpg"
             alt="Contact"
             fill
             priority
@@ -208,9 +208,6 @@ export default function ContactPage() {
                   <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
                 </span>
               </h1>
-              <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in">
-                JOIN THE M-SCI COMMUNITY OR CONTACT OUR SUPPORT TEAM
-              </p>
             </div>
           </div>
         </div>
@@ -319,7 +316,7 @@ export default function ContactPage() {
               {/* Map or image */}
               <div className="relative h-64 rounded-2xl overflow-hidden border border-white/5">
                 <Image
-                  src="/images/banner/trangchu.jpg"
+                  src="/images/banner/contrac.jpg"
                   alt="Map"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -364,9 +361,15 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-medium text-white mb-1">Address</h3>
                       <p className="text-white/70 text-sm">
-                      10 Collyer Quay Ocean Financial Centre 
+                      Dubai Multi Commodities Centre (DMCC)
                         <br />
-                        Singapore 049315 
+                        Almas Tower, Level 25
+                        <br />
+                        Jumeirah Lakes Towers (JLT)
+                        <br />
+                        Dubai 049315
+                        <br />
+                        United Arab Emirates
                       </p>
                     </div>
                   </div>
@@ -425,9 +428,9 @@ export default function ContactPage() {
                         Phone
                       </h3>
                       <p className="text-white/70 text-sm">
-                      +65 6225 8480 
+                      +971 4 424 9600
                         <br />
-                        +65 9843 6721 
+                        +971 55 786 9243
                       </p>
                     </div>
                   </div>

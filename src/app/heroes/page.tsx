@@ -347,16 +347,14 @@ export default function HeroesPage() {
             </span>
           </h1>
           <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in">
-          CONTROL A TEAM OF 3 CLASSES (GUNNER, SNIPER, ROCKET) FIGHTING AGAINST ROBOTS AND DRONES
           </p>
           
-          {/* Scroll down button - newly added */}
+          {/* Scroll down button - adjusted */}
           <div className="animate-slide-up">
             <button 
               onClick={() => document.getElementById('hero-content')?.scrollIntoView({behavior: 'smooth'})}
               className="font-rajdhani font-bold tracking-wider text-shadow-sm px-10 py-3 button-cyber clip-hexagon hexagon-border text-white"
             >
-              Explore Characters
             </button>
           </div>
         </div>
