@@ -91,7 +91,7 @@ const menuItems: MenuItem[] = [
       { href: '/team', label: 'Team' },
       { href: '/careers', label: 'Careers' },
       { href: '/press', label: 'Press Kit' },
-      { href: '/lien-he', label: 'Contact' }
+      { href: '/contact', label: 'Contact' }
     ]
   },
   { 
