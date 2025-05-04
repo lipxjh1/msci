@@ -1,3 +1,3 @@
 // Export tất cả các trò chơi
 export * from './tic-tac-toe'; 
-export * from './chess-ai'; 
+// chess-ai module đã bị xóa 

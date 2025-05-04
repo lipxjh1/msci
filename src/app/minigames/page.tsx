@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { FaGamepad, FaSearch, FaRegStar, FaStar, FaFilter } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGamepad, FaSearch, FaRegStar, FaStar, FaFilter, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import Footer from '@/app/home/components/Footer';
 
@@ -44,13 +44,16 @@ export default function MinigamesHome() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   
+  // State for carousel
+  const [currentGameIndex, setCurrentGameIndex] = useState(0);
+  
   const categories = ['Casual', 'Puzzle', 'Strategy', 'Arcade', 'Board Game', 'Card Game'];
   
   const games: GameCardProps[] = [
     {
       title: 'Tic Tac Toe with Akane',
       description: 'Challenge your strategic thinking against Akane, an intelligent AI with multiple difficulty levels. Can you defeat her in this classic board game?',
-      image: '/images/minigam/3.png',
+      image: '/images/minigame/tictac.jpg',
       link: '/minigames/tic-tac-toe',
       category: ['Strategy', 'Board Game', 'Casual'],
       rating: 4.5,
@@ -59,11 +62,24 @@ export default function MinigamesHome() {
         color: 'F44336'
       }
     },
+    
+    {
+      title: 'M-SCI: Memory Connect Challenge',
+      description: 'Kết nối các cặp biểu tượng giống nhau để giải mã hệ thống X-Corp. Một trò chơi trí tuệ kết nối trong vũ trụ M-SCI năm 2049.',
+      image: '/images/minigame/memory.jpg',
+      link: '/minigames/memory-connect',
+      category: ['Puzzle', 'Strategy', 'Casual'],
+      rating: 4.7,
+      badge: {
+        text: 'Mới',
+        color: '4CAF50'
+      }
+    },
 
     {
       title: 'M-SCI Card Match',
       description: 'Match identical cards featuring heroes from the M-SCI universe in this memory challenge. Test your memory skills while discovering characters like Victoria, Akane and other heroes!',
-      image: '/images/minigam/2.png',
+      image: '/images/minigame/card.jpg',
       link: '/minigames/pikachu-game',
       category: ['Puzzle', 'Casual'],
       rating: 4.3,
@@ -71,44 +87,26 @@ export default function MinigamesHome() {
         text: 'Family',
         color: '9C27B0'
       }
-    },
-    {
-      title: 'Chess AI Challenge',
-      description: 'Challenge your intellect with the legendary game of chess. Play against AI at various difficulty levels from beginner to grandmaster.',
-      image: '/images/minigam/chess.png',
-      link: '/minigames/chess-ai',
-      category: ['Strategy', 'Board Game'],
-      rating: 4.8,
-      badge: {
-        text: 'Classic',
-        color: '2196F3'
-      }
-    },
-    {
-      title: 'Memory Match',
-      description: 'Test your memory by matching pairs of cards in this classic game. Multiple difficulty levels for all ages and memory training capabilities.',
-      image: '/images/heroes/new.png',
-      link: '/minigames/memory-match',
-      category: ['Puzzle', 'Casual'],
-      rating: 4.2,
-      badge: {
-        text: 'Kids',
-        color: '4CAF50'
-      }
-    },
-    {
-      title: 'Solitaire Classic',
-      description: 'The timeless card game that challenges your strategic thinking and planning. Relax and enjoy this classic pastime with beautiful animations.',
-      image: '/images/heroes/battle.png',
-      link: '/minigames/solitaire',
-      category: ['Card Game', 'Strategy'],
-      rating: 4.4,
-      badge: {
-        text: 'Relaxing',
-        color: 'FF9800'
-      }
     }
   ];
+  
+  // Auto rotation for carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentGameIndex((prevIndex) => (prevIndex + 1) % games.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [games.length]);
+  
+  // Manual navigation for carousel
+  const goToNextGame = () => {
+    setCurrentGameIndex((prevIndex) => (prevIndex + 1) % games.length);
+  };
+  
+  const goToPrevGame = () => {
+    setCurrentGameIndex((prevIndex) => (prevIndex - 1 + games.length) % games.length);
+  };
   
   // Filter games based on search and category
   const filteredGames = games.filter(game => {
@@ -124,12 +122,15 @@ export default function MinigamesHome() {
     setSelectedCategory(null);
   };
   
+  // Current game in carousel
+  const currentGame = games[currentGameIndex];
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a141e] to-[#1a2634]">
       <ThanhDieuHuongResponsive />
       
       {/* Hero section */}
-      <div className="relative w-full h-[50vh] overflow-hidden">
+      <div className="relative w-full h-[50vh] overflow-hidden pt-40">
         {/* Background image with parallax effect */}
         <div className="absolute inset-0">
           <Image
@@ -177,76 +178,202 @@ export default function MinigamesHome() {
       {/* Main content */}
       <div className="w-full px-4 pt-16 pb-20 relative z-30">
         <div className="max-w-full mx-auto">
-          {/* Introduction */}
+          {/* Mini Games Collection - Carousel */}
           <div className="mb-16">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-10">
-              <div className="w-full md:w-1/2">
-                <h2 className="text-3xl font-bold text-white mb-6 relative inline-block">
-                  Mini Games Collection
-                  <div className="absolute -bottom-2 left-0 h-1 w-16 bg-gradient-to-r from-[#F44336] to-transparent"></div>
-                </h2>
-                <p className="text-white/80 text-lg mb-6 leading-relaxed">
-                  Take a break from the main game and enjoy our collection of mini games. These games are designed to provide a fun and relaxing experience while still challenging your skills in different ways.
-                </p>
-                <p className="text-white/80 text-lg mb-6 leading-relaxed">
-                  From classic board games to arcade challenges, there's something for everyone. Compete with friends, challenge AI opponents, or just enjoy some casual gaming time.
-                </p>
-                <div className="flex items-center space-x-4">
-                  <div className="p-4 bg-[#0f1923]/80 backdrop-blur-sm rounded-xl border border-white/5 flex flex-col items-center">
-                    <div className="text-[#F44336] font-bold text-2xl mb-1">
-                      6+
-                    </div>
-                    <div className="text-white/60 text-sm">Games</div>
-                  </div>
-                  <div className="p-4 bg-[#0f1923]/80 backdrop-blur-sm rounded-xl border border-white/5 flex flex-col items-center">
-                    <div className="text-[#F44336] font-bold text-2xl mb-1">
-                      5
-                    </div>
-                    <div className="text-white/60 text-sm">Categories</div>
-                  </div>
-                  <div className="p-4 bg-[#0f1923]/80 backdrop-blur-sm rounded-xl border border-white/5 flex flex-col items-center">
-                    <div className="text-[#F44336] font-bold text-2xl mb-1">
-                      4.5
-                    </div>
-                    <div className="text-white/60 text-sm">Avg Rating</div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-1/2">
-                <div className="relative rounded-xl overflow-hidden border border-white/5 shadow-xl">
-                  <Image
-                    src="/images/minigam/chess.png"
-                    alt="Mini Games Collection"
-                    width={600}
-                    height={400}
-                    className="w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a141e] to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-white font-bold text-lg mb-2">
-                      Featured Games
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 px-3 bg-[#F44336]/20 backdrop-blur-sm rounded-md border border-[#F44336]/30">
-                        <span className="text-[#F44336] font-medium text-sm">
-                          Tic Tac Toe
-                        </span>
+            <h2 className="text-3xl font-bold text-white mb-8 relative inline-block">
+              Mini Games Collection
+              <div className="absolute -bottom-2 left-0 h-1 w-16 bg-gradient-to-r from-[#F44336] to-transparent"></div>
+            </h2>
+            
+            <div className="relative mx-auto max-w-4xl">
+              <div className="relative overflow-hidden rounded-xl">
+                <AnimatePresence mode="wait">
+                  <motion.div 
+                    key={currentGameIndex}
+                    initial={{ opacity: 0, x: 100, filter: 'blur(8px)' }}
+                    animate={{ 
+                      opacity: 1, 
+                      x: 0, 
+                      filter: 'blur(0px)',
+                      transition: { 
+                        duration: 0.7,
+                        ease: [0.25, 0.1, 0.25, 1.0],
+                      }
+                    }}
+                    exit={{ 
+                      opacity: 0, 
+                      x: -100, 
+                      filter: 'blur(8px)',
+                      transition: {
+                        duration: 0.5,
+                        ease: [0.25, 0.1, 0.25, 1.0],
+                      }
+                    }}
+                    className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg relative"
+                  >
+                    {/* Thêm hiệu ứng ánh sáng nền */}
+                    <div className="absolute -left-40 -top-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+                    <div className="absolute -right-40 -bottom-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                    
+                    <div className="flex flex-col md:flex-row relative z-10">
+                      <div className="w-full md:w-1/2 relative h-[300px] group overflow-hidden">
+                        <motion.div
+                          initial={{ scale: 1.0 }}
+                          animate={{ 
+                            scale: 1.05,
+                            transition: { 
+                              duration: 5, 
+                              ease: "easeInOut",
+                              repeat: Infinity,
+                              repeatType: "reverse"
+                            }
+                          }}
+                          className="w-full h-full"
+                        >
+                          <Image
+                            src={currentGame.image}
+                            alt={currentGame.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                        </motion.div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] via-[#1a2634]/20 to-transparent opacity-70"></div>
+                        {currentGame.badge && (
+                          <motion.div 
+                            initial={{ y: -20, opacity: 0 }}
+                            animate={{ 
+                              y: 0, 
+                              opacity: 1,
+                              transition: { 
+                                delay: 0.3,
+                                duration: 0.5
+                              }
+                            }}
+                            className="absolute top-4 left-4 p-2 px-3 bg-[#${currentGame.badge.color}]/30 backdrop-blur-sm rounded-md border border-[#${currentGame.badge.color}]/30 shadow-lg shadow-[#${currentGame.badge.color}]/20"
+                          >
+                            <span className="text-white font-medium text-sm">
+                              {currentGame.badge.text}
+                            </span>
+                          </motion.div>
+                        )}
+                        
+                        {/* Hiệu ứng ánh sáng khi hover */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                       </div>
-                      <div className="p-2 px-3 bg-[#3f51b5]/20 backdrop-blur-sm rounded-md border border-[#3f51b5]/30">
-                        <span className="text-[#3f51b5] font-medium text-sm">
-                          Chess
-                        </span>
-                      </div>
-                      <div className="p-2 px-3 bg-[#9C27B0]/20 backdrop-blur-sm rounded-md border border-[#9C27B0]/30">
-                        <span className="text-[#9C27B0] font-medium text-sm">
-                          M-SCI Card Match
-                        </span>
+                      <div className="w-full md:w-1/2 p-6 flex flex-col justify-between relative">
+                        <div>
+                          <motion.h3 
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ 
+                              y: 0, 
+                              opacity: 1,
+                              transition: { duration: 0.5, delay: 0.2 }
+                            }}
+                            className="text-2xl font-bold text-white mb-3"
+                          >
+                            {currentGame.title}
+                          </motion.h3>
+                          <motion.p 
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ 
+                              y: 0, 
+                              opacity: 1,
+                              transition: { duration: 0.5, delay: 0.3 }
+                            }}
+                            className="text-white/80 mb-4"
+                          >
+                            {currentGame.description}
+                          </motion.p>
+                          <motion.div 
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ 
+                              y: 0, 
+                              opacity: 1,
+                              transition: { duration: 0.5, delay: 0.4 }
+                            }}
+                            className="flex items-center space-x-2 mb-4"
+                          >
+                            <StarRating rating={currentGame.rating} />
+                            <span className="text-white/60 text-sm">
+                              ({currentGame.rating.toFixed(1)})
+                            </span>
+                          </motion.div>
+                          <motion.div 
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ 
+                              y: 0, 
+                              opacity: 1,
+                              transition: { duration: 0.5, delay: 0.5 }
+                            }}
+                            className="flex flex-wrap gap-2 mb-6"
+                          >
+                            {currentGame.category.map((cat, idx) => (
+                              <span 
+                                key={idx} 
+                                className="p-1 px-3 bg-[#0f1923]/80 backdrop-blur-sm rounded-md text-white/70 text-xs border border-white/5"
+                              >
+                                {cat}
+                              </span>
+                            ))}
+                          </motion.div>
+                        </div>
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ 
+                            y: 0, 
+                            opacity: 1,
+                            transition: { duration: 0.5, delay: 0.6 }
+                          }}
+                        >
+                          <Link 
+                            href={currentGame.link}
+                            className="block w-full px-4 py-3 bg-gradient-to-r from-[#${currentGame.badge?.color || 'F44336'}]/20 to-[#${currentGame.badge?.color || 'F44336'}]/10 hover:from-[#${currentGame.badge?.color || 'F44336'}]/40 hover:to-[#${currentGame.badge?.color || 'F44336'}]/20 text-white rounded-lg text-center transition-all text-lg font-medium relative overflow-hidden group"
+                          >
+                            <span className="relative z-10">Play Now</span>
+                            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer-button"></span>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
+                </AnimatePresence>
+                
+                {/* Navigation arrows - Cải thiện giao diện */}
+                <button 
+                  onClick={goToPrevGame}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/50 transition-all z-10 border border-white/10 hover:border-white/20"
+                >
+                  <FaArrowLeft />
+                </button>
+                <button 
+                  onClick={goToNextGame}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/50 transition-all z-10 border border-white/10 hover:border-white/20"
+                >
+                  <FaArrowRight />
+                </button>
+                
+                {/* Pagination dots - Cải thiện thiết kế */}
+                <div className="flex justify-center mt-6 gap-2">
+                  {games.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentGameIndex(idx)}
+                      className={`h-2 rounded-full transition-all ${
+                        idx === currentGameIndex 
+                          ? `bg-gradient-to-r from-[#${games[idx].badge?.color || 'F44336'}]/80 to-[#${games[idx].badge?.color || 'F44336'}]/50 w-8` 
+                          : 'bg-white/20 hover:bg-white/30 w-2'
+                      }`}
+                      aria-label={`Go to game ${idx + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
+            
+            <p className="max-w-4xl mx-auto text-white/80 text-lg mt-8 mb-6 leading-relaxed text-center">
+              Take a break from the main game and enjoy our collection of mini games. These games are designed to provide a fun and relaxing experience while still challenging your skills in different ways.
+            </p>
           </div>
 
           {/* Search & Filter Bar */}
