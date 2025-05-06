@@ -483,7 +483,7 @@ const MemoryConnect = () => {
             <Link
               href="/minigames"
               className="absolute left-0 top-0 text-white bg-blue-600 hover:bg-blue-700 p-2 rounded-lg transition-all"
-              title="Quay lại trang Minigames"
+              title="Back to Minigames"
             >
               <FaArrowLeft className="text-xl" />
             </Link>

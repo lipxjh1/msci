@@ -6,6 +6,11 @@ export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
   const supabase = createMiddlewareClient({ req, res });
 
+  // Chuyển hướng từ /tin-tuc sang /new (thay vì /news)
+  if (req.nextUrl.pathname === '/tin-tuc') {
+    return NextResponse.redirect(new URL('/new', req.url));
+  }
+
   // Bỏ qua trang setup
   if (req.nextUrl.pathname === '/admin/setup') {
     return res;
@@ -48,5 +53,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: ['/admin/:path*', '/tin-tuc'],
 }; 

@@ -65,13 +65,13 @@ export default function MinigamesHome() {
     
     {
       title: 'M-SCI: Memory Connect Challenge',
-      description: 'Kết nối các cặp biểu tượng giống nhau để giải mã hệ thống X-Corp. Một trò chơi trí tuệ kết nối trong vũ trụ M-SCI năm 2049.',
+      description: 'Connect matching symbol pairs to decrypt the X-Corp system. A memory-based puzzle game set in the M-SCI universe in 2049.',
       image: '/images/minigame/memory.jpg',
       link: '/minigames/memory-connect',
       category: ['Puzzle', 'Strategy', 'Casual'],
       rating: 4.7,
       badge: {
-        text: 'Mới',
+        text: 'New',
         color: '4CAF50'
       }
     },

@@ -10,30 +10,31 @@ export default function Footer() {
   
   const footerLinks = [
     {
-      title: "M-SCI",
+      title: "Game",
       links: [
-        { name: "Về chúng tôi", href: "/about" },
-        { name: "Tin tức", href: "/tin-tuc" },
-        { name: "Liên hệ", href: "/lien-he" },
-        { name: "Tuyển dụng", href: "/careers" }
+        { name: "Heroes", href: "/heroes" },
+        { name: "Story", href: "/story" },
+        { name: "Gameplay", href: "/mechanics" },
+        { name: "Download", href: "/download" }
       ]
     },
     {
-      title: "Trợ giúp",
+      title: "Community",
       links: [
-        { name: "Hướng dẫn", href: "/huong-dan" },
-        { name: "FAQ", href: "/faq" },
-        { name: "Hỗ trợ", href: "/ho-tro" },
-        { name: "Báo lỗi", href: "/bao-loi" }
+        { name: "News", href: "/new" },
+        { name: "Content Creator", href: "/content-creator" },
+        { name: "Partners", href: "/partners" },
+        { name: "Roadmap", href: "/roadmap" }
       ]
     },
     {
-      title: "Pháp lý",
+      title: "Company",
       links: [
-        { name: "Điều khoản", href: "/terms" },
-        { name: "Bảo mật", href: "/privacy" },
-        { name: "Cookies", href: "/cookies" },
-        { name: "Bản quyền", href: "/copyright" }
+        { name: "About Us", href: "/about-us" },
+        { name: "Team", href: "/team" },
+        { name: "Careers", href: "/careers" },
+        { name: "Contact", href: "/contact" },
+        { name: "Support", href: "/support" }
       ]
     }
   ];
@@ -111,22 +112,22 @@ export default function Footer() {
           </p>
           <div className="flex space-x-6">
             <Link 
-              href="/terms"
-              className="text-gray-500 hover:text-cyan-400 transition-colors text-sm"
-            >
-              Điều khoản
-            </Link>
-            <Link 
               href="/privacy"
               className="text-gray-500 hover:text-cyan-400 transition-colors text-sm"
             >
-              Bảo mật
+              Privacy
             </Link>
             <Link 
-              href="/cookies"
+              href="/terms"
               className="text-gray-500 hover:text-cyan-400 transition-colors text-sm"
             >
-              Cookie
+              Terms
+            </Link>
+            <Link 
+              href="/contact"
+              className="text-gray-500 hover:text-cyan-400 transition-colors text-sm"
+            >
+              Contact
             </Link>
           </div>
         </div>

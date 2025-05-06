@@ -78,7 +78,7 @@ export default function NewsSection() {
         {/* See all news button */}
         <div className="text-center mt-12 reveal">
           <Link 
-            href="/tin-tuc"
+            href="/new"
             className="inline-block bg-white/5 hover:bg-white/10 text-white font-bold py-3 px-8 rounded-full border border-white/10 transition-all duration-300 hover:border-[var(--overwatch-blue)]/50 hover:shadow-lg hover:shadow-blue-500/10 button-glow"
           >
             VIEW ALL NEWS

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'M-SCI: Memory Connect Challenge',
-  description: 'Kết nối các cặp biểu tượng giống nhau để truy cập vào hệ thống điều khiển của X-Corp.',
+  description: 'Connect matching symbol pairs to decrypt the X-Corp system control interface.',
 };
 
 export default function MemoryConnectLayout({

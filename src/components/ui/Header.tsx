@@ -30,7 +30,7 @@ export default function Header() {
     { name: "Anh hùng", href: "/heroes" },
     { name: "Guild", href: "/guild" },
     { name: "Shop", href: "/shop" },
-    { name: "Tin tức", href: "/tin-tuc" },
+    { name: "Tin tức", href: "/new" },
     { name: "Cơ chế", href: "/mechanics" },
     { name: "Liên hệ", href: "/lien-he" }
   ];
