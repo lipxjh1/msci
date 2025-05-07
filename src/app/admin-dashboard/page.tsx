@@ -1,164 +1,84 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { supabase } from '@/tien_ich/supabase';
 import QuanLyAdmin from '@/components/admin/QuanLyAdmin';
 import QuanLyHero from '@/components/admin/QuanLyHero';
 import QuanLyBaiViet from '@/components/admin/QuanLyBaiViet';
 import ChatbotManagement from '@/components/admin/chatbot-management/ChatbotManagement';
-import Link from 'next/link';
-import type { Session } from '@supabase/supabase-js';
-import { AuthProvider } from '@/context/AuthContext';
+import QuanLyThongKe from '@/components/admin/QuanLyThongKe';
+import { AuthProvider, useAuth } from '@/context/AuthContext';
 
-type AdminInfo = {
-  id: string;
-  email: string;
-  ten: string;
-  vai_tro: 'super_admin' | 'admin_con';
-  ngay_tao: string;
-};
-
-export default function AdminDashboardPage() {
-  const [loading, setLoading] = useState(true);
-  const [session, setSession] = useState<Session | null>(null);
-  const [adminInfo, setAdminInfo] = useState<AdminInfo | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState('quan-ly-admin');
+function AdminDashboardContent() {
+  const { adminInfo, loading, signOut } = useAuth();
+  const [activeTab, setActiveTab] = useState('dashboard');
+  const router = useRouter();
 
   useEffect(() => {
-    async function getSession() {
-      try {
-        const { data, error } = await supabase.auth.getSession();
-        if (error) throw error;
-        
-        setSession(data.session);
-        
-        if (data.session) {
-          // Lấy thông tin admin
-          const { data: adminData, error: adminError } = await supabase
-            .from('nguoi_dung')
-            .select('*')
-            .eq('id', data.session.user.id)
-            .single();
-          
-          if (adminError) throw adminError;
-          setAdminInfo(adminData);
-        }
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : 'Có lỗi xảy ra';
-        setError(errorMessage);
-      } finally {
-        setLoading(false);
-      }
+    // Nếu không có thông tin admin sau khi đã load xong, chuyển về trang login
+    if (!loading && !adminInfo) {
+      router.push('/admin/login');
     }
-    
-    getSession();
-  }, []);
+  }, [adminInfo, loading, router]);
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    );
-  }
-  
-  if (error) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-4">
-        <div className="bg-red-50 border border-red-200 p-6 rounded-lg max-w-md w-full">
-          <h1 className="text-xl font-bold text-red-700 mb-2">Lỗi</h1>
-          <p className="text-red-600 mb-4">{error}</p>
-          <div className="flex flex-col space-y-2">
-            <Link 
-              href="/admin/login"
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-center"
-            >
-              Quay lại trang đăng nhập
-            </Link>
-          </div>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <svg className="animate-spin h-10 w-10 text-blue-600 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <p className="mt-4 text-gray-700">Đang tải trang quản trị...</p>
         </div>
       </div>
     );
   }
-  
-  if (!session) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-4">
-        <div className="bg-yellow-50 border border-yellow-200 p-6 rounded-lg max-w-md w-full">
-          <h1 className="text-xl font-bold text-yellow-700 mb-2">Chưa đăng nhập</h1>
-          <p className="text-yellow-600 mb-4">Vui lòng đăng nhập để tiếp tục.</p>
-          <div className="flex flex-col space-y-2">
-            <Link 
-              href="/admin/login"
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-center"
-            >
-              Đăng nhập
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
+
+  if (!adminInfo) {
+    return null; // Sẽ được redirect bởi useEffect
   }
-  
-  if (!adminInfo || !['super_admin', 'admin_con'].includes(adminInfo.vai_tro)) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-4">
-        <div className="bg-red-50 border border-red-200 p-6 rounded-lg max-w-md w-full">
-          <h1 className="text-xl font-bold text-red-700 mb-2">Không có quyền truy cập</h1>
-          <p className="text-red-600 mb-4">Bạn không có quyền truy cập trang quản trị.</p>
-          <p className="text-sm text-gray-500 mb-4">Thông tin tài khoản:</p>
-          <pre className="bg-gray-100 p-2 rounded text-xs mb-4 overflow-auto">
-            {JSON.stringify({
-              id: session.user.id,
-              email: session.user.email,
-              adminInfo: adminInfo || 'Không có'
-            }, null, 2)}
-          </pre>
-          <div className="flex flex-col space-y-2">
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <h1 className="text-3xl font-bold text-gray-900">
+            Trang quản trị Admin
+          </h1>
+          <div className="flex items-center gap-4">
+            {adminInfo && (
+              <div className="text-right">
+                <p className="text-sm text-gray-700">Xin chào, {adminInfo.ten}</p>
+                <p className="text-xs text-gray-500">{adminInfo.vai_tro === 'super_admin' ? 'Admin cấp cao' : 'Admin thường'}</p>
+              </div>
+            )}
             <button
-              onClick={async () => {
-                await supabase.auth.signOut();
-                window.location.href = '/admin/login';
-              }}
-              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+              onClick={signOut}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
             >
               Đăng xuất
             </button>
           </div>
         </div>
-      </div>
-    );
-  }
-
-  return (
-    <AuthProvider>
-      <main>
-        <div className="bg-white shadow">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
-            <div className="flex justify-between items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Dashboard Admin</h1>
-              <div className="flex items-center space-x-4">
-                <span className="text-sm text-gray-600">
-                  {adminInfo.email} ({adminInfo.vai_tro === 'super_admin' ? 'Super Admin' : 'Admin Con'})
-                </span>
-                <button
-                  onClick={async () => {
-                    await supabase.auth.signOut();
-                    window.location.href = '/admin/login';
-                  }}
-                  className="px-3 py-1 border border-gray-300 rounded hover:bg-gray-100 text-sm"
-                >
-                  Đăng xuất
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-          <div className="border-b border-gray-200 mb-8">
-            <nav className="-mb-px flex space-x-8">
+      </header>
+      
+      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        {/* Bảng điều khiển */}
+        <div className="px-4 py-6 sm:px-0">
+          <div className="border-b border-gray-200 mb-6">
+            <nav className="-mb-px flex space-x-8 overflow-x-auto">
+              <button
+                onClick={() => setActiveTab('dashboard')}
+                className={`${
+                  activeTab === 'dashboard'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+              >
+                Dashboard
+              </button>
               <button
                 onClick={() => setActiveTab('quan-ly-admin')}
                 className={`${
@@ -177,7 +97,7 @@ export default function AdminDashboardPage() {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
               >
-                Quản lý Hero
+                Quản lý Anh Hùng
               </button>
               <button
                 onClick={() => setActiveTab('quan-ly-bai-viet')}
@@ -199,23 +119,103 @@ export default function AdminDashboardPage() {
               >
                 Quản lý Chatbot
               </button>
+              <button
+                onClick={() => setActiveTab('thong-ke')}
+                className={`${
+                  activeTab === 'thong-ke'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+              >
+                Thống kê
+              </button>
             </nav>
           </div>
 
-          <div style={{ display: activeTab === 'quan-ly-admin' ? 'block' : 'none' }}>
-            <QuanLyAdmin />
-          </div>
-          <div style={{ display: activeTab === 'quan-ly-hero' ? 'block' : 'none' }}>
-            <QuanLyHero />
-          </div>
-          <div style={{ display: activeTab === 'quan-ly-bai-viet' ? 'block' : 'none' }}>
-            <QuanLyBaiViet />
-          </div>
-          <div style={{ display: activeTab === 'quan-ly-chatbot' ? 'block' : 'none' }}>
-            <ChatbotManagement />
+          {/* Nội dung tab */}
+          <div className="bg-white p-6 rounded-lg shadow">
+            {activeTab === 'dashboard' && (
+              <div>
+                <h2 className="text-xl font-semibold mb-4">Chào mừng đến với trang quản trị!</h2>
+                <p className="mb-4">Bạn đã đăng nhập thành công với quyền admin.</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                  <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h3 className="text-lg font-medium text-blue-800 mb-2">Quản lý Anh Hùng</h3>
+                    <p className="text-sm text-blue-600 mb-4">Thêm, sửa, xóa thông tin anh hùng</p>
+                    <button 
+                      onClick={() => setActiveTab('quan-ly-hero')}
+                      className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full"
+                    >
+                      Truy cập
+                    </button>
+                  </div>
+                  
+                  <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                    <h3 className="text-lg font-medium text-green-800 mb-2">Quản lý Bài Viết</h3>
+                    <p className="text-sm text-green-600 mb-4">Thêm, sửa, xóa bài viết và tin tức</p>
+                    <button 
+                      onClick={() => setActiveTab('quan-ly-bai-viet')}
+                      className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full"
+                    >
+                      Truy cập
+                    </button>
+                  </div>
+                  
+                  <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                    <h3 className="text-lg font-medium text-purple-800 mb-2">Quản lý Admin</h3>
+                    <p className="text-sm text-purple-600 mb-4">Quản lý người dùng và cấu hình</p>
+                    <button 
+                      onClick={() => setActiveTab('quan-ly-admin')}
+                      className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 w-full"
+                    >
+                      Truy cập
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'quan-ly-admin' && (
+              <div>
+                <QuanLyAdmin />
+              </div>
+            )}
+            
+            {activeTab === 'quan-ly-hero' && (
+              <div>
+                <QuanLyHero />
+              </div>
+            )}
+            
+            {activeTab === 'quan-ly-bai-viet' && (
+              <div>
+                <QuanLyBaiViet />
+              </div>
+            )}
+            
+            {activeTab === 'quan-ly-chatbot' && (
+              <div>
+                <ChatbotManagement />
+              </div>
+            )}
+            
+            {activeTab === 'thong-ke' && (
+              <div>
+                <QuanLyThongKe />
+              </div>
+            )}
           </div>
         </div>
       </main>
+    </div>
+  );
+}
+
+export default function AdminDashboardPage() {
+  return (
+    <AuthProvider>
+      <AdminDashboardContent />
     </AuthProvider>
   );
 } 

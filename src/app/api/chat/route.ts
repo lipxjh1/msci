@@ -1,26 +1,14 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
+import { supabase } from '@/utils/supabase';
 
 // Cấu hình Supabase
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabaseUrl = process.env.SUPABASE_URL || '';
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
 // Phần này để log chi tiết hơn
 console.log('Supabase URL:', supabaseUrl ? 'Đã được cấu hình' : 'Thiếu');
 console.log('Supabase Key:', supabaseKey ? 'Đã được cấu hình' : 'Thiếu');
-
-// Khởi tạo Supabase client
-let supabase: ReturnType<typeof createClient>;
-try {
-  supabase = createClient(supabaseUrl, supabaseKey, {
-    auth: { persistSession: false },
-  });
-  console.log('Supabase client đã được khởi tạo');
-} catch (error) {
-  console.error('Lỗi khởi tạo Supabase client:', error);
-  supabase = createClient(supabaseUrl, supabaseKey); // Fallback với cấu hình mặc định
-}
 
 // Cấu hình cho các providers
 const BASE_URLS = {

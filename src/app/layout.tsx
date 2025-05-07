@@ -5,7 +5,9 @@ import "./globals.css";
 import { SupabaseProvider } from "@/context/SupabaseContext";
 import { ModalProvider } from '@/context/ModalContext';
 import { SearchProvider } from '@/context/SearchContext';
+import { AuthProvider } from '@/context/AuthContext';
 import SearchModal from '@/components/SearchModal';
+import PageTracker from '@/components/analytics/PageTracker';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,12 +60,15 @@ export default function RootLayout({
     <html lang="vi" suppressHydrationWarning>
       <body className={bodyClasses}>
         <SupabaseProvider>
-          <SearchProvider>
-            <ModalProvider>
-              {children}
-              <SearchModal />
-            </ModalProvider>
-          </SearchProvider>
+          <AuthProvider>
+            <SearchProvider>
+              <ModalProvider>
+                {children}
+                <SearchModal />
+                <PageTracker />
+              </ModalProvider>
+            </SearchProvider>
+          </AuthProvider>
         </SupabaseProvider>
       </body>
     </html>

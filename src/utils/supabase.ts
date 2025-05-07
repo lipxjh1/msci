@@ -14,5 +14,24 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.error('Vui lòng kiểm tra lại khóa từ Supabase dashboard');
 }
 
-// Tạo Supabase client
-export const supabase = createClient(supabaseUrl, supabaseAnonKey); 
+// Sử dụng biến toàn cục để lưu trữ instance
+let supabaseInstance: ReturnType<typeof createClient> | null = null;
+
+// Tạo Supabase client theo singleton pattern để tránh nhiều instance
+export const supabase = (() => {
+  if (supabaseInstance === null) {
+    supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
+      auth: {
+        persistSession: true,
+        storageKey: 'supabase-auth',
+      },
+      global: {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+      },
+    });
+  }
+  return supabaseInstance;
+})(); 

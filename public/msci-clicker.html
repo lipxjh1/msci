@@ -4,67 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSCI Clicker Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        :root {
+            --primary-color: #7c3aed;
+            --secondary-color: #f8960e;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #e2e8f0;
+            --text-dim: #94a3b8;
+            --success: #10b981;
+            --accent-gradient: linear-gradient(135deg, #7c3aed, #3b82f6);
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Main content */
+        main {
+            flex: 1;
+            padding: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
+            min-height: 100vh;
         }
-        #phaser-container {
-            width: 100%;
-            max-width: 1024px;
-            height: 100%;
-            max-height: 768px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-        .game-info {
-            color: white;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        
         .game-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 1024px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 1050px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+        
+        .game-info {
+            text-align: center;
+            margin-bottom: 1.5rem;
             width: 100%;
         }
-        .back-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #028af8;
+        
+        .game-info h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .game-info p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        #phaser-container {
+            width: 100%;
+            max-width: 1024px;
+            height: 768px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .button {
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-gradient);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .back-button:hover {
-            background-color: #0268c1;
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(124, 58, 237, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+            
+            .game-container {
+                padding: 1.5rem;
+            }
+            
+            #phaser-container {
+                height: 600px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="game-container">
-        <div class="game-info">
-            <h1>MSCI Clicker</h1>
-            <p>Collect as many MSCI coins as possible in 10 seconds!</p>
+    <!-- Main Content -->
+    <main>
+        <div class="game-container">
+            <div class="game-info">
+                <h1>MSCI Clicker</h1>
+                <p>Collect as many MSCI coins as possible in 10 seconds! Click fast to get a high score.</p>
+            </div>
+            <div id="phaser-container"></div>
+            <button class="button" onclick="window.location.href='/minigames'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Games
+            </button>
         </div>
-        <div id="phaser-container"></div>
-        <button class="back-button" onclick="window.location.href='/minigames'">Back to Minigames</button>
-    </div>
+    </main>
 
     <!-- Phaser framework -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     
     <!-- Game code -->
-    <script type="module" src="/code/msci-clicker.js"></script>
+    <script src="/code/msci-clicker.js"></script>
 </body>
 </html> 

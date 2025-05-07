@@ -51,42 +51,6 @@ export default function MinigamesHome() {
   
   const games: GameCardProps[] = [
     {
-      title: 'Breakout Arcade',
-      description: 'Classic arcade game where you control a paddle to break bricks with a bouncing ball. Test your reflexes and aim for the highest score!',
-      image: '/images/minigame/breakout.jpg',
-      link: '/minigames/breakout',
-      category: ['Arcade', 'Casual'],
-      rating: 4.6,
-      badge: {
-        text: 'New',
-        color: '4CAF50'
-      }
-    },
-    {
-      title: 'MSCI Emoji Match',
-      description: 'Challenge your memory in this fun emoji matching game. Find all the matching pairs before time runs out to score points!',
-      image: '/images/minigame/msci-emoji.jpg',
-      link: '/minigames/msci-emoji',
-      category: ['Puzzle', 'Casual'],
-      rating: 4.7,
-      badge: {
-        text: 'New',
-        color: '9C27B0'
-      }
-    },
-    {
-      title: 'MSCI Clicker',
-      description: 'Click as fast as you can to collect MSCI coins in this addictive clicker game. How many coins can you gather in just 10 seconds?',
-      image: '/images/minigame/msci-clicker.jpg',
-      link: '/minigames/msci-clicker',
-      category: ['Arcade', 'Casual'],
-      rating: 4.8,
-      badge: {
-        text: 'New',
-        color: '4CAF50'
-      }
-    },
-    {
       title: 'Tic Tac Toe with Akane',
       description: 'Challenge your strategic thinking against Akane, an intelligent AI with multiple difficulty levels. Can you defeat her in this classic board game?',
       image: '/images/minigame/tictac.jpg',
