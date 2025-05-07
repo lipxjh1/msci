@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSCI Emoji Atlas Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            background-color: transparent;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        button {
+            background-color: #028af8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0268c1;
+        }
+        .instructions {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>MSCI Emoji Atlas Generator</h1>
+    
+    <p>This tool generates a simple emoji atlas for the MSCI Emoji Match game.</p>
+    
+    <canvas id="atlasCanvas" width="256" height="192"></canvas>
+    
+    <div class="buttons">
+        <button id="generateBtn">Generate Atlas</button>
+        <button id="downloadBtn">Download Atlas</button>
+    </div>
+    
+    <div class="instructions">
+        <h2>Instructions</h2>
+        <ol>
+            <li>Click "Generate Atlas" to create a basic emoji atlas with colored squares.</li>
+            <li>Click "Download Atlas" to save the generated image as "emoji-atlas.png".</li>
+            <li>Place the downloaded file in the <code>public/images/coin/</code> directory.</li>
+            <li>For a better-looking atlas, replace this image with actual emoji graphics using image editing software.</li>
+        </ol>
+        <p><strong>Note:</strong> This generates a placeholder atlas with colored squares. For a production game, you should replace this with actual emoji graphics.</p>
+    </div>
+    
+    <script>
+        const canvas = document.getElementById('atlasCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Emoji data with colors
+        const emojis = [
+            { name: 'happy', color: '#ffcc00' },
+            { name: 'sad', color: '#3498db' },
+            { name: 'angry', color: '#e74c3c' },
+            { name: 'cool', color: '#9b59b6' },
+            { name: 'love', color: '#e84393' },
+            { name: 'surprised', color: '#00cec9' },
+            { name: 'star', color: '#f1c40f' },
+            { name: 'coin', color: '#ffa801' },
+            { name: 'rocket', color: '#4cd137' },
+            { name: 'diamond', color: '#0fbcf9' },
+            { name: 'fire', color: '#ff5e57' },
+            { name: 'trophy', color: '#ffd32a' }
+        ];
+        
+        // Function to generate the atlas
+        function generateAtlas() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            let index = 0;
+            
+            // Draw colored squares for each emoji
+            for (let y = 0; y < 3; y++) {
+                for (let x = 0; x < 4; x++) {
+                    if (index < emojis.length) {
+                        const emoji = emojis[index];
+                        const posX = x * 64;
+                        const posY = y * 64;
+                        
+                        // Draw background square
+                        ctx.fillStyle = emoji.color;
+                        ctx.fillRect(posX, posY, 64, 64);
+                        
+                        // Draw emoji name
+                        ctx.fillStyle = '#000000';
+                        ctx.font = '12px Arial';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(emoji.name, posX + 32, posY + 36);
+                        
+                        index++;
+                    }
+                }
+            }
+        }
+        
+        // Function to download the atlas
+        function downloadAtlas() {
+            const dataURL = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = 'emoji-atlas.png';
+            link.href = dataURL;
+            link.click();
+        }
+        
+        // Event listeners
+        document.getElementById('generateBtn').addEventListener('click', generateAtlas);
+        document.getElementById('downloadBtn').addEventListener('click', downloadAtlas);
+        
+        // Generate atlas on page load
+        window.onload = generateAtlas;
+    </script>
+</body>
+</html> 

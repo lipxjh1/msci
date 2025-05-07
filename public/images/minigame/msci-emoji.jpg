@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSCI Emoji Match Thumbnail</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #1a2634, #0a141e);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            position: relative;
+            width: 800px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .title {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 10px rgba(0,136,255,0.7);
+            margin-bottom: 20px;
+            z-index: 10;
+        }
+        
+        .emojis {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .emoji {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            animation: float 3s infinite ease-in-out;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .emoji:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0.2s;
+            background-color: #ffcc00;
+        }
+        
+        .emoji:nth-child(2) {
+            top: 60%;
+            left: 70%;
+            animation-delay: 0.5s;
+            background-color: #e74c3c;
+        }
+        
+        .emoji:nth-child(3) {
+            top: 30%;
+            left: 80%;
+            animation-delay: 0.8s;
+            background-color: #3498db;
+        }
+        
+        .emoji:nth-child(4) {
+            top: 70%;
+            left: 30%;
+            animation-delay: 1.2s;
+            background-color: #9b59b6;
+        }
+        
+        .emoji:nth-child(5) {
+            top: 40%;
+            left: 50%;
+            animation-delay: 1.5s;
+            background-color: #ffa801;
+        }
+        
+        .emoji:nth-child(6) {
+            top: 80%;
+            left: 10%;
+            animation-delay: 0.7s;
+            background-color: #00cec9;
+        }
+        
+        .emoji:nth-child(7) {
+            top: 10%;
+            left: 60%;
+            animation-delay: 1.0s;
+            background-color: #f1c40f;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+        
+        .subtitle {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: rgba(255,255,255,0.8);
+            z-index: 10;
+            text-align: center;
+            max-width: 80%;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, rgba(10,20,30,0.8) 100%);
+            z-index: 5;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #9C27B0;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            z-index: 20;
+            box-shadow: 0 0 10px rgba(156,39,176,0.7);
+        }
+
+        .card {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .card1 {
+            top: 35%;
+            left: 30%;
+            transform: rotate(-15deg);
+            z-index: 2;
+        }
+
+        .card2 {
+            top: 35%;
+            left: 40%;
+            transform: rotate(10deg);
+            z-index: 3;
+        }
+
+        .glowing-circle {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(156,39,176,0.4) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(20px);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="glowing-circle"></div>
+        <div class="emojis">
+            <div class="emoji">😀</div>
+            <div class="emoji">😠</div>
+            <div class="emoji">😢</div>
+            <div class="emoji">😎</div>
+            <div class="emoji">🪙</div>
+            <div class="emoji">😲</div>
+            <div class="emoji">⭐</div>
+        </div>
+        <div class="card card1">❤️</div>
+        <div class="card card2">❤️</div>
+        <h1 class="title">MSCI EMOJI MATCH</h1>
+        <p class="subtitle">Match pairs of emojis to test your memory!</p>
+        <div class="badge">NEW</div>
+    </div>
+</body>
+</html> 

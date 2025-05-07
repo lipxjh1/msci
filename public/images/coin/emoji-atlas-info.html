@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSCI Emoji Atlas Instructions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .emoji-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .emoji-icon {
+            font-size: 40px;
+        }
+        .instructions {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>MSCI Emoji Atlas Creation Guide</h1>
+    
+    <p>This document provides instructions for creating the emoji atlas image required for the MSCI Emoji Match game.</p>
+    
+    <h2>Atlas Specifications</h2>
+    <ul>
+        <li>Image dimensions: 256×192 pixels</li>
+        <li>Each emoji: 64×64 pixels</li>
+        <li>Format: PNG with transparency (RGBA8888)</li>
+        <li>Layout: 4×3 grid of emojis</li>
+    </ul>
+    
+    <h2>Emoji Layout</h2>
+    <p>The atlas should contain the following emojis, arranged in this order:</p>
+    
+    <div class="grid">
+        <div class="emoji-item">
+            <div class="emoji-icon">😀</div>
+            <p>"happy"<br>(0,0)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">😢</div>
+            <p>"sad"<br>(64,0)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">😠</div>
+            <p>"angry"<br>(128,0)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">😎</div>
+            <p>"cool"<br>(192,0)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">❤️</div>
+            <p>"love"<br>(0,64)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">😲</div>
+            <p>"surprised"<br>(64,64)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">⭐</div>
+            <p>"star"<br>(128,64)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">🪙</div>
+            <p>"coin"<br>(192,64)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">🚀</div>
+            <p>"rocket"<br>(0,128)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">💎</div>
+            <p>"diamond"<br>(64,128)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">🔥</div>
+            <p>"fire"<br>(128,128)</p>
+        </div>
+        <div class="emoji-item">
+            <div class="emoji-icon">🏆</div>
+            <p>"trophy"<br>(192,128)</p>
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <h2>How to Create the Atlas</h2>
+        <ol>
+            <li>Use an image editing software like Photoshop, GIMP, or Aseprite.</li>
+            <li>Create a new image with dimensions 256×192 pixels, with transparency.</li>
+            <li>Create a grid with 4 columns and 3 rows, each cell being 64×64 pixels.</li>
+            <li>Place each emoji in its corresponding position as shown above.</li>
+            <li>Save the file as <code>emoji-atlas.png</code> in the <code>public/images/coin/</code> directory.</li>
+            <li>Ensure the JSON file <code>emoji-atlas.json</code> is already in place with the correct frame definitions.</li>
+        </ol>
+        
+        <h3>Alternative: Using Emoji Images</h3>
+        <p>If you have individual emoji images, you can use tools like TexturePacker or a simple script to arrange them into a sprite sheet.</p>
+        
+        <h3>Testing</h3>
+        <p>After creating the atlas, test the game to ensure all emojis appear correctly. If emojis appear incorrectly or don't show up, double-check the atlas image's dimensions and the placement of each emoji.</p>
+    </div>
+</body>
+</html> 

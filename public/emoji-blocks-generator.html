@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Blocks Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Emoji Blocks Generator</h1>
+    <p>This tool generates a sprite sheet with 12 colored blocks for use in the MSCI Emoji Match game.</p>
+    <canvas id="canvas" width="768" height="64"></canvas>
+    <br>
+    <button id="generateBtn">Generate Blocks</button>
+    <button id="downloadBtn">Download Image</button>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Colors for the blocks
+        const colors = [
+            '#FF5733', // Red
+            '#33FF57', // Green
+            '#3357FF', // Blue
+            '#FFFF33', // Yellow
+            '#FF33FF', // Magenta
+            '#33FFFF', // Cyan
+            '#FF9933', // Orange
+            '#9933FF', // Purple
+            '#33FF99', // Teal
+            '#FF3399', // Pink
+            '#99FF33', // Lime
+            '#3399FF'  // Sky Blue
+        ];
+        
+        function generateBlocks() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw blocks
+            for (let i = 0; i < colors.length; i++) {
+                const x = i * 64;
+                
+                // Background color
+                ctx.fillStyle = colors[i];
+                ctx.fillRect(x, 0, 64, 64);
+                
+                // Add border
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(x + 1, 1, 62, 62);
+                
+                // Add pattern (simple shape in the middle)
+                ctx.fillStyle = '#FFFFFF';
+                ctx.beginPath();
+                
+                // Different shape for each block
+                switch (i % 4) {
+                    case 0: // Circle
+                        ctx.arc(x + 32, 32, 20, 0, Math.PI * 2);
+                        break;
+                    case 1: // Square
+                        ctx.rect(x + 12, 12, 40, 40);
+                        break;
+                    case 2: // Triangle
+                        ctx.moveTo(x + 32, 12);
+                        ctx.lineTo(x + 52, 52);
+                        ctx.lineTo(x + 12, 52);
+                        ctx.closePath();
+                        break;
+                    case 3: // Diamond
+                        ctx.moveTo(x + 32, 12);
+                        ctx.lineTo(x + 52, 32);
+                        ctx.lineTo(x + 32, 52);
+                        ctx.lineTo(x + 12, 32);
+                        ctx.closePath();
+                        break;
+                }
+                
+                ctx.globalAlpha = 0.3;
+                ctx.fill();
+                ctx.globalAlpha = 1.0;
+                ctx.stroke();
+                
+                // Add text number
+                ctx.fillStyle = '#FFFFFF';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText((i + 1).toString(), x + 32, 32);
+            }
+        }
+        
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'emoji-blocks.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        document.getElementById('generateBtn').addEventListener('click', generateBlocks);
+        document.getElementById('downloadBtn').addEventListener('click', downloadImage);
+        
+        // Generate blocks on load
+        generateBlocks();
+    </script>
+</body>
+</html> 

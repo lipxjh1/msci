@@ -1,0 +1,452 @@
+class Tomato extends Phaser.GameObjects.Sprite {
+    constructor(config) {
+        super(config.scene, config.x, config.y, 'tomato');
+
+        this.scene = config.scene;
+        this.scene.add.existing(this);
+        this.scene.physics.world.enable(this);
+
+        this.setScale(2);
+        this.body.setSize(14, 20);
+        this.body.setOffset(2, 5);
+        this.body.setBounce(0.2);
+
+        this.jumping = false;
+
+        this.anims.play('tomato_idle');
+        this.prevMov = 'tomato_idle';
+
+        this.hitDelay = false;
+
+        this.cursor = this.scene.input.keyboard.createCursorKeys();
+
+        this.life = 3;
+
+    }
+
+    update() {
+        if(this.cursor.left.isDown) {
+            this.body.setVelocityX(-200);
+            this.flipX = true;
+            if(this.prevMov !== 'left' && !this.jumping) {
+                this.prevMov = 'left';
+                this.anims.play('tomato_walk');
+            }
+        } else if(this.cursor.right.isDown) {
+            this.body.setVelocityX(200);
+            this.flipX = false;
+            if(this.prevMov !== 'right' && !this.jumping) {
+                this.prevMov = 'right';
+                this.anims.play('tomato_walk');
+            }
+
+        } else if(this.cursor.down.isDown && !this.jumping) {
+            this.body.setVelocityX(0);
+            this.body.setSize(14, 15);
+            this.body.setOffset(2, 10);
+
+            if(this.prevMov !== 'down' && !this.jumping) {
+                this.prevMov = 'down';
+                this.anims.play('tomato_down');
+            }
+
+        }
+        else {
+            this.body.setVelocityX(0);
+            this.body.setSize(14, 20);
+            this.body.setOffset(2, 5);
+            if(this.prevMov !== 'tomato_idle' && !this.jumping) {
+                this.prevMov = 'tomato_idle';
+                this.anims.play('tomato_idle');
+            }
+        }
+
+        if(Phaser.Input.Keyboard.JustDown(this.cursor.up) && !this.jumping) {
+            this.jumping = true;
+            this.body.setVelocityY(-800);
+            if(this.prevMov !== 'jump') {
+                this.prevMov = 'jump';
+                this.anims.play('tomato_jump');
+            }
+        } else if(this.body.blocked.down) {
+            this.jumping = false;
+        }
+    }
+
+    bombCollision() {
+        if(!this.hitDelay) {
+            this.hitDelay = true;
+
+            this.scene.sound.play('draw');
+            this.life--;
+            this.scene.registry.events.emit('remove_life');
+
+            if(this.life === 0) {
+                this.scene.registry.events.emit('game_over');
+            }
+
+            this.setTint(0x1abc9c);
+            this.scene.time.addEvent({
+                delay: 600,
+                callback: () => {
+                    this.hitDelay = false;
+                    this.clearTint();
+                }
+            });
+        }
+    }
+}
+
+export default Tomato;
+
+class UI extends Phaser.Scene
+{
+    constructor ()
+    {
+        super({key: 'UI'});
+    }
+
+    init ()
+    {
+        this.scene.moveUp();
+        this.actual_points = 0;
+    }
+
+    create ()
+    {
+        this.groupLife = this.add.group({
+            key: 'life',
+            repeat: 2,
+            setXY: {
+                x: 50,
+                y: 20,
+                stepX: 25
+            }
+        });
+
+        this.points = this.add.bitmapText(
+            this.scale.width - 40,
+            20,
+            'pixelFont',
+            Phaser.Utils.String.Pad('0', 6, '0', 1)
+        ).setOrigin(1, 0).setTint(0x000000);
+
+
+        // Eventos
+        this.registry.events.on('remove_life', () => {
+            this.groupLife.getChildren()[this.groupLife.getChildren().length - 1].destroy();
+        });
+        this.registry.events.on('game_over', () => {
+            this.registry.events.removeAllListeners();
+            this.scene.start('Menu', {points: this.actual_points});
+        });
+
+        this.registry.events.on('update_points', () => {
+            this.actual_points += 10;
+            this.points.setText(Phaser.Utils.String.Pad(this.actual_points, 6, '0', 1));
+        });
+    }
+}
+
+export default UI;
+
+import Tomato from './Tomato.js';
+import Bombs from './TomBombs.js';
+import TomatoItem from './TomatoItem.js';
+
+/**
+ * In this fast-paced game, you play as a character on a mission to collect ripe tomatoes while avoiding bombs with spikes. With just one screen to play on, you must use quick reflexes and strategic thinking to dodge the bombs and collect as many tomatoes as you can. Each tomato you collect earns you points, but watch out! If you collide with a bomb with spikes, you'll lose a life. The goal is to collect as many tomatoes as possible while avoiding bombs and preserving your lives. Can you make it to the end of the game with all your lives intact and become the ultimate tomato-collecting champion? Play now and find out!
+ * Game created by Francisco Pereira (Gammafp)
+ * - PixelArt created by @VeryEvilTomato
+ */
+
+class Play extends Phaser.Scene
+{
+    constructor ()
+    {
+        super({key: 'Play'});
+    }
+
+    init ()
+    {
+        this.scene.launch('UI');
+    }
+
+    create ()
+    {
+        this.add.image(0, 0, 'background')
+            .setOrigin(0);
+
+        this.wall_floor = this.physics.add.staticGroup();
+
+        this.wall_floor.create(0, 0, 'wall')
+            .setOrigin(0);
+        this.wall_floor.create(this.scale.width, 0, 'wall')
+            .setOrigin(1, 0)
+            .setFlipX(true);
+
+        this.wall_floor.create(0, this.scale.height, 'floor')
+            .setOrigin(0, 1);
+
+        this.wall_floor.refresh();
+
+        this.wall_floor.getChildren()[2].setOffset(0, 15);
+
+        // Bombs
+        this.bombsGroup = new Bombs({
+            physicsWorld: this.physics.world,
+            scene: this
+        });
+
+        // Items
+        this.itemsGroup = new TomatoItem({
+            physicsWorld: this.physics.world,
+            scene: this
+        });
+
+        // Personaje
+        this.tomato = new Tomato({
+            scene: this,
+            x: 100,
+            y: 100,
+        });
+
+        this.physics.add.collider([this.tomato, this.bombsGroup], this.wall_floor);
+        this.physics.add.overlap(this.tomato, this.bombsGroup, () => {
+            this.tomato.bombCollision();
+        });
+
+        this.physics.add.overlap(this.itemsGroup, this.tomato, () => {
+            this.sound.play('pop');
+            this.registry.events.emit('update_points');
+            this.itemsGroup.destroyItem();
+            this.bombsGroup.addBomb();
+        });
+    }
+
+    update ()
+    {
+        this.tomato.update();
+        this.bombsGroup.update();
+    }
+}
+
+export default Play;
+
+class Menu extends Phaser.Scene
+{
+    constructor ()
+    {
+        super({
+            key: 'Menu'
+        });
+    }
+
+    init (data)
+    {
+        this.points = 0;
+
+        if(Object.keys(data).length !== 0)
+        {
+            this.points = data.points;
+        }
+
+    }
+
+    create ()
+    {
+
+        const pointsDB = localStorage.getItem('best_points');
+        this.betsPoints = (pointsDB !== null) ? pointsDB : 0;
+
+        this.add.image(0, 0, 'background').setOrigin(0);
+
+        this.add.image(0, 0, 'wall')
+            .setOrigin(0);
+        this.add.image(this.scale.width, 0, 'wall')
+            .setOrigin(1, 0)
+            .setFlipX(true);
+
+        this.add.image(0, this.scale.height, 'floor')
+            .setOrigin(0, 1);
+
+        this.logoMenu = this.add.image(
+            this.scale.width/2,
+            this.scale.height/2,
+            'logo'
+        ).setScale(2).setInteractive();
+
+        this.pointsText = this.add.bitmapText(
+            this.scale.width/2,
+            this.scale.height - 100,
+            'pixelFont',
+            'POINTS ' + this.points
+        ).setDepth(2).setOrigin(0.5);
+
+        this.bestPointsText = this.add.bitmapText(
+            this.scale.width/2,
+            this.scale.height - 80,
+            'pixelFont',
+            'BEST ' + this.betsPoints
+        ).setDepth(2).setOrigin(0.5);
+
+
+
+        this.logoMenu.on(Phaser.Input.Events.POINTER_DOWN, () => {
+            this.add.tween({
+                targets: this.logoMenu,
+                ease: 'Bounce.easeIn',
+                y: -200,
+                duration: 1000,
+                onComplete: () => {
+                    this.scene.start('Play');
+                }
+            });
+
+            this.add.tween({
+                targets: [ this.pointsText, this.bestPointsText ],
+                ease: 'Bounce.easeIn',
+                y: 400,
+                duration: 1000
+            });
+        });
+
+        if(this.points > this.betsPoints) {
+            localStorage.setItem('best_points', this.points);
+        }
+    }
+}
+
+export default Menu;
+
+class Preloader extends Phaser.Scene {
+    constructor() {
+        super('Preloader');
+    }
+
+    preload() {
+        this.load.path = 'assets/games/tom/';
+
+        this.load.image([
+            'background',
+            'floor',
+            'wall',
+            'bomb',
+            'tomato_item',
+            'life',
+            'logo'
+        ]);
+
+        this.load.audio('bongo', 'bongojam_f.mp3');
+        this.load.audio('pop', 'pop.mp3');
+        this.load.audio('draw', 'draw.mp3');
+
+        this.load.image('font', 'font/font.png');
+        this.load.json('fontData', 'font/font.json');
+
+        this.load.atlas('tomato', 'tomato/tomato.png', 'tomato/tomato_atlas.json');
+        this.load.animation('tomatoAnim', 'tomato/tomato_anim.json');
+
+        this.load.on('complete', () => {
+
+            this.sound.play('bongo', {loop: true});
+
+            const fontData = this.cache.json.get('fontData');
+            this.cache.bitmapFont.add('pixelFont', Phaser.GameObjects.RetroFont.Parse(this, fontData));
+
+            this.scene.start('Menu');
+        });
+    }
+}
+export default Preloader;
+
+import Preloader from './Preloader.js';
+
+import Play from './Play.js';
+import Menu from './Menu.js';
+import UI from './UI.js';
+
+const config = {
+    title: "TOM",
+    type: Phaser.AUTO,
+    parent: "phaser-example",
+    width: 640,
+    height: 360,
+    pixelArt: true,
+    physics: {
+        default: "arcade",
+        "arcade": {
+            gravity: {
+                y: 2000
+            }
+        }
+    },
+    scene: [
+        Preloader,
+        UI,
+        Play,
+        Menu
+    ]
+};
+
+new Phaser.Game(config);
+
+class Bombs extends Phaser.Physics.Arcade.Group {
+    constructor(config) {
+        super(config.physicsWorld, config.scene);
+        this.addBomb();
+    }
+
+    addBomb() {
+        this.create(
+            Phaser.Math.Between(40, this.scene.scale.width - 40)
+            , -10, 'bomb')
+            .setDepth(2)
+            .setBounce(1)
+            .setCircle(18)
+            .setVelocityX(
+                (Phaser.Math.Between(0, 1)) ? 100 : -100
+            )
+            .setGravityY(-1800);
+    }
+
+    update() {
+        this.children.iterate( bomb => {
+            if(bomb.body.velocity.x < 0) {
+                bomb.setAngularVelocity(-300);
+            } else {
+                bomb.setAngularVelocity(300);
+            }
+        });
+    }
+}
+
+export default Bombs;
+
+class TomatoItem extends Phaser.Physics.Arcade.StaticGroup
+{
+    constructor (config)
+    {
+        super(config.physicsWorld, config.scene);
+        this.addTomatoItem();
+    }
+
+    addTomatoItem ()
+    {
+        this.create(
+            Phaser.Math.Between(50, this.scene.scale.width - 50),
+            Phaser.Math.Between(150, this.scene.scale.height - 70),
+            'tomato_item'
+        );
+    }
+
+    destroyItem ()
+    {
+        this.children.entries[0].destroy();
+        this.addTomatoItem();
+    }
+
+}
+
+export default TomatoItem;
+

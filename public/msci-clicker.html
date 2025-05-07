@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSCI Clicker Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        #phaser-container {
+            width: 100%;
+            max-width: 1024px;
+            height: 100%;
+            max-height: 768px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .game-info {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1024px;
+            width: 100%;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #028af8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #0268c1;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-info">
+            <h1>MSCI Clicker</h1>
+            <p>Collect as many MSCI coins as possible in 10 seconds!</p>
+        </div>
+        <div id="phaser-container"></div>
+        <button class="back-button" onclick="window.location.href='/minigames'">Back to Minigames</button>
+    </div>
+
+    <!-- Phaser framework -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    
+    <!-- Game code -->
+    <script type="module" src="/code/msci-clicker.js"></script>
+</body>
+</html> 
