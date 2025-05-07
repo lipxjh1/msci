@@ -13,7 +13,7 @@ export default function RoadmapBanner() {
 
   return (
     <div className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] overflow-hidden">
-      {/* Nền banner với hiệu ứng parallax */}
+      {/* Background banner with parallax effect */}
       <div className="absolute inset-0 z-0">
         <Image 
           src="/images/banner/trangchu.jpg" 
@@ -29,10 +29,10 @@ export default function RoadmapBanner() {
         />
       </div>
 
-      {/* Lớp gradient overlay */}
+      {/* Gradient overlay layer */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#16181D]/70 via-[#16181D]/60 to-[#16181D] z-10"></div>
 
-      {/* Hiệu ứng lưới kỹ thuật số */}
+      {/* Digital grid effect */}
       <div 
         className="absolute inset-0 z-20 opacity-20"
         style={{
@@ -42,7 +42,7 @@ export default function RoadmapBanner() {
         }}
       ></div>
 
-      {/* Hiệu ứng hạt */}
+      {/* Particle effect */}
       <div className="absolute inset-0 z-20">
         {Array.from({ length: 15 }).map((_, index) => (
           <motion.div 
@@ -71,7 +71,7 @@ export default function RoadmapBanner() {
 
       {/* Removed decoration robots */}
 
-      {/* Nội dung chính */}
+      {/* Main content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-30">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -112,14 +112,14 @@ export default function RoadmapBanner() {
         {/* Removed call to action button */}
       </div>
 
-      {/* Hiệu ứng đường kẻ sọc dọc - chỉ hiển thị trên màn hình lớn */}
+      {/* Vertical line effect - only show on large screens */}
       <div className="absolute inset-0 z-20 opacity-10 pointer-events-none hidden md:block">
         <div className="h-full w-px bg-white absolute left-1/4"></div>
         <div className="h-full w-px bg-white absolute left-1/2"></div>
         <div className="h-full w-px bg-white absolute left-3/4"></div>
       </div>
 
-      {/* Vật trang trí ở góc */}
+      {/* Corner decoration */}
       <motion.div
         initial={{ opacity: 0, rotate: -20 }}
         animate={{ opacity: 0.8, rotate: 0 }}

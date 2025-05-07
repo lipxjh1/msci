@@ -31,14 +31,14 @@ export default function VisionMission() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
             </svg>
           </div>
-          <h3 className="font-orbitron text-xl font-bold text-white">TẦM NHÌN</h3>
+          <h3 className="font-orbitron text-xl font-bold text-white">VISION</h3>
         </div>
         
         <div className="ml-16 flex items-start gap-6">
           <div className="flex-1">
             <p className="text-gray-300 leading-relaxed">
-              Trở thành studio game hàng đầu Việt Nam, tiên phong trong việc kết hợp công nghệ blockchain với trải nghiệm game AAA, 
-              tạo ra một hệ sinh thái game bền vững và công bằng cho mọi người chơi.
+              To become Vietnam's leading game studio, pioneering the integration of blockchain technology with AAA gaming experiences,
+              creating a sustainable and fair gaming ecosystem for all players.
             </p>
           </div>
           <div className="hidden md:block w-28 h-28 relative rounded-lg overflow-hidden flex-shrink-0">
@@ -70,7 +70,7 @@ export default function VisionMission() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
             </svg>
           </div>
-          <h3 className="font-orbitron text-xl font-bold text-white">SỨ MỆNH</h3>
+          <h3 className="font-orbitron text-xl font-bold text-white">MISSION</h3>
         </div>
         
         <div className="ml-16 flex items-start gap-6">
@@ -78,19 +78,19 @@ export default function VisionMission() {
             <ul className="text-gray-300 space-y-2">
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Xây dựng game chất lượng cao với cốt truyện sâu sắc</span>
+                <span>Build high-quality games with immersive storylines</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Tạo cộng đồng game thủ gắn kết và năng động</span>
+                <span>Create a connected and dynamic gaming community</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Đổi mới mô hình phát triển game theo hướng cộng đồng</span>
+                <span>Innovate game development model with community focus</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Ứng dụng công nghệ blockchain một cách có trách nhiệm</span>
+                <span>Apply blockchain technology responsibly</span>
               </li>
             </ul>
           </div>

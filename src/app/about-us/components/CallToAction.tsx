@@ -19,14 +19,14 @@ export default function CallToAction() {
         <div className="absolute inset-0 z-10">
           <div className="container mx-auto h-full flex flex-col items-center justify-center text-center py-10 px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-wide">
-              CHIẾN ĐẤU VÌ TƯƠNG LAI NHÂN LOẠI. GIA NHẬP M-SCI!
+              FIGHT FOR HUMANITY'S FUTURE. JOIN M-SCI!
             </h2>
             
             <Link 
-              href="/lien-he"
+              href="/contact"
               className="mt-4 mb-8 px-8 py-3 bg-[#FF7D00] hover:bg-[#FF9D40] text-white font-medium rounded transition-colors duration-300 uppercase tracking-wider text-lg shadow-lg hover:shadow-[#FF7D00]/50"
             >
-              LIÊN HỆ NGAY
+              CONTACT US NOW
             </Link>
           </div>
         </div>

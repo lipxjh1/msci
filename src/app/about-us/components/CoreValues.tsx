@@ -19,7 +19,7 @@ export default function CoreValues() {
       <div className="flex justify-center mb-10">
         <h2 className="font-orbitron text-2xl md:text-3xl font-bold text-white cyber-halo">
           <span className="text-shadow-blue relative inline-block">
-            GIÁ TRỊ CỐT LÕI
+            CORE VALUES
             <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
           </span>
         </h2>
@@ -32,9 +32,9 @@ export default function CoreValues() {
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-blue-bright)]/20 to-[var(--accent-blue-glow)]/20 flex items-center justify-center mb-4 group-hover:from-[var(--accent-blue-bright)]/40 group-hover:to-[var(--accent-blue-glow)]/40 transition-all duration-500">
               <FaGamepad className="w-8 h-8 text-[var(--accent-blue-bright)]" />
             </div>
-            <h3 className="text-xl font-bold mb-2 text-white">Đam Mê Gaming</h3>
+            <h3 className="text-xl font-bold mb-2 text-white">Gaming Passion</h3>
             <p className="text-gray-300">
-              Chúng tôi là game thủ trước khi là nhà phát triển. Mọi quyết định đều xuất phát từ góc nhìn của người chơi.
+              We are gamers before we are developers. Every decision stems from the player's perspective.
             </p>
             
             <div className="mt-4 relative h-24 w-full overflow-hidden rounded-lg">
@@ -54,9 +54,9 @@ export default function CoreValues() {
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-blue-bright)]/20 to-[var(--accent-blue-glow)]/20 flex items-center justify-center mb-4 group-hover:from-[var(--accent-blue-bright)]/40 group-hover:to-[var(--accent-blue-glow)]/40 transition-all duration-500">
               <FaUsers className="w-8 h-8 text-[var(--accent-blue-bright)]" />
             </div>
-            <h3 className="text-xl font-bold mb-2 text-white">Cộng Đồng Là Trọng Tâm</h3>
+            <h3 className="text-xl font-bold mb-2 text-white">Community-Focused</h3>
             <p className="text-gray-300">
-              Người chơi không chỉ là khách hàng - họ là đồng sáng tạo, là một phần không thể thiếu của M-SCI.
+              Players are not just customers - they are co-creators, an integral part of M-SCI.
             </p>
             
             <div className="mt-4 relative h-24 w-full overflow-hidden rounded-lg">
@@ -76,9 +76,9 @@ export default function CoreValues() {
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-blue-bright)]/20 to-[var(--accent-blue-glow)]/20 flex items-center justify-center mb-4 group-hover:from-[var(--accent-blue-bright)]/40 group-hover:to-[var(--accent-blue-glow)]/40 transition-all duration-500">
               <FaLightbulb className="w-8 h-8 text-[var(--accent-blue-bright)]" />
             </div>
-            <h3 className="text-xl font-bold mb-2 text-white">Đổi Mới Sáng Tạo</h3>
+            <h3 className="text-xl font-bold mb-2 text-white">Innovation</h3>
             <p className="text-gray-300">
-              Không ngừng tìm kiếm giải pháp mới để nâng cao trải nghiệm game và mô hình kinh doanh.
+              Constantly seeking new solutions to enhance gaming experiences and business models.
             </p>
             
             <div className="mt-4 relative h-24 w-full overflow-hidden rounded-lg">
@@ -98,9 +98,9 @@ export default function CoreValues() {
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-blue-bright)]/20 to-[var(--accent-blue-glow)]/20 flex items-center justify-center mb-4 group-hover:from-[var(--accent-blue-bright)]/40 group-hover:to-[var(--accent-blue-glow)]/40 transition-all duration-500">
               <FaBalanceScale className="w-8 h-8 text-[var(--accent-blue-bright)]" />
             </div>
-            <h3 className="text-xl font-bold mb-2 text-white">Công Bằng & Minh Bạch</h3>
+            <h3 className="text-xl font-bold mb-2 text-white">Fairness & Transparency</h3>
             <p className="text-gray-300">
-              Mọi cơ chế game đều được thiết kế công bằng, không pay-to-win, với tỷ lệ drop minh bạch.
+              All game mechanics are designed to be fair, non-pay-to-win, with transparent drop rates.
             </p>
             
             <div className="mt-4 relative h-24 w-full overflow-hidden rounded-lg">

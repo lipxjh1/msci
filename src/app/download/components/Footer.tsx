@@ -12,12 +12,12 @@ export default function Footer() {
               © {new Date().getFullYear()} M-SCI. All rights reserved.
             </p>
             <p className="text-sm text-gray-500 italic">
-              Phát triển bởi đội ngũ M-SCI Studio với sự cố vấn từ Elon Musk.
+              Developed by M-SCI Studio team with advisory from Elon Musk.
             </p>
           </div>
           
           <div className="mt-3 flex items-center space-x-4">
-            {["Điều khoản", "Bảo mật", "Cookies", "Liên hệ"].map((item, index) => (
+            {["Terms", "Privacy", "Cookies", "Contact"].map((item, index) => (
               <React.Fragment key={index}>
                 {index > 0 && <span className="text-gray-700">•</span>}
                 <a href="#" className="text-xs text-gray-500 hover:text-cyan-400 transition-colors duration-300">

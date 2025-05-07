@@ -66,8 +66,8 @@ export default function Footer() {
               <span className="font-bold text-xl text-white" style={{ fontFamily: 'var(--font-orbitron)' }}>M-SCI</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              Game hành động theo đội nhóm 5v5, miễn phí với nhiều anh hùng đa dạng, 
-              kỹ năng độc đáo và trải nghiệm chiến đấu đỉnh cao.
+              A free-to-play 5v5 team-based action game with diverse heroes,
+              unique abilities, and high-octane combat experience.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (
@@ -108,7 +108,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} M-SCI. Tất cả các quyền được bảo lưu.
+            &copy; {currentYear} M-SCI. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link 

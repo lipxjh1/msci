@@ -17,7 +17,7 @@ export default function Footer() {
   const [emailInput, setEmailInput] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   
-  // Lấy link từ thanh điều hướng
+  // Navigation links
   const footerLinks = [
     {
       title: "Game",
@@ -31,7 +31,7 @@ export default function Footer() {
     {
       title: "Community",
       links: [
-        { name: "News", href: "/tin-tuc" },
+        { name: "News", href: "/news" },
         { name: "Content Creator", href: "/creators" },
         { name: "Partners", href: "/partners" },
         { name: "Roadmap", href: "/roadmap" },
@@ -62,7 +62,7 @@ export default function Footer() {
     setShowPopup(true);
     setEmailInput("");
     
-    // Tự động đóng popup sau 3 giây
+    // Auto-close popup after 3 seconds
     setTimeout(() => {
       setShowPopup(false);
     }, 3000);
@@ -92,7 +92,7 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0a141e] text-white overflow-hidden">
-      {/* In chìm hình chantran1.jpg */}
+      {/* Watermark background image */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <Image
           src="/images/banner/chantran1.jpg"
@@ -111,7 +111,7 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-10 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Logo và social */}
+          {/* Logo and social links */}
           <div className="md:col-span-3 flex flex-col">
             <Link href="/" className="inline-block mb-5">
               <Image 
@@ -208,7 +208,7 @@ export default function Footer() {
         </div>
       </div>
       
-      {/* Popup thông báo */}
+      {/* Notification popup */}
       <AnimatePresence>
         {showPopup && (
           <motion.div 

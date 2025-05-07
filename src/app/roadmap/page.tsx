@@ -10,7 +10,7 @@ import JoinUsFooter from '@/thanh_phan/JoinUsFooter';
 import { useDeepSeekChat } from '@/modules/box-akane';
 import CustomChatInterface from '@/thanh_phan/CustomChatInterface';
 
-// Lazy load các component nặng để tăng tốc độ tải trang
+// Lazy load heavy components to increase page loading speed
 const TimelineSection = lazy(() => import('./components/TimelineSection'));
 const KPIStatsSection = lazy(() => import('./components/KPIStatsSection'));
 const TechCommunitySection = lazy(() => import('./components/TechCommunitySection'));
@@ -36,20 +36,20 @@ export default function RoadmapPage() {
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
 
   useEffect(() => {
-    // Giả lập thời gian tải
+    // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 800); // Giảm thời gian chờ để trang load nhanh hơn
+    }, 800); // Reduced waiting time for faster page loading
     
-    // Preload các hình ảnh cần thiết
+    // Preload necessary images
     const preloadImages = () => {
       const iconsList = [
-        '/images/overwatch_bg_2.webp', // Sử dụng định dạng webp thay vì jpg để nhẹ hơn
-        '/images/grid_pattern.svg', // Sử dụng SVG thay vì PNG cho lưới mẫu
-        '/images/particle_overlay.svg', // Sử dụng SVG thay vì PNG cho lớp phủ
-        '/images/heroes/player_0_ui_idle.png', // Ảnh nhân vật cho timeline
-        '/images/heroes/robot bc.png', // Ảnh robot cho timeline
-        '/images/heroes/drone_2.png', // Ảnh drone cho timeline
+        '/images/overwatch_bg_2.webp', // Use webp format instead of jpg for lighter files
+        '/images/grid_pattern.svg', // Use SVG instead of PNG for pattern grid
+        '/images/particle_overlay.svg', // Use SVG instead of PNG for overlay
+        '/images/heroes/player_0_ui_idle.png', // Character image for timeline
+        '/images/heroes/robot bc.png', // Robot image for timeline
+        '/images/heroes/drone_2.png', // Drone image for timeline
       ];
 
       const preloadPromises = iconsList.map((src) => {
@@ -57,7 +57,7 @@ export default function RoadmapPage() {
           const img = new window.Image();
           img.src = src;
           img.onload = resolve;
-          img.onerror = resolve; // Không fail nếu một ảnh không tồn tại
+          img.onerror = resolve; // Don't fail if an image doesn't exist
         });
       });
 
@@ -88,13 +88,13 @@ export default function RoadmapPage() {
     },
     {
       id: 'kpi',
-      label: 'Chỉ Số Tăng Trưởng',
+      label: 'Growth Metrics',
       icon: '/images/badge-2.svg',
       gradient: 'from-indigo-500 to-purple-600'
     },
     {
       id: 'tech',
-      label: 'Công Nghệ & Cộng Đồng',
+      label: 'Technology & Community',
       icon: '/images/badge-3.svg',
       gradient: 'from-emerald-500 to-green-600'
     }
@@ -102,10 +102,10 @@ export default function RoadmapPage() {
 
   return (
     <div className="min-h-screen bg-[#16181D] text-white overflow-hidden">
-      {/* Menu điều hướng */}
+      {/* Navigation Menu */}
       <ThanhDieuHuongResponsive />
 
-      {/* Roadmap Banner - dùng phiên bản tối ưu với webp */}
+      {/* Roadmap Banner - using optimized version with webp */}
       <RoadmapBanner />
 
       {/* Roadmap Content */}
@@ -126,7 +126,7 @@ export default function RoadmapPage() {
         </div>
       ) : (
         <div id="roadmap-content" className="max-w-7xl mx-auto px-4 py-10 relative z-10 -mt-10">
-          {/* Giới thiệu */}
+          {/* Introduction */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -137,19 +137,19 @@ export default function RoadmapPage() {
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-2xl font-bold text-white mb-4">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00A4EA] to-[#00D7FF] relative inline-block">
-                    TẦM NHÌN
+                    VISION
                   </span>
                 </h2>
                 <div className="w-20 h-1 bg-[#FF7D00] mx-auto md:mx-0 mb-3"></div>
                 <p className="text-gray-300">
-                  M-SCI không chỉ là một tựa game - đó là khởi đầu cho hành trình đưa ngành công nghiệp game Việt Nam vươn tầm thế giới. Lộ trình dưới đây phác thảo kế hoạch phát triển chi tiết.
+                  M-SCI is not just a game - it's the beginning of a journey to bring the Vietnamese game industry to global recognition. The roadmap below outlines our detailed development plan.
                 </p>
               </div>
               <div className="flex-shrink-0 flex justify-center">
                 <div className="relative w-40 h-40 md:w-48 md:h-48">
                   <Image 
                     src="/images/heroes/player_0_ui_idle.png" 
-                    alt="Nhân vật M-SCI"
+                    alt="M-SCI Character"
                     width={200}
                     height={200}
                     className="object-contain"
@@ -183,7 +183,7 @@ export default function RoadmapPage() {
                       width={20}
                       height={20}
                       className="w-5 h-5 object-contain"
-                      loading="eager" // Load ngay lập tức không lazy
+                      loading="eager" // Load immediately, no lazy loading
                     />
                   </div>
                   <span className="font-medium">{tab.label}</span>
@@ -192,7 +192,7 @@ export default function RoadmapPage() {
             </div>
           </div>
           
-          {/* Active Tab Content với Suspense fallback */}
+          {/* Active Tab Content with Suspense fallback */}
           <motion.div
             key={activeTab}
             initial={{ opacity: 0, y: 20 }}
@@ -233,22 +233,22 @@ export default function RoadmapPage() {
             </div>
             
             <div className="relative z-10">
-              <h2 className="text-3xl font-bold text-white mb-4">Sẵn Sàng Tham Gia Hành Trình?</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Ready to Join the Journey?</h2>
               <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-                Hãy là một phần của cuộc cách mạng trong ngành game Việt Nam. Đăng ký để nhận tin tức mới nhất và cơ hội tham gia các sự kiện độc quyền.
+                Be part of the revolution in the Vietnamese gaming industry. Sign up to receive the latest news and opportunities to participate in exclusive events.
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <Link 
                   href="/events"
                   className="bg-[#00A4EA] hover:bg-[#00B5FF] text-white font-medium px-8 py-3 rounded-md transition-all duration-300 hover:shadow-lg hover:shadow-[#00A4EA]/30"
                 >
-                  Xem Sự Kiện Sắp Tới
+                  View Upcoming Events
                 </Link>
                 <Link 
                   href="/download"
                   className="bg-[#FF7D00] hover:bg-[#FF9D40] text-white font-medium px-8 py-3 rounded-md transition-all duration-300 hover:shadow-lg hover:shadow-[#FF7D00]/30"
                 >
-                  Đăng Ký Closed Beta
+                  Register for Closed Beta
                 </Link>
               </div>
             </div>
@@ -259,9 +259,9 @@ export default function RoadmapPage() {
       {/* Join Us Footer */}
       <JoinUsFooter />
       
-      {/* Thêm ChatInterface với ảnh tùy chỉnh */}
+      {/* Add ChatInterface with custom image */}
       <CustomChatInterface
-        systemPrompt="Bạn là Akane, một trợ lý AI thông minh và thân thiện. Hãy giúp đỡ người dùng một cách nhiệt tình và chính xác bằng tiếng Việt."
+        systemPrompt="I'm Akane, an intelligent and friendly AI assistant. I'll help users enthusiastically and accurately in English."
         modelName="deepseek-chat"
         enableStreaming={true}
         botName="Akane AI"

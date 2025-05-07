@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
-// Tách và tái sử dụng các component con để giảm re-render
+// Separate and reuse child components to reduce re-renders
 interface MilestoneProps {
   year: string;
   quarter: string;
@@ -64,7 +64,7 @@ const MilestoneItem = memo(({ item, index, bgColor, borderColor, textColor }: {
 ));
 MilestoneItem.displayName = 'MilestoneItem';
 
-// Component Milestone được tối ưu hóa
+// Optimized Milestone component
 const Milestone = memo(({ 
   year, 
   quarter, 
@@ -160,7 +160,7 @@ const Milestone = memo(({
           <div className="mt-3 mb-4">
             <div className="flex justify-between text-xs mb-1">
               <span className={`font-medium ${isActive ? `text-${textColor}` : 'text-gray-400'}`}>
-                {isActive ? 'Tiến độ' : 'Tiến độ hoàn thành'}
+                {isActive ? 'Progress' : 'Completion progress'}
               </span>
               <span className={`font-semibold ${isActive ? `text-${textColor}` : 'text-gray-400'}`}>
                 {progressPercent}%
@@ -254,12 +254,12 @@ export default function TimelineSection() {
     return () => clearTimeout(timer);
   }, []);
   
-  // Data cần hiển thị
+  // Data to display
   const milestones = [
     {
       year: '2024',
       quarter: 'Q1',
-      title: 'KHỞI ĐỘNG',
+      title: 'LAUNCH',
       bgColor: 'blue-500',
       textColor: 'cyan-200',
       borderColor: 'blue-400',
@@ -267,13 +267,13 @@ export default function TimelineSection() {
       progressPercent: 100,
       items: [
         {
-          title: 'Hình thành nền tảng',
+          title: 'Foundation Building',
           tasks: [
-            'Thành lập core team 20+ members',
-            'Hoàn thiện game design document',
-            'Phát triển prototype đầu tiên',
-            'Thiết kế 3 nhân vật cơ bản',
-            'Xây dựng hệ thống backend scalable'
+            'Establish core team of 20+ members',
+            'Complete game design document',
+            'Develop first prototype',
+            'Design 3 basic characters',
+            'Build scalable backend system'
           ]
         }
       ]
@@ -281,7 +281,7 @@ export default function TimelineSection() {
     {
       year: '2024',
       quarter: 'Q2',
-      title: 'PHÁT TRIỂN CORE',
+      title: 'CORE DEVELOPMENT',
       bgColor: 'blue-600',
       textColor: 'cyan-200',
       borderColor: 'blue-400',
@@ -291,11 +291,11 @@ export default function TimelineSection() {
         {
           title: 'Core Game Development',
           tasks: [
-            'Phát triển 20 màn chơi đầu tiên',
-            'Thiết kế thêm 6 nhân vật mới',
-            'Cân bằng gameplay cơ bản',
-            'Xây dựng hệ thống tiến triển',
-            'Tối ưu hóa engine game'
+            'Develop first 20 levels',
+            'Design 6 new characters',
+            'Balance basic gameplay',
+            'Build progression system',
+            'Optimize game engine'
           ]
         }
       ]
@@ -313,11 +313,11 @@ export default function TimelineSection() {
         {
           title: 'Testing & Refinement',
           tasks: [
-            'Ra mắt Closed Alpha (1,000 người chơi)',
-            'Hoàn thiện 50 màn chơi campaign',
-            'Phát triển hệ thống Guild cơ bản',
-            'Thu thập phản hồi người dùng',
-            'Sửa lỗi và cải thiện trải nghiệm'
+            'Release Closed Alpha (1,000 players)',
+            'Complete 50 campaign levels',
+            'Develop basic Guild system',
+            'Collect user feedback',
+            'Fix bugs and improve experience'
           ]
         }
       ]
@@ -335,12 +335,12 @@ export default function TimelineSection() {
         {
           title: 'Initial Public Release',
           tasks: [
-            'Open Beta với 10,000+ người chơi',
-            'Soft launch tại Việt Nam (50,000+ downloads)',
+            'Open Beta with 10,000+ players',
+            'Soft launch in Vietnam (50,000+ downloads)',
             'Battle Pass Season 1',
-            'Hệ thống monetization cơ bản',
-            'Live Ops đầu tiên',
-            'Triển khai server khu vực'
+            'Basic monetization system',
+            'First Live Ops',
+            'Deploy regional servers'
           ]
         }
       ]
@@ -358,12 +358,12 @@ export default function TimelineSection() {
         {
           title: 'Official Launch',
           tasks: [
-            'Global launch trên Android & iOS',
-            'Dự kiến 500,000+ downloads',
-            'Marketing campaign quốc tế',
-            'Localization 5+ ngôn ngữ',
+            'Global launch on Android & iOS',
+            'Projected 500,000+ downloads',
+            'International marketing campaign',
+            'Localization in 5+ languages',
             'Chapter 2: Mars Invasion',
-            '20+ nhân vật mới'
+            '20+ new characters'
           ]
         },
         {
@@ -461,12 +461,12 @@ export default function TimelineSection() {
     }
   ];
 
-  // Xử lý click vào milestone bằng useCallback để tối ưu
+  // Handle milestone click with useCallback for optimization
   const handleMilestoneClick = useCallback((milestoneId: string) => {
     if (expandedMilestone === milestoneId) {
-      setExpandedMilestone(null); // Thu gọn nếu đã mở
+      setExpandedMilestone(null); // Collapse if already open
     } else {
-      setExpandedMilestone(milestoneId); // Mở rộng nếu chưa mở
+      setExpandedMilestone(milestoneId); // Expand if not open
     }
   }, [expandedMilestone]);
 
@@ -474,7 +474,7 @@ export default function TimelineSection() {
     setActiveYear(milestoneId);
   }, []);
 
-  // Tìm milestone active hiện tại
+  // Find current active milestone
   const activeMilestone = milestones.find(
     milestone => `${milestone.year}-${milestone.quarter}` === activeYear
   );
@@ -489,12 +489,12 @@ export default function TimelineSection() {
       >
         <h2 className="text-3xl font-bold font-orbitron text-white mb-4">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-            LỘ TRÌNH PHÁT TRIỂN
+            DEVELOPMENT ROADMAP
           </span>
         </h2>
         <p className="text-gray-300 max-w-3xl mx-auto font-rajdhani">
-          Hành trình của M-SCI được lên kế hoạch cẩn thận với các cột mốc phát triển rõ ràng. 
-          Chọn mỗi giai đoạn để xem chi tiết.
+          M-SCI's journey is carefully planned with clear development milestones.
+          Select each phase to view details.
         </p>
       </motion.div>
 

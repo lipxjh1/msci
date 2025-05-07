@@ -6,6 +6,29 @@ import Image from 'next/image';
 import { FaFacebookF, FaTwitter, FaYoutube, FaDiscord, FaTelegram } from 'react-icons/fa';
 import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import { useDeepSeekChat } from '@/modules/box-akane';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// CSS cho animation pulse-slow
+const pulseAnimation = `
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    opacity: 0.85;
+    text-shadow: 0 0 25px rgba(255, 255, 255, 1);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s infinite;
+}
+
+.text-glow {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+`;
 
 // Component ChatInterface tương tự như trong trang Heroes
 function CustomChatInterface({ 
@@ -52,7 +75,7 @@ function CustomChatInterface({
     }
   }, [isOpen]);
 
-  // Xử lý khi nhấn Enter để gửi tin nhắn
+  // Handle Enter key to send message
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -60,7 +83,7 @@ function CustomChatInterface({
     }
   };
 
-  // Gửi tin nhắn
+  // Send message
   const handleSendMessage = async () => {
     if (inputValue.trim() && !isLoading) {
       const messageToSend = inputValue;
@@ -69,15 +92,15 @@ function CustomChatInterface({
     }
   };
 
-  // Định dạng tin nhắn
+  // Format message
   const formatMessage = (content: string) => {
-    // Thay thế URL bằng link có thể click
+    // Replace URLs with clickable links
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     const withLinks = content.replace(urlRegex, (url) => {
       return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">${url}</a>`;
     });
     
-    // Thay thế xuống dòng bằng <br>
+    // Replace newlines with <br>
     return withLinks.replace(/\n/g, '<br>');
   };
 
@@ -91,16 +114,16 @@ function CustomChatInterface({
     resetChat();
   };
 
-  // Lọc tin nhắn - không hiển thị system prompt
+  // Filter messages - don't show system prompt
   const displayMessages = messages.filter(msg => msg.role !== 'system');
   
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      {/* Chat button với ảnh tùy chỉnh */}
+      {/* Chat button with custom image */}
       <button
         onClick={toggleChat}
         className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-cyan-500/30 transition-all overflow-hidden border-2 border-blue-400"
-        aria-label={isOpen ? 'Đóng chat' : 'Mở chat'}
+        aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
         {isOpen ? (
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white absolute" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -129,7 +152,7 @@ function CustomChatInterface({
               <button
                 onClick={handleResetChat}
                 className="p-1 hover:bg-blue-700 rounded"
-                title="Đặt lại cuộc trò chuyện"
+                title="Reset conversation"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -138,7 +161,7 @@ function CustomChatInterface({
               <button
                 onClick={toggleChat}
                 className="p-1 hover:bg-blue-700 rounded"
-                title="Đóng chat"
+                title="Close chat"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -151,7 +174,7 @@ function CustomChatInterface({
           <div className="flex-1 p-3 overflow-y-auto max-h-96 bg-gray-50">
             {displayMessages.length === 0 ? (
               <div className="text-center text-gray-500 py-8">
-                <p>Hãy bắt đầu cuộc trò chuyện với {botName}!</p>
+                <p>Start a conversation with {botName}!</p>
               </div>
             ) : (
               displayMessages.map((msg, index) => (
@@ -189,7 +212,7 @@ function CustomChatInterface({
             {error && (
               <div className="text-center p-2 mb-3">
                 <div className="bg-red-100 text-red-800 p-2 rounded-lg text-sm">
-                  Lỗi: {error}
+                  Error: {error}
                 </div>
               </div>
             )}
@@ -202,7 +225,7 @@ function CustomChatInterface({
               <textarea
                 ref={inputRef}
                 className="flex-1 rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                placeholder="Nhập tin nhắn của bạn..."
+                placeholder="Type your message..."
                 rows={1}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
@@ -236,596 +259,811 @@ function CustomChatInterface({
 } 
 
 export default function SupportPage() {
+  const [activeTab, setActiveTab] = useState('gioi-thieu');
+  const [showFaqSection, setShowFaqSection] = useState(false);
+  const faqRef = useRef<HTMLDivElement>(null);
+
+  const scrollToFaq = (sectionId: string) => {
+    setActiveTab(sectionId);
+    setShowFaqSection(true);
+    setTimeout(() => {
+      faqRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[var(--overwatch-dark-blue)] to-[var(--overwatch-black)]">
-      {/* Menu điều hướng */}
+    <div className="min-h-screen bg-gradient-to-b from-[#0a141e] to-[#1a2634]">
+      <style jsx global>{`
+        @keyframes pulse-slow {
+          0%, 100% {
+            opacity: 1;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+          }
+          50% {
+            opacity: 0.85;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 1);
+          }
+        }
+        
+        .animate-pulse-slow {
+          animation: pulse-slow 3s infinite;
+        }
+        
+        .text-glow {
+          text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+        }
+      `}</style>
+      
       <ThanhDieuHuongResponsive />
 
-      {/* Support Banner */}
-      <div className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#041019]/30 to-[#041019] z-10"></div>
-        <div className="absolute inset-0 bg-[url('/images/banner/trangchu.jpg')] bg-cover bg-center bg-no-repeat">
+      {/* Hero section */}
+      <div className="relative w-full h-[50vh] overflow-hidden">
+        {/* Background image with parallax effect */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/banner/supp.jpg"
+            alt="Support"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center scale-110"
+          />
+          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a141e]/70 via-transparent to-[#0a141e] z-10"></div>
+
           {/* Animated particles */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50 animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50 animate-pulse delay-100"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50 animate-pulse delay-200"></div>
-            <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50 animate-pulse delay-300"></div>
+          <div className="absolute inset-0 z-10">
+            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-blue-400 rounded-full shadow-lg shadow-blue-400/70 animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-orange-400 rounded-full shadow-lg shadow-orange-400/70 animate-pulse delay-100"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-red-400 rounded-full shadow-lg shadow-red-400/70 animate-pulse delay-200"></div>
+            <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-purple-400 rounded-full shadow-lg shadow-purple-400/70 animate-pulse delay-300"></div>
+          </div>
+
+          {/* Add scanline effect */}
+          <div className="absolute inset-0 scanline"></div>
+        </div>
+
+        {/* Content overlay */}
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center mt-10">
+              <h1 className="font-orbitron text-5xl md:text-7xl font-extrabold text-white tracking-tighter mb-6 uppercase text-shadow-blue animate-pulse-slow cyber-halo">
+                <span className="relative inline-block">
+                  SUPPORT
+                  <div className="absolute -bottom-4 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-[var(--accent-red-bright)] to-transparent"></div>
+                </span>
+              </h1>
+            </div>
           </div>
         </div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
-          <h1 className="font-orbitron text-6xl md:text-8xl font-extrabold text-white tracking-tighter mb-6 uppercase text-shadow-blue animate-title-glow cyber-halo">
-            <span className="relative inline-block">
-              HỖ TRỢ
-              <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-            </span>
-          </h1>
-          <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in text-center">
-            TRUNG TÂM HỖ TRỢ M-SCI
-          </p>
-          
-          {/* Nút cuộn xuống */}
-          <div className="animate-slide-up">
-            <button 
-              onClick={() => document.getElementById('support-content')?.scrollIntoView({behavior: 'smooth'})}
-              className="font-rajdhani font-bold tracking-wider text-shadow-sm px-10 py-3 button-cyber clip-hexagon hexagon-border text-white"
-            >
-              Xem trợ giúp
-            </button>
-          </div>
-        </div>
+
+        {/* Decorative bottom curve */}
+        <div className="absolute -bottom-10 left-0 right-0 h-20 bg-[#0a141e] transform rotate-1 scale-110 z-20"></div>
+        <div className="absolute -bottom-10 left-0 right-0 h-20 bg-[#0a141e] transform -rotate-1 scale-110 z-20"></div>
       </div>
 
-      <div id="support-content" className="max-w-7xl mx-auto px-4 py-12 relative z-10 -mt-10">
-        {/* Curved section top */}
-        <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#041019] -translate-y-full"></div>
-        
-        {/* Intro section */}
-        <div className="mb-16 backdrop-blur-sm bg-white/5 p-8 rounded-xl border border-white/10 shadow-xl">
-          <div className="text-center mb-8">
-            <h2 className="font-orbitron text-3xl font-bold text-white cyber-halo mb-4">
-              <span className="text-shadow-blue relative inline-block">
-                TRUNG TÂM HỖ TRỢ M-SCI
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-              </span>
-            </h2>
-            <p className="font-rajdhani text-lg text-white/80 max-w-3xl mx-auto">
-              Chào mừng đến với Trung tâm Hỗ trợ M-SCI! Chúng tôi luôn sẵn sàng giúp bạn có trải nghiệm game tốt nhất.
-            </p>
-          </div>
-        </div>
-        
-        {/* Support Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Hỗ Trợ Nhanh */}
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl hover:shadow-blue-500/10 transition-all duration-300 card-neon">
-            <div className="mb-4 flex items-center">
-              <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center mr-4">
-                <span className="text-red-400 text-2xl">🆘</span>
-              </div>
-              <h3 className="font-orbitron text-xl font-bold text-white text-shadow-blue">Hỗ Trợ Nhanh</h3>
-            </div>
-            
-            <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-3">Liên Hệ Trực Tiếp</h4>
-            <ul className="font-rajdhani text-white/80 space-y-2">
-              <li className="flex items-center">
-                <span className="w-6 text-center mr-2">•</span>
-                <span>Email: <a href="mailto:support@msci.game" className="text-blue-400 hover:underline">support@msci.game</a></span>
-              </li>
-              <li className="flex items-center">
-                <span className="w-6 text-center mr-2">•</span>
-                <span>Hotline: 1900-xxxx (8:00 - 22:00)</span>
-              </li>
-              <li className="flex items-center">
-                <span className="w-6 text-center mr-2">•</span>
-                <span>Live Chat: Góc phải màn hình</span>
-              </li>
-              <li className="flex items-center">
-                <span className="w-6 text-center mr-2">•</span>
-                <span>Discord: <a href="https://discord.gg/msci-support" className="text-blue-400 hover:underline">discord.gg/msci-support</a></span>
-              </li>
-            </ul>
-          </div>
+      {/* Main content */}
+      <div className="container mx-auto px-4 pt-10 pb-20 relative z-30">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
+            {/* Navigation sidebar */}
+            <div className="lg:col-span-1">
+              <div className="bg-[#1a2634]/80 backdrop-blur-md border border-white/5 rounded-2xl p-6 shadow-xl sticky top-24">
+                <h2 className="font-bai-jamjuree text-xl font-bold text-white mb-6 relative inline-block">
+                  <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Quick Help</span>
+                  <div className="absolute -bottom-2 left-0 h-1 w-12 bg-gradient-to-r from-[#ff0000] to-transparent"></div>
+                </h2>
 
-          {/* FAQ Section Preview */}
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl hover:shadow-blue-500/10 transition-all duration-300 card-neon">
-            <div className="mb-4 flex items-center">
-              <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
-                <span className="text-blue-400 text-2xl">❓</span>
-              </div>
-              <h3 className="font-orbitron text-xl font-bold text-white text-shadow-blue">Câu Hỏi Thường Gặp (FAQ)</h3>
-            </div>
-            
-            <p className="font-rajdhani text-white/80 mb-4">
-              Tìm câu trả lời nhanh cho các vấn đề phổ biến về cài đặt, gameplay, tài khoản và nhiều hơn nữa.
-            </p>
-            
-            <div className="mt-4">
-              <button 
-                onClick={() => document.getElementById('faq-section')?.scrollIntoView({behavior: 'smooth'})}
-                className="font-rajdhani font-medium tracking-wider text-white bg-blue-600/30 hover:bg-blue-600/50 px-5 py-2 rounded-md button-cyber"
-              >
-                Xem tất cả FAQ
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* FAQ Section */}
-      <div id="faq-section" className="max-w-7xl mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="font-orbitron text-3xl font-bold text-white cyber-halo">
-            <span className="text-shadow-blue relative inline-block">
-              CÂU HỎI THƯỜNG GẶP
-              <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
-            </span>
-          </h2>
-        </div>
-        
-        {/* FAQ grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* FAQ Group 1: Bắt Đầu Chơi */}
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-300 card-neon">
-            <div className="mb-4">
-              <h3 className="font-orbitron text-xl font-bold text-white cyber-halo">
-                <span className="text-shadow-blue inline-block">
-                  1. Bắt Đầu Chơi
-                </span>
-              </h3>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Làm sao để tải game?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Android: Tải từ Google Play Store</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>iOS: Tải từ App Store</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Telegram: Tìm bot @MSCIGameBot</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Yêu cầu cấu hình tối thiểu?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Android: Version 7.0+, RAM 2GB+</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>iOS: iOS 12+, iPhone 6S trở lên</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Dung lượng: ~500MB</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Làm sao để tạo tài khoản?</h4>
-                <ol className="font-rajdhani text-white/80 space-y-1 ml-6 list-decimal">
-                  <li className="ml-6">Mở game và chọn "Đăng ký"</li>
-                  <li className="ml-6">Nhập email/số điện thoại</li>
-                  <li className="ml-6">Xác thực OTP</li>
-                  <li className="ml-6">Tạo mật khẩu và username</li>
-                </ol>
-              </div>
-            </div>
-          </div>
+                <nav className="space-y-2">
+                  <button 
+                    onClick={() => setActiveTab('gioi-thieu')}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
+                      activeTab === 'gioi-thieu' 
+                        ? 'bg-[#F44336]/20 text-white border-l-2 border-[#F44336]' 
+                        : 'text-white hover:bg-white/10 hover:translate-x-1'
+                    }`}
+                  >
+                    Introduction
+                  </button>
+                  <button 
+                    onClick={() => scrollToFaq('huong-dan')}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
+                      activeTab === 'huong-dan' 
+                        ? 'bg-[#F44336]/20 text-white border-l-2 border-[#F44336]' 
+                        : 'text-white hover:bg-white/10 hover:translate-x-1'
+                    }`}
+                  >
+                    How to Play
+                  </button>
+                  <button 
+                    onClick={() => scrollToFaq('cau-hoi')}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
+                      activeTab === 'cau-hoi' 
+                        ? 'bg-[#F44336]/20 text-white border-l-2 border-[#F44336]' 
+                        : 'text-white hover:bg-white/10 hover:translate-x-1'
+                    }`}
+                  >
+                    FAQ
+                  </button>
+                  <button 
+                    onClick={() => scrollToFaq('lien-he')}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
+                      activeTab === 'lien-he' 
+                        ? 'bg-[#F44336]/20 text-white border-l-2 border-[#F44336]' 
+                        : 'text-white hover:bg-white/10 hover:translate-x-1'
+                    }`}
+                  >
+                    Contact Support
+                  </button>
+                  <button 
+                    onClick={() => scrollToFaq('meo-choi')}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
+                      activeTab === 'meo-choi' 
+                        ? 'bg-[#F44336]/20 text-white border-l-2 border-[#F44336]' 
+                        : 'text-white hover:bg-white/10 hover:translate-x-1'
+                    }`}
+                  >
+                    Advanced Tips
+                  </button>
+                </nav>
 
-          {/* FAQ Group 2: Gameplay & Tính Năng */}
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-300 card-neon">
-            <div className="mb-4">
-              <h3 className="font-orbitron text-xl font-bold text-white cyber-halo">
-                <span className="text-shadow-blue inline-block">
-                  2. Gameplay & Tính Năng
-                </span>
-              </h3>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Cách điều khiển nhân vật?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Chạm màn hình để bắn</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Vuốt để di chuyển</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Nhấn icon nhân vật để chuyển đổi</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Nhấn công sự để ẩn nấp</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Làm sao để nâng cấp nhân vật?</h4>
-                <ol className="font-rajdhani text-white/80 space-y-1 ml-6 list-decimal">
-                  <li className="ml-6">Thu thập Chip từ màn chơi</li>
-                  <li className="ml-6">Vào menu Hero {'>'} Chọn nhân vật</li>
-                  <li className="ml-6">Nhấn "Level Up" và tiêu Chip</li>
-                  <li className="ml-6">Để nâng Star, cần nhân vật trùng lặp</li>
-                </ol>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Guild hoạt động như thế nào?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Tham gia Guild qua menu Guild</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Đóng góp M-Coin vào ngân khố</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Tham gia Guild War hàng ngày</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Nhận buff từ Guild level</span>
-                  </li>
-                </ul>
+                <div className="mt-8 p-4 bg-gradient-to-r from-[#F44336]/20 to-[#1a2634]/80 border border-[#F44336]/30 rounded-lg shadow-[0_0_15px_rgba(244,67,54,0.4)]">
+                  <h3 className="font-medium text-white mb-2 drop-shadow-[0_0_5px_rgba(255,255,255,0.7)]">Emergency Support?</h3>
+                  <p className="text-white text-sm mb-3">
+                    Contact our support team via:
+                  </p>
+                  <div className="flex items-center space-x-2 text-[#F44336] text-sm">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <a href="mailto:support@msci.game" className="hover:underline text-white">
+                      support@msci.game
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-          {/* FAQ Group 3: Mua Sắm & Thanh Toán */}
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-300 card-neon">
-            <div className="mb-4">
-              <h3 className="font-orbitron text-xl font-bold text-white cyber-halo">
-                <span className="text-shadow-blue inline-block">
-                  3. Mua Sắm & Thanh Toán
-                </span>
-              </h3>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Các phương thức thanh toán?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Thẻ tín dụng/ghi nợ</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Ví điện tử (Momo, ZaloPay)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Google Play / App Store</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Banking</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Không nhận được vật phẩm đã mua?</h4>
-                <ol className="font-rajdhani text-white/80 space-y-1 ml-6 list-decimal">
-                  <li className="ml-6">Kiểm tra lịch sử giao dịch</li>
-                  <li className="ml-6">Khởi động lại game</li>
-                  <li className="ml-6">Liên hệ support kèm mã giao dịch</li>
-                </ol>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Hoàn tiền như thế nào?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Yêu cầu hoàn tiền trong vòng 24h</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Gửi email kèm mã giao dịch</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Thời gian xử lý: 3-5 ngày làm việc</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
-          {/* FAQ Group 4: Tài Khoản & Bảo Mật */}
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-300 card-neon">
-            <div className="mb-4">
-              <h3 className="font-orbitron text-xl font-bold text-white cyber-halo">
-                <span className="text-shadow-blue inline-block">
-                  4. Tài Khoản & Bảo Mật
-                </span>
-              </h3>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Quên mật khẩu?</h4>
-                <ol className="font-rajdhani text-white/80 space-y-1 ml-6 list-decimal">
-                  <li className="ml-6">Chọn "Quên mật khẩu" ở màn hình đăng nhập</li>
-                  <li className="ml-6">Nhập email/số điện thoại đã đăng ký</li>
-                  <li className="ml-6">Nhận mã OTP và đặt mật khẩu mới</li>
-                </ol>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Bảo mật tài khoản?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Bật xác thực 2 lớp (2FA)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Không chia sẻ thông tin đăng nhập</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Đổi mật khẩu định kỳ</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Cảnh giác với link lạ</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Tài khoản bị khóa?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Liên hệ support kèm ID tài khoản</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Cung cấp thông tin xác minh</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Thời gian xử lý: 24-48h</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-          {/* FAQ Group 5: Lỗi Kỹ Thuật */}
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-300 card-neon">
-            <div className="mb-4">
-              <h3 className="font-orbitron text-xl font-bold text-white cyber-halo">
-                <span className="text-shadow-blue inline-block">
-                  5. Lỗi Kỹ Thuật
-                </span>
-              </h3>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Game bị lag/giật?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Kiểm tra kết nối internet</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Đóng ứng dụng chạy nền</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Giảm cài đặt đồ họa</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Cập nhật phiên bản mới nhất</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Không vào được game?</h4>
-                <ol className="font-rajdhani text-white/80 space-y-1 ml-6 list-decimal">
-                  <li className="ml-6">Kiểm tra bảo trì server</li>
-                  <li className="ml-6">Xóa cache game</li>
-                  <li className="ml-6">Cài đặt lại game</li>
-                  <li className="ml-6">Liên hệ support nếu vẫn lỗi</li>
-                </ol>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Mất kết nối giữa trận?</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Game tự động lưu tiến trình</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Đăng nhập lại để tiếp tục</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Phần thưởng vẫn được giữ</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            {/* Content area */}
+            <div className="lg:col-span-3">
+              {/* Giới thiệu game */}
+              <div className={`${activeTab === 'gioi-thieu' ? 'block' : 'hidden'}`}>
+                <div className="bg-[#1a2634]/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 shadow-xl mb-8">
+                  <h2 className="font-bai-jamjuree text-3xl font-bold mb-6 relative inline-block">
+                    <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] animate-pulse-slow">Game Introduction</span>
+                    <div className="absolute -bottom-2 left-0 h-1.5 w-full bg-gradient-to-r from-[#ff0000] via-[#ff5555] to-transparent"></div>
+                  </h2>
 
-          {/* Gửi yêu cầu hỗ trợ */}
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-300 card-neon">
-            <div className="mb-4">
-              <h3 className="font-orbitron text-xl font-bold text-white cyber-halo">
-                <span className="text-shadow-blue inline-block">
-                  📝 Gửi Yêu Cầu Hỗ Trợ
-                </span>
-              </h3>
-            </div>
+                  <div className="prose prose-invert max-w-none">
+                    <p className="text-white mb-4">
+                      M-SCI is a science fiction tactical action game set in 2049. In a world where the X-Corp technology conglomerate under the control of The Ascended is threatening the future of humanity, players join the M-SCI force founded by Elon Musk to protect the future of mankind.
+                    </p>
+
+                    <div className="mb-6">
+                      <h3 className="font-medium text-white text-lg mb-2">Objectives:</h3>
+                      <ul className="text-white list-disc pl-5 space-y-1">
+                        <li>Control a team of 3 heroes</li>
+                        <li>Eliminate enemies appearing within 30 seconds of each level</li>
+                        <li>The game has a total of 100 levels divided into 5 major areas</li>
+                      </ul>
+                    </div>
             
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Thông Tin Cần Cung Cấp</h4>
-                <ol className="font-rajdhani text-white/80 space-y-2 ml-6 list-decimal">
-                  <li className="ml-6">ID tài khoản/Username</li>
-                  <li className="ml-6">Mô tả chi tiết vấn đề</li>
-                  <li className="ml-6">Screenshot/Video (nếu có)</li>
-                  <li className="ml-6">Thiết bị và hệ điều hành</li>
-                  <li className="ml-6">Thời gian xảy ra sự cố</li>
-                </ol>
-              </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Thời Gian Phản Hồi</h4>
-                <ul className="font-rajdhani text-white/80 space-y-1 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Chat/Hotline: Ngay lập tức</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Email: Trong vòng 24h</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Ticket: 24-48h</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="mt-6">
-                <button className="w-full font-rajdhani font-bold tracking-wider text-shadow-sm px-6 py-3 button-cyber clip-hexagon hexagon-border text-white">
-                  Gửi Yêu Cầu Hỗ Trợ
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Thông tin liên hệ và cập nhật */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-300 card-neon">
-            <div className="mb-4">
-              <h3 className="font-orbitron text-xl font-bold text-white cyber-halo">
-                <span className="text-shadow-blue inline-block">
-                  🔄 Cập Nhật & Bảo Trì
-                </span>
-              </h3>
-            </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                      <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300">
+                        <h3 className="font-medium text-lg mb-3 flex items-center">
+                          <span className="w-8 h-8 bg-blue-500/30 rounded-full flex items-center justify-center mr-2 shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                          </span>
+                          <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)]">Key Features</span>
+                        </h3>
+                        <ul className="text-white space-y-1 pl-10 list-disc [&>li]:text-white">
+                          <li>High-speed combat, each level lasts 30 seconds</li>
+                          <li>3 character classes with distinct roles</li>
+                          <li>Hero upgrade and evolution system</li>
+                          <li>Modern sci-fi graphics, stunning shooting effects</li>
+                        </ul>
+                      </div>
+
+                      <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all duration-300">
+                        <h3 className="font-medium text-lg mb-3 flex items-center">
+                          <span className="w-8 h-8 bg-green-500/30 rounded-full flex items-center justify-center mr-2 shadow-[0_0_15px_rgba(34,197,94,0.4)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                          </span>
+                          <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)]">Play with Friends</span>
+                        </h3>
+                        <ul className="text-white space-y-1 pl-10 list-disc [&>li]:text-white">
+                          <li>Create and join Guilds</li>
+                          <li>Fight in Guild Wars as a team</li>
+                          <li>Challenge others in 1v1 and 3v3 PvP</li>
+                          <li>Weekly global boss challenges</li>
+                        </ul>
+                      </div>
+                    </div>
             
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Lịch Bảo Trì Định Kỳ</h4>
-                <ul className="font-rajdhani text-white/80 space-y-2 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Thứ 3: 2:00 - 4:00 AM (GMT+7)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Bảo trì khẩn cấp: Thông báo trước 1h</span>
-                  </li>
-                </ul>
+                    <div className="bg-gradient-to-r from-[#ff0000]/20 to-transparent p-4 rounded-lg border-l-4 border-red-500 mb-4">
+                      <p className="text-white italic">
+                        "Fight without stopping - Win without limits!"
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Thông Báo Cập Nhật</h4>
-                <ul className="font-rajdhani text-white/80 space-y-2 ml-6">
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Theo dõi kênh Telegram</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Kiểm tra thông báo in-game</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Đăng ký newsletter</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
-          <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-300 card-neon">
-            <div className="mb-4">
-              <h3 className="font-orbitron text-xl font-bold text-white cyber-halo">
-                <span className="text-shadow-blue inline-block">
-                  📞 Thông Tin Liên Hệ
-                </span>
-              </h3>
-            </div>
             
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Văn Phòng</h4>
-                <div className="font-rajdhani text-white/80 space-y-2 ml-6">
-                  <p className="font-semibold">M-SCI Game Studio</p>
-                  <p>Địa chỉ: [Địa chỉ công ty]</p>
-                  <p>Email: <a href="mailto:contact@msci.game" className="text-blue-400 hover:underline">contact@msci.game</a></p>
-                  <p>Website: <a href="https://www.msci.game" className="text-blue-400 hover:underline">www.msci.game</a></p>
+              {/* How to Play */}
+              <div className={`${activeTab === 'huong-dan' ? 'block' : 'hidden'}`} ref={faqRef}>
+                <div className="bg-[#1a2634]/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 shadow-xl mb-8">
+                  <h2 className="font-bai-jamjuree text-3xl font-bold mb-6 relative inline-block">
+                    <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] animate-pulse-slow">Basic Gameplay Guide</span>
+                    <div className="absolute -bottom-2 left-0 h-1.5 w-full bg-gradient-to-r from-[#ff0000] via-[#ff5555] to-transparent"></div>
+                  </h2>
+
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(168,85,247,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Controls</span>
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-11">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] transition-all duration-300">
+                          <ul className="text-white space-y-3">
+                            <li className="flex items-start">
+                              <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5 shadow-[0_0_8px_rgba(59,130,246,0.4)]">
+                                <span className="text-blue-400 text-xs">1</span>
+                              </span>
+                              <span>Tap the screen to shoot and use skills</span>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5 shadow-[0_0_8px_rgba(59,130,246,0.4)]">
+                                <span className="text-blue-400 text-xs">2</span>
+                              </span>
+                              <span>When enemies prepare to shoot, take cover behind fortifications to avoid being defeated</span>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5 shadow-[0_0_8px_rgba(59,130,246,0.4)]">
+                                <span className="text-blue-400 text-xs">3</span>
+                              </span>
+                              <span>Suicide Drones cannot be avoided by hiding, they must be shot down as soon as possible</span>
+                            </li>
+                          </ul>
+                        </div>
+                        
+                        <div className="relative h-full min-h-[180px] rounded-xl overflow-hidden border border-white/10">
+                          <Image 
+                            src="/images/banner/contrac.jpg" 
+                            alt="Game Controls" 
+                            fill 
+                            sizes="(max-width: 768px) 100vw, 50vw" 
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#0f1923]/90 via-transparent to-transparent"></div>
+                          <div className="absolute bottom-4 left-0 right-0 text-center">
+                            <span className="px-4 py-1 bg-[#F44336]/60 text-white text-sm rounded-full">
+                              Controls Illustration
+                </span>
+            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                      <span className="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(249,115,22,0.4)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                      </span>
+                      <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Character Class System</span>
+                    </h3>
+                    
+                    <div className="pl-11">
+                      <p className="text-white mb-4">
+                        The game has 3 main classes, each with unique roles and strengths:
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:shadow-[0_0_15px_rgba(96,165,250,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-blue-400 mb-2">Gunner</h4>
+                          <ul className="text-white space-y-1 list-disc pl-5 text-sm">
+                            <li>High rate of fire</li>
+                            <li>Effective at close and medium range</li>
+                            <li>Weak against Drones and Shields</li>
+                          </ul>
+                        </div>
+                        
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:shadow-[0_0_15px_rgba(248,113,113,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-red-400 mb-2">Sniper</h4>
+                          <ul className="text-white space-y-1 list-disc pl-5 text-sm">
+                            <li>High damage</li>
+                            <li>Precision shots</li>
+                            <li>Natural counter to Drones</li>
+                            <li>Weak in close combat</li>
+                          </ul>
+                        </div>
+                        
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:shadow-[0_0_15px_rgba(74,222,128,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-green-400 mb-2">Rocket/Cannon</h4>
+                          <ul className="text-white space-y-1 list-disc pl-5 text-sm">
+                            <li>Area of effect damage</li>
+                            <li>Effectively breaks Shields</li>
+                            <li>Slow rate of fire</li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-orange-500/30 to-transparent p-4 rounded-lg border-l-4 border-orange-500 text-white text-sm">
+                        <p>
+                          <span className="font-semibold text-white">Important note:</span> Each team needs all 3 classes, flexibly switching between classes is the key to victory.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               
+              {/* FAQ */}
+              <div className={`${activeTab === 'cau-hoi' ? 'block' : 'hidden'}`} ref={faqRef}>
+                <div className="bg-[#1a2634]/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 shadow-xl mb-8">
+                  <h2 className="font-bai-jamjuree text-3xl font-bold mb-6 relative inline-block">
+                    <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] animate-pulse-slow">Frequently Asked Questions (FAQ)</span>
+                    <div className="absolute -bottom-2 left-0 h-1.5 w-full bg-gradient-to-r from-[#ff0000] via-[#ff5555] to-transparent"></div>
+                  </h2>
+
+                  <div className="space-y-8">
+                    {/* Download */}
+                    <div>
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Game Download</span>
+                      </h3>
+                      
+                      <div className="pl-11 space-y-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-white mb-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">How to download and play M-SCI?</h4>
+                          <p className="text-white">
+                            M-SCI is currently available on the Telegram Mini App platform and will soon be released as a standalone mobile version for Android/iOS. To play the Telegram version, find the official M-SCI bot and press Start.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* System Requirements */}
+                    <div>
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(34,197,94,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">System Requirements</span>
+                      </h3>
+                      
+                      <div className="pl-11 space-y-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-white mb-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Does the game have high system requirements?</h4>
+                          <p className="text-white">
+                            Not particularly high. M-SCI can run smoothly on most mid-range smartphones from 2018 onwards. The Telegram version runs on both computers and mobile devices.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Guild and Solo Play */}
+                    <div>
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(168,85,247,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Guild and Solo Play</span>
+                      </h3>
+                      
+                      <div className="pl-11 space-y-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-white mb-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Can I play solo without joining a guild?</h4>
+                          <p className="text-white">
+                            Absolutely! You can fully enjoy the campaign mode, world boss events, and gacha draws without joining a guild. However, joining a guild unlocks additional exciting activities such as guild wars and guild bosses.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Rare Characters */}
+                    <div>
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-yellow-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(250,204,21,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Rare Characters</span>
+                      </h3>
+                      
+                      <div className="pl-11 space-y-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(250,204,21,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-white mb-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">How can I get legendary S-tier characters? Do I need to spend money?</h4>
+                          <p className="text-white mb-3">
+                            There are 4 main ways without spending money:
+                          </p>
+                          <ul className="text-white list-disc pl-5 space-y-1">
+                            <li>Play campaign to higher levels (from area 4 onwards)</li>
+                            <li>Lucky Gacha draws (probability ~1-5%)</li>
+                            <li>Shard combining (collect 4 shards of an S-tier character)</li>
+                            <li>Evolution (upgrade A-tier heroes to S-tier with a 5% success rate)</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Character Upgrades */}
+                    <div>
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(239,68,68,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Character Upgrades</span>
+                      </h3>
+                      
+                      <div className="pl-11 space-y-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-white mb-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Will I lose my character if I fail to increase stars?</h4>
+                          <p className="text-white">
+                            If you don't use Memory insurance and fail, you will permanently lose the base character and materials. When using enough MSCI Memory as required, if you fail, you will only lose materials, the base character will be retained.
+                          </p>
+                        </div>
+                        
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-white mb-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">What upgrades should I prioritize for characters when starting out?</h4>
+                          <p className="text-white">
+                            Focus on leveling up your 3 main characters (prioritize reaching level 5 then 10), while simultaneously increasing stars for at least one core character, and make sure to unlock all 3 classes for a balanced team composition.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Resource Gathering */}
+                    <div>
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(34,211,238,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Resource Gathering</span>
+                      </h3>
+                      
+                      <div className="pl-11 space-y-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-white mb-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">How to quickly earn more Chips?</h4>
+                          <p className="text-white mb-3">
+                            Some effective methods:
+                          </p>
+                          <ul className="text-white list-disc pl-5 space-y-1">
+                            <li>Replay levels 20, 40, 60, 80, 100 (maximum 10 times/day)</li>
+                            <li>Participate in Boss/Elite Boss fights</li>
+                            <li>Complete daily and weekly missions</li>
+                            <li>Buy Blind Bags from the shop</li>
+                            <li>Participate in special events</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Trading & Economy */}
+                    <div>
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(16,185,129,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Trading & Economy</span>
+                      </h3>
+                      
+                      <div className="pl-11 space-y-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-white mb-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">How to sell items/characters?</h4>
+                          <p className="text-white">
+                            Use the Center Market in the game. Here you can list characters and items for sale to other players and receive M-Coin (with a 5% transaction fee). Note: account trading is not encouraged.
+                          </p>
+                        </div>
+                        
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-300">
+                          <h4 className="font-medium text-white mb-3 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Can the game earn real money?</h4>
+                          <p className="text-white">
+                            M-SCI is a Play-to-Earn entertainment game. You can earn $MSCI tokens or valuable NFT items, but M-Coin and most in-game assets cannot be directly converted to cash. Consider token earning as an additional reward, don't view the game as a tool for getting rich.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Advanced Tips */}
+              <div className={`${activeTab === 'meo-choi' ? 'block' : 'hidden'}`} ref={faqRef}>
+                <div className="bg-[#1a2634]/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 shadow-xl mb-8">
+                  <h2 className="font-bai-jamjuree text-3xl font-bold mb-6 relative inline-block">
+                    <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] animate-pulse-slow">Advanced Tips</span>
+                    <div className="absolute -bottom-2 left-0 h-1.5 w-full bg-gradient-to-r from-[#ff0000] via-[#ff5555] to-transparent"></div>
+                  </h2>
+
+                  <div className="space-y-8">
+                    {/* Team Strategy */}
+                    <div>
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Team Strategy</span>
+                      </h3>
+                      
+                      <div className="pl-11 space-y-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">
+                          <ul className="text-white space-y-3">
+                            <li className="flex items-start">
+                              <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5 shadow-[0_0_8px_rgba(59,130,246,0.4)]">
+                                <span className="text-blue-400 text-xs">1</span>
+                              </span>
+                              <span>Always maintain a team with all 3 classes at their strongest possible level</span>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5 shadow-[0_0_8px_rgba(59,130,246,0.4)]">
+                                <span className="text-blue-400 text-xs">2</span>
+                              </span>
+                              <span>Switch characters flexibly based on enemy types (Drone → Sniper, Shield → Rocket)</span>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="flex-shrink-0 w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5 shadow-[0_0_8px_rgba(59,130,246,0.4)]">
+                                <span className="text-blue-400 text-xs">3</span>
+                              </span>
+                              <span>Prioritize eliminating Suicide Drones before they approach</span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div className="relative h-[180px] rounded-xl overflow-hidden border border-white/10">
+                          <Image 
+                            src="/images/banner/contrac.jpg" 
+                            alt="Strategy" 
+                            fill 
+                            sizes="(max-width: 768px) 100vw, 100vw" 
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#0f1923]/90 via-[#0f1923]/50 to-transparent"></div>
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="px-6 py-2 bg-[#F44336]/60 text-white text-sm rounded-full">
+                              Strategy Illustration
+                </span>
+            </div>
+                        </div>
+                      </div>
+              </div>
+              
+                    {/* Resource Management */}
               <div>
-                <h4 className="font-rajdhani text-lg font-semibold text-blue-400 mb-2">Giờ Làm Việc</h4>
-                <ul className="font-rajdhani text-white/80 space-y-2 ml-6">
+                      <h3 className="font-medium text-white text-xl mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center mr-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Resource Management</span>
+                      </h3>
+                      
+                      <div className="pl-11 space-y-4">
+                        <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5">
+                          <ul className="text-white space-y-3">
                   <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Thứ 2 - Thứ 6: 9:00 - 18:00</span>
+                              <span className="flex-shrink-0 w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span className="text-green-400 text-xs">1</span>
+                              </span>
+                              <span>Accumulate enough MSCI Memory before attempting to increase stars for valuable characters</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Thứ 7: 9:00 - 12:00</span>
+                              <span className="flex-shrink-0 w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span className="text-green-400 text-xs">2</span>
+                              </span>
+                              <span>Keep some duplicate characters as evolution materials, don't rush to sell them all</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="w-6 text-center mr-2">•</span>
-                    <span>Chủ nhật & Lễ: Nghỉ</span>
+                              <span className="flex-shrink-0 w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                <span className="text-green-400 text-xs">3</span>
+                              </span>
+                              <span>Prioritize evolution from the highest tier (A→S is better than B→S)</span>
                   </li>
                 </ul>
+                        </div>
+                      </div>
+              </div>
+              
+                    <div className="bg-gradient-to-r from-[#ff0000]/20 to-transparent p-4 rounded-lg border-l-4 border-red-500 mb-4">
+                      <p className="text-white italic text-center">
+                        "Fight without stopping - Win without limits!"
+                      </p>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="mt-12 text-center">
-          <div className="h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent mb-8"></div>
-          <p className="font-rajdhani text-white/50 text-sm">
-            Cập nhật lần cuối: {new Date().toLocaleDateString('vi-VN')}
-          </p>
-          <p className="font-rajdhani text-white/80 mt-4">
-            Cảm ơn bạn đã chơi M-SCI! Chúng tôi luôn nỗ lực để mang đến trải nghiệm tốt nhất cho người chơi.
-          </p>
+              {/* Contact Support */}
+              <div className={`${activeTab === 'lien-he' ? 'block' : 'hidden'}`} ref={faqRef}>
+                <div className="bg-[#1a2634]/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 shadow-xl mb-8">
+                  <h2 className="font-bai-jamjuree text-3xl font-bold mb-6 relative inline-block">
+                    <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] animate-pulse-slow">Contact Support</span>
+                    <div className="absolute -bottom-2 left-0 h-1.5 w-full bg-gradient-to-r from-[#ff0000] via-[#ff5555] to-transparent"></div>
+                  </h2>
+
+                  <div className="space-y-6">
+                    <p className="text-white">
+                      If you need additional support or have feedback, please use one of the contact channels below:
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(244,67,54,0.4)] transition-all duration-300">
+                        <h3 className="font-medium text-white mb-4 flex items-center">
+                          <span className="w-8 h-8 bg-[#F44336]/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(244,67,54,0.4)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#F44336]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2h2v4l.586-.586z" />
+                            </svg>
+                          </span>
+                          <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Community Channels</span>
+                        </h3>
+                        
+                        <ul className="space-y-3 pl-11">
+                          <li className="flex items-center space-x-2 text-white">
+                            <FaDiscord className="text-[#7289DA]" />
+                            <span>Discord: </span>
+                            <a href="https://discord.gg/msci" className="text-blue-400 hover:underline">discord.gg/msci</a>
+                  </li>
+                          <li className="flex items-center space-x-2 text-white">
+                            <FaTelegram className="text-[#0088cc]" />
+                            <span>Telegram: </span>
+                            <a href="https://t.me/mscigame" className="text-blue-400 hover:underline">t.me/mscigame</a>
+                  </li>
+                </ul>
+              </div>
+              
+                      <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-300">
+                        <h3 className="font-medium text-white mb-4 flex items-center">
+                          <span className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                          </span>
+                          <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Email & Ticket</span>
+                        </h3>
+                        
+                        <ul className="space-y-3 pl-11">
+                          <li className="flex items-center space-x-2 text-white">
+                            <span>Email: </span>
+                            <a href="mailto:support@m-sci.game" className="text-blue-400 hover:underline hover:text-blue-300 transition-colors">support@m-sci.game</a>
+                          </li>
+                          <li className="flex items-center text-white">
+                            <span>In-game Support: Use the "Help" section in the game to submit a ticket</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_15px_rgba(34,197,94,0.4)] transition-all duration-300 mt-4">
+                      <h3 className="font-medium text-white mb-4 flex items-center">
+                        <span className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(34,197,94,0.4)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </span>
+                        <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">Bug Reports and Rewards</span>
+                      </h3>
+                      
+                      <div className="pl-11">
+                        <p className="text-white mb-3">
+                          If you discover a bug, report it to the Game Master to receive a thank-you gift. Please provide the following information:
+                        </p>
+                        
+                        <ul className="text-white list-disc pl-5 space-y-1">
+                          <li>Screenshot or video demonstrating the bug</li>
+                          <li>Steps to reproduce the bug (if possible)</li>
+                          <li>Device and operating system version you're using</li>
+                          <li>Your game account ID</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    {/* Contact Form */}
+                    <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-6 mt-6 hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] transition-all duration-500">
+                      <h3 className="font-medium text-white mb-4 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Send Support Request Now</h3>
+                      
+                      <form className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label htmlFor="name" className="block text-white text-sm mb-1">Full Name</label>
+                            <input 
+                              type="text" 
+                              id="name" 
+                              className="w-full px-4 py-2 bg-[#1a2634] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F44336]/50 focus:border-transparent text-white"
+                              placeholder="Enter your name"
+                            />
+                          </div>
+                          
+                          <div>
+                            <label htmlFor="email" className="block text-white text-sm mb-1">Email</label>
+                            <input 
+                              type="email" 
+                              id="email" 
+                              className="w-full px-4 py-2 bg-[#1a2634] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F44336]/50 focus:border-transparent text-white"
+                              placeholder="email@example.com"
+                            />
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="subject" className="block text-white text-sm mb-1">Subject</label>
+                          <select 
+                            id="subject"
+                            className="w-full px-4 py-2 bg-[#1a2634] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F44336]/50 focus:border-transparent text-white"
+                          >
+                            <option value="" className="bg-[#1a2634]">Select a subject</option>
+                            <option value="gameplay" className="bg-[#1a2634]">Gameplay issue</option>
+                            <option value="account" className="bg-[#1a2634]">Account problem</option>
+                            <option value="payment" className="bg-[#1a2634]">Payment</option>
+                            <option value="suggestion" className="bg-[#1a2634]">Improvement suggestion</option>
+                            <option value="other" className="bg-[#1a2634]">Other</option>
+                          </select>
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="message" className="block text-white text-sm mb-1">Message</label>
+                          <textarea 
+                            id="message" 
+                            rows={5}
+                            className="w-full px-4 py-2 bg-[#1a2634] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F44336]/50 focus:border-transparent text-white resize-none"
+                            placeholder="Describe your issue in detail..."
+                          ></textarea>
+                        </div>
+                        
+                        <button 
+                          type="submit"
+                          className="w-full px-6 py-3 font-rajdhani font-bold tracking-wider text-shadow-sm button-cyber clip-hexagon hexagon-border text-white bg-gradient-to-r from-[#F44336]/80 to-[#F44336]/40 hover:from-[#F44336] hover:to-[#F44336]/60 transition-all duration-300 shadow-[0_0_10px_rgba(244,67,54,0.3)] hover:shadow-[0_0_15px_rgba(244,67,54,0.5)]"
+                        >
+                          Submit Request
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -834,7 +1072,7 @@ export default function SupportPage() {
         {/* Battlefield Image Background */}
         <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden">
           <Image 
-            src="/images/overwatch_bg_2.jpg" 
+            src="/images/banner/chantran1.jpg" 
             alt="Support background" 
             fill
             sizes="100vw"
@@ -844,19 +1082,19 @@ export default function SupportPage() {
           
           <div className="absolute inset-0 z-10">
             <div className="container mx-auto h-full flex flex-col items-center justify-center text-center py-10 px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-wide">
-                CẦN THÊM HỖ TRỢ? THAM GIA CỘNG ĐỒNG M-SCI!
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-wide drop-shadow-[0_0_12px_rgba(255,255,255,0.7)]">
+                NEED MORE HELP? JOIN THE M-SCI COMMUNITY!
               </h2>
               
               <Link 
                 href="/discord"
-                className="mt-4 mb-8 px-8 py-3 bg-[#7289DA] hover:bg-[#5E78D5] text-white font-medium rounded transition-colors duration-300 uppercase tracking-wider text-lg shadow-lg hover:shadow-[#7289DA]/50"
+                className="mt-4 mb-8 px-8 py-3 bg-[#7289DA] hover:bg-[#5E78D5] text-white font-medium rounded transition-colors duration-300 uppercase tracking-wider text-lg shadow-lg hover:shadow-[0_0_20px_rgba(114,137,218,0.7)]"
               >
-                THAM GIA DISCORD
+                JOIN DISCORD
               </Link>
               
               <div className="mt-8">
-                <h3 className="text-gray-300 uppercase text-sm tracking-widest mb-4">THEO DÕI CHÚNG TÔI</h3>
+                <h3 className="text-white uppercase text-sm tracking-widest mb-4">FOLLOW US</h3>
                 <div className="flex justify-center space-x-6">
                   <a href="#" className="text-white hover:text-[#7289DA] transition-colors">
                     <FaFacebookF className="h-6 w-6" />
@@ -882,7 +1120,7 @@ export default function SupportPage() {
       
       {/* Chat Interface */}
       <CustomChatInterface
-        systemPrompt="Bạn là Akane, một trợ lý AI thông minh và thân thiện từ M-SCI. Hãy giúp đỡ người dùng với các câu hỏi về game bằng tiếng Việt."
+        systemPrompt="You are Akane, a smart and friendly AI assistant from M-SCI. Help users with their game questions in English."
         modelName="deepseek-chat"
         enableStreaming={true}
         botName="Akane AI"

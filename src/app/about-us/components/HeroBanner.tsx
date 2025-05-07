@@ -24,7 +24,7 @@ export default function HeroBanner() {
       {/* Background image with parallax effect */}
       <div className="absolute inset-0 h-[120%] w-full" style={{ transform: `translateY(${offsetY}px)` }}>
         <Image 
-          src="/images/banner/trangchu.jpg" 
+          src="/images/banner/us.jpg" 
           alt="About Us Hero" 
           fill
           priority
@@ -51,34 +51,10 @@ export default function HeroBanner() {
           {/* Glowing circle behind title */}
           <div className="absolute inset-0 bg-[var(--accent-blue-bright)]/20 filter blur-3xl rounded-full scale-150"></div>
           
-          {/* Logo */}
-          <div className="mb-6 relative animate-float">
-            <Image 
-              src="/images/overwatch_logo.png" 
-              alt="M-SCI Logo"
-              width={180}
-              height={60}
-              className="mx-auto"
-            />
-          </div>
-          
           <h1 className="font-orbitron text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow-blue animate-title-glow relative">
-            VỀ CHÚNG TÔI
+            ABOUT US
             <div className="absolute -bottom-3 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
           </h1>
-        </div>
-        
-        <p className="max-w-2xl text-lg md:text-xl text-gray-200 animate-fade-in mb-8">
-          Hành trình xây dựng một vũ trụ game đột phá tại Việt Nam
-        </p>
-        
-        <div className="flex gap-4 animate-fade-in-up">
-          <a href="#about-content" className="px-6 py-3 bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] text-white font-bold rounded-lg hover:shadow-lg hover:shadow-[var(--accent-blue-bright)]/30 transition-all duration-300">
-            Khám Phá
-          </a>
-          <a href="/lien-he" className="px-6 py-3 bg-transparent border border-[var(--accent-blue-bright)] text-white font-bold rounded-lg hover:bg-[var(--accent-blue-bright)]/10 transition-all duration-300">
-            Liên Hệ
-          </a>
         </div>
       </div>
       

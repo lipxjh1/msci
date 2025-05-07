@@ -14,7 +14,7 @@ export default function Technology() {
       <div className="flex justify-center mb-10">
         <h2 className="font-orbitron text-2xl md:text-3xl font-bold text-white cyber-halo">
           <span className="text-shadow-blue relative inline-block">
-            CÔNG NGHỆ & ĐỔI MỚI
+            TECHNOLOGY & INNOVATION
             <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
           </span>
         </h2>
@@ -31,7 +31,7 @@ export default function Technology() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#041019]/80 via-transparent to-[#041019]/80"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-xl md:text-2xl font-bold text-center max-w-3xl px-4">
-            "Công nghệ là nền tảng, <span className="text-[var(--accent-blue-bright)]">sáng tạo</span> là linh hồn, <span className="text-[var(--accent-blue-bright)]">cộng đồng</span> là động lực"
+            "Technology is the foundation, <span className="text-[var(--accent-blue-bright)]">creativity</span> is the soul, <span className="text-[var(--accent-blue-bright)]">community</span> is the driving force"
           </p>
         </div>
       </div>
@@ -54,7 +54,7 @@ export default function Technology() {
             </div>
             <h3 className="text-xl font-bold mb-2 text-white">Game Engine</h3>
             <p className="text-gray-300">
-              Sử dụng Unity Engine với kỹ thuật 2D Spine Animation kết hợp 3D, tối ưu hóa cho mobile để mang lại trải nghiệm mượt mà trên mọi thiết bị.
+              Using Unity Engine with 2D Spine Animation techniques combined with 3D, optimized for mobile to deliver a smooth experience on all devices.
             </p>
             
             <div className="mt-4 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)]/30 to-transparent"></div>
@@ -89,7 +89,7 @@ export default function Technology() {
             </div>
             <h3 className="text-xl font-bold mb-2 text-white">Blockchain Integration</h3>
             <p className="text-gray-300">
-              Tích hợp công nghệ blockchain một cách có trách nhiệm, tạo ra hệ sinh thái token $MSCI và NFT cho phép người chơi thực sự sở hữu tài sản trong game.
+              Responsibly integrating blockchain technology, creating the $MSCI token ecosystem and NFTs that allow players to truly own in-game assets.
             </p>
             
             <div className="mt-4 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)]/30 to-transparent"></div>
@@ -124,7 +124,7 @@ export default function Technology() {
             </div>
             <h3 className="text-xl font-bold mb-2 text-white">AI & Machine Learning</h3>
             <p className="text-gray-300">
-              Ứng dụng AI để cá nhân hóa trải nghiệm người chơi, cân bằng gameplay và phát hiện gian lận.
+              Applying AI to personalize player experiences, balance gameplay and detect cheating.
             </p>
             
             <div className="mt-4 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)]/30 to-transparent"></div>

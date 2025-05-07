@@ -22,23 +22,23 @@ export default function ReferralFooter() {
         <div className="absolute inset-0 z-10">
           <div className="container mx-auto h-full flex flex-col items-center justify-center text-center py-10 px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-wide">
-              BẠN CÒN CHỜ GÌ NỮA?
+              WHAT ARE YOU WAITING FOR?
             </h2>
             
             <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-              Giới thiệu bạn bè tham gia ngay hôm nay để nhận nhiều phần thưởng hấp dẫn.
-              Càng nhiều bạn bè tham gia, phần thưởng của bạn càng lớn!
+              Refer your friends to join today and receive exciting rewards.
+              The more friends join, the bigger your rewards!
             </p>
             
             <Link 
               href="/auth/register"
               className="mt-4 mb-8 px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white font-medium rounded transition-colors duration-300 uppercase tracking-wider text-lg shadow-lg hover:shadow-purple-600/50"
             >
-              BẮT ĐẦU NGAY
+              START NOW
             </Link>
             
             <div className="mt-8">
-              <h3 className="text-gray-300 uppercase text-sm tracking-widest mb-4">THEO DÕI CHÚNG TÔI</h3>
+              <h3 className="text-gray-300 uppercase text-sm tracking-widest mb-4">FOLLOW US</h3>
               <div className="flex justify-center space-x-6">
                 <a href="#" className="text-white hover:text-purple-500 transition-colors">
                   <FaFacebookF className="h-6 w-6" />

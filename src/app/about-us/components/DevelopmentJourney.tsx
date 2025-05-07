@@ -19,7 +19,7 @@ export default function DevelopmentJourney() {
       <div className="flex justify-center mb-10">
         <h2 className="font-orbitron text-2xl md:text-3xl font-bold text-white cyber-halo">
           <span className="text-shadow-blue relative inline-block">
-            HÀNH TRÌNH PHÁT TRIỂN
+            DEVELOPMENT JOURNEY
             <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
           </span>
         </h2>
@@ -37,13 +37,13 @@ export default function DevelopmentJourney() {
         <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl hover:shadow-[var(--accent-blue-bright)]/20 transition-all duration-500 group hover:-translate-y-2">
           <div className="flex flex-col">
             <div className="bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] text-white font-bold py-2 px-4 rounded-lg inline-block w-fit mb-4">
-              2023 - Khởi Đầu
+              2023 - Beginning
             </div>
             
             <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
               <Image 
                 src="/images/staking_bg.jpg" 
-                alt="2023 - Khởi Đầu"
+                alt="2023 - Beginning"
                 fill
                 className="object-cover object-center brightness-75 group-hover:scale-110 transition-all duration-700"
               />
@@ -58,15 +58,15 @@ export default function DevelopmentJourney() {
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Thành lập team core với 5 thành viên</span>
+                <span>Established core team with 5 members</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Phát triển concept và prototype đầu tiên</span>
+                <span>Developed first concept and prototype</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Nhận được funding seed round</span>
+                <span>Received seed round funding</span>
               </li>
             </ul>
           </div>
@@ -76,13 +76,13 @@ export default function DevelopmentJourney() {
         <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl hover:shadow-[var(--accent-blue-bright)]/20 transition-all duration-500 group hover:-translate-y-2">
           <div className="flex flex-col">
             <div className="bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] text-white font-bold py-2 px-4 rounded-lg inline-block w-fit mb-4">
-              2024 - Phát Triển & Mở Rộng
+              2024 - Development & Expansion
             </div>
             
             <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
               <Image 
                 src="/images/overwatch_bg_2.jpg" 
-                alt="2024 - Phát Triển"
+                alt="2024 - Development"
                 fill
                 className="object-cover object-center brightness-75 group-hover:scale-110 transition-all duration-700"
               />
@@ -97,19 +97,19 @@ export default function DevelopmentJourney() {
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Ra mắt bản Alpha với 1000 người chơi</span>
+                <span>Released Alpha version with 1000 players</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Mở rộng team lên 20+ thành viên</span>
+                <span>Expanded team to 20+ members</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Tích hợp công nghệ blockchain</span>
+                <span>Integrated blockchain technology</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Launch bản Beta với 10,000+ pre-registration</span>
+                <span>Launched Beta with 10,000+ pre-registrations</span>
               </li>
             </ul>
           </div>
@@ -119,13 +119,13 @@ export default function DevelopmentJourney() {
         <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl hover:shadow-[var(--accent-blue-bright)]/20 transition-all duration-500 group hover:-translate-y-2">
           <div className="flex flex-col">
             <div className="bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] text-white font-bold py-2 px-4 rounded-lg inline-block w-fit mb-4">
-              2025 - Tương Lai
+              2025 - Future
             </div>
             
             <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
               <Image 
                 src="/images/home/FS-img/hero.png" 
-                alt="2025 - Tương Lai"
+                alt="2025 - Future"
                 fill
                 className="object-cover object-center brightness-75 group-hover:scale-110 transition-all duration-700"
               />
@@ -140,15 +140,15 @@ export default function DevelopmentJourney() {
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Chính thức ra mắt toàn cầu</span>
+                <span>Official global launch</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Mở rộng sang thị trường quốc tế</span>
+                <span>Expansion into international markets</span>
               </li>
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
-                <span>Phát triển M-SCI Universe với nhiều game mới</span>
+                <span>Development of M-SCI Universe with multiple new games</span>
               </li>
             </ul>
           </div>

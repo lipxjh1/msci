@@ -24,30 +24,41 @@ let supabaseInstance: ReturnType<typeof createClient<Database>> | null = null;
 export const supabase = (() => {
   // Kiểm tra xem môi trường hiện tại có window hay không
   const isServerSide = typeof window === 'undefined';
-  // Tạo khóa lưu trữ duy nhất để tránh xung đột với các instance khác
-  const storageKey = 'supabase.auth.token.vinhot.admin';
+  // Tạo khóa lưu trữ duy nhất cho trang admin
+  const storageKey = 'sb-admin-auth-token';
 
-  if (supabaseInstance === null || isServerSide) {
-    // Nếu ở phía server hoặc chưa có instance thì tạo mới
-    supabaseInstance = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+  if (isServerSide) {
+    // Nếu ở phía server, tạo mới mỗi lần (không có vấn đề với warning client)
+    return createClient<Database>(supabaseUrl, supabaseAnonKey, {
       auth: {
-        persistSession: true,
-        storageKey: storageKey,
-        autoRefreshToken: true,
-        detectSessionInUrl: true
-      },
-      global: {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-      },
+        persistSession: false, // Không lưu session phía server
+        storageKey
+      }
     });
-    
-    if (!isServerSide) {
-      console.log('Supabase client instance created');
-    }
   }
+
+  // Nếu ở phía client và đã có instance, sử dụng lại
+  if (supabaseInstance !== null) {
+    return supabaseInstance;
+  }
+
+  // Ở phía client nhưng chưa có instance, tạo mới
+  supabaseInstance = createClient<Database>(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      persistSession: true,
+      storageKey,
+      autoRefreshToken: true,
+      detectSessionInUrl: true
+    },
+    global: {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+    },
+  });
+  
+  console.log('Supabase client instance created');
   return supabaseInstance;
 })();
 

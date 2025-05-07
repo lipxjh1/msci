@@ -44,26 +44,26 @@ export default function TechCommunitySection() {
   const features = [
     {
       icon: '/images/heroes/ui 5.png',
-      title: 'Sáng Tạo Công Nghệ',
-      description: 'M-SCI tiên phong với các công nghệ hiện đại nhất, từ trí tuệ nhân tạo đến hệ thống vật lý nâng cao.',
+      title: 'Technology Innovation',
+      description: 'M-SCI pioneers with the most modern technologies, from artificial intelligence to advanced physics systems.',
       gradient: 'from-blue-900/10 to-blue-800/5'
     },
     {
       icon: '/images/heroes/player_0_gameplay_idle.png',
-      title: 'Xây Dựng Cộng Đồng',
-      description: 'Chúng tôi đặt cộng đồng người chơi làm trọng tâm, với mục tiêu tạo ra hệ sinh thái sống động xung quanh M-SCI.',
+      title: 'Community Building',
+      description: 'We put the player community at the center, with the goal of creating a vibrant ecosystem around M-SCI.',
       gradient: 'from-purple-900/10 to-purple-800/5'
     },
     {
       icon: '/images/home/FS-img/free.png',
-      title: 'Mô Hình Kinh Doanh',
-      description: 'M-SCI hướng đến mô hình Free-to-Play công bằng, với monetization phi cưỡng chế và tập trung vào trải nghiệm người dùng.',
+      title: 'Business Model',
+      description: 'M-SCI aims for a fair Free-to-Play model, with non-coercive monetization and a focus on user experience.',
       gradient: 'from-amber-900/10 to-amber-800/5'
     },
     {
       icon: '/images/heroes/ui 2.png',
       title: 'Esports Ecosystem',
-      description: 'M-SCI được thiết kế từ đầu để phát triển thành một tựa game esports hàng đầu khu vực Đông Nam Á và toàn cầu.',
+      description: 'M-SCI is designed from the ground up to develop into a leading esports title in Southeast Asia and globally.',
       gradient: 'from-emerald-900/10 to-emerald-800/5'
     }
   ];
@@ -88,13 +88,12 @@ export default function TechCommunitySection() {
       >
         <h2 className="text-3xl font-bold font-orbitron text-white mb-4">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-green-500">
-            CỘNG ĐỒNG & CÔNG NGHỆ
+            COMMUNITY & TECHNOLOGY
           </span>
         </h2>
         <p className="text-gray-300 max-w-2xl mx-auto font-rajdhani">
-          Cộng đồng và công nghệ là hai trụ cột chính trong hành trình phát triển của M-SCI.
-          Chúng tôi tập trung vào việc xây dựng mối quan hệ bền vững với người chơi và sáng
-          tạo liên tục.
+          Community and technology are the two main pillars in M-SCI's development journey.
+          We focus on building sustainable relationships with players and continuous innovation.
         </p>
       </motion.div>
       
@@ -118,7 +117,7 @@ export default function TechCommunitySection() {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="bg-white/5 backdrop-blur-md rounded-xl border border-white/10 p-6 mb-10"
       >
-        <h3 className="text-xl font-bold text-white mb-6 text-center">Đối Tác Công Nghệ</h3>
+        <h3 className="text-xl font-bold text-white mb-6 text-center">Technology Partners</h3>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[...Array(4)].map((_, index) => (
@@ -143,7 +142,7 @@ export default function TechCommunitySection() {
         transition={{ duration: 0.8, delay: 0.7 }}
         className="bg-white/5 backdrop-blur-md rounded-xl border border-white/10 p-6"
       >
-        <h3 className="text-xl font-bold text-white mb-6 text-center">Tiến Độ Phát Triển Cộng Đồng</h3>
+        <h3 className="text-xl font-bold text-white mb-6 text-center">Community Development Progress</h3>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
@@ -199,7 +198,7 @@ export default function TechCommunitySection() {
               />
             </div>
             <h4 className="text-2xl font-bold text-white">300+</h4>
-            <p className="text-gray-400 text-sm">Bản Cập Nhật</p>
+            <p className="text-gray-400 text-sm">Updates</p>
           </div>
         </div>
       </motion.div>

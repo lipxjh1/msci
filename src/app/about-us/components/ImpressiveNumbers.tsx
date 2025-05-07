@@ -7,7 +7,7 @@ export default function ImpressiveNumbers() {
         <div className="flex justify-center mb-6">
           <h2 className="font-orbitron text-2xl font-bold text-white cyber-halo">
             <span className="text-shadow-blue relative inline-block">
-              CON SỐ ẤN TƯỢNG
+              IMPRESSIVE NUMBERS
               <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
             </span>
           </h2>
@@ -23,25 +23,25 @@ export default function ImpressiveNumbers() {
           {/* Community Members */}
           <div className="flex flex-col items-center text-center p-4">
             <div className="text-3xl md:text-4xl font-bold text-[var(--accent-blue-bright)] mb-2">25,000+</div>
-            <div className="text-gray-300 text-sm">Thành viên cộng đồng</div>
+            <div className="text-gray-300 text-sm">Community members</div>
           </div>
           
           {/* Satisfaction Rate */}
           <div className="flex flex-col items-center text-center p-4">
             <div className="text-3xl md:text-4xl font-bold text-[var(--accent-blue-bright)] mb-2">98%</div>
-            <div className="text-gray-300 text-sm">Tỷ lệ hài lòng từ Beta testers</div>
+            <div className="text-gray-300 text-sm">Satisfaction rate from Beta testers</div>
           </div>
           
           {/* Team Size */}
           <div className="flex flex-col items-center text-center p-4">
             <div className="text-3xl md:text-4xl font-bold text-[var(--accent-blue-bright)] mb-2">20+</div>
-            <div className="text-gray-300 text-sm">Đội ngũ phát triển đam mê</div>
+            <div className="text-gray-300 text-sm">Passionate development team</div>
           </div>
           
           {/* Strategic Partners */}
           <div className="flex flex-col items-center text-center p-4">
             <div className="text-3xl md:text-4xl font-bold text-[var(--accent-blue-bright)] mb-2">5</div>
-            <div className="text-gray-300 text-sm">Đối tác chiến lược hàng đầu</div>
+            <div className="text-gray-300 text-sm">Leading strategic partners</div>
           </div>
         </div>
       </div>

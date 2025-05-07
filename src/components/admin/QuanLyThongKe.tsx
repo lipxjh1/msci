@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/tien_ich/supabase';
 import { format, subDays, eachDayOfInterval } from 'date-fns';
-import { vi } from 'date-fns/locale';
 import { 
   Chart as ChartJS, 
   CategoryScale, 
@@ -17,7 +16,7 @@ import {
   Legend,
   Filler
 } from 'chart.js';
-import { Bar, Line, Pie, Doughnut } from 'react-chartjs-2';
+import { Line, Doughnut } from 'react-chartjs-2';
 
 // Đăng ký các thành phần Chart.js
 ChartJS.register(
@@ -66,7 +65,8 @@ interface DeviceStatsResult {
 interface LuotTruyCapRecord {
   url?: string;
   device?: string;
-  [key: string]: any;
+  ngay_tao?: string;
+  [key: string]: unknown;
 }
 
 export default function QuanLyThongKe() {
@@ -95,6 +95,7 @@ export default function QuanLyThongKe() {
 
   useEffect(() => {
     fetchThongKe();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeRange]);
 
   const fetchThongKe = async () => {
@@ -116,8 +117,11 @@ export default function QuanLyThongKe() {
           break;
       }
 
-      const startDateStr = format(startDate, 'yyyy-MM-dd');
-      const endDateStr = format(endDate, 'yyyy-MM-dd');
+      // Format ngày theo định dạng ISO 8601 để tránh vấn đề với múi giờ
+      const startDateStr = format(startDate, "yyyy-MM-dd'T'HH:mm:ss");
+      const endDateStr = format(endDate, "yyyy-MM-dd'T'HH:mm:ss");
+
+      console.log('Thời gian truy vấn:', { startDateStr, endDateStr });
 
       // Lấy tổng số người dùng
       const { count: tongNguoiDung } = await supabase
@@ -208,30 +212,25 @@ export default function QuanLyThongKe() {
       }
 
       // Lấy số lượt nhấp vào nút Play Now
-      const { count: nutPlayNow } = await supabase
-        .from('tuong_tac')
-        .select('id', { count: 'exact', head: true })
-        .eq('loai', 'play_now')
-        .gte('ngay_tao', startDateStr)
-        .lte('ngay_tao', endDateStr);
+      let nutPlayNow = 0;
+      try {
+        const { count: playNowCount, error: playNowError } = await supabase
+          .from('tuong_tac')
+          .select('id', { count: 'exact', head: true })
+          .eq('loai', 'play_now')
+          .gte('ngay_tao', startDateStr)
+          .lte('ngay_tao', endDateStr);
 
-      // Lấy thống kê trang mạng xã hội được truy cập nhiều nhất
-      const { data: mxhData } = await supabase
-        .from('tuong_tac')
-        .select('platform, count')
-        .eq('loai', 'social_media')
-        .gte('ngay_tao', startDateStr)
-        .lte('ngay_tao', endDateStr);
+        if (playNowError) {
+          console.error('Lỗi khi lấy dữ liệu Play Now:', playNowError);
+        } else {
+          nutPlayNow = playNowCount || 0;
+        }
+      } catch (error) {
+        console.error('Lỗi khi xử lý dữ liệu Play Now:', error);
+      }
 
-      // Lấy lượt nhấp cho từng mạng xã hội
-      const { data: mxhCountData } = await supabase
-        .from('tuong_tac')
-        .select('platform')
-        .eq('loai', 'social_media')
-        .gte('ngay_tao', startDateStr)
-        .lte('ngay_tao', endDateStr);
-
-      // Xử lý dữ liệu mạng xã hội
+      // Khởi tạo các biến mặc định
       const mxhCount = {
         twitter: 0,
         facebook: 0,
@@ -240,27 +239,44 @@ export default function QuanLyThongKe() {
         youtube: 0,
         instagram: 0
       };
-
-      if (mxhCountData) {
-        mxhCountData.forEach((item: any) => {
-          if (item.platform && 
-              (item.platform === 'twitter' || 
-               item.platform === 'facebook' || 
-               item.platform === 'discord' || 
-               item.platform === 'telegram' || 
-               item.platform === 'youtube' || 
-               item.platform === 'instagram')) {
-            mxhCount[item.platform as keyof typeof mxhCount] += 1;
-          }
-        });
-      }
-
-      // Chuyển đổi dữ liệu mạng xã hội thành mảng để hiển thị trong bảng xếp hạng
+      
       let trangMXHTruyCap: { platform: string; count: number }[] = [];
-      if (mxhData) {
+
+      // Lấy thống kê trang mạng xã hội được truy cập nhiều nhất
+      try {
+        // Lấy lượt nhấp cho từng mạng xã hội
+        const { data: mxhCountData, error: mxhCountError } = await supabase
+          .from('tuong_tac')
+          .select('platform')
+          .eq('loai', 'social_media')
+          .gte('ngay_tao', startDateStr)
+          .lte('ngay_tao', endDateStr);
+          
+        if (mxhCountError) {
+          console.error('Lỗi khi lấy lượt nhấp mạng xã hội:', mxhCountError);
+        }
+
+        // Xử lý dữ liệu mạng xã hội
+        if (mxhCountData) {
+          mxhCountData.forEach((item: { platform?: string }) => {
+            if (item.platform && 
+                (item.platform === 'twitter' || 
+                 item.platform === 'facebook' || 
+                 item.platform === 'discord' || 
+                 item.platform === 'telegram' || 
+                 item.platform === 'youtube' || 
+                 item.platform === 'instagram')) {
+              mxhCount[item.platform as keyof typeof mxhCount] += 1;
+            }
+          });
+        }
+
+        // Chuyển đổi dữ liệu mạng xã hội thành mảng để hiển thị trong bảng xếp hạng
         trangMXHTruyCap = Object.entries(mxhCount)
           .map(([platform, count]) => ({ platform, count }))
           .sort((a, b) => b.count - a.count);
+      } catch (mxhError) {
+        console.error('Lỗi khi xử lý dữ liệu mạng xã hội:', mxhError);
       }
 
       // Lấy bảng xếp hạng trang chi tiết hơn
@@ -272,7 +288,7 @@ export default function QuanLyThongKe() {
       
       let bangXepHangTrang: { url: string; count: number }[] = [];
       if (rankData) {
-        bangXepHangTrang = rankData.map((item: any) => ({
+        bangXepHangTrang = rankData.map((item: { url: string; count: string }) => ({
           url: item.url,
           count: parseInt(item.count, 10)
         }));
@@ -302,61 +318,93 @@ export default function QuanLyThongKe() {
       }
 
       // Lấy thống kê theo ngày trong khoảng thời gian
-      const daysInterval = eachDayOfInterval({ start: startDate, end: endDate });
+      const thongKeTheoNgay: { ngay: string; luot_truy_cap: number; luot_play_now: number; luot_mxh: number }[] = [];
       
-      // Mảng chứa thống kê theo ngày
-      let thongKeTheoNgay: { ngay: string; luot_truy_cap: number; luot_play_now: number; luot_mxh: number }[] = [];
-      
-      // Lấy dữ liệu lượt truy cập theo ngày
-      const { data: dataLuotTruyCapTheoNgay } = await supabase
-        .from('luot_truy_cap')
-        .select('ngay_tao')
-        .gte('ngay_tao', startDateStr)
-        .lte('ngay_tao', endDateStr);
+      try {
+        const daysInterval = eachDayOfInterval({ start: startDate, end: endDate });
         
-      // Lấy dữ liệu lượt nhấp play now theo ngày
-      const { data: dataPlayNowTheoNgay } = await supabase
-        .from('tuong_tac')
-        .select('ngay_tao')
-        .eq('loai', 'play_now')
-        .gte('ngay_tao', startDateStr)
-        .lte('ngay_tao', endDateStr);
+        // Lấy dữ liệu lượt truy cập theo ngày
+        const { data: dataLuotTruyCapTheoNgay, error: errorLuotTruyCap } = await supabase
+          .from('luot_truy_cap')
+          .select('ngay_tao')
+          .gte('ngay_tao', startDateStr)
+          .lte('ngay_tao', endDateStr);
+          
+        if (errorLuotTruyCap) {
+          console.error('Lỗi khi lấy dữ liệu lượt truy cập theo ngày:', errorLuotTruyCap);
+        }
+          
+        // Lấy dữ liệu lượt nhấp play now theo ngày
+        const { data: dataPlayNowTheoNgay, error: errorPlayNow } = await supabase
+          .from('tuong_tac')
+          .select('ngay_tao')
+          .eq('loai', 'play_now')
+          .gte('ngay_tao', startDateStr)
+          .lte('ngay_tao', endDateStr);
+          
+        if (errorPlayNow) {
+          console.error('Lỗi khi lấy dữ liệu Play Now theo ngày:', errorPlayNow);
+        }
+          
+        // Lấy dữ liệu lượt nhấp mạng xã hội theo ngày
+        const { data: dataMXHTheoNgay, error: errorMXH } = await supabase
+          .from('tuong_tac')
+          .select('ngay_tao')
+          .eq('loai', 'social_media')
+          .gte('ngay_tao', startDateStr)
+          .lte('ngay_tao', endDateStr);
         
-      // Lấy dữ liệu lượt nhấp mạng xã hội theo ngày
-      const { data: dataMXHTheoNgay } = await supabase
-        .from('tuong_tac')
-        .select('ngay_tao')
-        .eq('loai', 'social_media')
-        .gte('ngay_tao', startDateStr)
-        .lte('ngay_tao', endDateStr);
-      
-      // Xử lý dữ liệu theo từng ngày
-      daysInterval.forEach(date => {
-        const dateStr = format(date, 'yyyy-MM-dd');
-        const displayDateStr = format(date, 'dd/MM/yyyy');
+        if (errorMXH) {
+          console.error('Lỗi khi lấy dữ liệu mạng xã hội theo ngày:', errorMXH);
+        }
         
-        // Đếm lượt truy cập trong ngày
-        const luotTruyCapTrongNgay = dataLuotTruyCapTheoNgay?.filter(item => 
-          format(new Date(item.ngay_tao), 'yyyy-MM-dd') === dateStr
-        ).length || 0;
-        
-        // Đếm lượt nhấp play now trong ngày
-        const luotPlayNowTrongNgay = dataPlayNowTheoNgay?.filter(item => 
-          format(new Date(item.ngay_tao), 'yyyy-MM-dd') === dateStr
-        ).length || 0;
-        
-        // Đếm lượt nhấp mạng xã hội trong ngày
-        const luotMXHTrongNgay = dataMXHTheoNgay?.filter(item => 
-          format(new Date(item.ngay_tao), 'yyyy-MM-dd') === dateStr
-        ).length || 0;
-        
-        thongKeTheoNgay.push({
-          ngay: displayDateStr,
-          luot_truy_cap: luotTruyCapTrongNgay,
-          luot_play_now: luotPlayNowTrongNgay,
-          luot_mxh: luotMXHTrongNgay
+        // Xử lý dữ liệu theo từng ngày
+        daysInterval.forEach(date => {
+          const displayDateStr = format(date, 'dd/MM/yyyy');
+          
+          // Đếm lượt truy cập trong ngày
+          const luotTruyCapTrongNgay = dataLuotTruyCapTheoNgay?.filter(item => {
+            // So sánh ngày tháng năm, bỏ qua giờ phút giây
+            const itemDate = new Date(item.ngay_tao);
+            return (
+              itemDate.getFullYear() === date.getFullYear() &&
+              itemDate.getMonth() === date.getMonth() &&
+              itemDate.getDate() === date.getDate()
+            );
+          }).length || 0;
+          
+          // Đếm lượt nhấp play now trong ngày
+          const luotPlayNowTrongNgay = dataPlayNowTheoNgay?.filter(item => {
+            // So sánh ngày tháng năm, bỏ qua giờ phút giây
+            const itemDate = new Date(item.ngay_tao);
+            return (
+              itemDate.getFullYear() === date.getFullYear() &&
+              itemDate.getMonth() === date.getMonth() &&
+              itemDate.getDate() === date.getDate()
+            );
+          }).length || 0;
+          
+          // Đếm lượt nhấp mạng xã hội trong ngày
+          const luotMXHTrongNgay = dataMXHTheoNgay?.filter(item => {
+            // So sánh ngày tháng năm, bỏ qua giờ phút giây
+            const itemDate = new Date(item.ngay_tao);
+            return (
+              itemDate.getFullYear() === date.getFullYear() &&
+              itemDate.getMonth() === date.getMonth() &&
+              itemDate.getDate() === date.getDate()
+            );
+          }).length || 0;
+          
+          thongKeTheoNgay.push({
+            ngay: displayDateStr,
+            luot_truy_cap: luotTruyCapTrongNgay,
+            luot_play_now: luotPlayNowTrongNgay,
+            luot_mxh: luotMXHTrongNgay
+          });
         });
-      });
+      } catch (error) {
+        console.error('Lỗi khi xử lý thống kê theo ngày:', error);
+      }
 
       setThongKe({
         tong_nguoi_dung: tongNguoiDung || 0,

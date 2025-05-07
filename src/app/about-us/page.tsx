@@ -25,7 +25,7 @@ export default function AboutUsPage() {
 
   return (
     <main className="min-h-screen bg-[#041019] text-white overflow-hidden">
-      {/* Thanh điều hướng */}
+      {/* Navigation */}
       <div className="relative z-30">
         <ThanhDieuHuongResponsive />
       </div>

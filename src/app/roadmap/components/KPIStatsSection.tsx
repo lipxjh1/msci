@@ -43,7 +43,7 @@ interface StatCardProps {
 }
 
 const StatCard = ({ title, value, previousValue, color, gradient, bgGradient, icon, delay }: StatCardProps) => {
-  // Tính toán % tăng
+  // Calculate growth percentage
   const calculateGrowth = () => {
     if (!previousValue) return null;
     
@@ -102,7 +102,7 @@ const StatCard = ({ title, value, previousValue, color, gradient, bgGradient, ic
         
         {previousValue && (
           <p className="text-gray-500 text-xs mt-2 relative z-10">
-            Trước đó: {previousValue}
+            Previous: {previousValue}
           </p>
         )}
       </div>
@@ -117,7 +117,7 @@ export default function KPIStatsSection() {
   const [selectedYear, setSelectedYear] = useState('2025');
   
   useEffect(() => {
-    // Delay để kích hoạt animation cho biểu đồ
+    // Delay to trigger chart animation
     const timer = setTimeout(() => {
       setAnimateChart(true);
     }, 500);
@@ -186,13 +186,13 @@ export default function KPIStatsSection() {
     }
   };
   
-  // Data cho các tab
+  // Data for tabs
   const chartData = {
     users: {
       labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
       datasets: [
         {
-          label: 'Monthly Active Users (triệu)',
+          label: 'Monthly Active Users (million)',
           data: animateChart ? [0.05, 0.5, 2, 5, 15, 30, 50] : [0, 0, 0, 0, 0, 0, 0],
           borderColor: 'rgba(59, 130, 246, 1)',
           backgroundColor: 'rgba(59, 130, 246, 0.2)',
@@ -210,7 +210,7 @@ export default function KPIStatsSection() {
       labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
       datasets: [
         {
-          label: 'Doanh thu (triệu USD)',
+          label: 'Revenue (million USD)',
           data: animateChart ? [0.5, 8, 25, 60, 120, 220, 350] : [0, 0, 0, 0, 0, 0, 0],
           backgroundColor: [
             'rgba(16, 185, 129, 0.7)',
@@ -231,7 +231,7 @@ export default function KPIStatsSection() {
       labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
       datasets: [
         {
-          label: 'Total Downloads (triệu)',
+          label: 'Total Downloads (million)',
           data: animateChart ? [0.1, 2, 10, 25, 45, 70, 100] : [0, 0, 0, 0, 0, 0, 0],
           borderColor: 'rgba(249, 115, 22, 1)',
           backgroundColor: 'rgba(249, 115, 22, 0.2)',
@@ -265,13 +265,13 @@ export default function KPIStatsSection() {
     }
   };
   
-  // Các chỉ số theo từng năm
+  // KPI stats by year
   const kpiYears = ['2024', '2025', '2026', '2027', '2028'];
   
   const kpiStats = {
     '2024': [
       {
-        title: 'Tổng Lượt Tải',
+        title: 'Total Downloads',
         value: '100,000+',
         color: 'blue-500',
         gradient: 'from-blue-500 to-blue-600',
@@ -280,7 +280,7 @@ export default function KPIStatsSection() {
         delay: 0.1
       },
       {
-        title: 'Người Dùng Hàng Tháng',
+        title: 'Monthly Users',
         value: '50,000+',
         color: 'green-500',
         gradient: 'from-green-500 to-green-600',
@@ -289,7 +289,7 @@ export default function KPIStatsSection() {
         delay: 0.2
       },
       {
-        title: 'Doanh Thu',
+        title: 'Revenue',
         value: '$500,000+',
         color: 'purple-500',
         gradient: 'from-purple-500 to-purple-600',
@@ -298,7 +298,7 @@ export default function KPIStatsSection() {
         delay: 0.3
       },
       {
-        title: 'Tỷ Lệ Giữ Chân (D1)',
+        title: 'Retention Rate (D1)',
         value: '45%',
         color: 'yellow-500',
         gradient: 'from-yellow-500 to-amber-500',
@@ -309,7 +309,7 @@ export default function KPIStatsSection() {
     ],
     '2025': [
       {
-        title: 'Tổng Lượt Tải',
+        title: 'Total Downloads',
         value: '2M+',
         previousValue: '100,000+',
         color: 'blue-500',
@@ -319,7 +319,7 @@ export default function KPIStatsSection() {
         delay: 0.1
       },
       {
-        title: 'Người Dùng Hàng Tháng',
+        title: 'Monthly Users',
         value: '500,000+',
         previousValue: '50,000+',
         color: 'green-500',
@@ -329,7 +329,7 @@ export default function KPIStatsSection() {
         delay: 0.2
       },
       {
-        title: 'Doanh Thu',
+        title: 'Revenue',
         value: '$8M+',
         previousValue: '$500,000+',
         color: 'purple-500',
@@ -339,7 +339,7 @@ export default function KPIStatsSection() {
         delay: 0.3
       },
       {
-        title: 'Tỷ Lệ Giữ Chân (D30)',
+        title: 'Retention Rate (D30)',
         value: '25%',
         previousValue: '10%',
         color: 'yellow-500',
@@ -351,7 +351,7 @@ export default function KPIStatsSection() {
     ],
     '2026': [
       {
-        title: 'Tổng Lượt Tải',
+        title: 'Total Downloads',
         value: '10M+',
         previousValue: '2M+',
         color: 'blue-500',
@@ -361,7 +361,7 @@ export default function KPIStatsSection() {
         delay: 0.1
       },
       {
-        title: 'Người Dùng Hàng Tháng',
+        title: 'Monthly Users',
         value: '2M+',
         previousValue: '500,000+',
         color: 'green-500',
@@ -371,7 +371,7 @@ export default function KPIStatsSection() {
         delay: 0.2
       },
       {
-        title: 'Doanh Thu',
+        title: 'Revenue',
         value: '$25M+',
         previousValue: '$8M+',
         color: 'purple-500',
@@ -381,7 +381,7 @@ export default function KPIStatsSection() {
         delay: 0.3
       },
       {
-        title: 'Thị Phần Game MOBA',
+        title: 'MOBA Market Share',
         value: '15%',
         previousValue: '5%',
         color: 'pink-500',
@@ -393,7 +393,7 @@ export default function KPIStatsSection() {
     ],
     '2027': [
       {
-        title: 'Tổng Lượt Tải',
+        title: 'Total Downloads',
         value: '25M+',
         previousValue: '10M+',
         color: 'blue-500',
@@ -403,7 +403,7 @@ export default function KPIStatsSection() {
         delay: 0.1
       },
       {
-        title: 'Người Dùng Hàng Tháng',
+        title: 'Monthly Users',
         value: '5M+',
         previousValue: '2M+',
         color: 'green-500',
@@ -413,7 +413,7 @@ export default function KPIStatsSection() {
         delay: 0.2
       },
       {
-        title: 'Doanh Thu',
+        title: 'Revenue',
         value: '$60M+',
         previousValue: '$25M+',
         color: 'purple-500',
@@ -423,7 +423,7 @@ export default function KPIStatsSection() {
         delay: 0.3
       },
       {
-        title: 'Người Xem Giải Đấu',
+        title: 'Tournament Viewers',
         value: '2M+',
         previousValue: '500k+',
         color: 'red-500',
@@ -435,7 +435,7 @@ export default function KPIStatsSection() {
     ],
     '2028': [
       {
-        title: 'Tổng Lượt Tải',
+        title: 'Total Downloads',
         value: '45M+',
         previousValue: '25M+',
         color: 'blue-500',
@@ -445,7 +445,7 @@ export default function KPIStatsSection() {
         delay: 0.1
       },
       {
-        title: 'Người Dùng Hàng Tháng',
+        title: 'Monthly Users',
         value: '15M+',
         previousValue: '5M+',
         color: 'green-500',
@@ -455,7 +455,7 @@ export default function KPIStatsSection() {
         delay: 0.2
       },
       {
-        title: 'Doanh Thu',
+        title: 'Revenue',
         value: '$120M+',
         previousValue: '$60M+',
         color: 'purple-500',
@@ -465,7 +465,7 @@ export default function KPIStatsSection() {
         delay: 0.3
       },
       {
-        title: 'Giá Trị Thương Hiệu',
+        title: 'Brand Value',
         value: '$1B+',
         previousValue: '$300M+',
         color: 'emerald-500',
@@ -497,12 +497,12 @@ export default function KPIStatsSection() {
       >
         <h2 className="text-3xl font-bold font-orbitron text-white mb-3">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500">
-            CHỈ SỐ TĂNG TRƯỞNG
+            GROWTH METRICS
           </span>
         </h2>
         <p className="text-gray-300 max-w-2xl mx-auto font-rajdhani">
-          Dự báo phát triển dựa trên phân tích thị trường và kế hoạch mở rộng từ 2024-2028.
-          Chọn năm khác nhau để xem mục tiêu KPI từng giai đoạn.
+          Growth forecast based on market analysis and expansion plans from 2024-2028.
+          Select different years to view KPI targets for each phase.
         </p>
       </motion.div>
       
@@ -554,7 +554,7 @@ export default function KPIStatsSection() {
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
           >
-            Người Dùng
+            Users
           </button>
           <button 
             onClick={() => setActiveTab('downloads')}
@@ -564,7 +564,7 @@ export default function KPIStatsSection() {
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
           >
-            Lượt Tải
+            Downloads
           </button>
           <button 
             onClick={() => setActiveTab('revenue')}
@@ -574,7 +574,7 @@ export default function KPIStatsSection() {
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
           >
-            Doanh Thu
+            Revenue
           </button>
           <button 
             onClick={() => setActiveTab('marketShare')}
@@ -584,7 +584,7 @@ export default function KPIStatsSection() {
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
           >
-            Thị Phần
+            Market Share
           </button>
         </div>
         
@@ -625,9 +625,9 @@ export default function KPIStatsSection() {
                   />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center mt-6 md:mt-0">
-                  <h3 className="text-xl font-bold text-white mb-2">Dự Báo Thị Phần 2026</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">2026 Market Share Forecast</h3>
                   <p className="text-gray-400 text-center">
-                    M-SCI sẽ chiếm 30% thị phần game MOBA trên mobile tại Đông Nam Á vào năm 2026, vượt qua các đối thủ lớn trong ngành.
+                    M-SCI will capture 30% of the mobile MOBA market in Southeast Asia by 2026, surpassing major competitors in the industry.
                   </p>
                 </div>
               </div>
