@@ -1,0 +1,371 @@
+/* Scanner effect for tiles */
+.scanner-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanner-line::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(94, 231, 131, 0.1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: scan 2s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 200%;
+  }
+}
+
+/* Grid pattern for board background */
+.grid-pattern {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transform: translateZ(0); /* GPU acceleration */
+}
+
+/* Glowing effect for selected tiles */
+.tile-glow {
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.8);
+  }
+}
+
+/* Cyberpunk styled scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.8);
+}
+
+/* Neon text effect */
+.neon-text {
+  text-shadow: 0 0 5px rgba(99, 102, 241, 0.7), 
+               0 0 10px rgba(99, 102, 241, 0.5), 
+               0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+/* Connection line animation */
+@keyframes dashOffset {
+  from {
+    stroke-dashoffset: 20;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.connection-line {
+  stroke-dasharray: 5;
+  animation: dashOffset 1s linear infinite;
+}
+
+/* Fix khoảng cách giữa thanh điều hướng và nội dung game */
+.container {
+  padding-top: 2rem;
+}
+
+/* Tạo không gian cho game container */
+.game-container {
+  margin-top: 80px; /* Khoảng cách từ navbar */
+  padding: 1rem;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Điều chỉnh kích thước của game board */
+.game-board-container {
+  height: calc(100vh - 320px);
+  min-height: 400px;
+  max-height: 800px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow: auto;
+  will-change: transform; /* Optimize for animations */
+  transform: translateZ(0); /* GPU acceleration */
+  transition: all 0.3s ease;
+}
+
+/* Fullscreen mode for game board */
+.fullscreen-game-board {
+  height: calc(100vh - 120px);
+  max-height: none;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Performance optimization */
+.memory-tile {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Black border for navigation bar */
+nav, header, [role="banner"] {
+  border-bottom: 1px solid #000 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #0a0f1a !important; /* Force dark background */
+  color: white !important; /* Force text color */
+}
+
+/* Fix for overlapping colors in nav */
+.nav-link, .nav-button {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+/* Add gradient border to game elements */
+.gradient-border {
+  position: relative;
+  border-radius: 0.75rem;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(to right, #4f46e5, #8b5cf6, #ec4899);
+}
+
+/* Success message animation */
+.success-message {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  animation: popIn 0.5s forwards, pulse 1.5s 0.5s infinite;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive styling for different screen sizes */
+@media (max-width: 768px) {
+  .game-container {
+    margin-top: 60px;
+    padding: 0.5rem;
+  }
+  
+  .game-board-container {
+    height: calc(100vh - 280px);
+    min-height: 350px;
+    padding: 0.5rem !important;
+  }
+  
+  .tile-container {
+    margin: 1px !important;
+  }
+  
+  /* Fullscreen specific for mobile */
+  .fullscreen-game-board {
+    height: 100vh !important;
+    padding: 0.25rem !important;
+  }
+  
+  .grid-pattern {
+    background-size: 15px 15px; /* Smaller grid for mobile */
+  }
+}
+
+/* Smaller tiles for mobile devices */
+@media (max-width: 480px) {
+  .tile-container {
+    min-width: 30px;
+    min-height: 30px;
+    margin: 1px !important;
+  }
+  
+  .game-container {
+    padding: 0.25rem;
+    margin-top: 50px;
+  }
+  
+  .game-board-container {
+    padding: 0.25rem !important;
+  }
+}
+
+/* Higher contrast text for better readability */
+.high-contrast-text {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive grid for game board */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 2px;
+}
+
+@media (max-width: 480px) {
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    gap: 1px;
+  }
+}
+
+/* Safari-specific fix for flex issues */
+@supports (-webkit-touch-callout: none) {
+  .safari-fix {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/* Optimize for full screen mode */
+:fullscreen .game-container {
+  margin-top: 0 !important;
+  padding-top: 0.5rem !important;
+}
+
+:fullscreen h1, :fullscreen p {
+  display: none;
+}
+
+/* Reduce animation in mobile for better performance */
+@media (max-width: 768px) {
+  .scanner-line::after {
+    animation: scan 3s ease-in-out infinite; /* Slower animation */
+  }
+  
+  .tile-glow {
+    animation: none; /* Disable glow animation on mobile */
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+  }
+}
+
+/* Fullscreen mode container */
+.fullscreen-mode {
+  padding: 0;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.fullscreen-mode .game-board-container {
+  flex: 1;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+}
+
+/* Tile and connection optimizations */
+.tile {
+  will-change: transform, opacity;
+  transform: translateZ(0); /* GPU acceleration */
+  backface-visibility: hidden; /* Prevent text flickering */
+  perspective: 1000px; /* 3D acceleration */
+  contain: layout style paint; /* Contain repaints */
+}
+
+.tile-content {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Animate tile selection */
+.tile.selected {
+  animation: pulse 1.5s infinite ease-in-out;
+  animation-fill-mode: both;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+  }
+}
+
+/* Force hardware acceleration for all animations */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-safe\:animate-all * {
+    transform: translateZ(0);
+  }
+  
+  .game-container {
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+}
+
+/* Reduce animations for people who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+} 

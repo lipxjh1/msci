@@ -1,0 +1,130 @@
+/* Modal Effects */
+.modal-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+.modal-glow {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.modal-glow:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Animated background for modal header */
+.modal-header-bg {
+  background-size: 200% 200%;
+  animation: gradientMove 15s ease infinite;
+}
+
+/* Pulse effect for buttons */
+.pulse-effect {
+  animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Form field focus effects */
+.input-focus-effect:focus {
+  box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.5);
+  outline: none;
+  border-color: transparent;
+}
+
+/* Success message animation */
+.success-appear {
+  animation: successAppear 0.5s ease-out forwards;
+}
+
+@keyframes successAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal transition effects */
+.modal-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect for benefits list */
+.benefit-hover-effect:hover {
+  transform: translateX(5px);
+  transition: transform 0.2s ease;
+} 
