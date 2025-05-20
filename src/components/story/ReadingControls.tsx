@@ -43,29 +43,35 @@ const ReadingControls: React.FC<ReadingControlsProps> = ({
     }
   };
 
+  // Base classes for theme buttons
+  const baseThemeButtonClass = "p-2.5 rounded-lg transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto";
+  const activeThemeButtonClass = "bg-blue-600 text-white shadow-lg";
+  const inactiveThemeButtonClass = "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600";
+
   return (
     <>
-      <div className="sticky top-0 z-30 backdrop-blur-md bg-white/90 dark:bg-gray-900/90 -mx-6 px-6 py-3 mb-6 border-b border-gray-200 dark:border-gray-800 shadow-sm transition-all">
+      <div className="sticky top-0 z-30 backdrop-blur-md bg-white/90 dark:bg-gray-900/90 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mb-6 border-b border-gray-200 dark:border-gray-800 shadow-sm transition-all">
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/story" className="mr-3 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <Link href="/story" className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Về trang danh sách truyện">
               <Home size={18} className="text-gray-600 dark:text-gray-300" />
             </Link>
             <button 
               onClick={() => setShowTOC(!showTOC)}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              title="Mục lục"
             >
               <List size={18} className="text-gray-600 dark:text-gray-300" />
             </button>
           </div>
 
-          <div className="mx-auto">
-            <h2 className="text-lg md:text-xl font-semibold text-center truncate max-w-[200px] md:max-w-md">
+          <div className="mx-auto px-2">
+            <h2 className="text-base sm:text-lg md:text-xl font-semibold text-center truncate max-w-[150px] xs:max-w-[200px] sm:max-w-xs md:max-w-md">
               {title}
             </h2>
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 sm:gap-2">
             <button 
               onClick={handleBookmark}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -96,12 +102,13 @@ const ReadingControls: React.FC<ReadingControlsProps> = ({
         </div>
       </div>
 
-      {/* Secondary controls */}
-      <div className="flex flex-wrap items-center justify-between mb-8 pb-3 border-b border-gray-200 dark:border-gray-800">
-        <div className="flex items-center mb-3 md:mb-0">
-          <span className="flex items-center mr-6">
-            <Book size={16} className="mr-2 text-gray-500 dark:text-gray-400" />
-            <span className="text-sm text-gray-600 dark:text-gray-300">
+      {/* Secondary controls: Chapter, Font, Theme */}
+      <div className="flex flex-col sm:flex-row sm:flex-wrap items-center sm:justify-between gap-4 mb-8 pb-3 border-b border-gray-200 dark:border-gray-800 px-1 sm:px-0">
+        {/* Left Group: Chapter Nav */}
+        <div className="flex items-center justify-between sm:justify-start w-full sm:w-auto">
+          <span className="flex items-center mr-3 sm:mr-6">
+            <Book size={18} className="mr-2 text-gray-500 dark:text-gray-400" />
+            <span className="text-sm text-gray-600 dark:text-gray-300 whitespace-nowrap">
               Hồi {currentChapter}/{totalChapters}
             </span>
           </span>
@@ -109,78 +116,65 @@ const ReadingControls: React.FC<ReadingControlsProps> = ({
             <button 
               onClick={() => onPrevChapter?.()}
               disabled={currentChapter <= 1}
-              className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Chương trước"
             >
-              <ChevronLeft size={16} className="text-gray-700 dark:text-gray-300" />
+              <ChevronLeft size={20} className="text-gray-700 dark:text-gray-300" />
             </button>
             <button 
               onClick={() => onNextChapter?.()}
-              disabled={currentChapter >= totalChapters}
-              className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={!totalChapters || currentChapter >= totalChapters}
+              className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Chương sau"
             >
-              <ChevronRight size={16} className="text-gray-700 dark:text-gray-300" />
+              <ChevronRight size={20} className="text-gray-700 dark:text-gray-300" />
             </button>
           </div>
         </div>
         
-        <div className="flex items-center">
+        {/* Right Group: Font Size + Theme - Stacks vertically on small screens */} 
+        <div className="flex flex-col xs:flex-row items-center gap-x-4 gap-y-3 w-full xs:w-auto mt-4 sm:mt-0">
           {/* Font size controls */}
-          <div className="flex items-center mr-4">
-            <Type size={16} className="mr-2 text-gray-500 dark:text-gray-400" />
+          <div className="flex items-center justify-between xs:justify-start w-full xs:w-auto bg-gray-100 dark:bg-gray-800 p-1 rounded-lg">
             <button 
               onClick={() => setFontSize(prev => Math.max(12, prev - 1))}
-              className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300"
+              className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300"
               aria-label="Giảm cỡ chữ"
             >
-              <span className="text-sm font-medium">A-</span>
+              <Type size={18} className="mr-1 xs:mr-0" /> <span className="hidden xs:inline">A-</span>
             </button>
-            <span className="text-xs font-medium mx-2 text-gray-600 dark:text-gray-400 w-8 text-center">{fontSize}px</span>
+            <span className="text-sm font-medium mx-2 text-gray-600 dark:text-gray-400 w-10 text-center">{fontSize}px</span>
             <button 
-              onClick={() => setFontSize(prev => Math.min(24, prev + 1))}
-              className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300"
+              onClick={() => setFontSize(prev => Math.min(30, prev + 1))} // Increased max font size
+              className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300"
               aria-label="Tăng cỡ chữ"
             >
-              <span className="text-sm font-medium">A+</span>
+              <Type size={18} className="mr-1 xs:mr-0" /> <span className="hidden xs:inline">A+</span>
             </button>
           </div>
           
           {/* Theme switcher */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center justify-around xs:justify-start gap-2 w-full xs:w-auto">
             <button 
               onClick={() => setTheme('light')}
-              className={`p-2 rounded transition-colors ${
-                theme === 'light'
-                  ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300' 
-                  : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400'
-              }`}
-              aria-label="Chế độ sáng"
-              title="Chế độ sáng"
+              className={`${baseThemeButtonClass} ${theme === 'light' ? activeThemeButtonClass : inactiveThemeButtonClass}`}
+              aria-label="Chế độ sáng" title="Chế độ sáng"
             >
-              <Sun size={16} />
+              <Sun size={18} />
             </button>
             <button 
               onClick={() => setTheme('dark')}
-              className={`p-2 rounded transition-colors ${
-                theme === 'dark'
-                  ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300' 
-                  : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400'
-              }`}
-              aria-label="Chế độ tối"
-              title="Chế độ tối"
+              className={`${baseThemeButtonClass} ${theme === 'dark' ? activeThemeButtonClass : inactiveThemeButtonClass}`}
+              aria-label="Chế độ tối" title="Chế độ tối"
             >
-              <Moon size={16} />
+              <Moon size={18} />
             </button>
             <button 
               onClick={() => setTheme('sepia')}
-              className={`p-2 rounded transition-colors ${
-                theme === 'sepia'
-                  ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300' 
-                  : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400'
-              }`}
-              aria-label="Chế độ sepia"
-              title="Chế độ sepia"
+              className={`${baseThemeButtonClass} ${theme === 'sepia' ? activeThemeButtonClass : inactiveThemeButtonClass}`}
+              aria-label="Chế độ sepia" title="Chế độ sepia"
             >
-              <Scroll size={16} />
+              <Scroll size={18} />
             </button>
           </div>
         </div>

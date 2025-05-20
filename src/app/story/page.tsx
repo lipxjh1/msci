@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, MessageSquare, Share2, ThumbsUp, ChevronUp, Trophy, Bell } from "lucide-react";
 
 // Components
+import NavBar from "@/components/NavBar";
 import ReadingControls from "@/components/story/ReadingControls";
 import StoryContent from "@/components/story/StoryContent";
 import StoryList from "@/components/story/StoryList";
@@ -14,502 +15,421 @@ import StoryNotSelected from "@/components/story/StoryNotSelected";
 // Types
 interface Chapter {
   id: string;
-  title: string;
+  title: string; // These titles in sampleStories are English, will remain so for the list
   file: string;
   number: number;
 }
 
 interface Story {
   id: string;
-  title: string;
+  title: string; // These titles in sampleStories are English, will remain so for the list
   author: string;
   category: string;
   cover: string;
-  description: string;
+  description: string; // These descriptions in sampleStories are English
   createdAt: string;
   likes: number;
   views: number;
   chapters: Chapter[];
 }
 
+const availableLanguages = [
+  { code: 'en', name: 'English' },
+  { code: 'zh', name: '中文' },
+  { code: 'ja', name: '日本語' },
+  { code: 'vi', name: 'Tiếng Việt' },
+  { code: 'ko', name: '한국어' },
+  { code: 'es', name: 'Español' },
+  { code: 'fr', name: 'Français' },
+  { code: 'de', name: 'Deutsch' },
+  { code: 'ru', name: 'Русский' },
+  { code: 'pt', name: 'Português' }
+];
+
+// Translations for the Story List title
+const storyListTitleTranslations: { [key: string]: string } = {
+  vi: 'Danh Sách Truyện',
+  en: 'Story List',
+  zh: '故事列表',
+  ja: '物語一覧',
+  ko: '이야기 목록',
+  es: 'Lista de Historias',
+  fr: 'Liste des Histoires',
+  de: 'Geschichtenliste',
+  ru: 'Список Историй',
+  pt: 'Lista de Histórias'
+};
+
 const StoryPage = () => {
-  const [stories, setStories] = useState<Story[]>([]);
+  const [allStoriesData, setAllStoriesData] = useState<Story[]>([]); // Renamed from stories
+  const [displayableStories, setDisplayableStories] = useState<Story[]>([]); // For filtered list
+  const [isFilteringList, setIsFilteringList] = useState<boolean>(true); // Loading state for list filtering
+
   const [currentStory, setCurrentStory] = useState<string | null>(null);
   const [currentChapter, setCurrentChapter] = useState<number>(1);
   const [storyContent, setStoryContent] = useState<string>("");
   const [fontSize, setFontSize] = useState<number>(18);
   const [theme, setTheme] = useState<'light' | 'dark' | 'sepia'>('light');
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true); // For content loading
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const [showPointsNotification, setShowPointsNotification] = useState(false);
   const [userPoints, setUserPoints] = useState(0);
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('vi');
 
   const contentRef = useRef<HTMLDivElement>(null);
 
+  // Effect for initial setup and fetching all story metadata
   useEffect(() => {
-    // Apply theme to body element
     document.body.className = '';
     document.body.classList.add(`theme-${theme}`);
     
-    // Handle scroll to show/hide scroll-to-top button
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-    
+    const handleScroll = () => setShowScrollTop(window.scrollY > 300);
     window.addEventListener('scroll', handleScroll);
     
-    // Check for saved theme in localStorage
     const savedTheme = localStorage.getItem('reader_theme');
-    if (savedTheme) {
-      setTheme(savedTheme as 'light' | 'dark' | 'sepia');
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      // Default to dark if user prefers dark scheme
-      setTheme('dark');
-    }
+    if (savedTheme) setTheme(savedTheme as 'light' | 'dark' | 'sepia');
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
     
-    // Check for saved font size
     const savedFontSize = localStorage.getItem('reader_font_size');
-    if (savedFontSize) {
-      setFontSize(parseInt(savedFontSize));
-    }
+    if (savedFontSize) setFontSize(parseInt(savedFontSize));
+
+    const savedLanguage = localStorage.getItem('story_language');
+    if (savedLanguage) setSelectedLanguage(savedLanguage);
     
-    // Retrieve available stories
-    const fetchStories = async () => {
+    const fetchAllStoryMetadata = async () => {
+      setIsFilteringList(true); // Start with list filtering true
+      setLoading(true); // Also general loading true
       try {
-        setLoading(true);
-        
-        // In a real application, this data would come from an API
         const sampleStories = [
           {
-            id: "overwatch_story",
-            title: "Thời Đại Kết Nối",
-            author: "Tác giả 1",
-            category: "Truyện",
-            cover: "/images/overwatch_bg_2.jpg",
-            description: "Câu chuyện về thế giới tương lai với công nghệ Neuralink kết nối con người",
+            id: "msci_story",
+            title: "The Connected Age", 
+            author: "Author 1",
+            category: "Story",
+            cover: "/images/overwatch_bg_2.jpg", 
+            description: "A story about a future world with Neuralink technology connecting people.",
             createdAt: "2024-04-01",
             likes: 120,
             views: 500,
             chapters: [
-              {
-                id: "1chuongmodau",
-                title: "Mở Đầu: Thời Đại Kết Nối",
-                file: "1chuongmodau.txt",
-                number: 1
-              },
-              {
-                id: "2chuong1",
-                title: "Hồi 1: Sự Thức Tỉnh",
-                file: "2chuong1.txt",
-                number: 2
-              },
-              {
-                id: "3chuong2",
-                title: "Hồi 2: Cuộc Gặp Gỡ",
-                file: "3chuong2.txt",
-                number: 3
-              }
+              { id: "1chuongmodau", title: "Prologue: The Connected Age", file: "1chuongmodau.txt", number: 1 },
+              { id: "2chuong1", title: "Chapter 1: The Awakening", file: "2chuong1.txt", number: 2 },
+              { id: "3chuong2", title: "Chapter 2: The Encounter", file: "3chuong2.txt", number: 3 }
             ]
           }
         ];
-        
-        setStories(sampleStories);
-        setLoading(false);
+        setAllStoriesData(sampleStories);
+        // Filtering will happen in another useEffect dependent on allStoriesData and selectedLanguage
       } catch (error) {
-        console.error("Error fetching stories:", error);
-        setLoading(false);
+        console.error("Error fetching initial story metadata:", error);
+        setAllStoriesData([]);
+      } finally {
+        // setLoading(false); // Loading will be set to false after filtering and content fetch attempt
       }
     };
 
-    fetchStories();
+    fetchAllStoryMetadata();
     
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []); // Empty dependency array for one-time setup
 
-  // Update theme with effect
+  // Effect for filtering stories based on language availability
   useEffect(() => {
-    localStorage.setItem('reader_theme', theme);
-  }, [theme]);
+    const filterAndSetStories = async () => {
+      if (allStoriesData.length === 0) {
+        setDisplayableStories([]);
+        setIsFilteringList(false);
+        setLoading(false); // No stories, no loading
+        // StoryNotSelected will be rendered via JSX based on states, no need to setStoryContent here
+        if (!currentStory) setStoryContent(''); // Clear content if no stories to filter
+        return;
+      }
 
-  // Update fontSize with effect
-  useEffect(() => {
-    localStorage.setItem('reader_font_size', fontSize.toString());
-  }, [fontSize]);
+      setIsFilteringList(true);
+      setLoading(true); // Indicate general loading during this process
 
-  // Function to fetch story content
-  const fetchStoryContent = useCallback(async (storyId: string, chapter: number = 1) => {
-    try {
-      setLoading(true);
-      
-      // Get story and chapter info
-      const story = stories.find(s => s.id === storyId);
-      if (!story || story.chapters.length === 0) {
-        throw new Error("Story or chapters not found");
-      }
-      
-      // Find the chapter data
-      const chapterData = story.chapters.find(c => c.number === chapter);
-      if (!chapterData) {
-        throw new Error(`Chapter ${chapter} not found`);
-      }
-      
-      // Call to API endpoint
-      const response = await fetch(`/api/story/${chapterData.id}`);
-      
-      if (!response.ok) {
-        throw new Error(`Error fetching story: ${response.statusText}`);
-      }
-      
-      const data = await response.json();
-      setStoryContent(data.content);
-      setCurrentStory(storyId);
-      setCurrentChapter(chapter);
-      setLoading(false);
-      
-      // Scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } catch (error) {
-      console.error("Error fetching story content:", error);
-      
-      // Fallback to static content for demo
-      try {
-        const story = stories.find(s => s.id === storyId);
-        if (!story) throw new Error("Story not found");
-        
-        const chapterData = story.chapters.find(c => c.number === chapter);
-        if (!chapterData) throw new Error("Chapter not found");
-        
-        const response = await fetch(`/tailieu/truyen/${chapterData.file}`);
-        if (!response.ok) {
-          throw new Error("Chapter file not found");
+      const storyAvailabilityChecks = allStoriesData.map(async (story) => {
+        if (!story.chapters || story.chapters.length === 0 || !story.chapters[0].file) {
+          return { ...story, isAvailable: false };
         }
-        
-        const text = await response.text();
-        setStoryContent(text);
-        setCurrentStory(storyId);
-        setCurrentChapter(chapter);
-      } catch (fallbackError) {
-        console.error("Fallback error:", fallbackError);
-        setStoryContent("Không thể tải nội dung truyện. Vui lòng thử lại sau.");
+        const firstChapterFile = story.chapters[0].file;
+        const filePath = `/tailieu/truyen/${selectedLanguage}/${firstChapterFile}`;
+        try {
+          const response = await fetch(filePath);
+          return { ...story, isAvailable: response.ok };
+        } catch (error) {
+          console.warn(`Failed to check availability for ${filePath}`, error);
+          return { ...story, isAvailable: false };
+        }
+      });
+
+      const results = await Promise.all(storyAvailabilityChecks);
+      const availableStories = results.filter(story => story.isAvailable);
+      setDisplayableStories(availableStories as Story[]);
+      setIsFilteringList(false);
+      // setLoading is handled by fetchStoryContent
+
+      if (availableStories.length > 0) {
+        const currentStoryStillAvailable = availableStories.some(s => s.id === currentStory);
+        if (!currentStoryStillAvailable || !currentStory) {
+          // If current story is no longer available, or no story was selected, select the first available one
+          // fetchStoryContent will be triggered by the dependency change on currentStory/currentChapter
+          setCurrentStory(availableStories[0].id);
+          setCurrentChapter(1);
+        } else {
+          // If current story is still available, ensure its content is fetched (already handled by another useEffect)
+        }
+      } else {
+        setCurrentStory(null);
+        setCurrentChapter(1);
+        setStoryContent(''); // Clear story content
+        setLoading(false); // No content to load
+      }
+    };
+
+    filterAndSetStories();
+  }, [allStoriesData, selectedLanguage]); // Removed currentStory from deps to avoid re-triggering selection logic unnecessarily before content fetch
+
+
+  useEffect(() => { localStorage.setItem('reader_theme', theme); }, [theme]);
+  useEffect(() => { localStorage.setItem('reader_font_size', fontSize.toString()); }, [fontSize]);
+  useEffect(() => { localStorage.setItem('story_language', selectedLanguage); }, [selectedLanguage]);
+
+  const fetchStoryContent = useCallback(async (storyId: string, chapterNum: number, language: string) => {
+    setLoading(true);
+    try {
+      const story = allStoriesData.find(s => s.id === storyId); // Use allStoriesData for metadata
+      if (!story || !story.chapters || story.chapters.length === 0) {
+        throw new Error("Story metadata or chapters not found in application state.");
       }
       
+      const chapterData = story.chapters.find(c => c.number === chapterNum);
+      if (!chapterData || !chapterData.file || !chapterData.title) {
+        throw new Error(`Chapter metadata for chapter number ${chapterNum} not found or incomplete.`);
+      }
+      
+      let chapterFileContent = "";
+      let contentFetchedSuccessfully = false;
+
+      try {
+        const response = await fetch(`/tailieu/truyen/${language}/${chapterData.file}`);
+        if (response.ok) {
+           chapterFileContent = await response.text();
+           contentFetchedSuccessfully = true;
+        } else {
+          console.warn(`Story content for ${chapterData.file} (Chapter: "${chapterData.title}") not found in selected language: ${language} (HTTP Status: ${response.status})`);
+        }
+      } catch(fetchError) {
+         console.error(`Error fetching story content /tailieu/truyen/${language}/${chapterData.file}:`, fetchError);
+      }
+      
+      if (contentFetchedSuccessfully) {
+        setStoryContent(chapterFileContent);
+      } else {
+        const languageName = availableLanguages.find(l => l.code === language)?.name || language;
+        const titleForMessage = chapterData.title || `Chapter ${chapterNum}`;
+        setStoryContent(`Content for "${titleForMessage}" is not yet available in ${languageName}.`);
+      }
+      
+      setCurrentStory(storyId);
+      setCurrentChapter(chapterNum);
+
+    } catch (error) {
+      console.error("Error processing story/chapter metadata:", error);
+      setStoryContent("Error: Could not load story or chapter details. Please contact support or try refreshing.");
+    } finally {
       setLoading(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' }); 
     }
-  }, [stories]);
+  }, [allStoriesData]); // Depends on allStoriesData for metadata, availableLanguages is stable
 
-  // Handle story selection
+  // Effect to refetch content when language, story, or chapter changes by user interaction
+  useEffect(() => {
+    if (currentStory && displayableStories.some(s => s.id === currentStory)) { // Ensure current story is valid before fetching
+      fetchStoryContent(currentStory, currentChapter, selectedLanguage);
+    }
+    // If currentStory becomes null due to filtering, this won't run, which is fine.
+    // If displayableStories is empty, currentStory will be null.
+  }, [currentStory, currentChapter, selectedLanguage, fetchStoryContent, displayableStories]);
+
+
   const handleSelectStory = (storyId: string) => {
-    setCurrentStory(storyId);
-    setCurrentChapter(1); // Reset to first chapter when selecting a new story
-    fetchStoryContent(storyId, 1);
+    // fetchStoryContent will be called by the useEffect above when currentStory/currentChapter changes
+    setCurrentStory(storyId); 
+    setCurrentChapter(1); 
   };
 
-  // Handle chapter selection
   const handleSelectChapter = (storyId: string, chapter: number) => {
-    fetchStoryContent(storyId, chapter);
+    // fetchStoryContent will be called by the useEffect above
+    setCurrentStory(storyId);
+    setCurrentChapter(chapter);
   };
 
-  // Handle next/previous chapter navigation
   const handleNextChapter = useCallback(() => {
     if (currentStory) {
-      const story = stories.find(s => s.id === currentStory);
+      const story = allStoriesData.find(s => s.id === currentStory);
       if (story && currentChapter < story.chapters.length) {
-        fetchStoryContent(currentStory, currentChapter + 1);
+        // setCurrentChapter(currentChapter + 1); // Let useEffect handle fetch
+         fetchStoryContent(currentStory, currentChapter + 1, selectedLanguage); // direct call to avoid race condition with state update
       }
     }
-  }, [currentStory, currentChapter, fetchStoryContent, stories]);
+  }, [currentStory, currentChapter, selectedLanguage, fetchStoryContent, allStoriesData]);
 
   const handlePrevChapter = useCallback(() => {
     if (currentStory && currentChapter > 1) {
-      fetchStoryContent(currentStory, currentChapter - 1);
+      // setCurrentChapter(currentChapter - 1); // Let useEffect handle fetch
+      fetchStoryContent(currentStory, currentChapter - 1, selectedLanguage); // direct call
     }
-  }, [currentStory, currentChapter, fetchStoryContent]);
+  }, [currentStory, currentChapter, selectedLanguage, fetchStoryContent, allStoriesData]);
 
-  // Handle scroll to top
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // Theme styles with improved contrast
   const themeStyles = {
-    light: {
-      background: '#ffffff',
-      text: '#333333',
-      secondary: '#4a5568'
-    },
-    dark: {
-      background: '#111827', // Darker background for better contrast
-      text: '#f3f4f6',      // Lighter text for better contrast
-      secondary: '#9ca3af'   // Mid-tone gray for secondary text
-    },
-    sepia: {
-      background: '#f8f0e3',
-      text: '#422006',      // Darker sepia text for better contrast
-      secondary: '#6b5e50'
-    }
+    light: { background: '#ffffff', text: '#333333', secondary: '#4a5568' },
+    dark: { background: '#111827', text: '#f3f4f6', secondary: '#9ca3af' },
+    sepia: { background: '#f8f0e3', text: '#422006', secondary: '#6b5e50' }
   };
 
-  // Get current story object
-  const currentStoryObj = currentStory ? stories.find(s => s.id === currentStory) : null;
-  // Get current chapter title
+  const currentStoryObj = currentStory ? allStoriesData.find(s => s.id === currentStory) : null; // Use allStories for title consistency
   const currentChapterTitle = currentStoryObj?.chapters.find(c => c.number === currentChapter)?.title || '';
-  // Get total chapters
   const totalChapters = currentStoryObj?.chapters.length || 0;
 
-  // Effect to load user points
   useEffect(() => {
-    // Lấy điểm từ localStorage
     const points = localStorage.getItem('user_points');
-    if (points) {
-      setUserPoints(parseInt(points));
-    }
-    
-    // Hiển thị thông báo về tính năng kiếm điểm nếu người dùng chưa xem
+    if (points) setUserPoints(parseInt(points));
     const hasSeenNotification = localStorage.getItem('points_notification_seen');
-    if (!hasSeenNotification) {
-      setTimeout(() => {
-        setShowPointsNotification(true);
-      }, 3000);
-    }
+    if (!hasSeenNotification) setTimeout(() => setShowPointsNotification(true), 3000);
   }, []);
   
-  // Xử lý đóng thông báo
   const handleCloseNotification = () => {
     setShowPointsNotification(false);
     localStorage.setItem('points_notification_seen', 'true');
   };
 
   return (
-    <div className="min-h-screen" style={{ 
-      backgroundColor: themeStyles[theme].background, 
-      color: themeStyles[theme].text,
-      transition: 'background-color 0.3s, color 0.3s' 
-    }}>
-      {/* Hero section with background image */}
+    <div 
+      className={`min-h-screen transition-colors duration-300 ${themeStyles[theme].background} ${themeStyles[theme].text}`}
+      style={{ fontSize: `${fontSize}px` }}
+    >
+      <NavBar />
       <div className="relative h-[50vh] bg-gradient-to-r from-blue-900 to-purple-900 mb-8">
-        <Image 
-          src="/images/banner/trangchu.jpg" 
-          alt="Story background" 
-          fill
-          className="object-cover opacity-40"
-          priority
-        />
+        <Image src="/images/banner/trangchu.jpg" alt="Story background" fill className="object-cover opacity-40" priority />
         <div className="absolute inset-0 flex items-center justify-center flex-col px-4">
-          <h1 className="text-3xl md:text-5xl font-bold text-white text-center mb-4 drop-shadow-lg">
-            Thư Viện Truyện
-          </h1>
-          <p className="text-lg text-white text-center max-w-2xl drop-shadow">
-            Khám phá những câu chuyện hấp dẫn trong thế giới Overwatch
-          </p>
+          <h1 className="text-3xl md:text-5xl font-bold text-white text-center mb-4 drop-shadow-lg">Story Library</h1>
+          <p className="text-lg text-white text-center max-w-2xl drop-shadow">Discover captivating stories in the MSCI universe.</p>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 lg:px-6 pb-12">
+      <main className="container mx-auto px-4 lg:px-6 pb-12 relative">
+        <div className="mb-6">
+          <label htmlFor="language-select" className="mr-2 font-semibold text-lg">Select Language:</label>
+          <select
+            id="language-select"
+            value={selectedLanguage}
+            onChange={(e) => setSelectedLanguage(e.target.value)}
+            className="p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500"
+          >
+            {availableLanguages.map(lang => (
+              <option key={lang.code} value={lang.code}>{lang.name}</option>
+            ))}
+          </select>
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar - Story list */}
           <div className="lg:w-1/4">
+            <div className="mb-4">
+              <h2 className="text-xl font-bold flex items-center text-gray-800 dark:text-gray-100">
+                <BookOpen className="mr-2 h-5 w-5 text-blue-500 dark:text-blue-400" />
+                {storyListTitleTranslations[selectedLanguage] || storyListTitleTranslations.en}
+              </h2>
+              <hr className="my-2 border-gray-200 dark:border-gray-700" />
+            </div>
             <StoryList 
-              stories={stories.map(story => ({
-                id: story.id,
-                title: story.title,
-                coverImage: story.cover,
-                description: story.description,
-                chapters: story.chapters
-              }))}
+              stories={displayableStories}
               currentStory={currentStory}
               currentChapter={currentChapter}
               onSelectStory={handleSelectStory}
               onSelectChapter={handleSelectChapter}
-              loading={loading}
+              loading={isFilteringList}
             />
-            
-            {/* Additional information */}
-            <div className="sticky top-24 mt-6 bg-white/60 dark:bg-gray-800/60 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
-              <h2 className="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Về Thư Viện Truyện</h2>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
-                Thư viện truyện Overwatch là nơi lưu trữ và chia sẻ những câu chuyện đa dạng về thế giới và nhân vật trong trò chơi.
-              </p>
-              <div className="flex items-center gap-4 mt-4">
-                <button className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors text-sm">
-                  Chia sẻ
-                </button>
-                <button className="px-3 py-1.5 bg-gray-600 hover:bg-gray-700 text-white rounded-md transition-colors text-sm">
-                  Báo lỗi
-                </button>
-              </div>
-            </div>
           </div>
 
-          {/* Main content - Story reader */}
           <div className="lg:w-3/4">
             <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md p-4 md:p-6 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
-              {!currentStory ? (
-                <StoryNotSelected />
-              ) : (
+              {isFilteringList && <StoryNotSelected message="Checking story availability..." />}
+              
+              {!isFilteringList && !currentStory && displayableStories.length === 0 && 
+                <StoryNotSelected message={`No stories available in ${availableLanguages.find(l=>l.code === selectedLanguage)?.name || selectedLanguage}.`} />}
+              
+              {!isFilteringList && !currentStory && displayableStories.length > 0 && 
+                <StoryNotSelected /> /* Default message: Select a story */}
+              
+              {currentStory && (
                 <>
-                  {/* Reading controls */}
                   <ReadingControls 
                     fontSize={fontSize}
                     setFontSize={setFontSize}
                     theme={theme}
                     setTheme={setTheme}
-                    title={currentStoryObj?.title || 'Đang đọc'}
+                    title={currentStoryObj?.title || 'Now Reading'}
                     currentChapter={currentChapter}
                     totalChapters={totalChapters}
                     onNextChapter={handleNextChapter}
                     onPrevChapter={handlePrevChapter}
                   />
-                  
-                  {/* Chapter title */}
                   <div className="mb-6 text-center">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                      {currentChapterTitle}
-                    </h2>
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{currentChapterTitle}</h2>
                   </div>
-                  
-                  {/* Story content */}
-                  <StoryContent 
-                    content={storyContent}
-                    fontSize={fontSize}
-                    loading={loading}
-                  />
-                  
-                  {/* Navigation buttons */}
+                  <StoryContent content={storyContent} fontSize={fontSize} loading={loading} />
                   <div className="mt-10 flex justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <button 
-                      onClick={handlePrevChapter}
-                      className="px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 story-nav-button"
-                      disabled={currentChapter <= 1}
-                    >
-                      <ArrowLeft className="h-5 w-5" />
-                      Chương Trước
+                    <button onClick={handlePrevChapter} className="px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 story-nav-button" disabled={currentChapter <= 1}>
+                      <ArrowLeft className="h-5 w-5" /> Previous Chapter
                     </button>
-                    
-                    <button 
-                      onClick={handleNextChapter}
-                      className="px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 story-nav-button"
-                      disabled={currentChapter >= totalChapters}
-                    >
-                      Chương Sau
-                      <ArrowRight className="h-5 w-5" />
+                    <button onClick={handleNextChapter} className="px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 story-nav-button" disabled={!currentStoryObj || currentChapter >= totalChapters}>
+                      Next Chapter <ArrowRight className="h-5 w-5" />
                     </button>
                   </div>
                 </>
               )}
             </div>
             
-            {/* Comments section */}
             {currentStory && (
               <div className="mt-8 bg-white/60 dark:bg-gray-800/60 backdrop-blur-md p-4 md:p-6 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
                 <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100 flex items-center">
-                  <MessageSquare className="mr-2 text-blue-500" size={20} />
-                  Bình luận
+                  <MessageSquare className="mr-2 text-blue-500" size={20} /> Comments
                 </h3>
-                
-                {/* Comment form */}
                 <div className="mb-6">
-                  <textarea 
-                    className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    rows={3}
-                    placeholder="Viết bình luận của bạn..."
-                  ></textarea>
+                  <textarea className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" rows={3} placeholder="Write your comment..."></textarea>
                   <div className="flex justify-end mt-2">
-                    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors story-nav-button">
-                      Đăng bình luận
-                    </button>
+                    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors story-nav-button">Post Comment</button>
                   </div>
                 </div>
-                
-                {/* Sample comments */}
                 <div className="space-y-4">
-                  <div className="p-4 bg-white dark:bg-gray-700 rounded-lg border border-gray-100 dark:border-gray-600">
-                    <div className="flex items-center mb-2">
-                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-medium">
-                        TH
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="font-medium text-gray-900 dark:text-gray-100">Trần Hưng</h4>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">2 giờ trước</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-800 dark:text-gray-200">
-                      Cốt truyện rất hay và hấp dẫn! Mong chờ những chương tiếp theo.
-                    </p>
-                    <div className="flex items-center mt-2 gap-4">
-                      <button className="flex items-center text-gray-500 hover:text-blue-500 transition-colors">
-                        <ThumbsUp size={14} className="mr-1" />
-                        <span className="text-sm">12</span>
-                      </button>
-                      <button className="text-gray-500 hover:text-blue-500 transition-colors text-sm">
-                        Phản hồi
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <div className="p-4 bg-white dark:bg-gray-700 rounded-lg border border-gray-100 dark:border-gray-600">
-                    <div className="flex items-center mb-2">
-                      <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-medium">
-                        MT
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="font-medium text-gray-900 dark:text-gray-100">Minh Tú</h4>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">1 ngày trước</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-800 dark:text-gray-200">
-                      Tôi thích cách tác giả xây dựng thế giới Neuralink, rất sáng tạo và có chiều sâu!
-                    </p>
-                    <div className="flex items-center mt-2 gap-4">
-                      <button className="flex items-center text-gray-500 hover:text-blue-500 transition-colors">
-                        <ThumbsUp size={14} className="mr-1" />
-                        <span className="text-sm">8</span>
-                      </button>
-                      <button className="text-gray-500 hover:text-blue-500 transition-colors text-sm">
-                        Phản hồi
-                      </button>
-                    </div>
-                  </div>
+                  {/* Sample comments */}
                 </div>
               </div>
             )}
           </div>
         </div>
-      </div>
+      </main>
       
-      {/* Scroll to top button */}
       {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50 animate-fade-in"
-          aria-label="Cuộn lên đầu trang"
-        >
+        <button onClick={scrollToTop} className="fixed bottom-6 right-6 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50 animate-fade-in" aria-label="Scroll to top">
           <ChevronUp size={24} />
         </button>
       )}
       
-      {/* Points notification */}
       {showPointsNotification && (
         <div className="fixed bottom-6 left-6 max-w-xs bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 border-l-4 border-yellow-500 z-50 animate-slide-up">
           <div className="flex justify-between items-start">
             <div className="flex items-start gap-3">
-              <div className="mt-0.5">
-                <Trophy size={20} className="text-yellow-500" />
-              </div>
+              <div className="mt-0.5"><Trophy size={20} className="text-yellow-500" /></div>
               <div>
-                <h3 className="font-medium text-gray-900 dark:text-gray-100">Tính năng mới: Kiếm điểm!</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                  Trả lời câu hỏi trong quá trình đọc truyện để nhận điểm thưởng và mở khóa các truyện đặc biệt.
-                </p>
+                <h3 className="font-medium text-gray-900 dark:text-gray-100">New Feature: Earn Points!</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Answer questions while reading stories to earn bonus points and unlock special stories.</p>
               </div>
             </div>
-            <button 
-              onClick={handleCloseNotification}
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-            >
-              ×
-            </button>
+            <button onClick={handleCloseNotification} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">×</button>
           </div>
         </div>
       )}

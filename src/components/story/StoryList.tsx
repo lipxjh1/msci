@@ -53,7 +53,6 @@ const StoryList: React.FC<StoryListProps> = ({
   if (loading && stories.length === 0) {
     return (
       <div className="bg-white/75 dark:bg-gray-800/75 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-        <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-gray-800 dark:text-gray-200">Danh Sách Truyện</h2>
         <div className="flex justify-center p-4">
           <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
         </div>
@@ -61,16 +60,19 @@ const StoryList: React.FC<StoryListProps> = ({
     );
   }
 
+  if (!loading && stories.length === 0) {
+    return (
+      <div className="bg-white/75 dark:bg-gray-800/75 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+        <p className="text-center text-gray-500 dark:text-gray-400 py-4">
+          No stories available for the selected language.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white/75 dark:bg-gray-800/75 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-      <h2 className="text-xl font-semibold mb-4 border-b pb-2 text-gray-800 dark:text-gray-200">
-        <span className="flex items-center">
-          <Book className="mr-2 text-blue-500" size={18} />
-          Danh Sách Truyện
-        </span>
-      </h2>
-      
-      <ul className="space-y-4">
+      <ul className="space-y-4 pt-2">
         {stories.map(story => (
           <li key={story.id} className="group transition-all duration-300">
             <div 
