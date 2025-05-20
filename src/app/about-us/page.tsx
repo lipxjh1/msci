@@ -1,16 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
 import HeroBanner from "./components/HeroBanner";
-import OurStory from "./components/OurStory";
 import VisionMission from "./components/VisionMission";
 import CoreValues from "./components/CoreValues";
 import DevelopmentJourney from "./components/DevelopmentJourney";
 import ImpressiveNumbers from "./components/ImpressiveNumbers";
 import Technology from "./components/Technology";
-import CallToAction from "./components/CallToAction";
-import Quote from "./components/Quote";
 import ThanhDieuHuongResponsive from "@/thanh_phan/thanh_dieu_huong_responsive";
+import Loading from "@/components/Loading";
+
+const Footer = dynamic(() => import("@/app/home/components/Footer"), {
+  loading: () => <Loading />,
+  ssr: false
+});
 
 export default function AboutUsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -37,9 +41,6 @@ export default function AboutUsPage() {
         {/* Curved section top */}
         <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#041019] -translate-y-full"></div>
         
-        {/* Our Story Section */}
-        <OurStory />
-        
         {/* Vision & Mission Section */}
         <VisionMission />
         
@@ -56,11 +57,8 @@ export default function AboutUsPage() {
         <Technology />
       </div>
       
-      {/* Call to Action */}
-      <CallToAction />
-      
-      {/* Quote */}
-      <Quote />
+      {/* Footer */}
+      <Footer />
     </main>
   );
 } 
