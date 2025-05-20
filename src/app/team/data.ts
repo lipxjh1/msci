@@ -85,7 +85,7 @@ export const teamMembers: TeamMember[] = [
     id: 6,
     name: 'Alex Nguyen',
     title: 'Lead Developer',
-    image: '/images/team/team6.jpg',
+    image: '/team/giamdockythuat.png',
     achievements: [
       '12 năm phát triển game Unity',
       'Chuyên gia tối ưu mobile performance',

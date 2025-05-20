@@ -1,102 +1,93 @@
 import Image from 'next/image';
 import { TeamMember } from './data';
 
-// Component for team member card
-const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }) => {
-  // Determine color based on department
-  const getDepartmentColor = (dept: string) => {
-    switch (dept) {
-      case 'leadership':
-        return 'var(--accent-gold)';
-      case 'creative':
-        return 'var(--accent-purple)';
-      case 'technical':
-        return 'var(--accent-blue-bright)';
-      case 'operations':
-        return 'var(--accent-green)';
-      case 'expansion':
-        return 'var(--accent-orange)';
-      default:
-        return 'var(--accent-blue-bright)';
-    }
+// Tạo bản đồ màu sắc cho từng bộ phận
+const departmentColors = {
+  leadership: '#F44336', // đỏ
+  creative: '#9C27B0',   // tím
+  technical: '#2196F3',  // xanh dương
+  operations: '#4CAF50', // xanh lá
+  expansion: '#FF9800'   // cam
+};
+
+// Component cho thẻ thành viên nhóm
+const TeamMemberCard = ({ 
+  member, 
+  index, 
+  onClick 
+}: { 
+  member: TeamMember; 
+  index: number;
+  onClick: () => void;
+}) => {
+  // Lấy màu dựa trên bộ phận
+  const getColor = (dept: string): string => {
+    return departmentColors[dept as keyof typeof departmentColors] || '#2196F3';
   };
 
-  const departmentColor = getDepartmentColor(member.department);
+  const color = getColor(member.department);
+  
+  const getDelay = (idx: number): string => {
+    return `${(idx % 8) * 100}ms`;
+  };
 
   return (
     <div 
-      className="relative h-full rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform-gpu hover:shadow-xl animate-fadeIn card-neon"
+      id={`team-card-${member.id}`}
+      className="bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden shadow-lg hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 group animate-fadeIn cursor-pointer relative"
       style={{ 
-        animationDelay: `${index * 50}ms`
+        animationDelay: getDelay(index)
       }}
+      onClick={onClick}
     >
-      {/* Member Image */}
-      <div className="relative h-60 bg-gray-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent z-10"></div>
+      <div className="relative h-48">
         <Image
           src={member.image || '/images/team/placeholder.jpg'}
           alt={member.name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
+          className="object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
         
-        {/* Department badge - top right corner */}
-        <div className="absolute top-3 right-3 z-30">
+        {/* Department badge */}
+        <div className="absolute top-4 left-4 z-30">
           <div 
-            className="px-3 py-1 rounded-full text-sm font-medium font-rajdhani flex items-center gap-1.5 backdrop-blur-sm button-cyber"
+            className="p-2 px-3 backdrop-blur-sm rounded-md border"
             style={{ 
-              backgroundColor: `${departmentColor}30`,
-              borderRight: `3px solid ${departmentColor}`
+              backgroundColor: `${color}30`,
+              borderColor: `${color}30`
             }}
           >
             <span 
-              className="inline-block h-2 w-2 rounded-full animate-pulse"
-              style={{ backgroundColor: departmentColor }}
-            ></span>
-            <span className="text-white">{member.department.charAt(0).toUpperCase() + member.department.slice(1)}</span>
+              className="text-white font-medium text-sm"
+            >
+              {member.department.charAt(0).toUpperCase() + member.department.slice(1)}
+            </span>
           </div>
         </div>
       </div>
       
-      {/* Member info container */}
-      <div className="p-5 bg-gradient-to-b from-[#041019] to-[#071b29] h-[calc(100%-15rem)]">
-        <h3 className="font-rajdhani text-xl font-bold text-white tracking-wide mb-1 text-shadow-blue">{member.name}</h3>
-        <p className="font-rajdhani text-sm text-[var(--accent-blue-bright)] mb-4">{member.title}</p>
-        
-        {/* Achievements */}
-        <ul className="space-y-2 mb-4 text-white/80 text-sm">
-          {member.achievements.map((achievement, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="inline-block h-2 w-2 rounded-full mt-1.5" style={{ backgroundColor: departmentColor }}></span>
-              <span>{achievement}</span>
-            </li>
-          ))}
-        </ul>
-        
-        {/* Quote */}
-        <div className="border-l-2 pl-3 italic text-sm text-white/70 mt-auto" style={{ borderColor: departmentColor }}>
-          "{member.quote}"
-        </div>
+      {/* Member info container - chỉ hiển thị tên và chức vụ */}
+      <div className="p-6">
+        <h3 
+          className="text-xl font-bold mb-2 group-hover:text-white transition-colors"
+          style={{ color: color }}
+        >
+          {member.name}
+        </h3>
+        <p className="text-white/70">{member.title}</p>
       </div>
+
+      {/* Hiệu ứng khi hover */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none"></div>
       
-      {/* Corner decoration - top left */}
-      <div className="absolute top-0 left-0 w-12 h-12 overflow-hidden">
-        <div 
-          className="absolute top-0 left-0 w-16 h-16 -translate-x-8 -translate-y-8 rotate-45 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{ 
-            background: `linear-gradient(135deg, ${departmentColor}, transparent)`
-          }}
-        ></div>
+      {/* Hiệu ứng nhấp nháy nút click */}
+      <div className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-very-slow">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+        </svg>
       </div>
-      
-      {/* Glow effect on hover */}
-      <div 
-        className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{ 
-          boxShadow: `inset 0 0 20px 5px ${departmentColor}40`
-        }}
-      ></div>
     </div>
   );
 };

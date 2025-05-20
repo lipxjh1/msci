@@ -1,341 +1,179 @@
-import { createClient } from '@supabase/supabase-js';
-import { BaiViet } from '@/loai/bai_viet';
-import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
+"use client";
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { formatRelativeTime } from '@/utils/dateUtils';
-import VideoSection from './VideoSection';
+import { BaiViet } from '@/types/bai_viet';
+import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
+import Footer from "@/app/home/components/Footer";
+import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase client
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+// Tạo Supabase client
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-// Get article details
-async function getArticle(id: string) {
-  try {
-    // Get default path from environment variables
-    const defaultAvatar = process.env.NEXT_PUBLIC_DEFAULT_AVATAR || '/images/avatar-default.png';
-    
-    // First, get the article without joins to ensure it works
-    const { data: articleData, error: articleError } = await supabase
-      .from('bai_viet')
-      .select('*')
-      .eq('id', id)
-      .single();
-
-    if (articleError) {
-      console.error('Error fetching article basic data:', articleError);
-      return null;
-    }
-
-    // If there is no user_id, return the article with default user info
-    if (!articleData.nguoi_dung_id) {
-      return {
-        ...articleData,
-        nguoi_dung: {
-          id: 'unknown',
-          ten: 'Anonymous User',
-          avatar: defaultAvatar
+export default function NewsDetail({ params }: { params: { id: string } }) {
+  const [article, setArticle] = useState<BaiViet | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  // Lấy dữ liệu tin tức dựa trên ID
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        // Kiểm tra nếu URL hoặc key Supabase không tồn tại
+        if (!supabaseUrl || !supabaseKey) {
+          throw new Error('Supabase URL hoặc Key không được cấu hình');
         }
-      } as BaiViet & { nguoi_dung: { id: string, ten: string, avatar: string } };
-    }
 
-    // Then, try to get user information
-    const { data: userData, error: userError } = await supabase
-      .from('nguoi_dung')
-      .select('id, ten, avatar')
-      .eq('id', articleData.nguoi_dung_id)
-      .single();
-
-    // If there is an error when fetching user info, use default info
-    if (userError) {
-      console.warn('Error fetching user data:', userError);
-      return {
-        ...articleData,
-        nguoi_dung: {
-          id: articleData.nguoi_dung_id,
-          ten: 'Unknown User',
-          avatar: defaultAvatar
+        // Khởi tạo Supabase client
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        
+        // Lấy dữ liệu từ bảng bai_viet dựa trên ID
+        const { data, error } = await supabase
+          .from('bai_viet')
+          .select('*')
+          .eq('id', params.id)
+          .single();
+        
+        if (error) {
+          throw error;
         }
-      } as BaiViet & { nguoi_dung: { id: string, ten: string, avatar: string } };
-    }
-
-    // Return the article with user information
-    return {
-      ...articleData,
-      nguoi_dung: userData || {
-        id: articleData.nguoi_dung_id,
-        ten: 'Unknown User',
-        avatar: defaultAvatar
+        
+        if (data) {
+          setArticle(data);
+        } else {
+          setError('Không tìm thấy bài viết');
+        }
+      } catch (e) {
+        if (e instanceof Error) {
+          console.error('Lỗi khi tải chi tiết bài viết:', e);
+          setError(e.message);
+        } else {
+          setError('Đã xảy ra lỗi không xác định');
+        }
+      } finally {
+        setLoading(false);
       }
-    } as BaiViet & { nguoi_dung: { id: string, ten: string, avatar: string } };
-  } catch (error) {
-    console.error('Unexpected error in getArticle:', error);
-    return null;
-  }
-}
-
-// Get related articles (same type)
-async function getRelatedArticles(type: string, currentId: string, limit = 3) {
-  const { data, error } = await supabase
-    .from('bai_viet')
-    .select('*')
-    .eq('loai', type)
-    .neq('id', currentId)
-    .order('ngay_dang', { ascending: false })
-    .limit(limit);
-
-  if (error) {
-    console.error('Error fetching related posts:', error);
-    return [];
-  }
-
-  return data as BaiViet[];
-}
-
-// Function to generate dynamic metadata for SEO
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const article = await getArticle(params.id);
-  
-  if (!article) {
-    return {
-      title: 'Article Not Found',
-      description: 'The article does not exist or has been removed'
     };
-  }
-  
-  return {
-    title: `${article.tieu_de || 'No Title'} | Overwatch Clone`,
-    description: (article.noi_dung || '').substring(0, 160) + '...',
-    openGraph: {
-      title: article.tieu_de || 'No Title',
-      description: (article.noi_dung || '').substring(0, 160) + '...',
-      images: [article.anh_dai_dien || process.env.NEXT_PUBLIC_DEFAULT_BANNER || '/images/overwatch_bg_2.jpg']
-    }
+
+    fetchArticle();
+  }, [params.id]);
+
+  // Format date
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('vi-VN', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }).format(date);
   };
-}
 
-// Configure to allow dynamic parameters
-export const dynamicParams = true;
-
-// Ensure this page is always dynamically rendered
-export const dynamic = 'force-dynamic';
-
-export default async function ArticleDetailPage({ params }: { params: { id: string } }) {
-  const article = await getArticle(params.id);
-  
-  if (!article) {
-    notFound();
-  }
-  
-  // Ensure article type is valid to avoid errors when querying related articles
-  const type = article.loai === 'tin_tuc' || article.loai === 'cong_dong' 
-    ? article.loai 
-    : 'tin_tuc';
-  
-  const relatedArticles = await getRelatedArticles(type, params.id);
-  
-  // Use environment variables for default paths
-  const defaultAvatar = process.env.NEXT_PUBLIC_DEFAULT_AVATAR || '/images/avatar-default.png';
-  const defaultBanner = process.env.NEXT_PUBLIC_DEFAULT_BANNER || '/images/overwatch_bg_2.jpg';
-  
-  // Default values for images if not available
-  const avatarUrl = article.nguoi_dung?.avatar || defaultAvatar;
-  const userName = article.nguoi_dung?.ten || 'Anonymous User';
-  
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a141e] to-[#1a2634]">
+    <div className="min-h-screen bg-[#16181D] text-white">
       <ThanhDieuHuongResponsive />
       
-      {/* Hero section with parallax effect */}
-      <div className="relative h-[100vh] w-full overflow-hidden">
-        {/* Background layers */}
-        <div className="absolute inset-0">
-          {/* Main image */}
-          <div className="absolute inset-0">
-            <Image 
-              src={article.anh_dai_dien || defaultBanner}
-              alt={article.tieu_de || 'No Title'}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center scale-110"
-            />
-            <div className="absolute inset-0 bg-black/40"></div>
-          </div>
-          
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a141e]/70 via-[#0a141e]/30 to-[#0a141e] z-10"></div>
-          
-          {/* Particle effect */}
-          <div className="absolute inset-0 z-10">
-            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse delay-100"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse delay-200"></div>
-            <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-red-400 rounded-full shadow-lg shadow-red-400/50 animate-pulse delay-300"></div>
-          </div>
+      {loading && (
+        <div className="flex justify-center items-center h-96">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[var(--overwatch-blue)]"></div>
         </div>
-        
-        {/* Content overlay */}
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              {/* Badge */}
-              <div className="inline-block mb-6">
-                <span className={`px-4 py-1.5 rounded-full text-sm font-medium backdrop-blur-md ${
-                  article.loai === 'tin_tuc' 
-                    ? 'bg-[#F44336]/20 text-[#F44336] border-[#F44336]/30 border' 
-                    : 'bg-[#4CAF50]/20 text-[#4CAF50] border-[#4CAF50]/30 border'
-                }`}>
-                  {article.loai === 'tin_tuc' ? 'News' : 'Community'}
-                </span>
-              </div>
-              
-              {/* Title with glow effect */}
-              <h1 className="font-orbitron text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white relative">
-                  {article.tieu_de || 'No Title'}
-                  <span className="absolute -inset-1 animate-pulse-very-slow opacity-30 blur-md bg-[#f44336]/20 -z-10 rounded-lg"></span>
-                </span>
-              </h1>
-            </div>
-          </div>
-        </div>
-        
-        {/* Decorative bottom curve */}
-        <div className="absolute -bottom-10 left-0 right-0 h-20 bg-[#0a141e] transform rotate-1 scale-110 z-20"></div>
-        <div className="absolute -bottom-10 left-0 right-0 h-20 bg-[#0a141e] transform -rotate-1 scale-110 z-20"></div>
-      </div>
+      )}
       
-      {/* Main content section */}
-      <div className="container mx-auto px-4 relative z-30 -mt-16 pt-20">
-        <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden bg-[#1a2634]/80 backdrop-blur-md border border-white/5 shadow-xl pt-16">
-          {/* Author info card - elevated above content */}
-          <div className="relative -mt-8 mx-6 md:mx-10 mb-8">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 bg-[#0f1923]/90 backdrop-blur-xl p-6 rounded-xl border border-white/10 shadow-xl">
-              <div className="relative h-16 w-16 md:h-20 md:w-20 rounded-full overflow-hidden border-2 border-white/20">
-                <Image 
-                  src={avatarUrl}
-                  alt={userName}
-                  fill
-                  sizes="(max-width: 768px) 64px, 80px"
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex flex-col items-center md:items-start">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-bold text-lg text-white">{userName}</h3>
-                  <span className="hidden md:inline text-white/40">•</span>
-                  <span suppressHydrationWarning className="hidden md:inline text-white/40 text-sm">
-                    {article.ngay_dang ? new Date(article.ngay_dang).toLocaleDateString('en-US', {
-                      day: 'numeric',
-                      month: 'short',
-                      year: 'numeric'
-                    }) : 'No date'}
-                  </span>
+      {error && !loading && (
+        <div className="container mx-auto px-4 py-20 text-center">
+          <div className="max-w-2xl mx-auto bg-[#1F2326]/50 rounded-lg p-8">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold mb-4">{error}</h2>
+            <p className="text-gray-400 mb-6">Không thể tải nội dung bài viết. Vui lòng thử lại sau.</p>
+            <Link 
+              href="/new"
+              className="inline-block px-6 py-3 bg-[var(--overwatch-blue)] text-white font-medium rounded-md hover:bg-[var(--overwatch-blue)]/80 transition-colors"
+            >
+              Quay lại trang tin tức
+            </Link>
+          </div>
+        </div>
+      )}
+      
+      {article && !loading && !error && (
+        <>
+          {/* Hero Banner */}
+          <div className="relative w-full h-[40vh] md:h-[50vh] overflow-hidden">
+            <Image 
+              src={article.anh_dai_dien || "/images/overwatch_bg_2.jpg"} 
+              alt={article.tieu_de} 
+              fill 
+              priority
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#16181D]/70 via-[#16181D]/60 to-[#16181D]"></div>
+            
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center max-w-4xl px-4">
+                <div className="inline-block mb-4 px-3 py-1 rounded text-sm font-bold" style={{
+                  backgroundColor: article.loai === 'tin_tuc' ? 'var(--overwatch-blue)' : '#FF7D00'
+                }}>
+                  {article.loai === 'tin_tuc' ? 'GAME UPDATE' : 'COMMUNITY'}
                 </div>
-                <span suppressHydrationWarning className="md:hidden text-white/40 text-sm">
-                  {article.ngay_dang ? new Date(article.ngay_dang).toLocaleDateString('en-US', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                  }) : 'No date'}
-                </span>
-                <span className="mt-2 px-3 py-1 rounded-full bg-white/5 text-xs font-medium text-white/70">
-                  Author
-                </span>
+                <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
+                  {article.tieu_de}
+                </h1>
+                <div className="text-gray-300 text-sm md:text-base">
+                  {formatDate(article.ngay_dang)}
+                </div>
               </div>
             </div>
           </div>
           
-          {/* Article content */}
-          <div className="p-6 md:p-10">
-            <div className="prose prose-lg prose-invert max-w-none">
-              <div className="whitespace-pre-line text-white/85 leading-relaxed text-lg">
-                {article.noi_dung || 'No content available'}
-              </div>
-            </div>
-          </div>
-          
-          {/* Video section */}
-          {article.video && article.video.includes('iframe') && (
-            <div className="p-6 md:p-10 pt-0">
-              <VideoSection video={article.video} />
-            </div>
-          )}
-          
-          {/* Related articles */}
-          {relatedArticles.length > 0 && (
-            <div className="p-6 md:p-10 bg-[#0f1923]/70 border-t border-white/5">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1 h-8 bg-gradient-to-b from-[#F44336] to-transparent rounded-full"></div>
-                <h2 className="text-xl font-bold text-white">Related Articles</h2>
+          {/* Article Content */}
+          <div className="container mx-auto px-4 py-12">
+            <div className="max-w-3xl mx-auto bg-[#1F2326] rounded-lg p-6 md:p-8 shadow-xl">
+              <div className="prose prose-invert prose-lg max-w-none">
+                <p className="text-lg leading-relaxed mb-6 whitespace-pre-line">{article.noi_dung}</p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {relatedArticles.map((article) => (
-                  <Link 
-                    key={article.id} 
-                    href={`/new/${article.id}`}
-                    className="group bg-white/5 rounded-lg overflow-hidden transition-all duration-300 hover:bg-white/10 hover:shadow-lg"
-                  >
-                    <div className="relative h-48 overflow-hidden">
-                      <Image 
-                        src={article.anh_dai_dien || defaultBanner}
-                        alt={article.tieu_de || 'Related Article'}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-                    </div>
-                    
-                    <div className="p-4">
-                      <h3 className="font-bold text-white group-hover:text-[#F44336] transition-colors line-clamp-2 mb-2">
-                        {article.tieu_de}
-                      </h3>
-                      <p className="text-sm text-white/60 line-clamp-2 mb-4">
-                        {article.noi_dung}
-                      </p>
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-white/40">
-                          {article.ngay_dang ? new Date(article.ngay_dang).toLocaleDateString('en-US', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric'
-                          }) : 'No date'}
-                        </span>
-                        <span className="text-xs text-[#F44336] flex items-center">
-                          View details
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1 transition-transform transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+              {/* Share and Navigation */}
+              <div className="flex flex-col sm:flex-row justify-between items-center mt-12 pt-6 border-t border-gray-700">
+                <div className="flex items-center space-x-4 mb-4 sm:mb-0">
+                  <span className="text-gray-400 text-sm">Chia sẻ:</span>
+                  <button className="text-gray-400 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg>
+                  </button>
+                  <button className="text-gray-400 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                    </svg>
+                  </button>
+                  <button className="text-gray-400 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                  </button>
+                </div>
+                
+                <Link 
+                  href="/new"
+                  className="flex items-center text-[var(--overwatch-blue)] hover:text-white transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+                  </svg>
+                  Quay lại danh sách tin tức
+                </Link>
               </div>
             </div>
-          )}
-        </div>
-        
-        {/* Back to news button */}
-        <div className="max-w-4xl mx-auto mt-10 mb-20 flex justify-center">
-          <Link 
-            href="/new"
-            className="px-6 py-3 bg-[#0f1923] hover:bg-[#0f1923]/80 text-white rounded-lg transition-all duration-300 flex items-center gap-2 border border-white/10"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to News
-          </Link>
-        </div>
-      </div>
+          </div>
+        </>
+      )}
+      
+      <Footer />
     </div>
   );
 } 
