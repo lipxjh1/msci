@@ -8,6 +8,7 @@ import QuanLyHero from '@/components/admin/QuanLyHero';
 import QuanLyBaiViet from '@/components/admin/QuanLyBaiViet';
 import ChatbotManagement from '@/components/admin/chatbot-management/ChatbotManagement';
 import QuanLyThongKe from '@/components/admin/QuanLyThongKe';
+import QuanLySocialLinks from '@/components/admin/QuanLySocialLinks';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
 
 function AdminDashboardContent() {
@@ -120,6 +121,16 @@ function AdminDashboardContent() {
                 Quản lý Chatbot
               </button>
               <button
+                onClick={() => setActiveTab('quan-ly-socials')}
+                className={`${
+                  activeTab === 'quan-ly-socials'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+              >
+                Mạng xã hội
+              </button>
+              <button
                 onClick={() => setActiveTab('thong-ke')}
                 className={`${
                   activeTab === 'thong-ke'
@@ -163,10 +174,10 @@ function AdminDashboardContent() {
                   </div>
                   
                   <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                    <h3 className="text-lg font-medium text-purple-800 mb-2">Quản lý Admin</h3>
-                    <p className="text-sm text-purple-600 mb-4">Quản lý người dùng và cấu hình</p>
+                    <h3 className="text-lg font-medium text-purple-800 mb-2">Mạng xã hội</h3>
+                    <p className="text-sm text-purple-600 mb-4">Quản lý liên kết mạng xã hội</p>
                     <button 
-                      onClick={() => setActiveTab('quan-ly-admin')}
+                      onClick={() => setActiveTab('quan-ly-socials')}
                       className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 w-full"
                     >
                       Truy cập
@@ -197,6 +208,12 @@ function AdminDashboardContent() {
             {activeTab === 'quan-ly-chatbot' && (
               <div>
                 <ChatbotManagement />
+              </div>
+            )}
+            
+            {activeTab === 'quan-ly-socials' && (
+              <div>
+                <QuanLySocialLinks />
               </div>
             )}
             

@@ -1,21 +1,15 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  FaTwitter, 
-  FaFacebookF, 
-  FaYoutube, 
-  FaInstagram, 
-  FaDiscord, 
-  FaTelegramPlane
-} from "react-icons/fa";
-import { useState } from "react";
+import { useSocialLinks, getSocialIconColor } from "@/context/SocialLinksContext";
 
 export default function Footer() {
   const [emailInput, setEmailInput] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+  const { socialLinks, loading } = useSocialLinks();
   
   // Navigation links
   const footerLinks = [
@@ -46,15 +40,6 @@ export default function Footer() {
         { name: "Contact", href: "/contact" },
       ]
     },
-  ];
-
-  const socialLinks = [
-    { name: "Twitter", icon: <FaTwitter />, href: "#" },
-    { name: "Facebook", icon: <FaFacebookF />, href: "#" },
-    { name: "Discord", icon: <FaDiscord />, href: "#" },
-    { name: "Telegram", icon: <FaTelegramPlane />, href: "https://t.me/MSCIChannel" },
-    { name: "YouTube", icon: <FaYoutube />, href: "#" },
-    { name: "Instagram", icon: <FaInstagram />, href: "#" },
   ];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -131,10 +116,11 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 hover:text-white bg-white/5 hover:bg-blue-600/20 backdrop-blur-sm border border-white/5 transition-all duration-300"
+                  className={`w-9 h-9 rounded-full flex items-center justify-center text-gray-400 hover:text-white bg-white/5 hover:bg-blue-600/20 backdrop-blur-sm border border-white/5 transition-all duration-300 ${getSocialIconColor(social.name)}`}
+                  title={social.name}
                 >
                   <span className="text-sm">
-                    {social.icon}
+                    {social.icon || social.name.charAt(0)}
                   </span>
                 </Link>
               ))}

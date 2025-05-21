@@ -6,6 +6,7 @@ import { SupabaseProvider } from "@/context/SupabaseContext";
 import { ModalProvider } from '@/context/ModalContext';
 import { SearchProvider } from '@/context/SearchContext';
 import { AuthProvider } from '@/context/AuthContext';
+import { SocialLinksProvider } from '@/context/SocialLinksContext';
 import SearchModal from '@/components/SearchModal';
 import PageTracker from '@/components/analytics/PageTracker';
 
@@ -61,13 +62,15 @@ export default function RootLayout({
       <body className={bodyClasses}>
         <SupabaseProvider>
           <AuthProvider>
-            <SearchProvider>
-              <ModalProvider>
-                {children}
-                <SearchModal />
-                <PageTracker />
-              </ModalProvider>
-            </SearchProvider>
+            <SocialLinksProvider>
+              <SearchProvider>
+                <ModalProvider>
+                  {children}
+                  <SearchModal />
+                  <PageTracker />
+                </ModalProvider>
+              </SearchProvider>
+            </SocialLinksProvider>
           </AuthProvider>
         </SupabaseProvider>
       </body>

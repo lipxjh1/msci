@@ -1,0 +1,7 @@
+Facebook=https://web.facebook.com/msciapp
+Twitter=https://twitter.com/myhandle
+Instagram=https://instagram.com/myprofile
+LinkedIn=https://linkedin.com/in/myprofile
+YouTube=https://youtube.com/c/mychannel
+Discord=https://discord.gg/mycommunity
+Telegram=https://t.me/MSCIChannel
