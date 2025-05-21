@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useInView } from 'react-intersection-observer';
-import { FaDiscord, FaTwitter, FaYoutube, FaInstagram, FaPlay } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 export default function CTASection() {
@@ -117,25 +117,6 @@ export default function CTASection() {
               <div className="cyberpunk-stat">
                 <div className="text-4xl font-black text-cyan-400 mb-1">100+</div>
                 <div className="text-sm text-gray-400 uppercase tracking-wide">STAGES</div>
-              </div>
-            </div>
-            
-            {/* Social media icons */}
-            <div className={`mt-12 flex flex-col sm:flex-row sm:items-center gap-4 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} transition-all duration-700 delay-900`}>
-              <div className="text-gray-400 uppercase text-sm tracking-wider">Follow us:</div>
-              <div className="flex space-x-5">
-                <Link href="#" className="text-cyan-500 hover:text-white transition-colors duration-300" aria-label="Twitter">
-                  <FaTwitter className="w-5 h-5" />
-                </Link>
-                <Link href="#" className="text-cyan-500 hover:text-white transition-colors duration-300" aria-label="Discord">
-                  <FaDiscord className="w-5 h-5" />
-                </Link>
-                <Link href="#" className="text-cyan-500 hover:text-white transition-colors duration-300" aria-label="YouTube">
-                  <FaYoutube className="w-5 h-5" />
-                </Link>
-                <Link href="#" className="text-cyan-500 hover:text-white transition-colors duration-300" aria-label="Instagram">
-                  <FaInstagram className="w-5 h-5" />
-                </Link>
               </div>
             </div>
           </div>

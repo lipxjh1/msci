@@ -2,9 +2,11 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaFacebookF, FaTwitter, FaYoutube, FaDiscord, FaTelegram } from 'react-icons/fa';
+import { useSocialLinks, getSocialIconColor } from '@/context/SocialLinksContext';
 
 export default function PartnersFooter() {
+  const { socialLinks, loading } = useSocialLinks();
+  
   return (
     <div className="relative w-full overflow-hidden">
       {/* Background Image */}
@@ -35,21 +37,20 @@ export default function PartnersFooter() {
             <div className="mt-8">
               <h3 className="text-gray-300 uppercase text-sm tracking-widest mb-4">FOLLOW US</h3>
               <div className="flex justify-center space-x-6">
-                <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                  <FaFacebookF className="h-6 w-6" />
-                </a>
-                <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                  <FaTwitter className="h-6 w-6" />
-                </a>
-                <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                  <FaYoutube className="h-6 w-6" />
-                </a>
-                <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                  <FaDiscord className="h-6 w-6" />
-                </a>
-                <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                  <FaTelegram className="h-6 w-6" />
-                </a>
+                {socialLinks.map((social, index) => (
+                  <a 
+                    key={index}
+                    href={social.href} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-white hover:text-[#FF7D00] transition-colors ${getSocialIconColor(social.name)}`}
+                    title={social.name}
+                  >
+                    <span className="text-2xl">
+                      {social.icon || social.name.charAt(0)}
+                    </span>
+                  </a>
+                ))}
               </div>
             </div>
           </div>

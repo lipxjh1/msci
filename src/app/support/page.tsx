@@ -7,6 +7,7 @@ import { FaFacebookF, FaTwitter, FaYoutube, FaDiscord, FaTelegram } from 'react-
 import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import { useDeepSeekChat } from '@/modules/box-akane';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSocialLinks, getSocialIconColor } from '@/context/SocialLinksContext';
 
 // CSS cho animation pulse-slow
 const pulseAnimation = `
@@ -262,6 +263,7 @@ export default function SupportPage() {
   const [activeTab, setActiveTab] = useState('gioi-thieu');
   const [showFaqSection, setShowFaqSection] = useState(false);
   const faqRef = useRef<HTMLDivElement>(null);
+  const { socialLinks, loading } = useSocialLinks();
 
   const scrollToFaq = (sectionId: string) => {
     setActiveTab(sectionId);
@@ -1092,21 +1094,20 @@ export default function SupportPage() {
               <div className="mt-8">
                 <h3 className="text-white uppercase text-sm tracking-widest mb-4">FOLLOW US</h3>
                 <div className="flex justify-center space-x-6">
-                  <a href="#" className="text-white hover:text-[#7289DA] transition-colors">
-                    <FaFacebookF className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#7289DA] transition-colors">
-                    <FaTwitter className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#7289DA] transition-colors">
-                    <FaYoutube className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#7289DA] transition-colors">
-                    <FaDiscord className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#7289DA] transition-colors">
-                    <FaTelegram className="h-6 w-6" />
-                  </a>
+                  {socialLinks.map((social, index) => (
+                    <a 
+                      key={index}
+                      href={social.href} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-[#7289DA] transition-colors"
+                      title={social.name}
+                    >
+                      <span className="h-6 w-6">
+                        {social.icon}
+                      </span>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

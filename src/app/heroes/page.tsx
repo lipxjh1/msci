@@ -9,6 +9,7 @@ import ResponsiveNavigation from '@/thanh_phan/responsive_navigation';
 import { FaFacebookF, FaTwitter, FaYoutube, FaDiscord, FaTelegram } from 'react-icons/fa';
 import { useDeepSeekChat } from '@/modules/box-akane';
 import { Message } from '@/modules/box-akane/types';
+import { useSocialLinks, getSocialIconColor } from '@/context/SocialLinksContext';
 
 // Create CustomChatInterface component to customize the chat interface
 function CustomChatInterface({ 
@@ -245,6 +246,9 @@ export default function HeroesPage() {
   const [selectedRole, setSelectedRole] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Sử dụng SocialLinksContext để lấy dữ liệu mạng xã hội
+  const { socialLinks, loading: loadingSocial } = useSocialLinks();
 
   // Get role list
   useEffect(() => {
@@ -619,21 +623,20 @@ export default function HeroesPage() {
               <div className="mt-8">
                 <h3 className="text-gray-300 uppercase text-sm tracking-widest mb-4">FOLLOW US</h3>
                 <div className="flex justify-center space-x-6">
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaFacebookF className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaTwitter className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaYoutube className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaDiscord className="h-6 w-6" />
-                  </a>
-                  <a href="#" className="text-white hover:text-[#FF7D00] transition-colors">
-                    <FaTelegram className="h-6 w-6" />
-                  </a>
+                  {socialLinks.map((social, index) => (
+                    <a 
+                      key={index}
+                      href={social.href} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`text-white hover:text-[#FF7D00] transition-colors ${getSocialIconColor(social.name)}`}
+                      title={social.name}
+                    >
+                      <span className="text-xl">
+                        {social.icon || social.name.charAt(0)}
+                      </span>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
