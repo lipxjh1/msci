@@ -453,9 +453,9 @@ export default function SupportPage() {
                     <div className="mb-6">
                       <h3 className="font-medium text-white text-lg mb-2">Objectives:</h3>
                       <ul className="text-white list-disc pl-5 space-y-1">
-                        <li>Control a team of 3 heroes</li>
-                        <li>Eliminate enemies appearing within 30 seconds of each level</li>
-                        <li>The game has a total of 100 levels divided into 5 major areas</li>
+                        <li className="text-white">Control a team of 3 heroes</li>
+                        <li className="text-white">Eliminate enemies appearing within 30 seconds of each level</li>
+                        <li className="text-white">The game has a total of 100 levels divided into 5 major areas</li>
                       </ul>
                     </div>
             
@@ -496,7 +496,7 @@ export default function SupportPage() {
                     </div>
             
                     <div className="bg-gradient-to-r from-[#ff0000]/20 to-transparent p-4 rounded-lg border-l-4 border-red-500 mb-4">
-                      <p className="text-white italic">
+                      <p className="text-white italic font-bold">
                         "Fight without stopping - Win without limits!"
                       </p>
                     </div>
@@ -549,7 +549,7 @@ export default function SupportPage() {
                         
                         <div className="relative h-full min-h-[180px] rounded-xl overflow-hidden border border-white/10">
                           <Image 
-                            src="/images/banner/contrac.jpg" 
+                            src="/images/banner/play.jpg" 
                             alt="Game Controls" 
                             fill 
                             sizes="(max-width: 768px) 100vw, 50vw" 
@@ -853,18 +853,14 @@ export default function SupportPage() {
 
                         <div className="relative h-[180px] rounded-xl overflow-hidden border border-white/10">
                           <Image 
-                            src="/images/banner/contrac.jpg" 
+                            src="/images/banner/meo.jpeg" 
                             alt="Strategy" 
                             fill 
                             sizes="(max-width: 768px) 100vw, 100vw" 
                             className="object-cover"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#0f1923]/90 via-[#0f1923]/50 to-transparent"></div>
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="px-6 py-2 bg-[#F44336]/60 text-white text-sm rounded-full">
-                              Strategy Illustration
-                </span>
-            </div>
+
                         </div>
                       </div>
               </div>
