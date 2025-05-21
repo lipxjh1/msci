@@ -260,7 +260,7 @@ function CustomChatInterface({
 } 
 
 export default function SupportPage() {
-  const [activeTab, setActiveTab] = useState('gioi-thieu');
+  const [activeTab, setActiveTab] = useState('huong-dan');
   const [showFaqSection, setShowFaqSection] = useState(false);
   const faqRef = useRef<HTMLDivElement>(null);
   const { socialLinks, loading } = useSocialLinks();
@@ -358,16 +358,6 @@ export default function SupportPage() {
 
                 <nav className="space-y-2">
                   <button 
-                    onClick={() => setActiveTab('gioi-thieu')}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
-                      activeTab === 'gioi-thieu' 
-                        ? 'bg-[#F44336]/20 text-white border-l-2 border-[#F44336]' 
-                        : 'text-white hover:bg-white/10 hover:translate-x-1'
-                    }`}
-                  >
-                    Introduction
-                  </button>
-                  <button 
                     onClick={() => scrollToFaq('huong-dan')}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
                       activeTab === 'huong-dan' 
@@ -429,8 +419,8 @@ export default function SupportPage() {
                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                       />
                     </svg>
-                    <a href="mailto:support@msci.game" className="hover:underline text-white">
-                      support@msci.game
+                    <a href="mailto:support@m-sci.net" className="hover:underline text-white">
+                      support@m-sci.net
                     </a>
                   </div>
                 </div>
@@ -439,73 +429,6 @@ export default function SupportPage() {
 
             {/* Content area */}
             <div className="lg:col-span-3">
-              {/* Giới thiệu game */}
-              <div className={`${activeTab === 'gioi-thieu' ? 'block' : 'hidden'}`}>
-                <div className="bg-[#1a2634]/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 shadow-xl mb-8">
-                  <h2 className="font-bai-jamjuree text-3xl font-bold mb-6 relative inline-block">
-                    <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)] animate-pulse-slow">Game Introduction</span>
-                    <div className="absolute -bottom-2 left-0 h-1.5 w-full bg-gradient-to-r from-[#ff0000] via-[#ff5555] to-transparent"></div>
-                  </h2>
-
-                  <div className="prose prose-invert max-w-none">
-                    <p className="text-white mb-4">
-                      M-SCI is a science fiction tactical action game set in 2049. In a world where the X-Corp technology conglomerate under the control of The Ascended is threatening the future of humanity, players join the M-SCI force founded by Elon Musk to protect the future of mankind.
-                    </p>
-
-                    <div className="mb-6">
-                      <h3 className="font-medium text-white text-lg mb-2">Objectives:</h3>
-                      <ul className="text-white list-disc pl-5 space-y-1">
-                        <li className="text-white">Control a team of 3 heroes</li>
-                        <li className="text-white">Eliminate enemies appearing within 30 seconds of each level</li>
-                        <li className="text-white">The game has a total of 100 levels divided into 5 major areas</li>
-                      </ul>
-                    </div>
-            
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                      <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300">
-                        <h3 className="font-medium text-lg mb-3 flex items-center">
-                          <span className="w-8 h-8 bg-blue-500/30 rounded-full flex items-center justify-center mr-2 shadow-[0_0_15px_rgba(59,130,246,0.4)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                          </span>
-                          <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)]">Key Features</span>
-                        </h3>
-                        <ul className="text-white space-y-1 pl-10 list-disc [&>li]:text-white">
-                          <li>High-speed combat, each level lasts 30 seconds</li>
-                          <li>3 character classes with distinct roles</li>
-                          <li>Hero upgrade and evolution system</li>
-                          <li>Modern sci-fi graphics, stunning shooting effects</li>
-                        </ul>
-                      </div>
-
-                      <div className="bg-[#0f1923]/80 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all duration-300">
-                        <h3 className="font-medium text-lg mb-3 flex items-center">
-                          <span className="w-8 h-8 bg-green-500/30 rounded-full flex items-center justify-center mr-2 shadow-[0_0_15px_rgba(34,197,94,0.4)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                          </span>
-                          <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.8)]">Play with Friends</span>
-                        </h3>
-                        <ul className="text-white space-y-1 pl-10 list-disc [&>li]:text-white">
-                          <li>Create and join Guilds</li>
-                          <li>Fight in Guild Wars as a team</li>
-                          <li>Challenge others in 1v1 and 3v3 PvP</li>
-                          <li>Weekly global boss challenges</li>
-                        </ul>
-                      </div>
-                    </div>
-            
-                    <div className="bg-gradient-to-r from-[#ff0000]/20 to-transparent p-4 rounded-lg border-l-4 border-red-500 mb-4">
-                      <p className="text-white italic font-bold">
-                        "Fight without stopping - Win without limits!"
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            
               {/* How to Play */}
               <div className={`${activeTab === 'huong-dan' ? 'block' : 'hidden'}`} ref={faqRef}>
                 <div className="bg-[#1a2634]/80 backdrop-blur-md border border-white/5 rounded-2xl p-8 shadow-xl mb-8">
@@ -905,10 +828,12 @@ export default function SupportPage() {
               </div>
               
                     <div className="bg-gradient-to-r from-[#ff0000]/20 to-transparent p-4 rounded-lg border-l-4 border-red-500 mb-4">
-                      <p className="text-white italic text-center">
-                        "Fight without stopping - Win without limits!"
-                      </p>
-              </div>
+                      <div className="flex justify-center">
+                        <span className="text-white italic font-bold text-lg md:text-xl py-2 text-glow animate-pulse-slow" style={{ color: '#ffffff', textShadow: '0 0 10px rgba(255,255,255,0.8)' }}>
+                          "Fight without stopping - Win without limits!"
+                        </span>
+                      </div>
+                    </div>
             </div>
           </div>
         </div>
@@ -964,7 +889,7 @@ export default function SupportPage() {
                         <ul className="space-y-3 pl-11">
                           <li className="flex items-center space-x-2 text-white">
                             <span>Email: </span>
-                            <a href="mailto:support@m-sci.game" className="text-blue-400 hover:underline hover:text-blue-300 transition-colors">support@m-sci.game</a>
+                            <a href="mailto:support@m-sci.net" className="text-blue-400 hover:underline hover:text-blue-300 transition-colors">support@m-sci.net</a>
                           </li>
                           <li className="flex items-center text-white">
                             <span>In-game Support: Use the "Help" section in the game to submit a ticket</span>
