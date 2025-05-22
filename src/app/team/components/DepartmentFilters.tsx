@@ -7,11 +7,11 @@ interface DepartmentFiltersProps {
 
 // Các bộ phận và màu sắc tương ứng
 const departments = [
-  { id: 'leadership', name: 'Ban Lãnh Đạo', color: '#F44336' },
-  { id: 'creative', name: 'Đội Sáng Tạo', color: '#9C27B0' },
-  { id: 'technical', name: 'Đội Kỹ Thuật', color: '#2196F3' },
-  { id: 'operations', name: 'Đội Vận Hành', color: '#4CAF50' },
-  { id: 'expansion', name: 'Đội Mở Rộng', color: '#FF9800' }
+  { id: 'leadership', name: 'Leadership', color: '#F44336' },
+  { id: 'creative', name: 'Creative Team', color: '#9C27B0' },
+  { id: 'technical', name: 'Technical Team', color: '#2196F3' },
+  { id: 'operations', name: 'Operations Team', color: '#4CAF50' },
+  { id: 'expansion', name: 'Expansion Team', color: '#FF9800' }
 ];
 
 const DepartmentFilters = ({ selectedDepartment, setSelectedDepartment }: DepartmentFiltersProps) => {
@@ -112,7 +112,7 @@ const DepartmentFilters = ({ selectedDepartment, setSelectedDepartment }: Depart
                 color: selectedDepartment === department.id ? department.color : 'rgba(255,255,255,0.7)'
               }}
             >
-              {selectedDepartment === department.id ? 'Đang chọn' : 'Xem thành viên'}
+              {selectedDepartment === department.id ? 'Selected' : 'View members'}
             </div>
           </div>
         </div>
@@ -125,15 +125,15 @@ const DepartmentFilters = ({ selectedDepartment, setSelectedDepartment }: Depart
 function getDescription(departmentId: string): string {
   switch (departmentId) {
     case 'leadership':
-      return 'Những người sáng lập và định hướng tầm nhìn cho đội ngũ';
+      return 'Founders and visionaries of the team';
     case 'creative':
-      return 'Chuyên gia thiết kế, kể chuyện và sáng tạo nội dung';
+      return 'Designers, storytellers, and creative content experts';
     case 'technical':
-      return 'Lập trình viên, kỹ sư và chuyên gia công nghệ';
+      return 'Developers, engineers, and technology specialists';
     case 'operations':
-      return 'Quản lý cộng đồng, hỗ trợ và đảm bảo chất lượng';
+      return 'Community managers, support, and quality assurance';
     case 'expansion':
-      return 'Mở rộng thị trường và xây dựng đối tác chiến lược';
+      return 'Market expansion and strategic partnership builders';
     default:
       return '';
   }

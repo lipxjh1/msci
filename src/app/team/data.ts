@@ -14,28 +14,27 @@ export const teamMembers: TeamMember[] = [
   // Leadership
   {
     id: 1,
-    name: 'John Doe',
+    name: 'Sin MSCI',
     title: 'Founder & CEO',
-    image: '/images/team/team1.jpg',
+    image: '/team/ceo.png',
     achievements: [
-      '15 năm kinh nghiệm trong ngành game',
-      'Cựu Game Director tại [Tên Studio Lớn]',
-      'Đam mê xây dựng game cộng đồng'
+      '3 years of experience in game design',
+      'CEO of TNG - Technology, Media, and Artificial Intelligence Company'
     ],
-    quote: 'Tầm nhìn của chúng tôi là tạo ra một vũ trụ game nơi mọi người đều có thể đóng góp và cùng phát triển.',
+    quote: 'Our vision is to create a game universe where everyone can contribute and grow together.',
     department: 'leadership'
   },
   {
     id: 2,
     name: 'Sarah Chen',
     title: 'Co-founder & CTO',
-    image: '/images/team/team2.jpg',
+    image: '/team/mk1.png',
     achievements: [
-      'Chuyên gia blockchain & game development',
-      'Tiến sĩ Khoa học Máy tính',
-      '10+ năm phát triển game mobile'
+      'Blockchain & game development expert',
+      'Master of Computer Science',
+      '10+ years in mobile game development'
     ],
-    quote: 'Công nghệ chỉ có ý nghĩa khi mang lại trải nghiệm tuyệt vời cho người dùng.',
+    quote: 'Technology only matters when it brings great experiences to users.',
     department: 'leadership'
   },
 
@@ -44,39 +43,39 @@ export const teamMembers: TeamMember[] = [
     id: 3,
     name: 'Michael Park',
     title: 'Art Director',
-    image: '/images/team/team3.jpg',
+    image: '/team/st2.png',
     achievements: [
-      'Thiết kế nhân vật cho nhiều game AAA',
-      'Chuyên gia 2D Spine Animation',
-      'Giải thưởng Best Art Direction 2022'
+      'Character designer for many AAA games',
+      '2D Spine Animation specialist',
+      'Best Art Direction Award 2022'
     ],
-    quote: 'Mỗi nhân vật trong M-SCI đều có câu chuyện riêng được kể qua từng nét vẽ.',
+    quote: 'Every character in M-SCI has their own story told through every stroke.',
     department: 'creative'
   },
   {
     id: 4,
     name: 'Lisa Wong',
     title: 'Lead Game Designer',
-    image: '/images/team/team4.jpg',
+    image: '/team/st1.png',
     achievements: [
-      '8 năm thiết kế gameplay mobile',
-      'Chuyên gia cân bằng game economy',
-      'Đam mê tạo trải nghiệm người chơi'
+      '8 years designing mobile gameplay',
+      'Game economy balancing expert',
+      'Passionate about creating player experiences'
     ],
-    quote: 'Game hay là game khiến người chơi quên cả thời gian.',
+    quote: 'A great game is one that makes players lose track of time.',
     department: 'creative'
   },
   {
     id: 5,
-    name: 'David Kim',
+    name: 'Niva Kim',
     title: 'Narrative Director',
-    image: '/images/team/team5.jpg',
+    image: '/team/kim.png',
     achievements: [
-      'Tác giả của nhiều tiểu thuyết sci-fi',
-      'Xây dựng thế giới quan cho 5+ game lớn',
-      'Giải thưởng Best Storytelling 2023'
+      'Author of many sci-fi novels',
+      'World-building for 5+ major games',
+      'Best Storytelling Award 2021'
     ],
-    quote: 'Cốt truyện M-SCI là hành trình của niềm tin và hy vọng.',
+    quote: 'The story of M-SCI is a journey of faith and hope.',
     department: 'creative'
   },
 
@@ -87,37 +86,37 @@ export const teamMembers: TeamMember[] = [
     title: 'Lead Developer',
     image: '/team/giamdockythuat.png',
     achievements: [
-      '12 năm phát triển game Unity',
-      'Chuyên gia tối ưu mobile performance',
-      'Kiến trúc sư hệ thống backend'
+      '7 years developing Unity games',
+      'Mobile performance optimization specialist',
+      'Backend system architect'
     ],
-    quote: 'Code không chỉ là logic, mà là nghệ thuật tạo nên trải nghiệm.',
+    quote: 'Code is not just logic, it is the art of creating experiences.',
     department: 'technical'
   },
   {
     id: 7,
     name: 'Emma Liu',
     title: 'Blockchain Engineer',
-    image: '/images/team/team7.jpg',
+    image: '/team/kt3.png',
     achievements: [
-      'Pioneer trong GameFi development',
+      'Pioneer in GameFi development',
       'Smart contract specialist',
-      'Cố vấn cho nhiều dự án Web3'
+      'Advisor for many Web3 projects'
     ],
-    quote: 'Blockchain mở ra kỷ nguyên mới cho quyền sở hữu tài sản số.',
+    quote: 'Blockchain opens a new era for digital asset ownership.',
     department: 'technical'
   },
   {
     id: 8,
     name: 'Tom Wilson',
     title: 'Backend Engineer',
-    image: '/images/team/team8.jpg',
+    image: '/team/dev1.png',
     achievements: [
-      'Xây dựng hệ thống cho game 10M+ users',
-      'Chuyên gia scalable architecture',
+      'Built systems for games with 10M+ users',
+      'Scalable architecture expert',
       'DevOps & Cloud infrastructure'
     ],
-    quote: 'Server ổn định là nền tảng của mọi game online thành công.',
+    quote: 'A stable server is the foundation of every successful online game.',
     department: 'technical'
   },
 
@@ -126,39 +125,37 @@ export const teamMembers: TeamMember[] = [
     id: 9,
     name: 'Jessica Tran',
     title: 'Community Manager',
-    image: '/images/team/team9.jpg',
+    image: '/team/vh1.png',
     achievements: [
-      '6 năm quản lý cộng đồng game',
-      'Xây dựng community 100k+ members',
-      'Chuyên gia social media marketing'
+      '4 years managing game communities',
+      'Built a community of 100k+ members',
+      'Social media marketing expert'
     ],
-    quote: 'Cộng đồng không chỉ là người chơi, mà là gia đình M-SCI.',
+    quote: 'Community is not just players, it is the M-SCI family.',
     department: 'operations'
   },
   {
     id: 10,
     name: 'Kevin Lee',
     title: 'Customer Support Lead',
-    image: '/images/team/team10.jpg',
+    image: '/team/ChatGPT Image 11_20_40 22 thg 5, 2025.png',
     achievements: [
-      'Quản lý đội support 24/7',
-      'Giải quyết 10,000+ tickets/tháng',
-      'Tỷ lệ hài lòng 98%'
+      'Managed a 24/7 support team',
+      'Resolved 10,000+ tickets/month',
+      '98% satisfaction rate'
     ],
-    quote: 'Mỗi vấn đề của người chơi là cơ hội để chúng tôi làm tốt hơn.',
+    quote: 'Every player issue is an opportunity for us to improve.',
     department: 'operations'
   },
   {
     id: 11,
     name: 'Maria Garcia',
     title: 'QA Lead',
-    image: '/images/team/team11.jpg',
+    image: '/team/ChatGPT Image 11_08_32 22 thg 5, 2025.png',
     achievements: [
-      '10 năm kinh nghiệm QA gaming',
-      'Phát triển automated testing systems',
-      'Zero critical bugs policy'
+      '3 years of QA experience in gaming'
     ],
-    quote: 'Chất lượng không phải là mục tiêu, mà là tiêu chuẩn.',
+    quote: 'Quality is not a goal, it is a standard.',
     department: 'operations'
   }
 ]; 

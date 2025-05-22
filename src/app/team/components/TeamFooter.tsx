@@ -21,33 +21,32 @@ const TeamFooter = () => {
         <div className="absolute inset-0 z-10">
           <div className="container mx-auto h-full flex flex-col items-center justify-center text-center py-10 px-4">
             <h2 className="text-4xl font-bold text-white mb-4 tracking-wide uppercase">
-              THAM GIA ĐỘI NGŨ M-SCI
+              JOIN THE M-SCI TEAM
             </h2>
             
             <p className="text-white/80 mb-6 max-w-2xl">
-              M-SCI luôn tìm kiếm những tài năng mới để cùng xây dựng tương lai của gaming. Nếu bạn 
-              đam mê game và muốn tạo ra điều khác biệt, hãy xem các vị trí đang tuyển dụng của chúng tôi.
+              M-SCI is always looking for new talents to help build the future of gaming. If you are passionate about games and want to make a difference, check out our open positions.
             </p>
             
             <Link 
               href="/careers"
               className="mb-10 px-8 py-3 bg-[#FF7D00] hover:bg-[#FF9D40] text-white font-medium rounded transition-colors duration-300 uppercase tracking-wider text-lg shadow-lg hover:shadow-[#FF7D00]/50"
             >
-              XEM CƠ HỘI NGHỀ NGHIỆP
+              SEE CAREER OPPORTUNITIES
             </Link>
             
             <div className="mt-6">
-              <h3 className="text-gray-300 uppercase text-xl tracking-widest mb-3 font-medium">LIÊN HỆ VỚI CHÚNG TÔI</h3>
+              <h3 className="text-gray-300 uppercase text-xl tracking-widest mb-3 font-medium">CONTACT US</h3>
               
               <div className="flex items-center justify-center flex-wrap gap-x-8 gap-y-2 mb-4">
                 <div className="flex items-center text-white/90">
-                  <span>Email chung: <a href="mailto:team@msci.game" className="text-[#FF7D00] hover:underline">team@msci.game</a></span>
+                  <span>General email: <a href="mailto:team@msci.game" className="text-[#FF7D00] hover:underline">team@msci.game</a></span>
                 </div>
                 <div className="flex items-center text-white/90">
-                  <span>Hợp tác kinh doanh: <a href="mailto:partners@msci.game" className="text-[#FF7D00] hover:underline">partners@msci.game</a></span>
+                  <span>Business partnership: <a href="mailto:partners@msci.game" className="text-[#FF7D00] hover:underline">partners@msci.game</a></span>
                 </div>
                 <div className="flex items-center text-white/90">
-                  <span>Tuyển dụng: <a href="mailto:careers@msci.game" className="text-[#FF7D00] hover:underline">careers@msci.game</a></span>
+                  <span>Recruitment: <a href="mailto:careers@msci.game" className="text-[#FF7D00] hover:underline">careers@msci.game</a></span>
                 </div>
               </div>
               
@@ -70,7 +69,7 @@ const TeamFooter = () => {
               </div>
               
               <div className="mt-8 text-white/70 text-sm italic">
-                "Chúng tôi không chỉ tạo ra game, chúng tôi xây dựng tương lai của ngành công nghiệp game Việt Nam."
+                "We don't just make games, we build the future of Vietnam's game industry."
               </div>
               <div className="mt-2 text-white/50 text-xs">
                 © 2024 M-SCI Team. All rights reserved.

@@ -90,9 +90,9 @@ const MemberPopup = ({ member, onClose }: MemberPopupProps) => {
             </h2>
             <p className="text-white/70 text-xl mb-6">{member.title}</p>
 
-            {/* Thành tựu */}
+            {/* Achievements */}
             <div className="mb-6">
-              <h3 className="text-white text-lg font-semibold mb-3">Thành tựu</h3>
+              <h3 className="text-white text-lg font-semibold mb-3">Achievements</h3>
               <ul className="space-y-3">
                 {member.achievements.map((achievement, index) => (
                   <li key={index} className="flex items-start gap-2">
@@ -106,7 +106,7 @@ const MemberPopup = ({ member, onClose }: MemberPopupProps) => {
               </ul>
             </div>
 
-            {/* Trích dẫn */}
+            {/* Quote */}
             <div className="bg-black/20 p-4 rounded-lg backdrop-blur-sm">
               <blockquote className="italic text-white/80 text-lg">
                 "{member.quote}"

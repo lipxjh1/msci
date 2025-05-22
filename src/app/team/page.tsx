@@ -129,13 +129,10 @@ export default function TeamPage() {
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="font-orbitron text-5xl md:text-7xl font-extrabold text-white tracking-tighter mb-6 uppercase text-shadow-blue animate-title-glow cyber-halo">
                 <span className="relative inline-block">
-                  ĐỘI NGŨ
+                  OUR TEAM
                   <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)] to-transparent"></div>
                 </span>
               </h1>
-              <p className="font-rajdhani text-xl md:text-2xl text-[var(--accent-blue-bright)] font-semibold mb-10 tracking-wide uppercase animate-fade-in text-center">
-                Gặp gỡ những con người đứng sau thành công của M-SCI - đội ngũ đam mê và tài năng đang kiến tạo nên tương lai của game Việt.
-              </p>
             </div>
           </div>
         </div>
@@ -153,33 +150,33 @@ export default function TeamPage() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-10">
               <div className="w-full md:w-1/2">
                 <h2 className="text-3xl font-bold text-white mb-6 relative inline-block">
-                  Về Đội Ngũ Chúng Tôi
+                  About Our Team
                   <div className="absolute -bottom-2 left-0 h-1 w-16 bg-gradient-to-r from-[#F44336] to-transparent"></div>
                 </h2>
                 <p className="text-white/80 text-lg mb-6 leading-relaxed">
-                  Đội ngũ M-SCI bao gồm những cá nhân đam mê và tài năng từ nhiều lĩnh vực khác nhau, cùng chung tầm nhìn tạo nên những trải nghiệm game đột phá cho người chơi Việt Nam và quốc tế.
+                  The M-SCI team consists of passionate and talented individuals from various fields, united by a vision to create breakthrough gaming experiences for players in Vietnam and worldwide.
                 </p>
                 <p className="text-white/80 text-lg mb-6 leading-relaxed">
-                  Mỗi thành viên đều mang đến những kỹ năng và góc nhìn độc đáo, tạo nên một tập thể đa dạng và sáng tạo, luôn hướng đến mục tiêu đưa game Việt vươn tầm thế giới.
+                  Each member brings unique skills and perspectives, forming a diverse and creative collective always striving to elevate Vietnamese games to the global stage.
                 </p>
                 <div className="flex items-center space-x-4">
                   <div className="p-4 bg-[#0f1923]/80 backdrop-blur-sm rounded-xl border border-white/5 flex flex-col items-center">
                     <div className="text-[#F44336] font-bold text-2xl mb-1">
                       5+
                     </div>
-                    <div className="text-white/60 text-sm">Bộ Phận</div>
+                    <div className="text-white/60 text-sm">Departments</div>
                   </div>
                   <div className="p-4 bg-[#0f1923]/80 backdrop-blur-sm rounded-xl border border-white/5 flex flex-col items-center">
                     <div className="text-[#F44336] font-bold text-2xl mb-1">
                       20+
                     </div>
-                    <div className="text-white/60 text-sm">Thành Viên</div>
+                    <div className="text-white/60 text-sm">Members</div>
                   </div>
                   <div className="p-4 bg-[#0f1923]/80 backdrop-blur-sm rounded-xl border border-white/5 flex flex-col items-center">
                     <div className="text-[#F44336] font-bold text-2xl mb-1">
                       10+
                     </div>
-                    <div className="text-white/60 text-sm">Dự Án</div>
+                    <div className="text-white/60 text-sm">Projects</div>
                   </div>
                 </div>
               </div>
@@ -195,27 +192,27 @@ export default function TeamPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a141e] to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="text-white font-bold text-lg mb-2">
-                      Đội Ngũ M-SCI
+                      M-SCI Team
                     </div>
                     <div className="flex flex-wrap items-center gap-3">
                       <div className="p-2 px-3 bg-[#F44336]/20 backdrop-blur-sm rounded-md border border-[#F44336]/30">
                         <span className="text-[#F44336] font-medium text-sm">
-                          Ban Lãnh Đạo
+                          Leadership
                         </span>
                       </div>
                       <div className="p-2 px-3 bg-[#9C27B0]/20 backdrop-blur-sm rounded-md border border-[#9C27B0]/30">
                         <span className="text-[#9C27B0] font-medium text-sm">
-                          Đội Sáng Tạo
+                          Creative Team
                         </span>
                       </div>
                       <div className="p-2 px-3 bg-[#2196F3]/20 backdrop-blur-sm rounded-md border border-[#2196F3]/30">
                         <span className="text-[#2196F3] font-medium text-sm">
-                          Đội Kỹ Thuật
+                          Technical Team
                         </span>
                       </div>
                       <div className="p-2 px-3 bg-[#4CAF50]/20 backdrop-blur-sm rounded-md border border-[#4CAF50]/30">
                         <span className="text-[#4CAF50] font-medium text-sm">
-                          Đội Vận Hành
+                          Operations Team
                         </span>
                       </div>
                     </div>
@@ -228,7 +225,7 @@ export default function TeamPage() {
           {/* Department Filters styled like in mechanics */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-white mb-8 relative inline-block">
-              Bộ Phận
+              Departments
               <div className="absolute -bottom-2 left-0 h-1 w-16 bg-gradient-to-r from-[#F44336] to-transparent"></div>
             </h2>
             
@@ -241,7 +238,7 @@ export default function TeamPage() {
           {/* Team Members Grid - with improved card design */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-white mb-8 relative inline-block">
-              Đội Ngũ Chúng Tôi
+              Our Team
               <div className="absolute -bottom-2 left-0 h-1 w-16 bg-gradient-to-r from-[#F44336] to-transparent"></div>
             </h2>
             
@@ -316,7 +313,7 @@ export default function TeamPage() {
                     }
                   }}
                 >
-                  {autoScrollActive ? 'Dừng tự động' : 'Tự động chạy'}
+                  {autoScrollActive ? 'Stop Auto Scroll' : 'Auto Scroll'}
                 </button>
                 <button 
                   className="p-2 rounded-full bg-[#1a2634]/80 backdrop-blur-sm hover:bg-[#F44336]/30 transition-colors"
@@ -357,14 +354,13 @@ export default function TeamPage() {
           <div className="mt-16 bg-[#1a2634]/60 backdrop-blur-md border border-white/5 rounded-xl p-8 shadow-lg">
             <div className="text-center">
               <h2 className="text-2xl font-bold text-white mb-4">
-                Tham Gia Đội Ngũ M-SCI
+                Join the M-SCI Team
               </h2>
               <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-                M-SCI luôn tìm kiếm những tài năng mới để cùng xây dựng tương lai của gaming. Nếu bạn
-                đam mê game và muốn tạo ra điều khác biệt, hãy xem các vị trí đang tuyển dụng của chúng tôi.
+                M-SCI is always looking for new talents to help build the future of gaming. If you are passionate about games and want to make a difference, check out our open positions.
               </p>
               <Link href="/careers" className="inline-block px-8 py-3 rounded-lg text-white font-medium bg-gradient-to-r from-[#F44336] to-[#e53935] hover:from-[#e53935] hover:to-[#F44336] transition-all duration-300 shadow-lg shadow-red-500/20 hover:shadow-red-500/30">
-                Xem Cơ Hội Nghề Nghiệp
+                See Career Opportunities
               </Link>
             </div>
           </div>

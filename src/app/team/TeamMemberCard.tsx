@@ -51,7 +51,7 @@ const TeamMemberCard = ({
         <div className="absolute inset-0 bg-gradient-to-t from-[#1a2634] to-transparent"></div>
         
         {/* Department badge */}
-        <div className="absolute top-4 left-4 z-30">
+        <div className="absolute bottom-4 right-4 z-30">
           <div 
             className="p-2 px-3 backdrop-blur-sm rounded-md border"
             style={{ 
