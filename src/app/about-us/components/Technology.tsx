@@ -47,7 +47,6 @@ export default function Technology() {
               className="object-cover"
             />
           </div>
-          
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-blue-bright)]/20 to-[var(--accent-blue-glow)]/20 flex items-center justify-center mb-4 group-hover:from-[var(--accent-blue-bright)]/40 group-hover:to-[var(--accent-blue-glow)]/40 transition-all duration-500">
               <FaCode className="w-8 h-8 text-[var(--accent-blue-bright)]" />
@@ -56,17 +55,7 @@ export default function Technology() {
             <p className="text-gray-300">
               Using Unity Engine with 2D Spine Animation techniques combined with 3D, optimized for mobile to deliver a smooth experience on all devices.
             </p>
-            
             <div className="mt-4 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)]/30 to-transparent"></div>
-            
-            <div className="mt-4 relative h-24 w-full overflow-hidden rounded-lg">
-              <Image 
-                src="/images/tank_hero.png" 
-                alt="Game Engine Technology"
-                fill
-                className="object-contain"
-              />
-            </div>
           </div>
         </div>
         
@@ -80,7 +69,6 @@ export default function Technology() {
               className="object-cover"
             />
           </div>
-          
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-blue-bright)]/20 to-[var(--accent-blue-glow)]/20 flex items-center justify-center mb-4 group-hover:from-[var(--accent-blue-bright)]/40 group-hover:to-[var(--accent-blue-glow)]/40 transition-all duration-500">
               <svg className="w-8 h-8 text-[var(--accent-blue-bright)]" fill="currentColor" viewBox="0 0 24 24">
@@ -91,17 +79,7 @@ export default function Technology() {
             <p className="text-gray-300">
               Responsibly integrating blockchain technology, creating the $MSCI token ecosystem and NFTs that allow players to truly own in-game assets.
             </p>
-            
             <div className="mt-4 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)]/30 to-transparent"></div>
-            
-            <div className="mt-4 relative h-24 w-full overflow-hidden rounded-lg">
-              <Image 
-                src="/images/damage_hero.png" 
-                alt="Blockchain Technology"
-                fill
-                className="object-contain"
-              />
-            </div>
           </div>
         </div>
         
@@ -115,7 +93,6 @@ export default function Technology() {
               className="object-cover"
             />
           </div>
-          
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-blue-bright)]/20 to-[var(--accent-blue-glow)]/20 flex items-center justify-center mb-4 group-hover:from-[var(--accent-blue-bright)]/40 group-hover:to-[var(--accent-blue-glow)]/40 transition-all duration-500">
               <svg className="w-8 h-8 text-[var(--accent-blue-bright)]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -126,17 +103,7 @@ export default function Technology() {
             <p className="text-gray-300">
               Applying AI to personalize player experiences, balance gameplay and detect cheating.
             </p>
-            
             <div className="mt-4 w-full h-0.5 bg-gradient-to-r from-transparent via-[var(--accent-blue-bright)]/30 to-transparent"></div>
-            
-            <div className="mt-4 relative h-24 w-full overflow-hidden rounded-lg">
-              <Image 
-                src="/images/support_hero.png" 
-                alt="AI Technology"
-                fill
-                className="object-contain"
-              />
-            </div>
           </div>
         </div>
       </div>

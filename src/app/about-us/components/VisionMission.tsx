@@ -43,7 +43,7 @@ export default function VisionMission() {
           </div>
           <div className="hidden md:block w-28 h-28 relative rounded-lg overflow-hidden flex-shrink-0">
             <Image 
-              src="/images/like.jpg" 
+              src="/images/abous/vn1.jpg" 
               alt="Vision"
               fill
               className="object-cover"
@@ -96,7 +96,7 @@ export default function VisionMission() {
           </div>
           <div className="hidden md:block w-28 h-28 relative rounded-lg overflow-hidden flex-shrink-0">
             <Image 
-              src="/images/new.jpg" 
+              src="/images/abous/mision.jpg" 
               alt="Mission"
               fill
               className="object-cover"

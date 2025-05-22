@@ -2,8 +2,13 @@
 
 import { FaCheckCircle } from "react-icons/fa";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function DevelopmentJourney() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setShow(true), 100);
+  }, []);
   return (
     <div className="mb-16 relative">
       {/* Background decoration */}
@@ -33,28 +38,13 @@ export default function DevelopmentJourney() {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* 2023 */}
-        <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl hover:shadow-[var(--accent-blue-bright)]/20 transition-all duration-500 group hover:-translate-y-2">
+        {/* 2024 */}
+        <div className={`backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-700 group hover:-translate-y-2 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+             style={{ transitionDelay: '0ms' }}>
           <div className="flex flex-col">
             <div className="bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] text-white font-bold py-2 px-4 rounded-lg inline-block w-fit mb-4">
-              2023 - Beginning
+              2024 - Beginning
             </div>
-            
-            <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
-              <Image 
-                src="/images/staking_bg.jpg" 
-                alt="2023 - Beginning"
-                fill
-                className="object-cover object-center brightness-75 group-hover:scale-110 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#041019]/80 to-transparent"></div>
-              <div className="absolute bottom-2 left-2 right-2">
-                <div className="text-white text-sm font-bold px-3 py-1 bg-[var(--accent-blue-bright)]/30 backdrop-blur-sm rounded inline-block">
-                  Founding Team
-                </div>
-              </div>
-            </div>
-            
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
@@ -72,28 +62,13 @@ export default function DevelopmentJourney() {
           </div>
         </div>
         
-        {/* 2024 */}
-        <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl hover:shadow-[var(--accent-blue-bright)]/20 transition-all duration-500 group hover:-translate-y-2">
+        {/* 2025 */}
+        <div className={`backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-700 group hover:-translate-y-2 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+             style={{ transitionDelay: '150ms' }}>
           <div className="flex flex-col">
             <div className="bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] text-white font-bold py-2 px-4 rounded-lg inline-block w-fit mb-4">
-              2024 - Development & Expansion
+              2025 - Development & Expansion
             </div>
-            
-            <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
-              <Image 
-                src="/images/overwatch_bg_2.jpg" 
-                alt="2024 - Development"
-                fill
-                className="object-cover object-center brightness-75 group-hover:scale-110 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#041019]/80 to-transparent"></div>
-              <div className="absolute bottom-2 left-2 right-2">
-                <div className="text-white text-sm font-bold px-3 py-1 bg-[var(--accent-blue-bright)]/30 backdrop-blur-sm rounded inline-block">
-                  Alpha Launch
-                </div>
-              </div>
-            </div>
-            
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />
@@ -115,28 +90,13 @@ export default function DevelopmentJourney() {
           </div>
         </div>
         
-        {/* 2025 */}
-        <div className="backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl hover:shadow-[var(--accent-blue-bright)]/20 transition-all duration-500 group hover:-translate-y-2">
+        {/* 2026 */}
+        <div className={`backdrop-blur-sm bg-white/5 p-6 rounded-xl border border-white/10 shadow-xl transition-all duration-700 group hover:-translate-y-2 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+             style={{ transitionDelay: '300ms' }}>
           <div className="flex flex-col">
             <div className="bg-gradient-to-r from-[var(--accent-blue-bright)] to-[var(--accent-blue-glow)] text-white font-bold py-2 px-4 rounded-lg inline-block w-fit mb-4">
-              2025 - Future
+              2026 - Future
             </div>
-            
-            <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
-              <Image 
-                src="/images/home/FS-img/hero.png" 
-                alt="2025 - Future"
-                fill
-                className="object-cover object-center brightness-75 group-hover:scale-110 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#041019]/80 to-transparent"></div>
-              <div className="absolute bottom-2 left-2 right-2">
-                <div className="text-white text-sm font-bold px-3 py-1 bg-[var(--accent-blue-bright)]/30 backdrop-blur-sm rounded inline-block">
-                  Global Launch
-                </div>
-              </div>
-            </div>
-            
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start">
                 <FaCheckCircle className="text-[var(--accent-blue-bright)] mt-1 mr-2 flex-shrink-0" />

@@ -18,7 +18,7 @@ export default function DownloadPage() {
         {/* Background image with parallax effect */}
         <div className="absolute inset-0">
           <Image
-            src="/images/banner/trangchu.jpg"
+            src="/images/banner/banner downloa.jpg"
             alt="Download Game"
             fill
             priority
@@ -160,7 +160,7 @@ export default function DownloadPage() {
               {/* Game screenshot */}
               <div className="relative rounded-2xl overflow-hidden border border-white/5">
                 <Image
-                  src="/images/home/FS-img/play_g.png"
+                  src="/images/banner/photo_2025-05-18_08-35-51.jpg"
                   alt="M-SCI Gameplay"
                   width={600}
                   height={350}
