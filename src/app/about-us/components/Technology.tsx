@@ -23,7 +23,7 @@ export default function Technology() {
       {/* Technology background image */}
       <div className="relative w-full h-48 mb-10 rounded-xl overflow-hidden">
         <Image 
-          src="/images/overwatch_bg_2.webp" 
+          src="/images/abous/Untitled (8).png"
           alt="Technology background"
           fill
           className="object-cover object-center"
