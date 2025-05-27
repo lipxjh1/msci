@@ -108,6 +108,7 @@ export default function NavBar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
   
   const lastScrollY = useRef(0);
   const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -583,239 +584,82 @@ export default function NavBar() {
                   <span>Play Now</span>
                 </motion.button>
               </Link>
-              
-              {/* Mobile menu button */}
-              <div className="lg:hidden ml-3">
-                <motion.button
-                  className="p-2 rounded-full bg-purple-900/30 text-white border border-purple-800/30"
-                  whileTap={{ scale: 0.9 }}
-                  onClick={toggleMobileMenu}
-                >
-                  {mobileMenuOpen ? (
-                    <FiX className="w-5 h-5" />
-                  ) : (
-                    <FiMenu className="w-5 h-5" />
-                  )}
-                </motion.button>
-              </div>
             </div>
           </div>
         </div>
       </motion.nav>
       
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            className="fixed inset-0 z-40 lg:hidden bg-black/95 backdrop-blur-lg pt-16 pb-20 overflow-y-auto"
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={mobileMenuVariants}
-          >
-            <div className="px-6 py-6">
-              <div className="mt-6 mb-8 flex justify-center">
-                <Link href="https://t.me/MSCIChannel" target="_blank" rel="noopener noreferrer">
-                  <motion.button 
-                    className="flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-medium shadow-lg shadow-blue-900/20"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+      {/* Mobile Bottom Nav với submenu */}
+      {isMobile && (
+        <>
+          {/* Popup submenu nếu có */}
+          {openMobileSubmenu && (
+            <div className="fixed bottom-16 left-0 right-0 z-50 flex justify-center">
+              <div className="bg-black/95 border border-purple-900/40 rounded-xl shadow-2xl w-[95vw] max-w-sm mx-auto py-2 px-2 flex flex-col animate-fadeIn">
+                {menuItems.find(item => item.href === openMobileSubmenu)?.submenu?.map(subitem => (
+                  <Link
+                    key={subitem.href}
+                    href={subitem.href}
+                    className={`flex items-center px-4 py-3 my-1 rounded-lg text-base font-medium ${pathname === subitem.href ? 'bg-purple-900/30 text-blue-400' : 'text-gray-200 hover:bg-gray-800/60'}`}
+                    onClick={() => setOpenMobileSubmenu(null)}
                   >
-                    <FiPlay className="w-5 h-5 mr-2" />
-                    <span>Play Now</span>
-                  </motion.button>
-                </Link>
-              </div>
-              
-              <motion.div className="space-y-3">
-                {menuItems.map((item) => (
-                  <motion.div 
-                    key={item.href}
-                    variants={mobileItemVariants}
-                  >
-                    {item.hasDropdown ? (
-                      <div className="py-2">
-                        <button
-                          onClick={() => handleDropdownToggle(item.href)}
-                          className={`flex items-center justify-between w-full px-4 py-3 rounded-xl ${
-                            isActiveMenu(item.href) || openDropdown === item.href
-                              ? 'bg-gradient-to-r from-blue-900/30 to-purple-900/30 text-white border border-purple-800/20' 
-                              : 'text-gray-300 hover:bg-gray-800/50'
-                          }`}
-                        >
-                          <span className="text-base font-medium">{item.label}</span>
-                          <motion.span
-                            animate={{ rotate: openDropdown === item.href ? 180 : 0 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <FiChevronDown className="ml-1 w-5 h-5" />
-                          </motion.span>
-                        </button>
-                        
-                        <AnimatePresence>
-                          {openDropdown === item.href && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="mt-2 ml-4 pl-4 border-l border-purple-800/30 space-y-1">
-                                {item.submenu?.map((subitem) => (
-                                  <motion.div 
-                                    key={subitem.href}
-                                    variants={mobileItemVariants}
-                                  >
-                                    <Link
-                                      href={subitem.href}
-                                      className={`flex items-center justify-between w-full px-4 py-2.5 rounded-lg ${
-                                        isActiveSubmenu(subitem.href)
-                                          ? 'bg-purple-900/30 text-white' 
-                                          : 'text-white bg-gray-800 hover:bg-gray-700'
-                                      }`}
-                                      onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                      <span className="flex items-center">
-                                        {subitem.isNew && (
-                                          <RiSparklingFill className="mr-1.5 text-yellow-400" />
-                                        )}
-                                        {subitem.label}
-                                      </span>
-                                      
-                                      <div className="flex items-center">
-                                        {subitem.badge && (
-                                          <span className={`ml-2 px-1.5 py-0.5 text-xs font-medium text-white rounded ${subitem.badgeColor || 'bg-blue-500'}`}>
-                                            {subitem.badge}
-                                          </span>
-                                        )}
-                                        
-                                        {subitem.comingSoon && (
-                                          <motion.span 
-                                            className="ml-2 px-1.5 py-0.5 text-xs font-medium text-white rounded bg-blue-600 flex items-center relative overflow-hidden"
-                                            variants={comingSoonBadgeVariants}
-                                            initial="initial"
-                                            animate="animate"
-                                          >
-                                            {/* Hiệu ứng shimmer */}
-                                            <motion.div 
-                                              className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                                              variants={shimmerVariants}
-                                              initial="initial"
-                                              animate="animate"
-                                            />
-                                            
-                                            <span className="flex items-center relative z-10">
-                                              <motion.span 
-                                                className="mr-1 inline-block w-1.5 h-1.5 rounded-full bg-white"
-                                                variants={dotPulseVariants}
-                                                initial="initial"
-                                                animate="animate"
-                                              />
-                                              <motion.span
-                                                variants={textGlowVariants}
-                                                initial="initial"
-                                                animate="animate"
-                                              >
-                                                Coming Soon
-                                              </motion.span>
-                                            </span>
-                                          </motion.span>
-                                        )}
-                                      </div>
-                                    </Link>
-                                  </motion.div>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className={`flex items-center justify-between w-full px-4 py-3 rounded-xl ${
-                          isActiveMenu(item.href)
-                            ? 'bg-gradient-to-r from-blue-900/30 to-purple-900/30 text-white border border-purple-800/20' 
-                            : 'text-gray-300 hover:bg-gray-800/50'
-                        }`}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        <span className="text-base font-medium">{item.label}</span>
-                        {item.comingSoon && (
-                          <motion.span 
-                            className="ml-2 px-1.5 py-0.5 text-xs font-medium text-white rounded bg-blue-600 flex items-center relative overflow-hidden"
-                            variants={comingSoonBadgeVariants}
-                            initial="initial"
-                            animate="animate"
-                          >
-                            {/* Hiệu ứng shimmer */}
-                            <motion.div 
-                              className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                              variants={shimmerVariants}
-                              initial="initial"
-                              animate="animate"
-                            />
-                            
-                            <span className="flex items-center relative z-10">
-                              <motion.span 
-                                className="mr-1 inline-block w-1.5 h-1.5 rounded-full bg-white"
-                                variants={dotPulseVariants}
-                                initial="initial"
-                                animate="animate"
-                              />
-                              <motion.span
-                                variants={textGlowVariants}
-                                initial="initial"
-                                animate="animate"
-                              >
-                                Coming Soon
-                              </motion.span>
-                            </span>
-                          </motion.span>
-                        )}
-                      </Link>
+                    {subitem.label}
+                    {subitem.badge && (
+                      <span className={`ml-2 px-1.5 py-0.5 text-xs font-bold text-white rounded ${subitem.badgeColor || 'bg-blue-500'}`}>{subitem.badge}</span>
                     )}
-                  </motion.div>
+                    {subitem.comingSoon && (
+                      <span className="ml-2 px-1.5 py-0.5 text-xs font-medium text-white rounded bg-blue-600">Coming Soon</span>
+                    )}
+                  </Link>
                 ))}
-              </motion.div>
-              
-              <div className="mt-12 pt-6 border-t border-gray-800">
-                <div className="grid grid-cols-2 gap-4">
-                  <Link 
-                    href="/support" 
-                    className="flex flex-col items-center p-4 rounded-xl hover:bg-gray-900/30"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <FiBell className="w-6 h-6 text-gray-400 mb-2" />
-                    <span className="text-sm text-gray-400">Notifications</span>
-                  </Link>
-                  <Link 
-                    href="/store" 
-                    className="flex flex-col items-center p-4 rounded-xl hover:bg-gray-900/30"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <FiShoppingCart className="w-6 h-6 text-gray-400 mb-2" />
-                    <span className="text-sm text-gray-400">Store</span>
-                  </Link>
-                </div>
-                
-                <div className="mt-8 flex justify-center space-x-6">
-                  <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-300">
-                    Privacy
-                  </Link>
-                  <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-300">
-                    Terms
-                  </Link>
-                  <Link href="/legal" className="text-sm text-gray-500 hover:text-gray-300">
-                    Legal
-                  </Link>
-                </div>
+                <button className="mt-2 text-sm text-gray-400 hover:text-white" onClick={() => setOpenMobileSubmenu(null)}>Đóng</button>
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+          <nav className="fixed bottom-0 left-0 right-0 z-50 bg-black/95 border-t border-purple-900/30 rounded-t-2xl flex justify-around items-center h-16 px-2 shadow-2xl">
+            {menuItems.map(item => (
+              <button
+                key={item.href}
+                className="flex flex-col items-center justify-center flex-1 py-2 focus:outline-none"
+                onClick={() => {
+                  if (item.hasDropdown && item.submenu) {
+                    setOpenMobileSubmenu(openMobileSubmenu === item.href ? null : item.href);
+                  } else {
+                    setOpenMobileSubmenu(null);
+                    window.location.href = item.href;
+                  }
+                }}
+              >
+                {item.label === 'GAME' && <>
+                  <FiPlay className={`w-6 h-6 mb-0.5 ${isActiveMenu(item.href) ? 'text-blue-400' : 'text-gray-400'}`} />
+                  <span className={`text-xs ${isActiveMenu(item.href) ? 'text-blue-400 font-semibold' : 'text-gray-400'}`}>{item.label}</span>
+                </>}
+                {item.label === 'MARKETPLACE' && (
+                  <>
+                    <FiShoppingCart className={`w-6 h-6 mb-0.5 ${isActiveMenu(item.href) ? 'text-blue-400' : 'text-gray-400'}`} />
+                    <span className="ml-1 align-middle inline-block animate-pulse text-[8px] px-1 py-0.5 rounded bg-blue-600 text-white font-semibold" style={{animation: 'pulse-slow 1.5s infinite'}}>
+                      Coming Soon
+                    </span>
+                    <span className={`text-xs ${isActiveMenu(item.href) ? 'text-blue-400 font-semibold' : 'text-gray-400'}`}>{item.label}</span>
+                  </>
+                )}
+                {item.label === 'COMMUNITY' && <>
+                  <FiUser className={`w-6 h-6 mb-0.5 ${isActiveMenu(item.href) ? 'text-blue-400' : 'text-gray-400'}`} />
+                  <span className={`text-xs ${isActiveMenu(item.href) ? 'text-blue-400 font-semibold' : 'text-gray-400'}`}>{item.label}</span>
+                </>}
+                {item.label === 'INVEST & DONATE' && <>
+                  <FiBell className={`w-6 h-6 mb-0.5 ${isActiveMenu(item.href) ? 'text-blue-400' : 'text-gray-400'}`} />
+                  <span className={`text-xs ${isActiveMenu(item.href) ? 'text-blue-400 font-semibold' : 'text-gray-400'}`}>{item.label}</span>
+                </>}
+                {item.label === 'ABOUT' && <>
+                  <FiGlobe className={`w-6 h-6 mb-0.5 ${isActiveMenu(item.href) ? 'text-blue-400' : 'text-gray-400'}`} />
+                  <span className={`text-xs ${isActiveMenu(item.href) ? 'text-blue-400 font-semibold' : 'text-gray-400'}`}>{item.label}</span>
+                </>}
+              </button>
+            ))}
+          </nav>
+        </>
+      )}
     </>
   );
-} 
+}

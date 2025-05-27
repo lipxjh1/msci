@@ -58,11 +58,11 @@ export default function HomeMobile() {
         </Suspense>
       </footer>
       {/* ChatBox (nếu cần) */}
-      <div className="fixed bottom-4 right-4 z-40">
+      {/* <div className="fixed bottom-4 right-4 z-40">
         <Suspense fallback={<div></div>}>
           <ChatBox />
         </Suspense>
-      </div>
+      </div> */}
     </main>
   );
 }

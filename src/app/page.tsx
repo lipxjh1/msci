@@ -97,9 +97,9 @@ export default function Home() {
         <Suspense fallback={<Loading />}>
           <HomeMobile />
         </Suspense>
-        <Suspense fallback={<div></div>}>
+        {/* <Suspense fallback={<div></div>}>
           <ChatBox />
-        </Suspense>
+        </Suspense> */}
       </>
     );
   }
@@ -125,9 +125,9 @@ export default function Home() {
       <Suspense fallback={<Loading />}>
         <Footer />
       </Suspense>
-      <Suspense fallback={<div></div>}>
+      {/* <Suspense fallback={<div></div>}>
         <ChatBox />
-      </Suspense>
+      </Suspense> */}
     </main>
   );
 }
