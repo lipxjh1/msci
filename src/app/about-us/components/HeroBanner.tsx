@@ -20,11 +20,11 @@ export default function HeroBanner() {
   }, []);
 
   return (
-    <div ref={bannerRef} className="relative h-[40vh] md:h-[45vh] lg:h-[50vh] w-full overflow-hidden">
+    <div ref={bannerRef} className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] w-full overflow-hidden">
       {/* Background image with parallax effect */}
       <div className="absolute inset-0 h-[120%] w-full" style={{ transform: `translateY(${offsetY}px)` }}>
         <Image 
-          src="/images/banner/us.jpg" 
+          src="/images/abous/Black and Orange Gradient Modern Game Presentation.jpg" 
           alt="About Us Hero" 
           fill
           priority

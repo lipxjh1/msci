@@ -46,8 +46,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "MSCI game",
-  description: "MSCI game - Trò chơi hành động hấp dẫn, trải nghiệm mới lạ.",
+  title: "MSCI GAME",
+  description: "MSCI is a tactical sci-fi action game set in 2049, where technology and humanity clash on a global scale. Join the M-SCI forces to protect mankind against the threat of The Ascended and their robot army.",
 };
 
 export default function RootLayout({
