@@ -46,8 +46,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Overwatch Clone - Game Anh Hùng 5v5 Hành Động",
-  description: "Overwatch Clone - Game hành động theo đội nhóm 5v5, miễn phí với nhiều anh hùng đa dạng, kỹ năng độc đáo và trải nghiệm chiến đấu đỉnh cao",
+  title: "MSCI game",
+  description: "MSCI game - Trò chơi hành động hấp dẫn, trải nghiệm mới lạ.",
 };
 
 export default function RootLayout({
