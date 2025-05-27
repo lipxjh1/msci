@@ -194,7 +194,13 @@ export default function NavBar() {
   
   // Mở/đóng menu mobile
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+    if (!mobileMenuOpen) {
+      setMobileMenuOpen(true);
+      setOpenDropdown(null); // Không mở dropdown nào khi mở menu mobile
+    } else {
+      setMobileMenuOpen(false);
+      setOpenDropdown(null);
+    }
   };
   
   // Animation variants cho Framer Motion
@@ -666,7 +672,7 @@ export default function NavBar() {
                                       className={`flex items-center justify-between w-full px-4 py-2.5 rounded-lg ${
                                         isActiveSubmenu(subitem.href)
                                           ? 'bg-purple-900/30 text-white' 
-                                          : 'text-gray-300 hover:bg-gray-800/30 hover:text-white'
+                                          : 'text-white bg-gray-800 hover:bg-gray-700'
                                       }`}
                                       onClick={() => setMobileMenuOpen(false)}
                                     >

@@ -21,19 +21,10 @@ export default function Technology() {
       </div>
       
       {/* Technology background image */}
-      <div className="relative w-full h-48 mb-10 rounded-xl overflow-hidden">
-        <Image 
-          src="/images/abous/Untitled (8).png"
-          alt="Technology background"
-          fill
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#041019]/80 via-transparent to-[#041019]/80"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-white text-xl md:text-2xl font-bold text-center max-w-3xl px-4">
-            "Technology is the foundation, <span className="text-[var(--accent-blue-bright)]">creativity</span> is the soul, <span className="text-[var(--accent-blue-bright)]">community</span> is the driving force"
-          </p>
-        </div>
+      <div className="relative w-full h-48 mb-10 rounded-xl overflow-hidden flex items-center justify-center">
+        <p className="text-white text-xl md:text-2xl font-bold text-center max-w-3xl px-4">
+          "Technology is the foundation, <span className="text-[var(--accent-blue-bright)]">creativity</span> is the soul, <span className="text-[var(--accent-blue-bright)]">community</span> is the driving force"
+        </p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

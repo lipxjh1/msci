@@ -82,8 +82,7 @@ const menuItems: MenuItem[] = [
       { href: '/donate-coming-soon', label: 'Donation Packages', badge: 'VIP', badgeColor: 'bg-purple-600', comingSoon: true },
       { href: '/roadmap', label: 'Roadmap' },
       { href: '/referral-coming-soon', label: 'Referral Program', comingSoon: true },
-      { href: '/staking-coming-soon', label: 'Staking & Rewards', comingSoon: true },
-      { href: '/partners', label: 'Partners & Backers' }
+      { href: '/staking-coming-soon', label: 'Staking & Rewards', comingSoon: true }
     ]
   },
   { 

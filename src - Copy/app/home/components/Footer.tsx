@@ -33,7 +33,6 @@ export default function Footer() {
       links: [
         { name: "News", href: "/tin-tuc" },
         { name: "Content Creator", href: "/creators" },
-        { name: "Partners", href: "/partners" },
         { name: "Roadmap", href: "/roadmap" },
       ]
     },
