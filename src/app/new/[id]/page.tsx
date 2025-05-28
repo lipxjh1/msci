@@ -7,12 +7,25 @@ import { BaiViet } from '@/types/bai_viet';
 import ThanhDieuHuongResponsive from '@/thanh_phan/thanh_dieu_huong_responsive';
 import Footer from "@/app/home/components/Footer";
 import { createClient } from '@supabase/supabase-js';
+import { useParams } from 'next/navigation';
 
 // Tạo Supabase client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-export default function NewsDetail({ params }: { params: { id: string } }) {
+export default function NewsDetail() {
+  const params = useParams();
+  
+  if (!params || !params.id) {
+    return (
+      <div className="min-h-screen bg-[#16181D] text-white flex justify-center items-center">
+        <p>Loading or invalid article ID...</p>
+      </div>
+    );
+  }
+
+  const articleId = params.id as string;
+  
   const [article, setArticle] = useState<BaiViet | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,6 +33,12 @@ export default function NewsDetail({ params }: { params: { id: string } }) {
   // Lấy dữ liệu tin tức dựa trên ID
   useEffect(() => {
     const fetchArticle = async () => {
+      if (!articleId) {
+        setLoading(false);
+        setError('Article ID is missing');
+        return;
+      }
+
       try {
         // Kiểm tra nếu URL hoặc key Supabase không tồn tại
         if (!supabaseUrl || !supabaseKey) {
@@ -33,7 +52,7 @@ export default function NewsDetail({ params }: { params: { id: string } }) {
         const { data, error } = await supabase
           .from('bai_viet')
           .select('*')
-          .eq('id', params.id)
+          .eq('id', articleId)
           .single();
         
         if (error) {
@@ -58,7 +77,7 @@ export default function NewsDetail({ params }: { params: { id: string } }) {
     };
 
     fetchArticle();
-  }, [params.id]);
+  }, [articleId]);
 
   // Format date
   const formatDate = (dateString: string) => {
@@ -140,7 +159,7 @@ export default function NewsDetail({ params }: { params: { id: string } }) {
               {/* Share and Navigation */}
               <div className="flex flex-col sm:flex-row justify-between items-center mt-12 pt-6 border-t border-gray-700">
                 <div className="flex items-center space-x-4 mb-4 sm:mb-0">
-                  <span className="text-gray-400 text-sm">Chia sẻ:</span>
+                  <span className="text-gray-400 text-sm">Share:</span>
                   <button className="text-gray-400 hover:text-white transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                       <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
@@ -165,7 +184,7 @@ export default function NewsDetail({ params }: { params: { id: string } }) {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 17l-5-5m0 0l5-5m-5 5h12" />
                   </svg>
-                  Quay lại danh sách tin tức
+                  Back to news list
                 </Link>
               </div>
             </div>

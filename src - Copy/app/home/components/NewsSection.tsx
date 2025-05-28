@@ -33,16 +33,18 @@ export default function NewsSection() {
         <div className="mb-12 reveal">
           <div className="bg-black/30 backdrop-blur-md rounded-xl overflow-hidden border border-white/10 shadow-xl hover:shadow-blue-500/10 transition-all duration-300 card-neon">
             <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="relative h-80 lg:h-auto overflow-hidden">
-                <Image
-                  src="/images/overwatch_bg_2.webp"
-                  alt="Season 15 News"
-                  fill
-                  className="object-cover transform transition-transform duration-700 hover:scale-110"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                <div className="absolute top-4 left-4 bg-[var(--overwatch-blue)] text-white text-sm font-bold px-3 py-1 rounded">LATEST</div>
+              <div className="relative overflow-hidden">
+                <div className="relative" style={{ paddingBottom: '56.25%' }}> {/* 16:9 Aspect Ratio */}
+                  <Image
+                    src="/images/overwatch_bg_2.webp"
+                    alt="Season 15 News"
+                    fill
+                    className="object-cover transform transition-transform duration-700 hover:scale-110"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                  <div className="absolute top-4 left-4 bg-[var(--overwatch-blue)] text-white text-sm font-bold px-3 py-1 rounded">LATEST</div>
+                </div>
               </div>
               
               <div className="p-6 lg:p-10 flex flex-col justify-center">
@@ -52,7 +54,7 @@ export default function NewsSection() {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Season 15 Midseason: Collab, Crossbow, and Chaos</h3>
                 <p className="text-white/70 mb-6">
-                  Explore the special collaboration, new heroes and many exciting contents in the mid-season update of Season 15 with the appearance of many features that players have been looking forward to for a long time.
+                  Đây là đoạn tóm tắt tin tức. Nội dung này sẽ được thay bằng tóm tắt thực tế của bạn.
                 </p>
                 <div className="mt-auto">
                   <Link 

@@ -59,6 +59,11 @@ export default function RootLayout({
   
   return (
     <html lang="vi" suppressHydrationWarning>
+      <head>
+        {/* Favicon */}
+        <link rel="icon" href="/images/abous/aken.png" type="image/png" />
+        {/* Thêm các kích thước khác nếu có, ví dụ: */}
+      </head>
       <body className={bodyClasses}>
         <SupabaseProvider>
           <AuthProvider>
