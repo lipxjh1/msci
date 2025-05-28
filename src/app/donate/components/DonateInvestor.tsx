@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { FaGavel, FaHandshake, FaNetworkWired, FaChartBar } from 'react-icons/fa';
-import PartnershipModal from './PartnershipModal';
+import PaymentModal from './PaymentModal';
 
 // Component cho mỗi quyền lợi nhà đầu tư
 function InvestorBenefitCard({ title, icon, benefits, index }: { 
@@ -94,6 +94,8 @@ export default function DonateInvestor() {
   const investorModalInfo = {
     title: "Investor Relations",
     price: "5 tỷ VNĐ+",
+    id: "INVESTOR",
+    description: "Gói đặc biệt dành cho các nhà đầu tư lớn.",
     benefits: [
       "Ownership stake in M-SCI",
       "Quarterly financial reports",
@@ -192,10 +194,15 @@ export default function DonateInvestor() {
       </div>
       
       {/* Investor Modal */}
-      <PartnershipModal 
+      <PaymentModal 
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        partnershipType={investorModalInfo}
+        selectedPackage={{
+          id: investorModalInfo.id,
+          title: investorModalInfo.title,
+          price: investorModalInfo.price,
+          description: investorModalInfo.description,
+        }}
       />
     </section>
   );

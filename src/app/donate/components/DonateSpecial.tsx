@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { FaClock, FaGem, FaMoneyBillWave } from 'react-icons/fa';
-import PartnershipModal from './PartnershipModal';
+import PaymentModal from './PaymentModal';
 
 interface SpecialPackageProps {
   icon: React.ReactNode;
@@ -70,10 +70,10 @@ export default function DonateSpecial() {
   // State for modal
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState<null | {
+    id: string;
     title: string;
     price: string;
-    benefits: string[];
-    color: string;
+    description: string;
   }>(null);
   
   const specialPackages = [
@@ -127,22 +127,14 @@ export default function DonateSpecial() {
   const handleOpenModal = (packageIndex: number) => {
     // Convert gradient class to background gradient for modal consistency
     const packageData = specialPackages[packageIndex];
-    let modalColor = "bg-gradient-to-br from-blue-500 to-cyan-500";
-    
-    if (packageData.gradient.includes('from-cyan')) {
-      modalColor = "bg-gradient-to-br from-cyan-500 to-blue-600";
-    } else if (packageData.gradient.includes('from-purple')) {
-      modalColor = "bg-gradient-to-br from-purple-500 to-pink-600";
-    } else if (packageData.gradient.includes('from-amber')) {
-      modalColor = "bg-gradient-to-br from-amber-500 to-orange-600";
-    }
-    
-    setSelectedPackage({
+    const selectedPackage = {
+      id: packageData.title.replace(/\s+/g, '-').toUpperCase(), // Tạo ID từ tiêu đề
       title: packageData.title,
       price: packageData.price,
-      benefits: packageData.benefits,
-      color: modalColor
-    });
+      description: packageData.description, // Sử dụng description từ dữ liệu gói
+    };
+    
+    setSelectedPackage(selectedPackage);
     setModalOpen(true);
   };
 
@@ -218,10 +210,10 @@ export default function DonateSpecial() {
       </div>
       
       {/* Special Package Modal */}
-      <PartnershipModal 
+      <PaymentModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        partnershipType={selectedPackage}
+        selectedPackage={selectedPackage}
       />
     </section>
   );

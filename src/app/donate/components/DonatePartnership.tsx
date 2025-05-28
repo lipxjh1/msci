@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaHandshake, FaChartLine, FaGlobe, FaBuilding, FaLightbulb } from 'react-icons/fa';
-import PartnershipModal from './PartnershipModal';
+import PaymentModal from './PaymentModal';
 
 interface PartnershipCardProps {
   title: string;
@@ -76,11 +76,11 @@ export default function DonatePartnership() {
   
   // State for modal
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPartnership, setSelectedPartnership] = useState<null | {
+  const [selectedPackage, setSelectedPackage] = useState<null | {
+    id: string;
     title: string;
     price: string;
-    benefits: string[];
-    color: string;
+    description: string;
   }>(null);
   
   // Uncomment the following code to automatically open modal on page load (for testing only)
@@ -144,7 +144,15 @@ export default function DonatePartnership() {
   
   // Handle opening modal for a specific partnership
   const handleOpenModal = (partnershipIndex: number) => {
-    setSelectedPartnership(partnerships[partnershipIndex]);
+    const partnershipData = partnerships[partnershipIndex];
+    const selectedPackage = {
+      id: partnershipData.title.replace(/\s+/g, '-').toUpperCase(), // Tạo ID từ tiêu đề
+      title: partnershipData.title,
+      price: partnershipData.price,
+      description: partnershipData.description,
+    };
+    
+    setSelectedPackage(selectedPackage);
     setModalOpen(true);
   };
 
@@ -210,10 +218,10 @@ export default function DonatePartnership() {
       </div>
       
       {/* Partnership Modal */}
-      <PartnershipModal 
+      <PaymentModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        partnershipType={selectedPartnership}
+        selectedPackage={selectedPackage}
       />
     </section>
   );
