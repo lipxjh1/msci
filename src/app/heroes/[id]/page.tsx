@@ -83,32 +83,6 @@ export default function HeroDetailPage() {
       {/* Navigation Bar */}
       <ThanhDieuHuongResponsive />
 
-      {/* Back Button - Redesigned to be more subtle */}
-      <div className="w-full bg-gradient-to-r from-[#041019]/80 to-[#071a2e]/80 backdrop-blur-sm py-3 shadow-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 flex items-center">
-          <Link
-            href="/heroes"
-            className="inline-flex items-center text-white hover:text-[#F44336] transition-colors group relative"
-          >
-            <div className="mr-2 h-8 w-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#F44336]/20 transition-colors">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <span className="font-medium text-white">Quay lại danh sách</span>
-          </Link>
-        </div>
-      </div>
-
       {/* Hero Header - Cải tiến với hiệu ứng parallax và glow */}
       <div className="relative py-20">
         {/* Background Effects - Nâng cấp với hiệu ứng parallax và ánh sáng động */}
@@ -318,7 +292,7 @@ export default function HeroDetailPage() {
                       />
                     </svg>
                     <span className="relative">
-                      Thông tin chi tiết
+                      Details
                       <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#F44336]/50 to-transparent"></span>
                     </span>
                   </h2>
@@ -342,11 +316,11 @@ export default function HeroDetailPage() {
                       </div>
 
                       <h3 className="text-sm text-white/50 uppercase mb-1 font-medium tracking-wider">
-                        TỐC ĐỘ BẮN
+                        FIRE RATE
                       </h3>
                       <p className="font-semibold text-lg flex items-center">
                         <span className="text-[#F44336] mr-2">●</span>
-                        {hero.toc_do_ban || "1s/10 phát bắn"}
+                        {hero.toc_do_ban || "1s/10 shots"}
                       </p>
                     </div>
 
@@ -368,12 +342,12 @@ export default function HeroDetailPage() {
                       </div>
 
                       <h3 className="text-sm text-white/50 uppercase mb-1 font-medium tracking-wider">
-                        ĐẶC ĐIỂM
+                        CHARACTERISTICS
                       </h3>
                       <p className="font-semibold text-lg flex items-center">
                         <span className="text-[#F44336] mr-2">●</span>
                         {hero.dac_diem ||
-                          "-50% ứng khi tấn công Drone và Shield"}
+                          "-50% damage when attacking Drone and Shield"}
                       </p>
                     </div>
 
@@ -396,13 +370,13 @@ export default function HeroDetailPage() {
                         </div>
 
                         <h3 className="text-sm text-white/50 uppercase mb-1 font-medium tracking-wider">
-                          KỸ NĂNG
+                          SKILLS
                         </h3>
                         <p className="font-semibold flex items-start">
                           <span className="text-[#F44336] mr-2 mt-1.5">●</span>
                           <span>
                             {hero.ky_nang ||
-                              "Shooting Star: Bắn tất cả Robot trong 3s nhưng giảm sát thương"}
+                              "No special skill"}
                           </span>
                         </p>
                       </div>
@@ -427,11 +401,11 @@ export default function HeroDetailPage() {
                         </div>
 
                         <h3 className="text-sm text-white/50 uppercase mb-1 font-medium tracking-wider">
-                          TIỂU SỬ
+                          BIOGRAPHY
                         </h3>
                         <p className="font-semibold flex items-start">
                           <span className="text-[#F44336] mr-2 mt-1.5">●</span>
-                          <span>{hero.tieu_su || "Không có thông tin"}</span>
+                          <span>{hero.tieu_su || "No information provided"}</span>
                         </p>
                       </div>
                     )}
@@ -455,11 +429,11 @@ export default function HeroDetailPage() {
                         </div>
 
                         <h3 className="text-sm text-white/50 uppercase mb-1 font-medium tracking-wider">
-                          THU NHẬP CHIP
+                          CHIP EARNING
                         </h3>
                         <p className="font-semibold flex items-start">
                           <span className="text-[#F44336] mr-2 mt-1.5">●</span>
-                          <span>{hero.thu_nhap_chip || "Không có thông tin"}</span>
+                          <span>{hero.thu_nhap_chip || "No information provided"}</span>
                         </p>
                       </div>
                     )}
@@ -468,8 +442,35 @@ export default function HeroDetailPage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+
+          {/* Add the "Back to list" link here - Moved inside the main content div, after the flex layout */}
+          <div className="w-full bg-gradient-to-r from-[#041019]/80 to-[#071a2e]/80 backdrop-blur-sm py-3 shadow-md border-b border-white/5 mb-20">
+            <div className="max-w-7xl mx-auto px-4 flex items-center justify-center">
+              <Link
+                href="/heroes"
+                className="inline-flex items-center text-white hover:text-[#F44336] transition-colors group relative"
+              >
+                <div className="mr-2 h-8 w-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#F44336]/20 transition-colors">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <span className="font-medium text-white">Back to list</span>
+              </Link>
+            </div>
+          </div>
+
+        </div> {/* Closing div for max-w-7xl */}
+      </div> {/* Closing div for relative py-20 */}
     </div>
   );
 }
